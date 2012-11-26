@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="84">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f2" displayName="Controllers" projectFiles="true">
+      <itemPath>AdventureCardEdit.cpp</itemPath>
+      <itemPath>AdventureCardEdit.h</itemPath>
+      <itemPath>GameBoard.cpp</itemPath>
+      <itemPath>GameBoard.h</itemPath>
+      <itemPath>MapBoard.cpp</itemPath>
+      <itemPath>MapBoard.h</itemPath>
+      <itemPath>TheBigWindow.cpp</itemPath>
+      <itemPath>TheBigWindow.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>AdventureCard.h</itemPath>
+      <itemPath>AdventureCardDeck.h</itemPath>
+      <itemPath>Armor.h</itemPath>
+      <itemPath>Character.h</itemPath>
+      <itemPath>CharacterCardDeck.h</itemPath>
+      <itemPath>Die.h</itemPath>
+      <itemPath>DieWidget.h</itemPath>
+      <itemPath>DragonRider.h</itemPath>
+      <itemPath>Enemy.h</itemPath>
+      <itemPath>Follower.h</itemPath>
+      <itemPath>Map.h</itemPath>
+      <itemPath>MapSquare.h</itemPath>
+      <itemPath>Monk.h</itemPath>
+      <itemPath>Warrior.h</itemPath>
+      <itemPath>Weapon.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f1" displayName="Models" projectFiles="true">
+      <itemPath>AdventureCardFactory.cpp</itemPath>
+      <itemPath>AdventureCardFactory.h</itemPath>
+      <itemPath>AdventureCardModel.cpp</itemPath>
+      <itemPath>AdventureCardModel.h</itemPath>
+      <itemPath>CharacterCardModel.cpp</itemPath>
+      <itemPath>CharacterCardModel.h</itemPath>
+      <itemPath>CharacterFactory.cpp</itemPath>
+      <itemPath>CharacterFactory.h</itemPath>
+      <itemPath>MapSquareFactory.cpp</itemPath>
+      <itemPath>MapSquareFactory.h</itemPath>
+      <itemPath>MapSquareModel.cpp</itemPath>
+      <itemPath>MapSquareModel.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>AdventureCard.cpp</itemPath>
+      <itemPath>AdventureCardDeck.cpp</itemPath>
+      <itemPath>Armor.cpp</itemPath>
+      <itemPath>Character.cpp</itemPath>
+      <itemPath>CharacterCardDeck.cpp</itemPath>
+      <itemPath>Die.cpp</itemPath>
+      <itemPath>DieWidget.cpp</itemPath>
+      <itemPath>DragonRider.cpp</itemPath>
+      <itemPath>Enemy.cpp</itemPath>
+      <itemPath>Follower.cpp</itemPath>
+      <itemPath>Map.cpp</itemPath>
+      <itemPath>MapSquare.cpp</itemPath>
+      <itemPath>Monk.cpp</itemPath>
+      <itemPath>Warrior.cpp</itemPath>
+      <itemPath>Weapon.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles" displayName="Views" projectFiles="true">
+      <itemPath>AdventureCardEdit.ui</itemPath>
+      <itemPath>GameBoard.ui</itemPath>
+      <itemPath>MapBoard.ui</itemPath>
+      <itemPath>TheBigWindow.ui</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="4">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <qt>
+        <modules>core gui</modules>
+      </qt>
+      <compileType>
+      </compileType>
+    </conf>
+    <conf name="Release" type="4">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <qt>
+        <buildMode>1</buildMode>
+        <modules>core gui</modules>
+      </qt>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
