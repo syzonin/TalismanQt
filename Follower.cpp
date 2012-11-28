@@ -9,8 +9,8 @@
 ///
 ///Default constructor.
 ///
-Follower::Follower() {
-}
+Follower::Follower(string title, string type, string text, int encounterNumber) : 
+        AdventureCard(title,type,text,encounterNumber) {}
 ///
 ///Destructor.
 ///

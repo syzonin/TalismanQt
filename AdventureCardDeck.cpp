@@ -32,6 +32,8 @@ AdventureCardDeck::AdventureCardDeck() {
 }
 
 AdventureCardDeck::~AdventureCardDeck() {
+    for (unsigned int i = 0; i < cards.size(); ++i) delete cards.at(i);
+    cards.clear();
 }
 
 void AdventureCardDeck::paintEvent(QPaintEvent *event) {

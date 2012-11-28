@@ -6,11 +6,23 @@
  */
 
 #include "CharacterFactory.h"
-
+///
+///Default constructor
+///Retrieves data from character model
+///
 CharacterFactory::CharacterFactory() {
     entries = CharacterCardModel::select();
 }
-
+///
+///Destructor
+///
+CharacterFactory::~CharacterFactory() {
+    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
+    entries.clear();
+}
+///
+///Returns the list of available class names that can be passed to getClass()
+///
 vector<string> CharacterFactory::classNames () {
     vector<string> classNames;
     for (unsigned int i = 0; i < entries.size(); ++i) {
@@ -18,7 +30,9 @@ vector<string> CharacterFactory::classNames () {
     }
     return classNames;
 }
-
+///
+///Returns an instance to the class passed as parameter
+///
 Character* CharacterFactory::getClass(const string className) {
     QString name = QString::fromStdString(className);
     int strength = 0, craft = 0, fate = 0, life = 0, xCord = 0, yCord = 0;
@@ -44,9 +58,3 @@ Character* CharacterFactory::getClass(const string className) {
     else if (name == "Monk") return new Monk(strength,craft,fate,life,title,text,xCord,yCord);
     else return NULL;
 }
-
-CharacterFactory::~CharacterFactory() {
-    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
-    entries.clear();
-}
-

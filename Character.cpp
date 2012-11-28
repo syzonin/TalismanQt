@@ -43,7 +43,9 @@ Character::Character(int strength, int craft, int fate, int life, string title, 
 ///TODO: move trophies and followers to discard pile.
 ///
 Character::~Character() {
-    followers.clear();
+    for (list<AdventureCard*>::iterator it = followers.begin(); it != followers.end(); ++it) delete *it;
+    followers.clear();    
+    for (list<Enemy*>::iterator it = trophies.begin(); it != trophies.end(); ++it) delete *it;
     trophies.clear();
 }
 ///

@@ -26,24 +26,29 @@ const string Enemy::getSubType() const { return subType; }
 ///Returns the attack points of the enemy card.
 ///
 int Enemy::getAttackPoints() { return attackPoints; }
-
+///
+///Set sub type of the enemy card
+///
 void Enemy::setSubType(string subType) { 
     this->subType = subType;
     update();
 }
-
+///
+///Sets attack points of the card
+///
 void Enemy::setAttackPoints(int attackPoints) { 
     this->attackPoints = attackPoints;
     update();
 }
-
 ///
 ///Roll the die to attack a character.
 ///
 int Enemy::attackRoll(int roll) {
     return attackPoints + roll;
 }
-
+///
+///Paints widget.
+///
 void Enemy::paintType(QPainter& painter) {
     QFontMetrics fm = painter.fontMetrics();
     QString tmp = QString::fromStdString(type + " - " + subType);
@@ -57,7 +62,9 @@ void Enemy::paintType(QPainter& painter) {
     fm = painter.fontMetrics();
     painter.drawText((width()-fm.width(tmp))/2, 160, tmp);
 }
-
+///
+///Returns a string representation of the enemy card
+///
 string Enemy::toString() {
     stringstream result;
     result << title << " ( "

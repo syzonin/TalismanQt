@@ -30,6 +30,14 @@ MapBoard::MapBoard() {
 }
 
 MapBoard::~MapBoard() {
+    for (vector<MapSquare*>::iterator it = outer.begin(); it != outer.end(); ++it) delete *it;
+    outer.clear();
+    for (vector<MapSquare*>::iterator it = middle.begin(); it != middle.end(); ++it) delete *it;
+    middle.clear();
+    for (vector<MapSquare*>::iterator it = inner.begin(); it != inner.end(); ++it) delete *it;
+    inner.clear();
+    for (vector<MapSquare*>::iterator it = center.begin(); it != center.end(); ++it) delete *it;
+    center.clear();
 }
 
 MapSquare* MapBoard::getMapSquare(int i, int j) { 
