@@ -9,7 +9,7 @@
 #include "AdventureCardModel.h"
 
 AdventureCardDeck::AdventureCardDeck() {
-    setFixedSize(240, 320);
+    setFixedSize(200, 210);
     vector<QStringList> cardVector = AdventureCardModel::select();
     
     for (unsigned int i = 0; i < cardVector.size(); ++i) {
@@ -35,14 +35,16 @@ AdventureCardDeck::~AdventureCardDeck() {
 }
 
 void AdventureCardDeck::paintEvent(QPaintEvent *event) {
+    int left = 20, top = 0;
     //painter object
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setRenderHint(QPainter::TextAntialiasing);
     
     painter.setBrush(Qt::white);
-    painter.drawRoundRect(10, 10, width()-20, height()-20, 8, 8);
+    painter.drawRoundRect(left, top, width()-left*2, height()-top*2, 8, 8);
     QPixmap p("images/AdventureCardBack.png", 0, Qt::AutoColor);
+    p = p.scaled(130,180,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
     painter.drawPixmap((width()-p.width())/2, (height()-p.height())/2, p);   
 }
 
