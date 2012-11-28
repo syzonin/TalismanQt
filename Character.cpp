@@ -367,6 +367,7 @@ void Character::paintEvent(QPaintEvent *event) {
         painter.drawRoundRect(left, top, width()-left*2, height()-top*2, 8, 8);
         //draw image
         QPixmap p(QString("images/%1.png").arg(cardTitle.replace(" ","")), 0, Qt::AutoColor);
+        p.scaled(40,55,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
         painter.drawPixmap((width()-p.width())/2, 30, p);   
         //draw title
         font = QFont("Windlass");
