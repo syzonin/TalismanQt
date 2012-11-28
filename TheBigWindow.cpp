@@ -54,6 +54,7 @@ TheBigWindow::TheBigWindow() {
     connect(widget.btnYes, SIGNAL(clicked()), this, SLOT(btnYesClicked()));
     connect(widget.btnNo, SIGNAL(clicked()), this, SLOT(btnNoClicked()));
     connect(playerDeck, SIGNAL(doubleClicked()), this, SLOT(playerDeckDoubleClicked()));
+    connect(adventureDeck, SIGNAL(doubleClicked()), this, SLOT(adventureDeckDoubleClicked()));
 }
 
 TheBigWindow::~TheBigWindow() {
@@ -75,6 +76,13 @@ void TheBigWindow::playerDeckDoubleClicked() {
         + "</b> region. <br><br>" + ms->getInstructions();
         widget.instructionBox->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
     } 
+}
+
+void TheBigWindow::adventureDeckDoubleClicked() {
+    adventureDeck->hide();
+    AdventureCard* a = adventureDeck->drawCard();
+    a->setParent(this);
+    a->show();
 }
 
 void TheBigWindow::btnRollDieClicked() {

@@ -47,15 +47,15 @@ int Enemy::attackRoll(int roll) {
 void Enemy::paintType(QPainter& painter) {
     QFontMetrics fm = painter.fontMetrics();
     QString tmp = QString::fromStdString(type + " - " + subType);
-    painter.drawText((width()-fm.width(tmp))/2, 210, tmp);
+    painter.drawText((width()-fm.width(tmp))/2, 140, tmp);
     
     QFont font = QFont("Caxton Bk BT");
-    font.setPixelSize(24);
+    font.setPixelSize(16);
     painter.setFont(font);
     tmp = (subType == "Spirit") ? "Craft" : "Strength";
     tmp.append(": ").append(QString::number(attackPoints));
     fm = painter.fontMetrics();
-    painter.drawText((width()-fm.width(tmp))/2, 250, tmp);
+    painter.drawText((width()-fm.width(tmp))/2, 160, tmp);
 }
 
 string Enemy::toString() {

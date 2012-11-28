@@ -48,7 +48,7 @@ void AdventureCard::setValues(string title, string type, string text, int encoun
     this->encounterNumber = encounterNumber > 0 ? encounterNumber : 1;
     isFront = true;
     //Widget properties
-    setFixedSize(240, 320);
+    setFixedSize(200, 210);
     setToolTip("Double-click to view card description");
 }
 
@@ -73,7 +73,7 @@ void AdventureCard::setEncounterNumber(int number) {
 }
 
 void AdventureCard::paintEvent(QPaintEvent *event) {
-    int margin = 10;
+    int left = 20, top = 0;
     QFont font;
     QFontDatabase::addApplicationFont("fonts/CaxtonBold.ttf");//Caxton Bk BT
     QFontDatabase::addApplicationFont("fonts/CaxtonLight.ttf");//Caxton Lt BT
@@ -87,36 +87,37 @@ void AdventureCard::paintEvent(QPaintEvent *event) {
     //draw card
     QBrush br(QPixmap("images/CardTexture.jpg", 0, Qt::AutoColor));
     painter.setBrush(br);
-    painter.drawRoundRect(margin, margin, width()-margin*2, height()-margin*2, 8, 8);
+    painter.drawRoundRect(left, top, width()-left*2, height()-top*2, 8, 8);
     
     //title
     QString tmp = QString::fromStdString(title);
     //draw title
     font = QFont("Windlass");
-    font.setPixelSize(24);
+    font.setPixelSize(16);
     painter.setFont(font);
     QFontMetrics fm = painter.fontMetrics();
-    painter.drawText((width()-fm.width(tmp))/2, 40, tmp);
+    painter.drawText((width()-fm.width(tmp))/2, 20, tmp);
     
     if (isFront) {
         //draw image
         QPixmap p(QString("images/%1.png").arg(tmp.replace(" ","")), 0, Qt::AutoColor);
-        painter.drawPixmap((width()-p.width())/2, 50, p);   
+        p = p.scaled(130,95,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        painter.drawPixmap((width()-p.width())/2, 30, p);   
         //set type font
         font = QFont("Caxton Bk BT");
-        font.setPixelSize(16);
+        font.setPixelSize(12);
         painter.setFont(font);
-        //draw type
+        //draw encounter number
         tmp = QString("%1").arg(encounterNumber);
-        painter.drawText(width()-35, height()-30, tmp);
+        painter.drawText(width()-35, height()-15, tmp);
         paintType(painter);
     } else {
         //set description font
         font = QFont("Caxton Lt BT");
-        font.setPixelSize(14);
+        font.setPixelSize(10);
         painter.setFont(font);
         //draw description
-        QRectF rectArea(25, 50, width()-50, height()-100);
+        QRectF rectArea(25, 30, width()-50, height()-30);
         painter.drawText(rectArea, QString::fromStdString(text));
     }
 }
@@ -124,7 +125,7 @@ void AdventureCard::paintEvent(QPaintEvent *event) {
 void AdventureCard::paintType(QPainter& painter) {
     QFontMetrics fm = painter.fontMetrics();
     QString tmp = QString::fromStdString(type);
-    painter.drawText((width()-fm.width(tmp))/2, 200, tmp);
+    painter.drawText((width()-fm.width(tmp))/2, 140, tmp);
 }
 
 void AdventureCard::mouseDoubleClickEvent(QMouseEvent* event) {
