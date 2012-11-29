@@ -26,7 +26,6 @@ MapBoard::MapBoard() {
         }
         widget.board->addWidget(ms,ms->getXCord(),ms->getYCord());
     }
-    
 }
 
 MapBoard::~MapBoard() {
