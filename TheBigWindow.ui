@@ -19,10 +19,17 @@
      <x>10</x>
      <y>10</y>
      <width>811</width>
-     <height>591</height>
+     <height>581</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="bigSquare"/>
+   <layout class="QHBoxLayout" name="bigSquare">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMinimumSize</enum>
+    </property>
+   </layout>
   </widget>
   <widget class="QPushButton" name="btnRollDie">
    <property name="geometry">

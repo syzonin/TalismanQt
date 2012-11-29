@@ -8,8 +8,6 @@
 #include "MapSquare.h"
 
 MapSquare::MapSquare(int theXCord, int theYCord) {
-    //xCord = theXCord;
-    //yCord = theYCord;
     MapSquare(theXCord, theYCord, "","","");
 }
 
@@ -19,7 +17,8 @@ MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string 
     squareRegion = theSquareRegion;
     squareName = theSquareName;
     instructions = theInstructions;
-    this->setToolTip(QString::fromStdString(instructions).replace("\\n","\n"));
+    this->setToolTip(QString::fromStdString(squareName) + "\n" + QString::fromStdString(instructions).replace("\\n","\n"));
+    this->setFixedSize(70,70);
 }
 
 void MapSquare::addCharacter(Character& character){
@@ -63,25 +62,29 @@ int MapSquare::getYCord(){ return yCord; }
 
 void MapSquare::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
-    if (this->squareRegion == "Outer"){
-        painter.setBrush(QBrush(Qt::white));
-    }
-    else if (this->squareRegion == "Middle"){
-        painter.setBrush(QBrush(Qt::yellow));
-    }
-    else if (this->squareRegion == "Inner"){
-        painter.setBrush(QBrush(Qt::blue));
-    }
-    else {
-        painter.setBrush(QBrush(Qt::green));   
-    }
-    painter.drawRect(0,0,150,150);
-    painter.drawText(10, 20, QString::fromStdString(squareName));
+//    if (this->squareRegion == "Outer"){
+//        painter.setBrush(QBrush(Qt::white));
+//    }
+//    else if (this->squareRegion == "Middle"){
+//        painter.setBrush(QBrush(Qt::yellow));
+//    }
+//    else if (this->squareRegion == "Inner"){
+//        painter.setBrush(QBrush(Qt::blue));
+//    }
+//    else {
+//        painter.setBrush(QBrush(Qt::green));   
+//    }
+//    painter.drawRect(0,0,150,150);
+//    painter.drawText(10, 20, QString::fromStdString(squareName));
+    
+    QPixmap p(QString("board/%1%2.png").arg(xCord).arg(yCord));
+    p = p.scaled(70,70,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    painter.drawPixmap(0,0,p);  
 
-    painter.setBrush(QBrush(Qt::red));
-    for (unsigned int i = 0; i < charactersPresent.size(); ++i) {
-        painter.drawRect(10+15*i,40,10,10);
-        //QPushButton *pb = new QPushButton(this);
-        //pb->show();
-    }
+//    painter.setBrush(QBrush(Qt::red));
+//    for (unsigned int i = 0; i < charactersPresent.size(); ++i) {
+//        painter.drawRect(10+15*i,40,10,10);
+//        //QPushButton *pb = new QPushButton(this);
+//        //pb->show();
+//    }
 }

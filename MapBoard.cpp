@@ -9,7 +9,6 @@
 
 MapBoard::MapBoard() {
     widget.setupUi(this);
-    this->setMinimumSize(600,400);
     MapSquareFactory* m = new MapSquareFactory;
     
     for (int i=0; i<49; i++){
@@ -27,6 +26,7 @@ MapBoard::MapBoard() {
         }
         widget.board->addWidget(ms,ms->getXCord(),ms->getYCord());
     }
+    
 }
 
 MapBoard::~MapBoard() {
