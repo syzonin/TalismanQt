@@ -19,7 +19,7 @@ TheBigWindow::TheBigWindow() {
 //    c1 = cf->getClass("Monk");
 //    Character *d = cf->getClass("DragonRider");
 //    Character *m = cf->getClass("Monk");
-    
+//    
 //    MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
 //    ms->addCharacter(*c1);
 //    ms = board->getMapSquare(d->getXCord(),d->getYCord());

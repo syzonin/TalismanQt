@@ -8,7 +8,8 @@
 #include "MapBoard.h"
 
 MapBoard::MapBoard() {
-    widget.setupUi(this);
+    //widget.setupUi(this);
+    board = new QGridLayout;
     MapSquareFactory* m = new MapSquareFactory;
     
     for (int i=0; i<49; i++){
@@ -24,8 +25,11 @@ MapBoard::MapBoard() {
         } else {
             center.push_back(ms);
         }
-        widget.board->addWidget(ms,ms->getXCord(),ms->getYCord());
+        //widget.board->addWidget(ms,ms->getXCord(),ms->getYCord());
+        board->addWidget(ms,ms->getXCord(),ms->getYCord());
     }
+    
+    this->setLayout(board);
 }
 
 MapBoard::~MapBoard() {
@@ -40,7 +44,8 @@ MapBoard::~MapBoard() {
 }
 
 MapSquare* MapBoard::getMapSquare(int i, int j) { 
-    return static_cast<MapSquare*>(widget.board->itemAtPosition(i,j)->widget());
+    //return static_cast<MapSquare*>(widget.board->itemAtPosition(i,j)->widget());
+    return static_cast<MapSquare*>(board->itemAtPosition(i,j)->widget());
     //return *(map[i][j]); 
 }
 
