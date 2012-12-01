@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'MapBoard.ui'
 **
-** Created: Tue Nov 13 16:48:54 2012
+** Created: Sat Dec 1 12:47:36 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -30,13 +30,14 @@ public:
     {
         if (MapBoard->objectName().isEmpty())
             MapBoard->setObjectName(QString::fromUtf8("MapBoard"));
-        MapBoard->resize(803, 587);
+        MapBoard->resize(103, 102);
         gridLayoutWidget = new QWidget(MapBoard);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(10, 10, 791, 571));
+        gridLayoutWidget->setGeometry(QRect(10, 10, 81, 81));
         board = new QGridLayout(gridLayoutWidget);
-        board->setSpacing(0);
+        board->setSpacing(1);
         board->setObjectName(QString::fromUtf8("board"));
+        board->setSizeConstraint(QLayout::SetMinimumSize);
         board->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(MapBoard);

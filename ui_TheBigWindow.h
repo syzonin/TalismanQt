@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Thu Nov 15 22:43:30 2012
+** Created: Sat Dec 1 13:44:58 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -19,6 +19,7 @@
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QTextBrowser>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,8 +27,6 @@ QT_BEGIN_NAMESPACE
 class Ui_TheBigWindow
 {
 public:
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *bigSquare;
     QPushButton *btnRollDie;
     QPushButton *btnLeft;
     QPushButton *btnRight;
@@ -36,21 +35,21 @@ public:
     QPushButton *btnNo;
     QLabel *crownReached;
     QLabel *instructions;
-    QTextBrowser *instructionBox;
-    QLabel *iLabel;
     QLabel *movesLeft;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *bigSquare;
+    QLabel *iLabel;
+    QTextBrowser *instructionBox;
 
     void setupUi(QWidget *TheBigWindow)
     {
         if (TheBigWindow->objectName().isEmpty())
             TheBigWindow->setObjectName(QString::fromUtf8("TheBigWindow"));
         TheBigWindow->resize(1119, 809);
-        horizontalLayoutWidget = new QWidget(TheBigWindow);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 10, 811, 591));
-        bigSquare = new QHBoxLayout(horizontalLayoutWidget);
-        bigSquare->setObjectName(QString::fromUtf8("bigSquare"));
-        bigSquare->setContentsMargins(0, 0, 0, 0);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("images/talisman-icon.gif"), QSize(), QIcon::Normal, QIcon::Off);
+        TheBigWindow->setWindowIcon(icon);
         btnRollDie = new QPushButton(TheBigWindow);
         btnRollDie->setObjectName(QString::fromUtf8("btnRollDie"));
         btnRollDie->setGeometry(QRect(910, 10, 75, 23));
@@ -75,15 +74,33 @@ public:
         instructions = new QLabel(TheBigWindow);
         instructions->setObjectName(QString::fromUtf8("instructions"));
         instructions->setGeometry(QRect(910, 40, 131, 51));
-        instructionBox = new QTextBrowser(TheBigWindow);
-        instructionBox->setObjectName(QString::fromUtf8("instructionBox"));
-        instructionBox->setGeometry(QRect(20, 620, 801, 131));
-        iLabel = new QLabel(TheBigWindow);
-        iLabel->setObjectName(QString::fromUtf8("iLabel"));
-        iLabel->setGeometry(QRect(20, 600, 171, 16));
         movesLeft = new QLabel(TheBigWindow);
         movesLeft->setObjectName(QString::fromUtf8("movesLeft"));
         movesLeft->setGeometry(QRect(890, 20, 111, 20));
+        verticalLayoutWidget = new QWidget(TheBigWindow);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 541, 561));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setSizeConstraint(QLayout::SetMinimumSize);
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        bigSquare = new QHBoxLayout();
+        bigSquare->setSpacing(0);
+        bigSquare->setObjectName(QString::fromUtf8("bigSquare"));
+        bigSquare->setSizeConstraint(QLayout::SetMinimumSize);
+
+        verticalLayout->addLayout(bigSquare);
+
+        iLabel = new QLabel(verticalLayoutWidget);
+        iLabel->setObjectName(QString::fromUtf8("iLabel"));
+
+        verticalLayout->addWidget(iLabel);
+
+        instructionBox = new QTextBrowser(verticalLayoutWidget);
+        instructionBox->setObjectName(QString::fromUtf8("instructionBox"));
+
+        verticalLayout->addWidget(instructionBox);
+
 
         retranslateUi(TheBigWindow);
 
@@ -103,8 +120,8 @@ public:
 " crown of command!", 0, QApplication::UnicodeUTF8));
         instructions->setText(QApplication::translate("TheBigWindow", "Choose a character \n"
 " by clicking the card: ", 0, QApplication::UnicodeUTF8));
-        iLabel->setText(QApplication::translate("TheBigWindow", "Current Square Instructions:", 0, QApplication::UnicodeUTF8));
         movesLeft->setText(QApplication::translate("TheBigWindow", "move 2 more squares", 0, QApplication::UnicodeUTF8));
+        iLabel->setText(QApplication::translate("TheBigWindow", "Current Square Instructions:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

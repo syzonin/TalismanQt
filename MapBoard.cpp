@@ -29,6 +29,9 @@ MapBoard::MapBoard() {
         board->addWidget(ms,ms->getXCord(),ms->getYCord());
     }
     
+    board->setSpacing(1);
+    board->setSizeConstraint(QLayout::SetMinimumSize);
+    board->setContentsMargins(0, 0, 0, 0);
     this->setLayout(board);
 }
 
