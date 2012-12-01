@@ -13,24 +13,6 @@
   <property name="windowTitle">
    <string>Talisman</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>811</width>
-     <height>581</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="bigSquare">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <property name="sizeConstraint">
-     <enum>QLayout::SetMinimumSize</enum>
-    </property>
-   </layout>
-  </widget>
   <widget class="QPushButton" name="btnRollDie">
    <property name="geometry">
     <rect>
@@ -172,6 +154,24 @@
    <property name="text">
     <string>move 2 more squares</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>331</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="bigSquare">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMinimumSize</enum>
+    </property>
+   </layout>
   </widget>
  </widget>
  <resources/>
