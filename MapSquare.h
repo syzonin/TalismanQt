@@ -31,7 +31,6 @@ class MapSquare : public QWidget {
         string getInstructions();
         int getXCord();
         int getYCord();
-        
     protected:
         void paintEvent(QPaintEvent *event);
         vector<Character*>  charactersPresent;
