@@ -18,7 +18,7 @@ MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string 
     squareName = theSquareName;
     instructions = theInstructions;
     this->setToolTip(QString::fromStdString(squareName) + "\n" + QString::fromStdString(instructions).replace("\\n","\n"));
-    this->setFixedSize(70,70);
+    this->setFixedSize(90,70);
 }
 
 void MapSquare::addCharacter(Character& character){
@@ -78,13 +78,13 @@ void MapSquare::paintEvent(QPaintEvent* event) {
 //    painter.drawText(10, 20, QString::fromStdString(squareName));
     
     QPixmap p(QString("board/%1%2.png").arg(xCord).arg(yCord));
-    p = p.scaled(70,70,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    p = p.scaled(90,70,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
     painter.drawPixmap(0,0,p);  
 
-//    painter.setBrush(QBrush(Qt::red));
-//    for (unsigned int i = 0; i < charactersPresent.size(); ++i) {
-//        painter.drawRect(10+15*i,40,10,10);
-//        //QPushButton *pb = new QPushButton(this);
-//        //pb->show();
-//    }
+    painter.setBrush(QBrush(Qt::red));
+    for (unsigned int i = 0; i < charactersPresent.size(); ++i) {
+        painter.drawRect(10+15*i,10,10,10);
+        //QPushButton *pb = new QPushButton(this);
+        //pb->show();
+    }
 }
