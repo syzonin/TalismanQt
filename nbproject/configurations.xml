@@ -14,26 +14,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="f2" displayName="Armors" projectFiles="true">
-        <itemPath>BasicArmor.h</itemPath>
-        <itemPath>Helmet.h</itemPath>
-        <itemPath>MirrorShield.h</itemPath>
-        <itemPath>Shield.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f1" displayName="Weapons" projectFiles="true">
-        <itemPath>Axe.h</itemPath>
-        <itemPath>BaneSword.h</itemPath>
-        <itemPath>ExorcistBlade.h</itemPath>
-        <itemPath>FateStealer.h</itemPath>
-        <itemPath>Frostbite.h</itemPath>
-        <itemPath>HolyLance.h</itemPath>
-        <itemPath>LightningHammer.h</itemPath>
-        <itemPath>MagicMace.h</itemPath>
-        <itemPath>PsionicWand.h</itemPath>
-        <itemPath>Runesword.h</itemPath>
-        <itemPath>Spellsword.h</itemPath>
-        <itemPath>SwordOfLight.h</itemPath>
-      </logicalFolder>
       <itemPath>AdventureCard.h</itemPath>
       <itemPath>AdventureCardDeck.h</itemPath>
       <itemPath>Armor.h</itemPath>
@@ -44,6 +24,7 @@
       <itemPath>DragonRider.h</itemPath>
       <itemPath>Enemy.h</itemPath>
       <itemPath>Follower.h</itemPath>
+      <itemPath>Map.h</itemPath>
       <itemPath>MapSquare.h</itemPath>
       <itemPath>Monk.h</itemPath>
       <itemPath>Warrior.h</itemPath>
@@ -63,112 +44,9 @@
       <itemPath>MapSquareModel.cpp</itemPath>
       <itemPath>MapSquareModel.h</itemPath>
     </logicalFolder>
-    <logicalFolder name="f3" displayName="Resources" projectFiles="true">
-      <logicalFolder name="board" displayName="board" projectFiles="true">
-        <itemPath>board/00.png</itemPath>
-        <itemPath>board/01.png</itemPath>
-        <itemPath>board/02.png</itemPath>
-        <itemPath>board/03.png</itemPath>
-        <itemPath>board/04.png</itemPath>
-        <itemPath>board/05.png</itemPath>
-        <itemPath>board/06.png</itemPath>
-        <itemPath>board/10.png</itemPath>
-        <itemPath>board/11.png</itemPath>
-        <itemPath>board/12.png</itemPath>
-        <itemPath>board/13.png</itemPath>
-        <itemPath>board/14.png</itemPath>
-        <itemPath>board/15.png</itemPath>
-        <itemPath>board/16.png</itemPath>
-        <itemPath>board/20.png</itemPath>
-        <itemPath>board/21.png</itemPath>
-        <itemPath>board/22.png</itemPath>
-        <itemPath>board/23.png</itemPath>
-        <itemPath>board/24.png</itemPath>
-        <itemPath>board/25.png</itemPath>
-        <itemPath>board/26.png</itemPath>
-        <itemPath>board/30.png</itemPath>
-        <itemPath>board/31.png</itemPath>
-        <itemPath>board/32.png</itemPath>
-        <itemPath>board/33.png</itemPath>
-        <itemPath>board/34.png</itemPath>
-        <itemPath>board/35.png</itemPath>
-        <itemPath>board/36.png</itemPath>
-        <itemPath>board/40.png</itemPath>
-        <itemPath>board/41.png</itemPath>
-        <itemPath>board/42.png</itemPath>
-        <itemPath>board/43.png</itemPath>
-        <itemPath>board/44.png</itemPath>
-        <itemPath>board/45.png</itemPath>
-        <itemPath>board/46.png</itemPath>
-        <itemPath>board/50.png</itemPath>
-        <itemPath>board/51.png</itemPath>
-        <itemPath>board/52.png</itemPath>
-        <itemPath>board/53.png</itemPath>
-        <itemPath>board/54.png</itemPath>
-        <itemPath>board/55.png</itemPath>
-        <itemPath>board/56.png</itemPath>
-        <itemPath>board/60.png</itemPath>
-        <itemPath>board/61.png</itemPath>
-        <itemPath>board/62.png</itemPath>
-        <itemPath>board/63.png</itemPath>
-        <itemPath>board/64.png</itemPath>
-        <itemPath>board/65.png</itemPath>
-        <itemPath>board/66.png</itemPath>
-      </logicalFolder>
-      <logicalFolder name="fonts" displayName="fonts" projectFiles="true">
-        <itemPath>fonts/CaxtonBold.TTF</itemPath>
-        <itemPath>fonts/CaxtonLight.TTF</itemPath>
-        <itemPath>fonts/Windlass.ttf</itemPath>
-      </logicalFolder>
-      <logicalFolder name="images" displayName="images" projectFiles="true">
-        <itemPath>images/AdventureCardBack.png</itemPath>
-        <itemPath>images/Apparition.png</itemPath>
-        <itemPath>images/Banshee.png</itemPath>
-        <itemPath>images/Bear.png</itemPath>
-        <itemPath>images/BlackElf.png</itemPath>
-        <itemPath>images/CardTexture.jpg</itemPath>
-        <itemPath>images/CharacterCardBack.png</itemPath>
-        <itemPath>images/Dragon.png</itemPath>
-        <itemPath>images/DragonRider.png</itemPath>
-        <itemPath>images/EmeraldDragon.png</itemPath>
-        <itemPath>images/Goblin.png</itemPath>
-        <itemPath>images/Griffon.png</itemPath>
-        <itemPath>images/IceBear.png</itemPath>
-        <itemPath>images/Kobold.png</itemPath>
-        <itemPath>images/Lion.png</itemPath>
-        <itemPath>images/Monk.png</itemPath>
-        <itemPath>images/Phantasm.png</itemPath>
-        <itemPath>images/Warrior.png</itemPath>
-        <itemPath>images/Wolf.png</itemPath>
-        <itemPath>images/Wraith.png</itemPath>
-        <itemPath>images/Wyvern.png</itemPath>
-        <itemPath>images/ZombieDragon.png</itemPath>
-        <itemPath>images/talisman-icon.gif</itemPath>
-      </logicalFolder>
-    </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="f2" displayName="Armors" projectFiles="true">
-        <itemPath>BasicArmor.cpp</itemPath>
-        <itemPath>Helmet.cpp</itemPath>
-        <itemPath>MirrorShield.cpp</itemPath>
-        <itemPath>Shield.cpp</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f1" displayName="Weapons" projectFiles="true">
-        <itemPath>Axe.cpp</itemPath>
-        <itemPath>BaneSword.cpp</itemPath>
-        <itemPath>ExorcistBlade.cpp</itemPath>
-        <itemPath>FateStealer.cpp</itemPath>
-        <itemPath>Frostbite.cpp</itemPath>
-        <itemPath>HolyLance.cpp</itemPath>
-        <itemPath>LightningHammer.cpp</itemPath>
-        <itemPath>MagicMace.cpp</itemPath>
-        <itemPath>PsionicWand.cpp</itemPath>
-        <itemPath>Runesword.cpp</itemPath>
-        <itemPath>Spellsword.cpp</itemPath>
-        <itemPath>SwordOfLight.cpp</itemPath>
-      </logicalFolder>
       <itemPath>AdventureCard.cpp</itemPath>
       <itemPath>AdventureCardDeck.cpp</itemPath>
       <itemPath>Armor.cpp</itemPath>
@@ -179,6 +57,7 @@
       <itemPath>DragonRider.cpp</itemPath>
       <itemPath>Enemy.cpp</itemPath>
       <itemPath>Follower.cpp</itemPath>
+      <itemPath>Map.cpp</itemPath>
       <itemPath>MapSquare.cpp</itemPath>
       <itemPath>Monk.cpp</itemPath>
       <itemPath>Warrior.cpp</itemPath>
@@ -203,11 +82,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>board</Elem>
-    <Elem>images</Elem>
-    <Elem>fonts</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="4">
