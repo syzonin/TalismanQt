@@ -15,7 +15,7 @@ FateStealer::FateStealer(int s, int c, string title, string text, int encounterN
 
 void FateStealer::win(Character* c, Enemy* e){
 
-    c->setFate(c->getFate() + 1);
+    c->setFateTokens(c->getFateTokens() + 1);
 }
 
 void FateStealer::lose(Character* c, Enemy* e){

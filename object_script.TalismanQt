@@ -8,6 +8,7 @@ INPUT(
 ./build/Debug/MinGW_Qt-Windows/main.o
 ./build/Debug/MinGW_Qt-Windows/DragonRider.o
 ./build/Debug/MinGW_Qt-Windows/Monk.o
+./build/Debug/MinGW_Qt-Windows/Runesword.o
 ./build/Debug/MinGW_Qt-Windows/MapSquareFactory.o
 ./build/Debug/MinGW_Qt-Windows/CharacterCardModel.o
 ./build/Debug/MinGW_Qt-Windows/DieWidget.o
@@ -20,10 +21,13 @@ INPUT(
 ./build/Debug/MinGW_Qt-Windows/Armor.o
 ./build/Debug/MinGW_Qt-Windows/CharacterFactory.o
 ./build/Debug/MinGW_Qt-Windows/MapSquareModel.o
+./build/Debug/MinGW_Qt-Windows/MagicMace.o
 ./build/Debug/MinGW_Qt-Windows/Frostbite.o
 ./build/Debug/MinGW_Qt-Windows/Enemy.o
+./build/Debug/MinGW_Qt-Windows/SwordOfLight.o
 ./build/Debug/MinGW_Qt-Windows/Weapon.o
 ./build/Debug/MinGW_Qt-Windows/AdventureCardEdit.o
+./build/Debug/MinGW_Qt-Windows/Spellsword.o
 ./build/Debug/MinGW_Qt-Windows/Die.o
 ./build/Debug/MinGW_Qt-Windows/HolyLance.o
 ./build/Debug/MinGW_Qt-Windows/Follower.o
