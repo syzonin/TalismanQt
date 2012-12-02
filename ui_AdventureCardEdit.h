@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'AdventureCardEdit.ui'
 **
-** Created: Fri Nov 2 14:00:48 2012
+** Created: Sat Dec 1 12:47:36 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

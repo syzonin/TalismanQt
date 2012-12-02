@@ -19,6 +19,7 @@ using namespace std;
 
 class MapSquare : public QWidget {
     public:
+        MapSquare();
         MapSquare(int, int);
         MapSquare(int,int,string,string,string);
         void addCharacter(Character&);
@@ -31,7 +32,8 @@ class MapSquare : public QWidget {
         string getInstructions();
         int getXCord();
         int getYCord();
-        
+        int getWidth();
+        int getHeight();
     protected:
         void paintEvent(QPaintEvent *event);
         vector<Character*>  charactersPresent;
@@ -40,6 +42,7 @@ class MapSquare : public QWidget {
         string instructions;
         int xCord;
         int yCord;
+        QPixmap p;
 };
 
 #endif	/* MAPSQUARE_H */

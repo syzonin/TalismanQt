@@ -30,7 +30,9 @@ Character::Character(int strength, int craft, int fate, int life, string title, 
 ///TODO: move trophies and followers to discard pile.
 ///
 Character::~Character() {
-    followers.clear();
+    for (list<AdventureCard*>::iterator it = followers.begin(); it != followers.end(); ++it) delete *it;
+    followers.clear();    
+    for (list<Enemy*>::iterator it = trophies.begin(); it != trophies.end(); ++it) delete *it;
     trophies.clear();
 }
 ///
@@ -333,7 +335,7 @@ void Character::mouseDoubleClickEvent (QMouseEvent *event) {
 ///Draw the character card
 ///
 void Character::paintEvent(QPaintEvent *event) {
-    int left = 40, top = 10;
+    int left = 20, top = 0;
     //fonts
     QFont font;
     QFontDatabase::addApplicationFont("fonts/CaxtonBold.ttf");//Caxton Bk BT
@@ -344,7 +346,7 @@ void Character::paintEvent(QPaintEvent *event) {
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setRenderHint(QPainter::TextAntialiasing);
     //set fixed size
-    setFixedSize(300, 320);
+    setFixedSize(200, 210);
     //title
     QString cardTitle = QString::fromStdString(title);
     
@@ -354,50 +356,51 @@ void Character::paintEvent(QPaintEvent *event) {
         painter.drawRoundRect(left, top, width()-left*2, height()-top*2, 8, 8);
         //draw image
         QPixmap p(QString("images/%1.png").arg(cardTitle.replace(" ","")), 0, Qt::AutoColor);
-        painter.drawPixmap((width()-p.width())/2, 30, p);   
+        p = p.scaled(130,180,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        painter.drawPixmap((width()-p.width())/2, 20, p);   
         //draw title
         font = QFont("Windlass");
-        font.setPixelSize(24);
+        font.setPixelSize(16);
         painter.setFont(font);
         QFontMetrics fm = painter.fontMetrics();
-        painter.drawText((width()-fm.width(cardTitle))/2, 40, cardTitle);
+        painter.drawText((width()-fm.width(cardTitle))/2, 20, cardTitle);
 
         //set font
         font = QFont("Caxton Bk BT");
-        font.setPixelSize(24);
+        font.setPixelSize(18);
         painter.setFont(font);
         //translate coordinates
         painter.translate(0, 30);
         //left modifiers
         painter.setPen(QColor(240,128,128));
-        painter.drawText(4, p.height()/5*2, QString("%1").arg(strengthCounters));
+        painter.drawText(4, p.height()/7*2, QString("%1").arg(strengthCounters));
         painter.setPen(QColor(65,105,225));
-        painter.drawText(4, p.height()/10*7, QString("%1").arg(craftCounters));
+        painter.drawText(4, p.height()/7*5, QString("%1").arg(craftCounters));
         //right modifiers
         fm = painter.fontMetrics();
         painter.setPen(QColor(72,61,139));
         QString tmp = QString("%1").arg(fateTokens);
-        painter.drawText(width()-fm.width(tmp)-4, p.height()/5*2, tmp);
+        painter.drawText(width()-fm.width(tmp)-4, p.height()/7*1.5, tmp);
         painter.setPen(QColor(218,165,32));
         tmp = QString("%1").arg(gold);
-        painter.drawText(width()-fm.width(tmp)-4, p.height()/5*3, tmp);
+        painter.drawText(width()-fm.width(tmp)-4, p.height()/7*3.5, tmp);
         painter.setPen(QColor(60,179,113));
         tmp = QString("%1").arg(lifePoints);
-        painter.drawText(width()-fm.width(tmp)-4, p.height()/5*4, tmp);
+        painter.drawText(width()-fm.width(tmp)-4, p.height()/7*5.5, tmp);
 
         //set font
-        font.setPixelSize(14);
+        font.setPixelSize(12);
         painter.setFont(font);
         painter.setPen(Qt::black);
         //left attributes
         painter.rotate(90.0);
-        painter.drawText(p.height()/5, -left-4, QString("Strength: %1").arg(strength));
-        painter.drawText(p.height()/10*6, -left-4, QString("Craft: %1").arg(craft));
+        painter.drawText(p.height()/7, -left-4, QString("Strength: %1").arg(strength));
+        painter.drawText(p.height()/7*4, -left-4, QString("Craft: %1").arg(craft));
         //right attributes
         painter.rotate(-180.0);
-        painter.drawText(-p.height()/5*2, width()-left-4, QString("Fate: %1").arg(fate));
-        painter.drawText(-p.height()/5*3, width()-left-4, "Gold");
-        painter.drawText(-p.height()/5*4, width()-left-4, QString("Life: %1").arg(life));
+        painter.drawText(-p.height()/7*2, width()-left-4, QString("Fate: %1").arg(fate));
+        painter.drawText(-p.height()/7*4, width()-left-4, "Gold");
+        painter.drawText(-p.height()/7*6, width()-left-4, QString("Life: %1").arg(life));
     } else {
         //draw card
         QBrush br(QPixmap("images/CardTexture.jpg", 0, Qt::AutoColor));
@@ -407,17 +410,17 @@ void Character::paintEvent(QPaintEvent *event) {
         //draw title
         QString tmp = QString::fromStdString(title);
         font = QFont("Windlass");
-        font.setPixelSize(24);
+        font.setPixelSize(16);
         painter.setFont(font);
         QFontMetrics fm = painter.fontMetrics();
-        painter.drawText((width()-fm.width(tmp))/2, 40, tmp);
+        painter.drawText((width()-fm.width(tmp))/2, 20, tmp);
 
         //draw description
         font = QFont("Caxton Lt BT");
-        font.setPixelSize(14);
+        font.setPixelSize(10);
         painter.setFont(font);
 
-        QRectF rectArea(left+10, 50, width()-(left+10)*2, height()-50);
+        QRectF rectArea(left+10, 25, width()-(left+10)*2, height()-25);
         painter.drawText(rectArea, QString::fromStdString(text));
     }
  }

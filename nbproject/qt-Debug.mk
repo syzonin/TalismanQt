@@ -8,8 +8,8 @@
 
 ####### Compiler, tools and options
 
-CC            = gcc.exe
-CXX           = g++.exe
+CC            = gcc
+CXX           = g++
 DEFINES       = -DUNICODE -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN
 CFLAGS        = -g -Wall $(DEFINES)
 CXXFLAGS      = -g -frtti -fexceptions -mthreads -Wall $(DEFINES)
@@ -46,15 +46,15 @@ SOURCES       = GameBoard.cpp \
 		Axe.cpp \
 		Warrior.cpp \
 		AdventureCardDeck.cpp \
+		Warrior.cpp \
+		DragonRider.cpp \
 		CharacterCardDeck.cpp \
 		main.cpp \
-		DragonRider.cpp \
 		Monk.cpp \
 		Runesword.cpp \
 		MirrorShield.cpp \
 		MapSquareFactory.cpp \
 		CharacterCardModel.cpp \
-		DieWidget.cpp \
 		AdventureCardModel.cpp \
 		FateStealer.cpp \
 		Character.cpp \
@@ -320,7 +320,6 @@ moc_TheBigWindow.cpp: CharacterFactory.h \
 		DieWidget.h \
 		MapSquare.h \
 		MapBoard.h \
-		ui_MapBoard.h \
 		MapSquareFactory.h \
 		MapSquareModel.h \
 		ui_TheBigWindow.h \
@@ -394,7 +393,6 @@ build/Debug/MinGW_Qt-Windows/TheBigWindow.o: TheBigWindow.cpp TheBigWindow.h \
 		DieWidget.h \
 		MapSquare.h \
 		MapBoard.h \
-		ui_MapBoard.h \
 		MapSquareFactory.h \
 		MapSquareModel.h \
 		ui_TheBigWindow.h
@@ -454,7 +452,6 @@ build/Debug/MinGW_Qt-Windows/main.o: main.cpp DieWidget.h \
 		Monk.h \
 		MapSquare.h \
 		MapBoard.h \
-		ui_MapBoard.h \
 		MapSquareFactory.h \
 		MapSquareModel.h \
 		TheBigWindow.h \

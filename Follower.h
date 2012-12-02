@@ -11,7 +11,7 @@
 
 class Follower : public AdventureCard {
 public:
-    Follower();
+    Follower(string,string,string,int);
     virtual ~Follower();
 };
 

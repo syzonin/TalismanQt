@@ -20,14 +20,15 @@ class CharacterCardDeck : public QWidget {
 public:
     CharacterCardDeck();
     virtual ~CharacterCardDeck();
-int size();
+    int size();
     Character* drawCard();
+    void shuffle();
 protected:
     void paintEvent(QPaintEvent* event);
     void mouseDoubleClickEvent(QMouseEvent* event);
 private:
-    CharacterFactory *cf;
-    int random(int);
+    vector<Character*> cards;
+    int random();
 signals:
     void doubleClicked();
 };

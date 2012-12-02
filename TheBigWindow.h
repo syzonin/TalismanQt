@@ -31,6 +31,7 @@ public slots:
     void btnYesClicked();
     void btnNoClicked();
     void playerDeckDoubleClicked();
+    void adventureDeckDoubleClicked();
 private:
     Ui::TheBigWindow widget;
     DieWidget *die; 

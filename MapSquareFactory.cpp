@@ -11,7 +11,7 @@ MapSquareFactory::MapSquareFactory() {
     entries = MapSquareModel::select();
 }
 
-MapSquare* MapSquareFactory::getRow(int row) {
+MapSquare* MapSquareFactory::getClass(int row) {
    
     int xCord=0, yCord=0;
     string squareRegion = "", squareName = "";
