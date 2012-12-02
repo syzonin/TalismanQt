@@ -112,18 +112,7 @@ int Character::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 8: setStart((*reinterpret_cast< string(*)>(_a[1]))); break;
         case 9: setCoord((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 10: setAlignment((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 11: addAbility((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 12: removeAbility((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 13: removeActiveWeapon(); break;
-        case 14: removeActiveArmor(); break;
-        case 15: { bool _r = hasAbility((*reinterpret_cast< string(*)>(_a[1])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 16: addActiveWeapon((*reinterpret_cast< Weapon(*)>(_a[1]))); break;
-        case 17: addActiveArmor((*reinterpret_cast< Armor(*)>(_a[1]))); break;
-        case 18: removeActiveWeapon((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: addActiveWeapon((*reinterpret_cast< Weapon(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 20: { Weapon _r = getSecondWeapon();
-            if (_a[0]) *reinterpret_cast< Weapon*>(_a[0]) = _r; }  break;
+
         case 21: move((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
         default: ;
         }

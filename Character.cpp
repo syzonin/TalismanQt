@@ -427,3 +427,8 @@ void Character::paintEvent(QPaintEvent *event) {
 
 void Character :: setAlignment(int a) {alignment = a;}
 int Character :: getAlignment() {return alignment;}
+
+QPixmap Character::getFigure () {
+    QPixmap p(QString("images/%1.png").arg(QString::fromStdString(title).replace(" ","")));
+    return p.scaled(20,40,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+}
