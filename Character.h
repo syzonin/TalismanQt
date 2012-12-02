@@ -64,6 +64,7 @@ public:
     virtual int attackRoll(const Enemy&, int) = 0;
     virtual int attackRoll(const Enemy&, int, int) = 0;
     virtual int fateRoll(const Enemy&, int) = 0;
+    QPixmap getFigure();
 public slots:
     //Mutators
     void setStrength(int);

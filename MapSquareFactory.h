@@ -16,7 +16,7 @@ class MapSquareFactory{
 public:
     MapSquareFactory();
     virtual ~MapSquareFactory();
-    MapSquare* getRow(int);
+    MapSquare* getClass(int);
 private:
     vector<QStringList> entries;
 };

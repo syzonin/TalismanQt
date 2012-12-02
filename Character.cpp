@@ -499,3 +499,11 @@ bool Character :: hasAbility(string s){ //Returns a boolean on whether or not th
     }
     return false;
 }
+
+///
+///Returns a Pixmap image of the character figure
+///
+QPixmap Character::getFigure () {
+    QPixmap p(QString("images/%1.png").arg(QString::fromStdString(title).replace(" ","")));
+    return p.scaled(20,40,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+}

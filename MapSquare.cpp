@@ -7,8 +7,12 @@
 
 #include "MapSquare.h"
 
+MapSquare::MapSquare() {
+    MapSquare(0,0,"","","");
+}
+
 MapSquare::MapSquare(int theXCord, int theYCord) {
-    MapSquare(theXCord, theYCord, "","","");
+    MapSquare(theXCord,theYCord,"","","");
 }
 
 MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string theSquareName, string theInstructions){
@@ -17,8 +21,11 @@ MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string 
     squareRegion = theSquareRegion;
     squareName = theSquareName;
     instructions = theInstructions;
+    //Set widget size to fit square sprite
+    p = *(new QPixmap(QString("board/%1%2.png").arg(xCord).arg(yCord)));
+    this->setFixedSize(p.width(),p.height());
+    //Set tool tip to show description
     this->setToolTip(QString::fromStdString(squareName) + "\n" + QString::fromStdString(instructions).replace("\\n","\n"));
-    this->setFixedSize(90,70);
 }
 
 void MapSquare::addCharacter(Character& character){
@@ -60,30 +67,20 @@ int MapSquare::getXCord(){ return xCord; }
 
 int MapSquare::getYCord(){ return yCord; }
 
+int MapSquare::getWidth(){ return p.width(); }
+
+int MapSquare::getHeight(){ return p.height(); }
+
 void MapSquare::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
-//    if (this->squareRegion == "Outer"){
-//        painter.setBrush(QBrush(Qt::white));
-//    }
-//    else if (this->squareRegion == "Middle"){
-//        painter.setBrush(QBrush(Qt::yellow));
-//    }
-//    else if (this->squareRegion == "Inner"){
-//        painter.setBrush(QBrush(Qt::blue));
-//    }
-//    else {
-//        painter.setBrush(QBrush(Qt::green));   
-//    }
-//    painter.drawRect(0,0,150,150);
-//    painter.drawText(10, 20, QString::fromStdString(squareName));
-    
-    QPixmap p(QString("board/%1%2.png").arg(xCord).arg(yCord));
-    p = p.scaled(90,70,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    //Paint square sprite
     painter.drawPixmap(0,0,p);  
-
+    //Paint character(s)
     painter.setBrush(QBrush(Qt::red));
     for (unsigned int i = 0; i < charactersPresent.size(); ++i) {
-        painter.drawRect(10+15*i,10,10,10);
+        QPixmap p = charactersPresent.at(i)->getFigure();
+        painter.drawPixmap((width()-p.width())/2, (height()-p.height())/2, p);   
+        //painter.drawRect(10+15*i,10,10,10);
         //QPushButton *pb = new QPushButton(this);
         //pb->show();
     }

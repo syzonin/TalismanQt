@@ -27,6 +27,7 @@ protected:
     vector<MapSquare*> inner;
     vector<MapSquare*> center;
 private:
+    MapSquare* squares[7][7];
     QGridLayout *board;
     //Ui::MapBoard widget;
 };
