@@ -24,7 +24,6 @@
       <itemPath>DragonRider.h</itemPath>
       <itemPath>Enemy.h</itemPath>
       <itemPath>Follower.h</itemPath>
-      <itemPath>Map.h</itemPath>
       <itemPath>MapSquare.h</itemPath>
       <itemPath>Monk.h</itemPath>
       <itemPath>Warrior.h</itemPath>
@@ -57,7 +56,6 @@
       <itemPath>DragonRider.cpp</itemPath>
       <itemPath>Enemy.cpp</itemPath>
       <itemPath>Follower.cpp</itemPath>
-      <itemPath>Map.cpp</itemPath>
       <itemPath>MapSquare.cpp</itemPath>
       <itemPath>Monk.cpp</itemPath>
       <itemPath>Warrior.cpp</itemPath>
