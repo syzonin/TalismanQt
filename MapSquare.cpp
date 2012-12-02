@@ -7,21 +7,27 @@
 
 #include "MapSquare.h"
 
-MapSquare::MapSquare(int theXCord, int theYCord) {
-    //xCord = theXCord;
-    //yCord = theYCord;
-    MapSquare(theXCord, theYCord, "","","");
-}
+//MapSquare::MapSquare(int theXCord, int theYCord) {
+//    //xCord = theXCord;
+//    //yCord = theYCord;
+//    MapSquare(theXCord, theYCord, 2, "","","");
+//}
 
-MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string theSquareName, string theInstructions){
+MapSquare::MapSquare(int theXCord, int theYCord, int mCards, string theSquareRegion, string theSquareName, string theInstructions){
     xCord = theXCord;
     yCord = theYCord;
+    maxCards = mCards;
+    numCards = 0;
     squareRegion = theSquareRegion;
     squareName = theSquareName;
     instructions = theInstructions;
     this->setToolTip(QString::fromStdString(instructions).replace("\\n","\n"));
 }
 
+MapSquare::~MapSquare(){
+    for (vector<Character*>::iterator it = charactersPresent.begin(); it != charactersPresent.end(); ++it) delete *it;
+    charactersPresent.clear();
+}
 void MapSquare::addCharacter(Character& character){
     vector<Character*>::iterator m;
     for (m = charactersPresent.begin(); m != charactersPresent.end(); m++) { 
@@ -61,6 +67,11 @@ int MapSquare::getXCord(){ return xCord; }
 
 int MapSquare::getYCord(){ return yCord; }
 
+int MapSquare::getMaxCards(){ return maxCards; }
+void MapSquare::setNumCards(int i){ numCards = i; }
+int MapSquare::getNumCards(){ return numCards; }
+
+//int MapSquare::execute() { return 1;}
 void MapSquare::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     if (this->squareRegion == "Outer"){

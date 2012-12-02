@@ -15,12 +15,14 @@
 #include <cstdlib>
 #include <iostream>
 #include <QPushButton>
+
 using namespace std;
 
 class MapSquare : public QWidget {
     public:
-        MapSquare(int, int);
-        MapSquare(int,int,string,string,string);
+//        MapSquare(int, int);
+        MapSquare(int,int,int,string,string,string);
+        virtual ~MapSquare();
         void addCharacter(Character&);
         void removeCharacter(Character&);
         void setSquareName(string);
@@ -31,6 +33,14 @@ class MapSquare : public QWidget {
         string getInstructions();
         int getXCord();
         int getYCord();
+        int getMaxCards();
+        void setNumCards(int);
+        int getNumCards();
+        //implement: 
+        //virtual int execute() = 0;
+        //void rollDie();
+        //void drawCard();
+        
         
     protected:
         void paintEvent(QPaintEvent *event);
@@ -40,6 +50,8 @@ class MapSquare : public QWidget {
         string instructions;
         int xCord;
         int yCord;
+        int maxCards;
+        int numCards;
 };
 
 #endif	/* MAPSQUARE_H */
