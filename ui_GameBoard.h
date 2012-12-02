@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'GameBoard.ui'
 **
-** Created: Wed Nov 7 22:54:01 2012
+** Created: Sun Nov 25 22:14:57 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

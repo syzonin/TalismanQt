@@ -6,24 +6,32 @@
 
 #include "Armor.h"
 
-Armor :: Armor(){
+Armor :: Armor() : AdventureCard("none", "Armor", "No Text", 0){
 //Base Constructor
-    name = "none";
-    inateAbility = "none";
 }
 
-Armor :: Armor(string n, string str){
-//Parameterized Constructor (used for adding Armor)
-    name = n;
-    inateAbility = str;
+Armor :: Armor(string title, string text, int encounterNumber) : AdventureCard(title, "Armor", text, encounterNumber){
+//Parameterized Constructor (used for adding Armor)    
 }
 
-Armor :: Armor(Armor *a){
-//Copy Constructor (used for adding Armor)    
-    name = a->getName();
-    inateAbility = a->getAbility();
+Armor :: Armor(Armor *a) : AdventureCard(a->getTitle(), "Armor", a->getText(), a->getEncounterNumber()){
+//Copy Constructor (used for adding Armor) 
 }
 
-string Armor :: getName() {return name;} //accessors.
-string Armor :: getAbility() {return inateAbility;}
+void Armor :: win(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor    
+}
+
+void Armor :: lose(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor  
+}
+
+void Armor :: preBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor    
+}
+
+void Armor :: postBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor    
+}
+
 

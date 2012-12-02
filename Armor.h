@@ -1,33 +1,27 @@
 
 /* Class: Armor
  * Purpose: Holds all attributes associated with an in-game armor.
- * 
- * Main Functional Attributes:
- * - name: the armor's name
- * - inateAbility: the ability bonus of the Armor object
- * 
- * Main Functional Methods:
- * - Accessors only. No Mutators are really needed for this.
  */
 
 #ifndef ARMOR_H
 #define	ARMOR_H
 
+#include "AdventureCard.h"
+#include "Character.h"
+#include "Enemy.h"
 #include <string>
 using namespace std;
 
-class Armor {
+class Armor : AdventureCard{
 public:
     Armor();
-    Armor(string n, string str);
+    Armor(string title, string text, int encounterNumber);
     Armor(Armor *a);
-      
-    string getName();
-    string getAbility();
 
-private:
-    string name;
-    string inateAbility;
+    virtual void win(Character* c, Enemy* e);
+    virtual void lose(Character* c, Enemy* e);
+    virtual void preBattle(Character* c, Enemy* e);
+    virtual void postBattle(Character* c, Enemy* e);
 };
 
 #endif

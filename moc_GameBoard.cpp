@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GameBoard.h'
 **
-** Created: Thu Nov 15 23:24:53 2012
+** Created: Sun Dec 2 16:14:04 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
