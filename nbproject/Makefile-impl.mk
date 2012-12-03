@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=TalismanQt
+PROJECTNAME=TalismanQtM
 
 # Active Configuration
 DEFAULTCONF=Debug

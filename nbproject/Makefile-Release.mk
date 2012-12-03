@@ -14,11 +14,11 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=gcc
-CCC=g++
-CXX=g++
+CC=gcc.exe
+CCC=g++.exe
+CXX=g++.exe
 FC=gfortran
-AS=as
+AS=as.exe
 QMAKE=qmake.exe
 
 # Macros
@@ -64,7 +64,7 @@ FORCE:
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS} nbproject/qt-${CND_CONF}.mk
-	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/TalismanQt.exe
+	"${MAKE}" -f nbproject/qt-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/TalismanQtM.exe
 
 ${CND_BUILDDIR}/Release/%.o: nbproject/qt-${CND_CONF}.mk
 	${MAKE} -f nbproject/qt-${CND_CONF}.mk "$@"

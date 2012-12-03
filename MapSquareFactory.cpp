@@ -13,7 +13,7 @@ MapSquareFactory::MapSquareFactory() {
 
 MapSquare* MapSquareFactory::getClass(int row) {
    
-    int xCord=0, yCord=0;
+    int xCord=0, yCord=0, mCard=0;
     string squareRegion = "", squareName = "";
     string instructions = "";
 
@@ -24,8 +24,8 @@ MapSquare* MapSquareFactory::getClass(int row) {
     squareRegion = rowData.at(2).toStdString();
     squareName = rowData.at(3).toStdString();
     instructions = rowData.at(4).toStdString();
-
-    return new MapSquare(xCord, yCord, squareRegion, squareName, instructions);
+    mCard = rowData.at(5).toInt();
+    return new MapSquare(xCord, yCord, mCard, squareRegion, squareName, instructions);
 }
 
 MapSquareFactory::~MapSquareFactory() {

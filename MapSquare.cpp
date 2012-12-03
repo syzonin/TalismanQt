@@ -8,16 +8,18 @@
 #include "MapSquare.h"
 
 MapSquare::MapSquare() {
-    MapSquare(0,0,"","","");
+    MapSquare(0,0,0,"","","");
 }
 
 MapSquare::MapSquare(int theXCord, int theYCord) {
-    MapSquare(theXCord,theYCord,"","","");
+    MapSquare(theXCord,theYCord,1,"","","");
 }
 
-MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string theSquareName, string theInstructions){
+MapSquare::MapSquare(int theXCord, int theYCord, int mCard, string theSquareRegion, string theSquareName, string theInstructions){
     xCord = theXCord;
     yCord = theYCord;
+    maxCard = mCard;
+    numCard = 0;
     squareRegion = theSquareRegion;
     squareName = theSquareName;
     instructions = theInstructions;
@@ -70,6 +72,10 @@ int MapSquare::getYCord(){ return yCord; }
 int MapSquare::getWidth(){ return p.width(); }
 
 int MapSquare::getHeight(){ return p.height(); }
+
+int  MapSquare::getMaxCard(){ return maxCard; }
+int  MapSquare::getNumCard() { return numCard; }
+void  MapSquare::setNumCard(int n) { numCard = n; }
 
 void MapSquare::paintEvent(QPaintEvent* event) {
     QPainter painter(this);

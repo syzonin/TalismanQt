@@ -2,7 +2,7 @@
 # Use project properties -> Build -> Qt -> Expert -> Custom Definitions.
 TEMPLATE = app
 DESTDIR = dist/Release/MinGW-Windows
-TARGET = TalismanQt
+TARGET = TalismanQtM
 VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += release 
@@ -17,8 +17,8 @@ OBJECTS_DIR = build/Release/MinGW-Windows
 MOC_DIR = 
 RCC_DIR = 
 UI_DIR = 
-QMAKE_CC = gcc
-QMAKE_CXX = g++
+QMAKE_CC = gcc.exe
+QMAKE_CXX = g++.exe
 DEFINES += 
 INCLUDEPATH += 
 LIBS += 
