@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TheBigWindow.h'
 **
-** Created: Sat Dec 1 23:33:49 2012
+** Created: Sun Dec 2 19:10:55 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
