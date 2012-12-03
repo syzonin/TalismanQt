@@ -10,7 +10,7 @@
 
 #include "Armor.h"
 
-class Helmet : Armor{
+class Helmet : public Armor{
 //Armor Specifications: Has a 15% chance for character to not lose a life after losing a battle
 public:
     Helmet();

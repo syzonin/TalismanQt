@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class PsionicWand : Weapon{
+class PsionicWand : public Weapon{
 //Weapon Specifics: Has no effect on attributes -> converts Battle into Psychic Battle that uses Craft in place of Strength
 public:
     PsionicWand();

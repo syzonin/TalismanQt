@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class LightningHammer : Weapon{
+class LightningHammer : public Weapon{
 //Weapon Specifics: Adds +2 to Strength .. no special post/pre battle abilities
     //THIS IS MODIFIED FROM THE ORIGINAL TALISMAN GAME DETAILS
 public:

@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class Frostbite : Weapon{
+class Frostbite : public Weapon{
 //Weapon Specifics: Adds +1 to Strength, +1 to Craft ... no special abilities
 public:
     Frostbite();

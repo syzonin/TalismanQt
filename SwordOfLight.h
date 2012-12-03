@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class SwordOfLight : Weapon{
+class SwordOfLight : public Weapon{
 //Weapon Specifics: Adds +2 to Strength, +1 to Craft ... no abilities
 public:
     SwordOfLight();

@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class MagicMace : Weapon{
+class MagicMace : public Weapon{
 //Weapon Specifics: Adds +2 to Craft .. no special post/pre battle abilities
 public:
     MagicMace();

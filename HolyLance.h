@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class HolyLance : Weapon{
+class HolyLance : public Weapon{
 //Weapon Specifics: Adds +3 to Strength .. no special post/pre battle abilities but should only be equipped onto 
     //a character that is +1 GOOD alignment.
 public:

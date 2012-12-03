@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class BaneSword : Weapon{
+class BaneSword : public Weapon{
 //Weapon Specifics: Adds +2 to Craft, no special ability pre/post battle
 public:
     BaneSword();

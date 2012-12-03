@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class FateStealer : Weapon{
+class FateStealer : public Weapon{
 //Weapon Specifics: Adds +1 to Strength .. Adds +1 to Fate post-battle (WIN)
 public:
     FateStealer();

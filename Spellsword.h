@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class Spellsword : Weapon{
+class Spellsword : public Weapon{
 //Weapon Specifics: Adds +1 to Craft and adds one random SPELL in PostBattle - WIN
 public:
     Spellsword();

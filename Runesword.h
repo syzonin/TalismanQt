@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class Runesword : Weapon{
+class Runesword : public Weapon{
 //Weapon Specifics: Adds +1 to Strength .. Adds +1 to LIFE at postBattle (WIN)
 public:
     Runesword();

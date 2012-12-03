@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class Axe : Weapon{
+class Axe : public Weapon{
 //Weapon Specifics: Adds =1 to Strength .. no special post/pre battle abilities
 public:
     Axe();

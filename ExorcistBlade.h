@@ -10,7 +10,7 @@
 
 #include "Weapon.h"
 
-class ExorcistBlade : Weapon{
+class ExorcistBlade : public Weapon{
 //Weapon Specifics: No change to attributes, allows for fighting Spirits in BATTLE instead of Psycic Combat (uses Strength)
 public:
     ExorcistBlade();

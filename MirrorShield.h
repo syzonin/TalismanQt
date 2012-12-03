@@ -10,7 +10,7 @@
 
 #include "Armor.h"
 
-class MirrorShield : Armor{
+class MirrorShield : public Armor{
 //Armor Specifications: Has a 50% chance for character to not lose a life after losing a battle
 public:
     MirrorShield();
