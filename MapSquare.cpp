@@ -8,26 +8,29 @@
 #include "MapSquare.h"
 
 MapSquare::MapSquare() {
-    MapSquare(0,0,"","","");
+    setValues(0,0,0,"","","");
 }
 
-MapSquare::MapSquare(int theXCord, int theYCord) {
-    MapSquare(theXCord,theYCord,"","","");
+MapSquare::MapSquare(int x, int y, int mCard, string region, string name, string ins){
+    setValues(x, y, mCard, region, name, ins);
 }
 
-MapSquare::MapSquare(int theXCord, int theYCord, string theSquareRegion, string theSquareName, string theInstructions){
-    xCord = theXCord;
-    yCord = theYCord;
-    squareRegion = theSquareRegion;
-    squareName = theSquareName;
-    instructions = theInstructions;
+void MapSquare::setValues(int x, int y, int mCard, string region, string name, string ins){
+    xCord = x;
+    yCord = y;
+    maxCard = mCard;
+    numCard = 0;
+    squareRegion = region;
+    squareName = name;
+    instructions = ins;
     //Set widget size to fit square sprite
     p = *(new QPixmap(QString("board/%1%2.png").arg(xCord).arg(yCord)));
     this->setFixedSize(p.width(),p.height());
     //Set tool tip to show description
-    this->setToolTip(QString::fromStdString(squareName) + "\n" + QString::fromStdString(instructions).replace("\\n","\n"));
+    this->setToolTip(QString::fromStdString(squareName) + "\n" + 
+            QString::fromStdString(instructions).replace("\\n","\n"));
+    
 }
-
 void MapSquare::addCharacter(Character& character){
     vector<Character*>::iterator m;
     for (m = charactersPresent.begin(); m != charactersPresent.end(); m++) { 
@@ -70,6 +73,10 @@ int MapSquare::getYCord(){ return yCord; }
 int MapSquare::getWidth(){ return p.width(); }
 
 int MapSquare::getHeight(){ return p.height(); }
+
+int  MapSquare::getMaxCard(){ return maxCard; }
+int  MapSquare::getNumCard() { return numCard; }
+void  MapSquare::setNumCard(int n) { numCard = n; }
 
 void MapSquare::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
