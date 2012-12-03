@@ -10,9 +10,7 @@
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>board</sourceRootElem>
-                <sourceRootElem>images</sourceRootElem>
-                <sourceRootElem>fonts</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

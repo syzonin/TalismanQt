@@ -14,6 +14,62 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Squares" projectFiles="true">
+        <itemPath>BlackKnight.cpp</itemPath>
+        <itemPath>BlackKnight.h</itemPath>
+        <itemPath>Castle.cpp</itemPath>
+        <itemPath>Castle.h</itemPath>
+        <itemPath>Chapel.cpp</itemPath>
+        <itemPath>Chapel.h</itemPath>
+        <itemPath>Chasm.cpp</itemPath>
+        <itemPath>Chasm.h</itemPath>
+        <itemPath>City.cpp</itemPath>
+        <itemPath>City.h</itemPath>
+        <itemPath>Crags.cpp</itemPath>
+        <itemPath>Crags.h</itemPath>
+        <itemPath>CrownOfCommand.cpp</itemPath>
+        <itemPath>CrownOfCommand.h</itemPath>
+        <itemPath>Crypt.cpp</itemPath>
+        <itemPath>Crypt.h</itemPath>
+        <itemPath>CursedGlade.cpp</itemPath>
+        <itemPath>CursedGlade.h</itemPath>
+        <itemPath>Desert.cpp</itemPath>
+        <itemPath>Desert.h</itemPath>
+        <itemPath>DiceWithDeath.cpp</itemPath>
+        <itemPath>DiceWithDeath.h</itemPath>
+        <itemPath>DrawSquare.cpp</itemPath>
+        <itemPath>DrawSquare.h</itemPath>
+        <itemPath>Forest.cpp</itemPath>
+        <itemPath>Forest.h</itemPath>
+        <itemPath>Graveyard.cpp</itemPath>
+        <itemPath>Graveyard.h</itemPath>
+        <itemPath>Mines.cpp</itemPath>
+        <itemPath>Mines.h</itemPath>
+        <itemPath>Pits.cpp</itemPath>
+        <itemPath>Pits.h</itemPath>
+        <itemPath>PlainOfPeril.cpp</itemPath>
+        <itemPath>PlainOfPeril.h</itemPath>
+        <itemPath>PortalOfPower.cpp</itemPath>
+        <itemPath>PortalOfPower.h</itemPath>
+        <itemPath>Runes.cpp</itemPath>
+        <itemPath>Runes.h</itemPath>
+        <itemPath>Sentinel.cpp</itemPath>
+        <itemPath>Sentinel.h</itemPath>
+        <itemPath>Tavern.cpp</itemPath>
+        <itemPath>Tavern.h</itemPath>
+        <itemPath>Temple.cpp</itemPath>
+        <itemPath>Temple.h</itemPath>
+        <itemPath>ValleyOfFire.cpp</itemPath>
+        <itemPath>ValleyOfFire.h</itemPath>
+        <itemPath>VampiresTower.cpp</itemPath>
+        <itemPath>VampiresTower.h</itemPath>
+        <itemPath>Village.cpp</itemPath>
+        <itemPath>Village.h</itemPath>
+        <itemPath>WarlocksCave.cpp</itemPath>
+        <itemPath>WarlocksCave.h</itemPath>
+        <itemPath>WerewolfDen.cpp</itemPath>
+        <itemPath>WerewolfDen.h</itemPath>
+      </logicalFolder>
       <itemPath>AdventureCard.h</itemPath>
       <itemPath>AdventureCardDeck.h</itemPath>
       <itemPath>Armor.h</itemPath>
@@ -164,9 +220,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>board</Elem>
-    <Elem>images</Elem>
-    <Elem>fonts</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
