@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Sun Dec 2 19:10:51 2012
+** Created: Sun Dec 2 19:53:04 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -99,16 +99,21 @@ public:
         rightLayout->setContentsMargins(-1, -1, 0, -1);
         btnRollDie = new QPushButton(TheBigWindow);
         btnRollDie->setObjectName(QString::fromUtf8("btnRollDie"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(btnRollDie->sizePolicy().hasHeightForWidth());
+        btnRollDie->setSizePolicy(sizePolicy1);
 
         rightLayout->addWidget(btnRollDie);
 
         lblStatus = new QLabel(TheBigWindow);
         lblStatus->setObjectName(QString::fromUtf8("lblStatus"));
-        QSizePolicy sizePolicy1(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(1);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(lblStatus->sizePolicy().hasHeightForWidth());
-        lblStatus->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(1);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(lblStatus->sizePolicy().hasHeightForWidth());
+        lblStatus->setSizePolicy(sizePolicy2);
         lblStatus->setBaseSize(QSize(0, 40));
         lblStatus->setAlignment(Qt::AlignCenter);
         lblStatus->setWordWrap(true);
@@ -120,19 +125,16 @@ public:
         directionLayout->setSizeConstraint(QLayout::SetMinimumSize);
         btnRight = new QPushButton(TheBigWindow);
         btnRight->setObjectName(QString::fromUtf8("btnRight"));
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(btnRight->sizePolicy().hasHeightForWidth());
-        btnRight->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(btnRight->sizePolicy().hasHeightForWidth());
+        btnRight->setSizePolicy(sizePolicy1);
         btnRight->setBaseSize(QSize(0, 0));
 
         directionLayout->addWidget(btnRight);
 
         btnLeft = new QPushButton(TheBigWindow);
         btnLeft->setObjectName(QString::fromUtf8("btnLeft"));
-        sizePolicy2.setHeightForWidth(btnLeft->sizePolicy().hasHeightForWidth());
-        btnLeft->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(btnLeft->sizePolicy().hasHeightForWidth());
+        btnLeft->setSizePolicy(sizePolicy1);
 
         directionLayout->addWidget(btnLeft);
 
@@ -144,15 +146,15 @@ public:
         confirmationLayout->setSizeConstraint(QLayout::SetMinimumSize);
         btnYes = new QPushButton(TheBigWindow);
         btnYes->setObjectName(QString::fromUtf8("btnYes"));
-        sizePolicy2.setHeightForWidth(btnYes->sizePolicy().hasHeightForWidth());
-        btnYes->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(btnYes->sizePolicy().hasHeightForWidth());
+        btnYes->setSizePolicy(sizePolicy1);
 
         confirmationLayout->addWidget(btnYes);
 
         btnNo = new QPushButton(TheBigWindow);
         btnNo->setObjectName(QString::fromUtf8("btnNo"));
-        sizePolicy2.setHeightForWidth(btnNo->sizePolicy().hasHeightForWidth());
-        btnNo->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(btnNo->sizePolicy().hasHeightForWidth());
+        btnNo->setSizePolicy(sizePolicy1);
 
         confirmationLayout->addWidget(btnNo);
 

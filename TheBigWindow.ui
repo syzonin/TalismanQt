@@ -90,6 +90,12 @@
        </property>
        <item>
         <widget class="QPushButton" name="btnRollDie">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Roll Die</string>
          </property>
@@ -204,8 +210,6 @@
     </layout>
    </item>
   </layout>
-  <zorder>horizontalLayoutWidget</zorder>
-  <zorder>horizontalLayoutWidget_3</zorder>
  </widget>
  <resources/>
  <connections/>

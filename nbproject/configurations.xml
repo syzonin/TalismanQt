@@ -148,7 +148,6 @@
     <logicalFolder name="ResourceFiles" displayName="Views" projectFiles="true">
       <itemPath>AdventureCardEdit.ui</itemPath>
       <itemPath>GameBoard.ui</itemPath>
-      <itemPath>MapBoard.ui</itemPath>
       <itemPath>TheBigWindow.ui</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
