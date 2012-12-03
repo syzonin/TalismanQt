@@ -17,14 +17,23 @@
       <itemPath>AdventureCard.h</itemPath>
       <itemPath>AdventureCardDeck.h</itemPath>
       <itemPath>Armor.h</itemPath>
+      <itemPath>Axe.h</itemPath>
+      <itemPath>BaneSword.h</itemPath>
+      <itemPath>BasicArmor.h</itemPath>
       <itemPath>Character.h</itemPath>
       <itemPath>CharacterCardDeck.h</itemPath>
       <itemPath>Die.h</itemPath>
       <itemPath>DieWidget.h</itemPath>
       <itemPath>DragonRider.h</itemPath>
       <itemPath>Enemy.h</itemPath>
+      <itemPath>ExorcistBlade.h</itemPath>
+      <itemPath>FateStealer.h</itemPath>
       <itemPath>Follower.h</itemPath>
-      <itemPath>Map.h</itemPath>
+      <itemPath>Frostbite.h</itemPath>
+      <itemPath>Helmet.h</itemPath>
+      <itemPath>HolyLance.h</itemPath>
+      <itemPath>LightningHammer.h</itemPath>
+      <itemPath>MagicMace.h</itemPath>
       <itemPath>MapSquare.h</itemPath>
       <itemPath>Monk.h</itemPath>
       <itemPath>Warrior.h</itemPath>
@@ -50,16 +59,37 @@
       <itemPath>AdventureCard.cpp</itemPath>
       <itemPath>AdventureCardDeck.cpp</itemPath>
       <itemPath>Armor.cpp</itemPath>
+      <itemPath>Axe.cpp</itemPath>
+      <itemPath>BaneSword.cpp</itemPath>
+      <itemPath>BasicArmor.cpp</itemPath>
       <itemPath>Character.cpp</itemPath>
       <itemPath>CharacterCardDeck.cpp</itemPath>
       <itemPath>Die.cpp</itemPath>
       <itemPath>DieWidget.cpp</itemPath>
       <itemPath>DragonRider.cpp</itemPath>
       <itemPath>Enemy.cpp</itemPath>
+      <itemPath>ExorcistBlade.cpp</itemPath>
+      <itemPath>FateStealer.cpp</itemPath>
       <itemPath>Follower.cpp</itemPath>
-      <itemPath>Map.cpp</itemPath>
+      <itemPath>Frostbite.cpp</itemPath>
+      <itemPath>Helmet.cpp</itemPath>
+      <itemPath>HolyLance.cpp</itemPath>
+      <itemPath>LightningHammer.cpp</itemPath>
+      <itemPath>MagicMace.cpp</itemPath>
       <itemPath>MapSquare.cpp</itemPath>
+      <itemPath>MirrorShield.cpp</itemPath>
+      <itemPath>MirrorShield.h</itemPath>
       <itemPath>Monk.cpp</itemPath>
+      <itemPath>PsionicWand.cpp</itemPath>
+      <itemPath>PsionicWand.h</itemPath>
+      <itemPath>Runesword.cpp</itemPath>
+      <itemPath>Runesword.h</itemPath>
+      <itemPath>Shield.cpp</itemPath>
+      <itemPath>Shield.h</itemPath>
+      <itemPath>Spellsword.cpp</itemPath>
+      <itemPath>Spellsword.h</itemPath>
+      <itemPath>SwordOfLight.cpp</itemPath>
+      <itemPath>SwordOfLight.h</itemPath>
       <itemPath>Warrior.cpp</itemPath>
       <itemPath>Weapon.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
