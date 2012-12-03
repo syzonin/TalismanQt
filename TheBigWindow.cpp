@@ -9,31 +9,19 @@
 
 TheBigWindow::TheBigWindow() {
     widget.setupUi(this);
+    
+    //Initialize objects
     board = new MapBoard;
     die = new DieWidget;    
     playerDeck = new CharacterCardDeck;
     adventureDeck = new AdventureCardDeck;
     playerDeck->setToolTip("Double-click to draw a player card");
     
-//    CharacterFactory *cf = new CharacterFactory;
-//    c1 = cf->getClass("Monk");
-//    Character *d = cf->getClass("DragonRider");
-//    Character *m = cf->getClass("Monk");
-//    
-//    MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
-//    ms->addCharacter(*c1);
-//    ms = board->getMapSquare(d->getXCord(),d->getYCord());
-//    ms->addCharacter(*d);
-//    ms = board->getMapSquare(m->getXCord(),m->getYCord());
-//    ms->addCharacter(*m);
-
+    //Setup gui
     widget.bigSquare->addWidget(board);
-    playerDeck->setParent(this);
-    adventureDeck->setParent(this);
-    die->setParent(this);
-    playerDeck->setGeometry(850, 100, 200, 200);
-    adventureDeck->setGeometry(850,400,200,200);
-    die->setGeometry(1000,3,200,200);
+    widget.deckLayout->addWidget(playerDeck);
+    widget.deckLayout->addWidget(adventureDeck);
+    widget.rightLayout->insertWidget(0,die);
     die->hide();
     widget.btnLeft->hide();
     widget.btnLeft->setToolTip("Move counterclockwise");
@@ -41,13 +29,11 @@ TheBigWindow::TheBigWindow() {
     widget.btnRight->setToolTip("Move clockwise");
     widget.btnYes->hide();
     widget.btnNo->hide();
-    widget.cross->hide();
-    widget.crownReached->hide();
-    widget.instructions->show();
     widget.btnRollDie->hide();
     widget.iLabel->show();
-    widget.movesLeft->hide();
     widget.instructionBox->show();
+    
+    //Set signals for buttons
     connect(widget.btnRollDie, SIGNAL(clicked()), this, SLOT(btnRollDieClicked()));
     connect(widget.btnLeft, SIGNAL(clicked()), this, SLOT(btnCounterClockwise()));
     connect(widget.btnRight, SIGNAL(clicked()), this, SLOT(btnClockwise()));
@@ -64,12 +50,10 @@ void TheBigWindow::playerDeckDoubleClicked() {
     if (c1 != NULL) {
         playerDeck->hide();
         c1 = playerDeck->drawCard();
-        c1->setParent(this);
-        c1->setGeometry(820, 100, 200, 200);
+        widget.deckLayout->insertWidget(0,c1);
         c1->show();
         MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
         ms->addCharacter(*c1);
-        widget.instructions->hide();
         widget.btnRollDie->show();
         die->show();
         string i = "You have landed on <b>" + ms->getSquareName() + "</b> in the <b>" + ms->getSquareRegion()
@@ -81,7 +65,7 @@ void TheBigWindow::playerDeckDoubleClicked() {
 void TheBigWindow::adventureDeckDoubleClicked() {
     adventureDeck->hide();
     AdventureCard* a = adventureDeck->drawCard();
-    a->setParent(this);
+    widget.deckLayout->addWidget(a);
     a->show();
 }
 
@@ -94,7 +78,6 @@ void TheBigWindow::btnRollDieClicked() {
     if ((c1->getXCord() == 5 && c1->getYCord() == 5) && (c1->getXCord() == 5 && c1->getYCord() == 2) ){
     }
     else {
-        widget.cross->hide();
         widget.btnYes->hide();
         widget.btnNo->hide();
     }
@@ -108,14 +91,12 @@ void TheBigWindow::btnCounterClockwise() {
         if ((c1->getXCord() == 2) && (c1->getYCord() == 2)){
             remainder =-7;
         }
-        widget.cross->setText(QString::fromStdString("Do you want to cross?"));
-        widget.cross->hide();
+        widget.lblStatus->setText("");
         widget.btnYes->hide();
         widget.btnNo->hide();
     }
     remainder *=(-1);
     moveChar(remainder);
-    widget.movesLeft->hide();
 }
 
 void TheBigWindow::btnClockwise() {
@@ -125,13 +106,11 @@ void TheBigWindow::btnClockwise() {
         if ((c1->getXCord() == 3) && (c1->getYCord() == 2)){
             remainder =-7;
         }
-        widget.cross->setText(QString::fromStdString("Do you want to cross?"));
-        widget.cross->hide();
+        widget.lblStatus->setText("");
         widget.btnYes->hide();
         widget.btnNo->hide();
     }
     moveChar(remainder);
-    widget.movesLeft->hide();
 }
 
 void TheBigWindow::btnYesClicked(){
@@ -151,8 +130,7 @@ void TheBigWindow::btnYesClicked(){
               i = "Move " + sRemainder + " more square.";
         else 
              i = "Move " + sRemainder + " more squares.";
-        widget.movesLeft->setText(QString::fromStdString(i));
-        widget.movesLeft->show();
+        widget.lblStatus->setText(QString::fromStdString(i));
     }
     else {
         widget.btnRollDie->show();
@@ -161,13 +139,12 @@ void TheBigWindow::btnYesClicked(){
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.btnRollDie->hide();
-        widget.crownReached->show();
+        widget.lblStatus->setText("You have reached the \n crown of command!");
     }
     if (c1->getXCord() == 6 && c1->getYCord() == 2){
         widget.btnLeft->hide();
     }
-    widget.cross->setText(QString::fromStdString("Do you want to cross?"));
-    widget.cross->hide();
+    widget.lblStatus->setText("");
     widget.btnYes->hide();
     widget.btnNo->hide(); 
     
@@ -183,14 +160,12 @@ void TheBigWindow::btnNoClicked(){
         widget.btnRight->show(); 
     }
     moveChar(remainder);
-    widget.cross->setText(QString::fromStdString("Do you want to cross?"));
-    widget.cross->hide();
+    widget.lblStatus->setText("");
     widget.btnYes->hide();
     widget.btnNo->hide();
     
     if ((c1->getXCord() == 5) && (c1->getYCord() == 2)){
-        widget.cross->setText(QString::fromStdString("Do you want to go back?"));
-        widget.cross->show();
+        widget.lblStatus->setText(QString::fromStdString("Do you want to go back?"));
         widget.btnYes->show();
         widget.btnNo->show();
 
@@ -246,6 +221,7 @@ void TheBigWindow::moveChar(int roll){
     widget.btnRight->show();
     
     if ((s1 == "Outer") && (((index < 16) && (newIndex >= 16)) || ((index > 16) && (newIndex <= 16)) )){
+        widget.lblStatus->setText(QString::fromStdString("Do you want to cross?"));
         if (newIndex >16){
             remainder = newIndex - 16;
             direction = "clockwise";
@@ -263,12 +239,11 @@ void TheBigWindow::moveChar(int roll){
         c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
-        widget.cross->show();
         widget.btnYes->show();
         widget.btnNo->show();
     } 
     else if ((s1 == "Middle") && (((index < 8) && (newIndex > 8)) || ((index > 8) && (newIndex < 8))) ){
-        widget.cross->setText(QString::fromStdString("Do you want to cross?"));
+        widget.lblStatus->setText(QString::fromStdString("Do you want to cross?"));
         if (newIndex >8){
             remainder = newIndex - 8;
             direction = "clockwise";
@@ -283,7 +258,6 @@ void TheBigWindow::moveChar(int roll){
         c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
-        widget.cross->show();
         widget.btnYes->show();
         widget.btnNo->show();
     }
@@ -305,8 +279,7 @@ void TheBigWindow::moveChar(int roll){
         c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
-        widget.cross->setText(QString::fromStdString("Do you want to go back?"));
-        widget.cross->show();
+        widget.lblStatus->setText(QString::fromStdString("Do you want to go back?"));
         widget.btnYes->show();
         widget.btnNo->show();
     } 
@@ -315,7 +288,6 @@ void TheBigWindow::moveChar(int roll){
         ms = v.at(0);
         ms->addCharacter(*c1);
         c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
-        widget.cross->show();
         widget.btnYes->show();
         widget.btnNo->show();
         direction = "insignificant";
@@ -325,8 +297,7 @@ void TheBigWindow::moveChar(int roll){
         ms = v.at(4);
         ms->addCharacter(*c1);
         c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
-        widget.cross->setText(QString::fromStdString("Do you want to go back?"));
-        widget.cross->show();
+        widget.lblStatus->setText(QString::fromStdString("Do you want to go back?"));
         widget.btnYes->show();
         widget.btnNo->show();
         direction = "insignificant";

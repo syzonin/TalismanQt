@@ -78,6 +78,8 @@ MapBoard::~MapBoard() {
     inner.clear();
     for (vector<MapSquare*>::iterator it = center.begin(); it != center.end(); ++it) delete *it;
     center.clear();
+    //Delete pointers in matrix
+    delete [] squares;
 }
 
 MapSquare* MapBoard::getMapSquare(int i, int j) { 

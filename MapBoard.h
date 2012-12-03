@@ -8,7 +8,6 @@
 #ifndef _MAPBOARD_H
 #define	_MAPBOARD_H
 #include "MapSquare.h"
-//#include "ui_MapBoard.h"
 #include "MapSquareFactory.h"
 #include <vector>
 #include <QGridLayout>
@@ -27,7 +26,7 @@ protected:
     vector<MapSquare*> inner;
     vector<MapSquare*> center;
 private:
-    MapSquare* squares[7][7];
+    MapSquare *squares[7][7];
     QGridLayout *board;
     //Ui::MapBoard widget;
 };
