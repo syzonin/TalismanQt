@@ -50,25 +50,3 @@ int Warrior::fateRoll(const Enemy& e, int roll) {
     return Character::fateRoll(e, roll);
 }
 
-void Warrior :: addActiveWeapon(Weapon w, int index){
-//Overrides the method from the parent class.
-//Allows for adding the Warriors Primary weapon OR Secondary weapon (selected by index 0 or 1)
-    
-    weapons[index] = new Weapon(w);
-    setStrength(getStrength() + w.getStrength());
-    setCraft(getCraft() + w.getCraft());    
-}
-
-void Warrior :: removeActiveWeapon(int index){
-//Overrides the method from the parent class.
-//Removes the Warrior's Primary OR Secondary weapon (selected by index 0 or 1)
-    
-    Weapon w = new Weapon(weapons[index]);
-    weapons[index] = new Weapon("none", 0, 0, "none");
-    setStrength(getStrength() - w.getStrength());
-    setCraft(getCraft() - w.getCraft());
-    removeAbility(w.getAbility());
-}
-
-Weapon Warrior :: getActiveWeapon(){return *weapons[0];} //returns the active Primary weapon
-Weapon Warrior :: getSecondWeapon(){return *weapons[1];} //returns the active Secondary weapon

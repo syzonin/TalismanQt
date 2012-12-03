@@ -23,7 +23,7 @@ static const uint qt_meta_data_Character[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -42,17 +42,7 @@ static const uint qt_meta_data_Character[] = {
      135,   10,   10,   10, 0x0a,
      154,  152,   10,   10, 0x0a,
      174,  172,   10,   10, 0x0a,
-     194,  192,   10,   10, 0x0a,
-     213,  192,   10,   10, 0x0a,
-     235,   10,   10,   10, 0x0a,
-     256,   10,   10,   10, 0x0a,
-     281,  192,  276,   10, 0x0a,
-     302,  300,   10,   10, 0x0a,
-     326,  172,   10,   10, 0x0a,
-     354,  348,   10,   10, 0x0a,
-     386,  378,   10,   10, 0x0a,
-     421,   10,  414,   10, 0x0a,
-     443,  439,   10,   10, 0x0a,
+     196,  192,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -63,13 +53,7 @@ static const char qt_meta_stringdata_Character[] = {
     "setText(string)\0setLifePoints(int)\0"
     "setFateTokens(int)\0setStart(string)\0"
     ",\0setCoord(int,int)\0a\0setAlignment(int)\0"
-    "s\0addAbility(string)\0removeAbility(string)\0"
-    "removeActiveWeapon()\0removeActiveArmor()\0"
-    "bool\0hasAbility(string)\0w\0"
-    "addActiveWeapon(Weapon)\0addActiveArmor(Armor)\0"
-    "index\0removeActiveWeapon(int)\0w,index\0"
-    "addActiveWeapon(Weapon,int)\0Weapon\0"
-    "getSecondWeapon()\0,,,\0move(string,string,int,int)\0"
+    ",,,\0move(string,string,int,int)\0"
 };
 
 const QMetaObject Character::staticMetaObject = {
@@ -112,22 +96,10 @@ int Character::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 8: setStart((*reinterpret_cast< string(*)>(_a[1]))); break;
         case 9: setCoord((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 10: setAlignment((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 11: addAbility((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 12: removeAbility((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 13: removeActiveWeapon(); break;
-        case 14: removeActiveArmor(); break;
-        case 15: { bool _r = hasAbility((*reinterpret_cast< string(*)>(_a[1])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
-        case 16: addActiveWeapon((*reinterpret_cast< Weapon(*)>(_a[1]))); break;
-        case 17: addActiveArmor((*reinterpret_cast< Armor(*)>(_a[1]))); break;
-        case 18: removeActiveWeapon((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: addActiveWeapon((*reinterpret_cast< Weapon(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 20: { Weapon _r = getSecondWeapon();
-            if (_a[0]) *reinterpret_cast< Weapon*>(_a[0]) = _r; }  break;
-        case 21: move((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
+        case 11: move((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
         default: ;
         }
-        _id -= 22;
+        _id -= 12;
     }
     return _id;
 }

@@ -21,8 +21,8 @@
 #include <QPainter>
 #include <QWidget>
 #include "Enemy.h"
-#include "Weapon.h"
-#include "Armor.h"
+//#include "Weapon.h"
+//#include "Armor.h"
 using namespace std;
 
 class Character : public QWidget {
@@ -48,9 +48,6 @@ public:
     int getXCord();
     int getYCord();
     int getAlignment();
-    string getAbility(int index);
-    virtual Weapon getActiveWeapon();
-    Armor getActiveArmor();
     virtual int allowedAttackRolls(const Enemy&) = 0;
     //Mutators
     void addTrophy(Enemy&);
@@ -78,17 +75,6 @@ public slots:
     void setStart(string);
     void setCoord(int,int);
     void setAlignment(int a);
-    void addAbility(string s);
-    void removeAbility(string s);
-    void removeActiveWeapon();
-    void removeActiveArmor();
-    bool hasAbility(string s);
-    
-    virtual void addActiveWeapon(Weapon w);
-    void addActiveArmor(Armor a);   
-    virtual void removeActiveWeapon(int index);    
-    virtual void addActiveWeapon(Weapon w, int index);
-    virtual Weapon getSecondWeapon();
  
     //Map movement
     void move(string,string,int,int);
@@ -113,13 +99,8 @@ protected:
     string currentLocation;
     string currentRegion;
     int xCord;
-    int yCord;
-    
+    int yCord;  
     int alignment;
-    Weapon *weapon;
-    Weapon *weaponInventory[3];
-    Armor *armor;
-    string ability[10];  
 
 private:
     bool isFront;

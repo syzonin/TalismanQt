@@ -18,16 +18,7 @@ public:
     int allowedAttackRolls(const Enemy&);
     int attackRoll(const Enemy&, int);
     int attackRoll(const Enemy&, int, int);
-    int fateRoll(const Enemy&, int);
-    
-    void addActiveWeapon(Weapon w, int index);
-    void removeActiveWeapon(int index);
-    Weapon getActiveWeapon();
-    Weapon getSecondWeapon();
-
-    private:
-    Weapon *weapons[2];
-    
+    int fateRoll(const Enemy&, int);    
  
 };
 

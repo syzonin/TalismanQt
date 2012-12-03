@@ -17,26 +17,13 @@ const int Character::TROPHY_POINTS = 7;
 ///Default constructor.
 ///
 Character::Character() {
-    setValues(0,0,0,0,"Character","",0,0);
-    alignment = 0;
-    weapon = new Weapon("none", 0, 0, "none");
-    for (int x = 0; x < 3; x++)
-       weaponInventory[x] = new Weapon("none", 0, 0, "none");
-    for (int y = 0; y < 10; y++)
-        ability[y] = "none";   
+    setValues(0,0,0,0,"Character","",0,0);  
 }
 ///
 ///Constructor that accepts strength, craft, fate and life.
 ///
 Character::Character(int strength, int craft, int fate, int life, string title, string text, int xCord, int yCord) {
     setValues(strength,craft,fate,life,title,text,xCord,yCord);
-    
-   this->alignment = 0;
-    weapon = new Weapon("none", 0, 0, "none");
-    for (int x = 0; x < 3; x++)
-       weaponInventory[x] = new Weapon("none", 0, 0, "none"); 
-    for (int y = 0; y < 10; y++)
-        ability[y] = "none";
 }
 ///
 ///Destructor.
@@ -440,69 +427,7 @@ void Character::paintEvent(QPaintEvent *event) {
 
 void Character :: setAlignment(int a) {alignment = a;}
 int Character :: getAlignment() {return alignment;}
-string Character :: getAbility(int index) {return ability[index];}
-Weapon Character :: getActiveWeapon() {return *weapon;}
-Armor Character :: getActiveArmor() {return *armor;}
 
-void Character :: addActiveWeapon(Weapon w) { //Adds a weapon and updates the character's base stats accordingly
-    weapon = new Weapon(w);                   //Seriously I need to move the Add Ability functionality to here from the Main Window ... later I will do this. No time now.
-    strength += w.getStrength();
-    craft += w.getCraft();
-}
-
-void Character :: addActiveWeapon(Weapon w, int index){} //Should never be called, used for overriding in the Warrior class.
-void Character :: removeActiveWeapon(int index){}
-Weapon Character :: getSecondWeapon(){return NULL;} // Same as above.
-
-void Character :: removeActiveWeapon() { //Removes a weapon and updates the character's base stats accordingly. Ability is also removed here ... as it should be contrary to the add method.
-    Weapon w = new Weapon(weapon);
-    weapon = new Weapon("none", 0, 0, "none");
-    strength -= w.getStrength();
-    craft -= w.getCraft();
-    removeAbility(w.getAbility());
-}
-
-void Character :: addActiveArmor(Armor a){ //Adds an armor and updates the character's abilities accordingly. Note: Armor does not add base stats .... not sure why
-    armor = new Armor(a);
-    addAbility(a.getAbility());
-}
-
-void Character :: removeActiveArmor(){ //Remove the armor and the associated ability along with it.
-    Armor a = new Armor(armor);
-    armor = new Armor("none", "none");
-    removeAbility(a.getAbility());
-}
-
-void Character :: addAbility(string s){ //Adds the passed ability (string) to the character's list of Abilities IF they do not already have it
-    int x = 0;
-    if (hasAbility(s))
-        return;
-    
-    while (x < 10 && ability[x].compare("none") != 0) //Currently a Character can only have a total of 10 abilities, this can be changed easily but updating the ability array
-        x++;                                          //in the header file to a greater size.
-    ability[x] = string(s);
-}
-
-void Character :: removeAbility(string s){ //Removes the passed ability (string) if it is in the Character's ability list.
-    for (int x = 0; x < 10; x++){
-        if (s.compare(ability[x]) == 0){
-            ability[x] = "none";
-            return;
-        }            
-    }
-}
-
-bool Character :: hasAbility(string s){ //Returns a boolean on whether or not the character currently has the passed Ability (string) in their ability list (I <3 this method)
-    for (int x = 0; x < 10; x++){
-        if (s.compare(ability[x]) == 0)
-            return true;
-    }
-    return false;
-}
-
-///
-///Returns a Pixmap image of the character figure
-///
 QPixmap Character::getFigure () {
     QPixmap p(QString("images/%1.png").arg(QString::fromStdString(title).replace(" ","")));
     return p.scaled(20,40,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
