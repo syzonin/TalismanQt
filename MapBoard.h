@@ -8,7 +8,6 @@
 #ifndef _MAPBOARD_H
 #define	_MAPBOARD_H
 #include "MapSquare.h"
-//#include "ui_MapBoard.h"
 #include "MapSquareFactory.h"
 #include <vector>
 #include <QGridLayout>
