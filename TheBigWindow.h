@@ -14,7 +14,11 @@
 #include "DieWidget.h"
 #include "MapSquare.h"
 #include "MapBoard.h"
+#include "GameBoard.h"
 #include "ui_TheBigWindow.h"
+#include <QFontDatabase>
+#include <QFont>
+using namespace std;
 
 class TheBigWindow : public QWidget {
     Q_OBJECT
@@ -32,6 +36,7 @@ public slots:
     void btnNoClicked();
     void playerDeckDoubleClicked();
     void adventureDeckDoubleClicked();
+    void getCharDetails();
 private:
     Ui::TheBigWindow widget;
     DieWidget *die; 

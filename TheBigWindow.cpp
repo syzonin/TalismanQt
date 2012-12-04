@@ -9,7 +9,10 @@
 
 TheBigWindow::TheBigWindow() {
     widget.setupUi(this);
-    
+    QFontDatabase::addApplicationFont("fonts/CaxtonBold.ttf");//Caxton Bk BT
+    QFontDatabase::addApplicationFont("fonts/CaxtonLight.ttf");//Caxton Lt BT
+    QFontDatabase::addApplicationFont("fonts/Windlass.ttf");//Windlass
+  
     //Initialize objects
     board = new MapBoard;
     die = new DieWidget;    
@@ -18,10 +21,11 @@ TheBigWindow::TheBigWindow() {
     playerDeck->setToolTip("Double-click to draw a player card");
     
     //Setup gui
+    widget.controlLayout->addWidget(new GameBoard);
     widget.bigSquare->addWidget(board);
     widget.deckLayout->addWidget(playerDeck);
     widget.deckLayout->addWidget(adventureDeck);
-    widget.rightLayout->insertWidget(0,die);
+    widget.movementLayout->insertWidget(0,die);
     die->hide();
     widget.btnLeft->hide();
     widget.btnLeft->setToolTip("Move counterclockwise");
@@ -46,6 +50,24 @@ TheBigWindow::TheBigWindow() {
 TheBigWindow::~TheBigWindow() {
 }
 
+void TheBigWindow::getCharDetails () {
+    int str = 0, cft = 0, fate = 0, gold = 0, life = 0;
+    
+    if (c1 != NULL) {
+        str = c1->getStrength();
+        cft = c1->getCraft();
+        fate = c1->getFateTokens();
+        gold = c1->getGold();
+        life = c1->getLifePoints();
+    } 
+    
+    widget.lblStrPts->setText(QString("%1").arg(str));
+    widget.lblCftPts->setText(QString("%1").arg(cft));
+    widget.lblFatePts->setText(QString("%1").arg(fate));
+    widget.lblGoldPts->setText(QString("%1").arg(gold));
+    widget.lblLifePts->setText(QString("%1").arg(life));
+}
+
 void TheBigWindow::playerDeckDoubleClicked() {
     if (c1 != NULL) {
         playerDeck->hide();
@@ -59,6 +81,7 @@ void TheBigWindow::playerDeckDoubleClicked() {
         string i = "You have landed on <b>" + ms->getSquareName() + "</b> in the <b>" + ms->getSquareRegion()
         + "</b> region. <br><br>" + ms->getInstructions();
         widget.instructionBox->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
+        getCharDetails();
     } 
 }
 

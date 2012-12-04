@@ -2,8 +2,8 @@ INPUT(
 ./build/Debug/MinGW-Windows/Crags.o
 ./build/Debug/MinGW-Windows/GameBoard.o
 ./build/Debug/MinGW-Windows/TheBigWindow.o
-./build/Debug/MinGW-Windows/Runes.o
 ./build/Debug/MinGW-Windows/Axe.o
+./build/Debug/MinGW-Windows/Runes.o
 ./build/Debug/MinGW-Windows/Warrior.o
 ./build/Debug/MinGW-Windows/AdventureCardDeck.o
 ./build/Debug/MinGW-Windows/DragonRider.o
@@ -21,12 +21,12 @@ INPUT(
 ./build/Debug/MinGW-Windows/CharacterCardModel.o
 ./build/Debug/MinGW-Windows/PlainOfPeril.o
 ./build/Debug/MinGW-Windows/AdventureCardModel.o
-./build/Debug/MinGW-Windows/Desert.o
 ./build/Debug/MinGW-Windows/FateStealer.o
+./build/Debug/MinGW-Windows/Desert.o
 ./build/Debug/MinGW-Windows/Temple.o
 ./build/Debug/MinGW-Windows/DieWidget.o
-./build/Debug/MinGW-Windows/BlackKnight.o
 ./build/Debug/MinGW-Windows/Character.o
+./build/Debug/MinGW-Windows/BlackKnight.o
 ./build/Debug/MinGW-Windows/WarlocksCave.o
 ./build/Debug/MinGW-Windows/ExorcistBlade.o
 ./build/Debug/MinGW-Windows/LightningHammer.o
@@ -45,8 +45,8 @@ INPUT(
 ./build/Debug/MinGW-Windows/Chapel.o
 ./build/Debug/MinGW-Windows/MagicMace.o
 ./build/Debug/MinGW-Windows/Forest.o
-./build/Debug/MinGW-Windows/Enemy.o
 ./build/Debug/MinGW-Windows/WeaponModel.o
+./build/Debug/MinGW-Windows/Enemy.o
 ./build/Debug/MinGW-Windows/ArmorModel.o
 ./build/Debug/MinGW-Windows/AdventureCardEdit.o
 ./build/Debug/MinGW-Windows/SwordOfLight.o

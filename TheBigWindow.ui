@@ -32,12 +32,40 @@
    <iconset>
     <normaloff>images/talisman-icon.gif</normaloff>images/talisman-icon.gif</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+	background-image: url(images/CardTexture.jpg);
+    border: 2px solid black; 
+    border-radius: 4px; 
+	padding: 4px;
+	margin: 4px;
+}
+
+QPushButton:hover {
+	border-color: green; 
+	color: green;
+}
+
+QPushButton:pressed  {
+	border-color: rgba(0, 0, 0, 50%);
+	color: rgba(0, 0, 0, 50%);
+}
+
+QPushButton, QLabel {
+	font-family: &quot;Windlass&quot;;
+}
+
+QLabel {
+	background-color: rgba(0,0,0,0%);
+	padding: 4px;
+}</string>
+  </property>
   <layout class="QGridLayout" name="windowLayout">
    <property name="sizeConstraint">
     <enum>QLayout::SetMinimumSize</enum>
    </property>
    <property name="margin">
-    <number>8</number>
+    <number>0</number>
    </property>
    <property name="spacing">
     <number>0</number>
@@ -45,7 +73,7 @@
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="mainLayout">
      <property name="spacing">
-      <number>4</number>
+      <number>0</number>
      </property>
      <property name="sizeConstraint">
       <enum>QLayout::SetMinimumSize</enum>
@@ -89,19 +117,6 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="btnRollDie">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Roll Die</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="lblStatus">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -116,7 +131,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Status</string>
+          <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -127,10 +142,26 @@
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="directionLayout">
+        <layout class="QHBoxLayout" name="movementLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <property name="sizeConstraint">
           <enum>QLayout::SetMinimumSize</enum>
          </property>
+         <item>
+          <widget class="QPushButton" name="btnRollDie">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Roll Die</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QPushButton" name="btnRight">
            <property name="sizePolicy">
@@ -163,13 +194,6 @@
            </property>
           </widget>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="confirmationLayout">
-         <property name="sizeConstraint">
-          <enum>QLayout::SetMinimumSize</enum>
-         </property>
          <item>
           <widget class="QPushButton" name="btnYes">
            <property name="sizePolicy">
@@ -199,7 +223,181 @@
         </layout>
        </item>
        <item>
+        <layout class="QGridLayout" name="charDetails">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="lblStr">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Strength</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLabel" name="lblLife">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Life</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="lblGold">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Gold</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="lblFate">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Fate</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="lblCft">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Craft</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lblStrPts">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="lblCftPts">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="lblFatePts">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="lblGoldPts">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLabel" name="lblLifePts">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QPushButton" name="btnFollowers">
+           <property name="text">
+            <string>Followers</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QPushButton" name="btnObjects">
+           <property name="text">
+            <string>Objects</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QPushButton" name="btnTrophies">
+           <property name="text">
+            <string>Trophies</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="deckLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
+         </property>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="controlLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <property name="sizeConstraint">
           <enum>QLayout::SetMinimumSize</enum>
          </property>
