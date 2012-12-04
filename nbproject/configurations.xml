@@ -20,6 +20,36 @@
         <itemPath>MirrorShield.h</itemPath>
         <itemPath>Shield.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f3" displayName="MapSquares" projectFiles="true">
+        <itemPath>BlackKnight.h</itemPath>
+        <itemPath>Castle.h</itemPath>
+        <itemPath>Chapel.h</itemPath>
+        <itemPath>Chasm.h</itemPath>
+        <itemPath>City.h</itemPath>
+        <itemPath>Crags.h</itemPath>
+        <itemPath>CrownOfCommand.h</itemPath>
+        <itemPath>Crypt.h</itemPath>
+        <itemPath>CursedGlade.h</itemPath>
+        <itemPath>Desert.h</itemPath>
+        <itemPath>DiceWithDeath.h</itemPath>
+        <itemPath>DrawSquare.h</itemPath>
+        <itemPath>Forest.h</itemPath>
+        <itemPath>Graveyard.h</itemPath>
+        <itemPath>MapSquare.h</itemPath>
+        <itemPath>Mines.h</itemPath>
+        <itemPath>Pits.h</itemPath>
+        <itemPath>PlainOfPeril.h</itemPath>
+        <itemPath>PortalOfPower.h</itemPath>
+        <itemPath>Runes.h</itemPath>
+        <itemPath>Sentinel.h</itemPath>
+        <itemPath>Tavern.h</itemPath>
+        <itemPath>Temple.h</itemPath>
+        <itemPath>ValleyOfFire.h</itemPath>
+        <itemPath>VampiresTower.h</itemPath>
+        <itemPath>Village.h</itemPath>
+        <itemPath>WarlocksCave.h</itemPath>
+        <itemPath>WerewolfDen.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="Weapons" projectFiles="true">
         <itemPath>Axe.h</itemPath>
         <itemPath>BaneSword.h</itemPath>
@@ -37,24 +67,13 @@
       <itemPath>AdventureCard.h</itemPath>
       <itemPath>AdventureCardDeck.h</itemPath>
       <itemPath>Armor.h</itemPath>
-      <itemPath>Axe.h</itemPath>
-      <itemPath>BaneSword.h</itemPath>
-      <itemPath>BasicArmor.h</itemPath>
       <itemPath>Character.h</itemPath>
       <itemPath>CharacterCardDeck.h</itemPath>
       <itemPath>Die.h</itemPath>
       <itemPath>DieWidget.h</itemPath>
       <itemPath>DragonRider.h</itemPath>
       <itemPath>Enemy.h</itemPath>
-      <itemPath>ExorcistBlade.h</itemPath>
-      <itemPath>FateStealer.h</itemPath>
       <itemPath>Follower.h</itemPath>
-      <itemPath>Frostbite.h</itemPath>
-      <itemPath>Helmet.h</itemPath>
-      <itemPath>HolyLance.h</itemPath>
-      <itemPath>LightningHammer.h</itemPath>
-      <itemPath>MagicMace.h</itemPath>
-      <itemPath>MapSquare.h</itemPath>
       <itemPath>Monk.h</itemPath>
       <itemPath>Warrior.h</itemPath>
       <itemPath>Weapon.h</itemPath>
@@ -90,6 +109,36 @@
         <itemPath>MirrorShield.cpp</itemPath>
         <itemPath>Shield.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f3" displayName="MapSquares" projectFiles="true">
+        <itemPath>BlackKnight.cpp</itemPath>
+        <itemPath>Castle.cpp</itemPath>
+        <itemPath>Chapel.cpp</itemPath>
+        <itemPath>Chasm.cpp</itemPath>
+        <itemPath>City.cpp</itemPath>
+        <itemPath>Crags.cpp</itemPath>
+        <itemPath>CrownOfCommand.cpp</itemPath>
+        <itemPath>Crypt.cpp</itemPath>
+        <itemPath>CursedGlade.cpp</itemPath>
+        <itemPath>Desert.cpp</itemPath>
+        <itemPath>DiceWithDeath.cpp</itemPath>
+        <itemPath>DrawSquare.cpp</itemPath>
+        <itemPath>Forest.cpp</itemPath>
+        <itemPath>Graveyard.cpp</itemPath>
+        <itemPath>MapSquare.cpp</itemPath>
+        <itemPath>Mines.cpp</itemPath>
+        <itemPath>Pits.cpp</itemPath>
+        <itemPath>PlainOfPeril.cpp</itemPath>
+        <itemPath>PortalOfPower.cpp</itemPath>
+        <itemPath>Runes.cpp</itemPath>
+        <itemPath>Sentinel.cpp</itemPath>
+        <itemPath>Tavern.cpp</itemPath>
+        <itemPath>Temple.cpp</itemPath>
+        <itemPath>ValleyOfFire.cpp</itemPath>
+        <itemPath>VampiresTower.cpp</itemPath>
+        <itemPath>Village.cpp</itemPath>
+        <itemPath>WarlocksCave.cpp</itemPath>
+        <itemPath>WerewolfDen.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="Weapons" projectFiles="true">
         <itemPath>Axe.cpp</itemPath>
         <itemPath>BaneSword.cpp</itemPath>
@@ -107,37 +156,14 @@
       <itemPath>AdventureCard.cpp</itemPath>
       <itemPath>AdventureCardDeck.cpp</itemPath>
       <itemPath>Armor.cpp</itemPath>
-      <itemPath>Axe.cpp</itemPath>
-      <itemPath>BaneSword.cpp</itemPath>
-      <itemPath>BasicArmor.cpp</itemPath>
       <itemPath>Character.cpp</itemPath>
       <itemPath>CharacterCardDeck.cpp</itemPath>
       <itemPath>Die.cpp</itemPath>
       <itemPath>DieWidget.cpp</itemPath>
       <itemPath>DragonRider.cpp</itemPath>
       <itemPath>Enemy.cpp</itemPath>
-      <itemPath>ExorcistBlade.cpp</itemPath>
-      <itemPath>FateStealer.cpp</itemPath>
       <itemPath>Follower.cpp</itemPath>
-      <itemPath>Frostbite.cpp</itemPath>
-      <itemPath>Helmet.cpp</itemPath>
-      <itemPath>HolyLance.cpp</itemPath>
-      <itemPath>LightningHammer.cpp</itemPath>
-      <itemPath>MagicMace.cpp</itemPath>
-      <itemPath>MapSquare.cpp</itemPath>
-      <itemPath>MirrorShield.cpp</itemPath>
-      <itemPath>MirrorShield.h</itemPath>
       <itemPath>Monk.cpp</itemPath>
-      <itemPath>PsionicWand.cpp</itemPath>
-      <itemPath>PsionicWand.h</itemPath>
-      <itemPath>Runesword.cpp</itemPath>
-      <itemPath>Runesword.h</itemPath>
-      <itemPath>Shield.cpp</itemPath>
-      <itemPath>Shield.h</itemPath>
-      <itemPath>Spellsword.cpp</itemPath>
-      <itemPath>Spellsword.h</itemPath>
-      <itemPath>SwordOfLight.cpp</itemPath>
-      <itemPath>SwordOfLight.h</itemPath>
       <itemPath>Warrior.cpp</itemPath>
       <itemPath>Weapon.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
