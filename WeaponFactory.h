@@ -30,7 +30,7 @@ class WeaponFactory{
 public:
     WeaponFactory();
     virtual ~WeaponFactory();
-    Weapon* getWeapon(int row);
+    Weapon* getWeapon(string demand);
     
 private:
     vector<QStringList> weapons;

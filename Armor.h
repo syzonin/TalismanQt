@@ -12,7 +12,7 @@
 #include <string>
 using namespace std;
 
-class Armor : AdventureCard{
+class Armor : public AdventureCard{
 public:
     Armor();
     Armor(string title, string text, int encounterNumber);

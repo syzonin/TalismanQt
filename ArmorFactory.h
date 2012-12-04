@@ -22,7 +22,7 @@ class ArmorFactory{
 public:
     ArmorFactory();
     virtual ~ArmorFactory();
-    Armor* getArmor(int row);
+    Armor* getArmor(string demand);
     
 private:
     vector<QStringList> armors;
