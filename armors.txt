@@ -1,0 +1,4 @@
+Basic Armor;A standard armored chestplate.;5
+Helmet;A standard armored helmet.;5
+Shield;A standard armored shield.;5
+Mirror Shield;A shield blessed by the gods. It will repel any foe.;5

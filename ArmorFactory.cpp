@@ -17,13 +17,20 @@ ArmorFactory::~ArmorFactory(){
     armors.clear();
 }
 
-Armor* ArmorFactory::getArmor(int row){
+Armor* ArmorFactory::getArmor(string demand){
     
     string title = "none";
     string text = "No Text";
     int encounterNumber = 0;
+    unsigned int row;
     
-    QStringList rowData = armors.at(row);
+    QStringList rowData;
+    for (row = 0; row < armors.size(); row++){
+        rowData = armors.at(row);
+        if (demand == rowData.at(0).toStdString())
+            break;
+    }
+    
     title = rowData.at(0).toStdString();
     text = rowData.at(1).toStdString();
     encounterNumber = rowData.at(2).toInt();

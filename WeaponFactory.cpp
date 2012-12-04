@@ -17,15 +17,22 @@ WeaponFactory::~WeaponFactory(){
     weapons.clear();
 }
 
-Weapon* WeaponFactory::getWeapon(int row){
+Weapon* WeaponFactory::getWeapon(string demand){
     
     int strength = 0;
     int craft = 0;
     string title = "none";
     string text = "No Text";
     int encounterNumber = 0;
+    unsigned int row;
     
-    QStringList rowData = weapons.at(row);
+    QStringList rowData;
+    for (row = 0; row < weapons.size(); row++){
+        rowData = weapons.at(row);
+        if (demand == rowData.at(2).toStdString())
+            break;
+    }
+    
     strength = rowData.at(0).toInt();
     craft = rowData.at(1).toInt();
     title = rowData.at(2).toStdString();
@@ -54,7 +61,7 @@ Weapon* WeaponFactory::getWeapon(int row){
         return new Runesword(strength, craft, title, text, encounterNumber);
     else if (title == "Spellsword")
         return new Spellsword(strength, craft, title, text, encounterNumber);
-    else if (title == "SwordOfLight")
+    else if (title == "Sword of Light")
         return new SwordOfLight(strength, craft, title, text, encounterNumber);
     else
         return new Weapon();

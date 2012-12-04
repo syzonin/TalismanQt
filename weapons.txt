@@ -1,0 +1,12 @@
+1;0;Axe;A basic axe with a sharp edge. Gives a minor boost to your Strength power;5;
+0;2;Bane Sword;A magic sword that adds to your Craft power.;5;
+0;0;Exorcist Blade;A blade of the Exorcist. Allows you to use your Strength power against spirit enemies.;5;
+1;0;Fate Stealer;The sword of Fate. Gain 1 Fate Token after defeating an enemy.;5;
+1;1;Frostbite;A sword with a frozen edge. Adds to both your Strength and Craft power.;5;
+3;0;Holy Lance;A Lance of purity fashioned by the gods. Adds 3 to your Strength power. Only those on the side of good may touch it.;5;
+2;0;Lightning Hammer;A hammer infused with lightning. Boosts your Strength power by 2.;5;
+0;2;Magic Mace;A mace with an unusual aura. Adds 2 to your Craft power.;5;
+0;0;Psionic Wand;A twisted wand of magic which allows its holder to force enemies into Psychic Combat instead of Battle.;5;
+1;0;Runesword;A demonic sword infused with the powers of Hell. Traps the souls of its dead enemies and grants its holder 1 Life after battle.;5;
+0;1;Spellsword;A sword infused with various magics. Grants the holder 1 extra spell after battle.;5;
+2;1;Sword of Light;A sword of great power. Grants the wearer a boost to both Craft and Strength.;5;

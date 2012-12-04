@@ -18,7 +18,7 @@
 #include <string>
 using namespace std;
 
-class Weapon : AdventureCard{
+class Weapon : public AdventureCard{
 public:
     Weapon();
     Weapon(int s, int c, string title, string text, int encounterNumber);
