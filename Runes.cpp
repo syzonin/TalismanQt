@@ -10,7 +10,7 @@
 Runes::Runes(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Runes::execute(){
+void Runes::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

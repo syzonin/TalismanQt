@@ -12,7 +12,7 @@
 class CrownOfCommand : public MapSquare {
 public:
     CrownOfCommand(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

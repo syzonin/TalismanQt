@@ -10,7 +10,12 @@
 DrawSquare::DrawSquare(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void DrawSquare::execute(){
+void DrawSquare::execute(AdventureCardDeck* d){
 
-    cout << "hi" <<endl;
+    for (int i = 0; i < maxCard; i++){
+        if (adventureCards.size() < maxCard){
+            AdventureCard* a = d->drawCard();
+            addCard(*a);
+        }
+    }
 }

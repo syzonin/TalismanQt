@@ -12,7 +12,7 @@
 class Pits : public MapSquare {
 public:
     Pits(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

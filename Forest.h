@@ -12,7 +12,7 @@
 class Forest  : public MapSquare {
 public:
     Forest(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

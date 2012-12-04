@@ -12,7 +12,7 @@ TheBigWindow::TheBigWindow() {
     
     //Initialize objects
     board = new MapBoard;
-    die = new DieWidget;    
+    die = new DieWidget;
     playerDeck = new CharacterCardDeck;
     adventureDeck = new AdventureCardDeck;
     playerDeck->setToolTip("Double-click to draw a player card");
@@ -46,6 +46,9 @@ TheBigWindow::TheBigWindow() {
 TheBigWindow::~TheBigWindow() {
 }
 
+AdventureCardDeck*  TheBigWindow::getAdventureDeck(){
+    return adventureDeck;
+}
 void TheBigWindow::playerDeckDoubleClicked() {
     if (c1 != NULL) {
         playerDeck->hide();
@@ -81,7 +84,6 @@ void TheBigWindow::btnRollDieClicked() {
         widget.btnYes->hide();
         widget.btnNo->hide();
     }
-
 }
 
 void TheBigWindow::btnCounterClockwise() {

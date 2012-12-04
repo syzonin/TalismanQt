@@ -12,7 +12,7 @@
 class Chapel : public MapSquare {
 public:
     Chapel(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

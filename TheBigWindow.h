@@ -21,9 +21,11 @@ class TheBigWindow : public QWidget {
 public:
     TheBigWindow();
     virtual ~TheBigWindow();
+    AdventureCardDeck* getAdventureDeck();
     int getDieRoll();
     void moveChar(int);
     void moveRegions();
+    
 public slots:
     void btnRollDieClicked();
     void btnCounterClockwise();
@@ -42,6 +44,7 @@ private:
     int remainder;
     int rowClicked;
     string direction;
+
 };
 
 #endif	/* _THEBIGWINDOW_H */

@@ -10,7 +10,7 @@
 Crypt::Crypt(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Crypt::execute(){
+void Crypt::execute(AdventureCardDeck* d){
     
     cout << "something goes here" << endl;
 }

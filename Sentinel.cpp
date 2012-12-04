@@ -10,7 +10,7 @@
 Sentinel::Sentinel(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Sentinel::execute(){
+void Sentinel::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

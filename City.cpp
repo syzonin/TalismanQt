@@ -10,7 +10,7 @@
 City::City(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void City::execute(){
+void City::execute(AdventureCardDeck* d){
     
     cout << "something goes here" << endl;
 }

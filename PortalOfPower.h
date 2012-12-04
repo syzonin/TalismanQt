@@ -12,7 +12,7 @@
 class PortalOfPower : public MapSquare {
 public:
     PortalOfPower(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };
