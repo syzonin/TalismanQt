@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     // demo code below:
     
-    //GameBoard *board = new GameBoard;
-    //board->show();
+//    GameBoard *board = new GameBoard;
+//    board->show();
     
     TheBigWindow bw;
     bw.show();

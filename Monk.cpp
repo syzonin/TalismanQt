@@ -25,28 +25,22 @@ Monk::~Monk() {}
 ///
 ///Returns the number of dice to roll when attacking an Enemy
 ///
-int Monk::allowedAttackRolls(const Enemy& e) { 
-    if (e.getSubType() == "Spirit") return 1;
-    else return 2;
-}
+int Monk::allowedAttackRolls(const Enemy& e) { return 1; }
 ///
 ///Roll one die to attack an enemy based on its type (battle or psychic combat).
 ///
 int Monk::attackRoll(const Enemy& e, int roll) {
-    return Monk::attackRoll(e, roll, 0);
+    int totalAttack = craft + craftCounters;
+    //If enemy's subtype is strength, add strength to attack
+    if (e.getSubType() != "Spirit") totalAttack += strength + strengthCounters; 
+    //Return attack points
+    return totalAttack + roll;
 }
 ///
 ///Roll two dice to attack an enemy based on its type (battle or psychic combat).
 ///
 int Monk::attackRoll(const Enemy& e, int roll1, int roll2) {
-    if (e.getSubType() == "Spirit") {
-        return Character::attackRoll(e, roll1);
-    } else {
-        roll1 = Character::attackRoll(e, roll1);
-        roll2 = Character::attackRoll(e, roll2);
-        return (roll1 > roll2 ? roll1 : roll2); 
-    } 
-    return 0;
+    return Monk::attackRoll(e, roll1);
 }
 ///
 ///Roll the die to override the attack roll.

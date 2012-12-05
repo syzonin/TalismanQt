@@ -18,6 +18,11 @@ class GameBoard : public QWidget {
 public:
     GameBoard();
     virtual ~GameBoard();
+    DieWidget *die1, *die2;
+    AdventureCardDeck *deck;
+    AdventureCard *card;
+    CharacterCardDeck *playerDeck;
+    Character *player;
 public slots:
     void playerDeckDoubleClicked();
     void deckDoubleClicked();
@@ -33,11 +38,6 @@ public slots:
     void btnEndTurnClicked();
 private:
     Ui::GameBoard widget;
-    DieWidget *die1, *die2;
-    AdventureCardDeck *deck;
-    AdventureCard *card;
-    CharacterCardDeck *playerDeck;
-    Character *player;
 };
 
 #endif	/* _GAMEBOARD_H */

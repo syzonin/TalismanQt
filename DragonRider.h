@@ -17,7 +17,8 @@ public:
     //Accessors
     bool hasFollowerDragon() const;
     //Mutators
-    void addFollower(Enemy&);
+    //void addFollower(Enemy&);
+    bool addFollower(AdventureCard*);
     //Other methods
     int allowedAttackRolls(const Enemy&);
     int attackRoll(const Enemy&, int);
