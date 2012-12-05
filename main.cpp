@@ -16,6 +16,7 @@
 #include "CharacterFactory.h"
 #include "WeaponFactory.h"
 #include "ArmorFactory.h"
+#include "SpellFactory.h"
 #include "MapSquare.h"
 #include "MapBoard.h"
 #include "TheBigWindow.h"
@@ -30,46 +31,30 @@ int main(int argc, char *argv[]) {
     TheBigWindow bw;
     bw.show();
     
-//    WeaponFactory *w = new WeaponFactory();
-//    Weapon *w1, *w2, *w3, *w4, *w5, *w6, *w7, *w8, *w9, *w10, *w11, *w12;
-//    ArmorFactory *a = new ArmorFactory();
-//    Armor *a1, *a2, *a3, *a4;
+    SpellFactory* s = new SpellFactory();
+    Spell* s1 = s->getSpell("Cheat Fate");
+    Spell* s2 = s->getSpell("Craft");
+    Spell* s3 = s->getSpell("Feeble Mind");
+    Spell* s4 = s->getSpell("Generosity");
+    Spell* s5 = s->getSpell("Healing");
+    Spell* s6 = s->getSpell("Life Tap");
+    Spell* s7 = s->getSpell("Magic Shell");
+    Spell* s8 = s->getSpell("Resotoration");
+    Spell* s9 = s->getSpell("Strength");
+    Spell* s10 = s->getSpell("Syphon Strength");
+    Spell* s11 = s->getSpell("Weakness");
     
-//    a1 = a->getArmor("Basic Armor");
-//    a2 = a->getArmor("Shield");
-//    a3 = a->getArmor("Helmet");
-//    a4 = a->getArmor("Mirror Shield");
-//    
-//    a1->show();
-//    a2->show();
-//    a3->show();
-//    a4->show();
-
-//    w1 = w->getWeapon("Axe");
-//    w2 = w->getWeapon("Bane Sword");
-//    w3 = w->getWeapon("Exorcist Blade");
-//    w4 = w->getWeapon("Fate Stealer");
-//    w5 = w->getWeapon("Frostbite");
-//    w6 = w->getWeapon("Holy Lance");
-//    w7 = w->getWeapon("Lightning Hammer");
-//    w8 = w->getWeapon("Magic Mace");
-//    w9 = w->getWeapon("Psionic Wand");
-//    w10 = w->getWeapon("Runesword");
-//    w11 = w->getWeapon("Spellsword");
-//    w12 = w->getWeapon("Sword of Light");
-//    
-//    w1->show();
-//    w2->show();
-//    w3->show();
-//    w4->show();
-//    w5->show();
-//    w6->show();
-//    w7->show();
-//    w8->show();
-//    w9->show();
-//    w10->show();
-//    w11->show();
-//    w12->show();
+    s1->show();
+    s2->show();
+    s3->show();
+    s4->show();
+    s5->show();
+    s6->show();
+    s7->show();
+    s8->show();
+    s9->show();
+    s10->show();
+    s11->show();
             
 
     //demo code ends

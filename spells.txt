@@ -1,0 +1,11 @@
+Cheat Fate;Cheat the hand of Fate and gain 1 Fate Token before the start of Battle or Psychic Combat.;1;
+Craft;Increase your Craft power by 1 point before the start of Battle or Psychic Combat.;1;
+Feeble Mind;Disorient your enemy and lower their Attack Points by 2 points.;1;
+Generosity;After a victorious Battle or Psychic Combat, the crowds will gather around and grant you 3 Gold as a reward.;1;
+Healing;A basic Healing spell that grants the caster 1 Life Point.;1;
+Life Tap;After victorious defeating your enemy, leech 1 Life Point from their spritual remains.;1;
+Magic Shell;Summons a protective barrier, lowering your enemy's Attack by 1 point.;1;
+Restoration;A powerful healing spell. Restores the caster's Life Points to their maximum value.;1;
+Strength;Increase your Strength power by 1 point before the start of Battle or Psychic Combat.;1;
+Syphon Strength;Leech power from your enemy, increasing your Strength and Craft by 1, while lowering their Attack by 1 point.;1;
+Weakness;Inflict a dire fatigue onto your enemy, thereby lowering its Attack by 3 points.;1;

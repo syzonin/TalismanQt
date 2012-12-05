@@ -50,6 +50,19 @@
         <itemPath>WarlocksCave.h</itemPath>
         <itemPath>WerewolfDen.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4" displayName="Spells" projectFiles="true">
+        <itemPath>CheatFate.h</itemPath>
+        <itemPath>Craft.h</itemPath>
+        <itemPath>FeebleMind.h</itemPath>
+        <itemPath>Generosity.h</itemPath>
+        <itemPath>Healing.h</itemPath>
+        <itemPath>LifeTap.h</itemPath>
+        <itemPath>MagicShell.h</itemPath>
+        <itemPath>Restoration.h</itemPath>
+        <itemPath>Strength.h</itemPath>
+        <itemPath>SyphonStrength.h</itemPath>
+        <itemPath>Weakness.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="Weapons" projectFiles="true">
         <itemPath>Axe.h</itemPath>
         <itemPath>BaneSword.h</itemPath>
@@ -75,6 +88,7 @@
       <itemPath>Enemy.h</itemPath>
       <itemPath>Follower.h</itemPath>
       <itemPath>Monk.h</itemPath>
+      <itemPath>Spell.h</itemPath>
       <itemPath>Warrior.h</itemPath>
       <itemPath>Weapon.h</itemPath>
     </logicalFolder>
@@ -95,6 +109,10 @@
       <itemPath>MapSquareFactory.h</itemPath>
       <itemPath>MapSquareModel.cpp</itemPath>
       <itemPath>MapSquareModel.h</itemPath>
+      <itemPath>SpellFactory.cpp</itemPath>
+      <itemPath>SpellFactory.h</itemPath>
+      <itemPath>SpellModel.cpp</itemPath>
+      <itemPath>SpellModel.h</itemPath>
       <itemPath>WeaponFactory.cpp</itemPath>
       <itemPath>WeaponFactory.h</itemPath>
       <itemPath>WeaponModel.cpp</itemPath>
@@ -139,6 +157,19 @@
         <itemPath>WarlocksCave.cpp</itemPath>
         <itemPath>WerewolfDen.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4" displayName="Spells" projectFiles="true">
+        <itemPath>CheatFate.cpp</itemPath>
+        <itemPath>Craft.cpp</itemPath>
+        <itemPath>FeebleMind.cpp</itemPath>
+        <itemPath>Generosity.cpp</itemPath>
+        <itemPath>Healing.cpp</itemPath>
+        <itemPath>LifeTap.cpp</itemPath>
+        <itemPath>MagicShell.cpp</itemPath>
+        <itemPath>Restoration.cpp</itemPath>
+        <itemPath>Strength.cpp</itemPath>
+        <itemPath>SyphonStrength.cpp</itemPath>
+        <itemPath>Weakness.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="Weapons" projectFiles="true">
         <itemPath>Axe.cpp</itemPath>
         <itemPath>BaneSword.cpp</itemPath>
@@ -164,6 +195,7 @@
       <itemPath>Enemy.cpp</itemPath>
       <itemPath>Follower.cpp</itemPath>
       <itemPath>Monk.cpp</itemPath>
+      <itemPath>Spell.cpp</itemPath>
       <itemPath>Warrior.cpp</itemPath>
       <itemPath>Weapon.cpp</itemPath>
       <itemPath>main.cpp</itemPath>

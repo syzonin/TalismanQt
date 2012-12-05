@@ -16,7 +16,6 @@ public:
     MirrorShield();
     MirrorShield(string, string,int);
 
-private:
     void win(Character* c, Enemy* e);
     void lose(Character* c, Enemy* e);
 };
