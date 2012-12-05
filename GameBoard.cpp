@@ -197,9 +197,9 @@ void GameBoard::btnAttackClicked() {
     } else if (a > b) { // Character wins
         widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(player->getTitle())));
         widget.btnRollDie->hide();
+        widget.btnAddToFollowers->show();
         widget.btnAddToTrophies->show();
         widget.btnEndTurn->show();
-        if (player->getTitle() == "DragonRider") widget.btnAddToFollowers->show();
     } else {
         widget.txtLog->append("Stand-off!");     
         widget.btnRollDie->show();
@@ -224,15 +224,17 @@ void GameBoard::btnExchangeFateClicked() {
 }
 
 void GameBoard::btnAddToFollowersClicked() {
-    //Update view
-    btnEndTurnClicked();
-    //Add to character's trophies
-    Enemy* e = static_cast<Enemy*>(card);
-    DragonRider* p = static_cast<DragonRider*>(player);
-    p->addFollower(*e);
-    card = NULL;
-    //Update view log
-    widget.txtLog->append(QString::fromStdString(e->getTitle()) + " added to followers");
+    //Add to character's followers
+    if (player->addFollower(card)) {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(card->getTitle()) + " added to followers");
+        //Update view
+        btnEndTurnClicked();
+        card = NULL;
+    } else {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(card->getTitle()) + " could not be added to followers");
+    }
 }
 
 void GameBoard::btnAddToTrophiesClicked() {
@@ -240,7 +242,7 @@ void GameBoard::btnAddToTrophiesClicked() {
     btnEndTurnClicked();
     //Add to character's trophies
     Enemy* e = static_cast<Enemy*>(card);
-    player->addTrophy(*e);
+    player->addTrophy(e);
     card = NULL;
     //Update view log
     widget.txtLog->append(QString::fromStdString(e->getTitle()) + " added to trophies");

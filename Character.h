@@ -50,8 +50,8 @@ public:
     int getAlignment();
     virtual int allowedAttackRolls(const Enemy&) = 0;
     //Mutators
-    void addTrophy(Enemy&);
-    void addFollower(Follower&);
+    virtual bool addTrophy(Enemy*);
+    virtual bool addFollower(AdventureCard*);
     void removeFollower(unsigned int);
     void removeTrophy(unsigned int);
     //Other methods

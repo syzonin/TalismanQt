@@ -28,13 +28,17 @@ bool DragonRider::hasFollowerDragon() const { return followerDragon; }
 ///Adds the enemy card to the character's list of followers.
 ///Precondition: The enemy card has to be a dragon type. Only one dragon can follow the character.
 ///
-void DragonRider::addFollower(Enemy& e) {
-    if (e.getSubType() != "Dragon" || followerDragon == true) return;
-    for (list<AdventureCard*>::iterator it = followers.begin(); it != followers.end(); ++it) { 
-        if (&e == *it) return;
-    }
-    followers.push_back(&e);
-    followerDragon = true;
+bool DragonRider::addFollower(AdventureCard* card) {
+    //Add dragon if there are currently none
+    if (card->getType() == "Enemy") {
+        Enemy* e = static_cast<Enemy*>(card);
+        if (e->getSubType() != "Dragon" || followerDragon == true) return false;
+        followers.push_back(card);
+        followerDragon = true;
+        return true;
+    } 
+    //Add follower based on character class implementation
+    return Character::addFollower(card);
 }
 ///
 ///Returns the number of dice to roll when attacking an Enemy

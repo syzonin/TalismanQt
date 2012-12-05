@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TheBigWindow.h'
 **
-** Created: Mon Dec 3 21:46:29 2012
+** Created: Wed Dec 5 00:20:19 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_TheBigWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,7 +38,6 @@ static const uint qt_meta_data_TheBigWindow[] = {
       87,   13,   13,   13, 0x0a,
      102,   13,   13,   13, 0x0a,
      128,   13,   13,   13, 0x0a,
-     157,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -49,7 +48,6 @@ static const char qt_meta_stringdata_TheBigWindow[] = {
     "btnYesClicked()\0btnNoClicked()\0"
     "playerDeckDoubleClicked()\0"
     "adventureDeckDoubleClicked()\0"
-    "getCharDetails()\0"
 };
 
 const QMetaObject TheBigWindow::staticMetaObject = {
@@ -88,10 +86,9 @@ int TheBigWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 4: btnNoClicked(); break;
         case 5: playerDeckDoubleClicked(); break;
         case 6: adventureDeckDoubleClicked(); break;
-        case 7: getCharDetails(); break;
         default: ;
         }
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }

@@ -36,11 +36,11 @@ public slots:
     void btnNoClicked();
     void playerDeckDoubleClicked();
     void adventureDeckDoubleClicked();
-    void getCharDetails();
+//    void getCharDetails();
 private:
     Ui::TheBigWindow widget;
     DieWidget *die; 
-    Character *c1;
+    Character *player;
     CharacterCardDeck *playerDeck;
     AdventureCardDeck *adventureDeck;
     MapBoard *board;

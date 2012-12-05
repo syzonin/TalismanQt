@@ -21,10 +21,9 @@ TheBigWindow::TheBigWindow() {
     playerDeck->setToolTip("Double-click to draw a player card");
     
     //Setup gui
-    widget.controlLayout->addWidget(new GameBoard);
     widget.bigSquare->addWidget(board);
-    widget.deckLayout->addWidget(playerDeck);
-    widget.deckLayout->addWidget(adventureDeck);
+    widget.arena->addWidget(playerDeck);
+    widget.arena->addWidget(adventureDeck);
     widget.movementLayout->insertWidget(0,die);
     die->hide();
     widget.btnLeft->hide();
@@ -35,7 +34,7 @@ TheBigWindow::TheBigWindow() {
     widget.btnNo->hide();
     widget.btnRollDie->hide();
     widget.iLabel->show();
-    widget.instructionBox->show();
+    widget.txtLog->show();
     
     //Set signals for buttons
     connect(widget.btnRollDie, SIGNAL(clicked()), this, SLOT(btnRollDieClicked()));
@@ -50,45 +49,26 @@ TheBigWindow::TheBigWindow() {
 TheBigWindow::~TheBigWindow() {
 }
 
-void TheBigWindow::getCharDetails () {
-    int str = 0, cft = 0, fate = 0, gold = 0, life = 0;
-    
-    if (c1 != NULL) {
-        str = c1->getStrength();
-        cft = c1->getCraft();
-        fate = c1->getFateTokens();
-        gold = c1->getGold();
-        life = c1->getLifePoints();
-    } 
-    
-    widget.lblStrPts->setText(QString("%1").arg(str));
-    widget.lblCftPts->setText(QString("%1").arg(cft));
-    widget.lblFatePts->setText(QString("%1").arg(fate));
-    widget.lblGoldPts->setText(QString("%1").arg(gold));
-    widget.lblLifePts->setText(QString("%1").arg(life));
-}
-
 void TheBigWindow::playerDeckDoubleClicked() {
-    if (c1 != NULL) {
+    if (player != NULL) {
         playerDeck->hide();
-        c1 = playerDeck->drawCard();
-        widget.deckLayout->insertWidget(0,c1);
-        c1->show();
-        MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
-        ms->addCharacter(*c1);
+        player = playerDeck->drawCard();
+        widget.arena->insertWidget(0,player);
+        player->show();
+        MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
+        ms->addCharacter(*player);
         widget.btnRollDie->show();
         die->show();
         string i = "You have landed on <b>" + ms->getSquareName() + "</b> in the <b>" + ms->getSquareRegion()
         + "</b> region. <br><br>" + ms->getInstructions();
-        widget.instructionBox->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
-        getCharDetails();
+        widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
     } 
 }
 
 void TheBigWindow::adventureDeckDoubleClicked() {
     adventureDeck->hide();
     AdventureCard* a = adventureDeck->drawCard();
-    widget.deckLayout->addWidget(a);
+    widget.arena->addWidget(a);
     a->show();
 }
 
@@ -98,7 +78,7 @@ void TheBigWindow::btnRollDieClicked() {
     widget.btnRollDie->hide();
     widget.btnLeft->show();
     widget.btnRight->show();
-    if ((c1->getXCord() == 5 && c1->getYCord() == 5) && (c1->getXCord() == 5 && c1->getYCord() == 2) ){
+    if ((player->getXCord() == 5 && player->getYCord() == 5) && (player->getXCord() == 5 && player->getYCord() == 2) ){
     }
     else {
         widget.btnYes->hide();
@@ -108,10 +88,10 @@ void TheBigWindow::btnRollDieClicked() {
 }
 
 void TheBigWindow::btnCounterClockwise() {
-    MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
+    MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     if (ms->getSquareRegion() == "Inner"){
         remainder = 1;
-        if ((c1->getXCord() == 2) && (c1->getYCord() == 2)){
+        if ((player->getXCord() == 2) && (player->getYCord() == 2)){
             remainder =-7;
         }
         widget.lblStatus->setText("");
@@ -123,10 +103,10 @@ void TheBigWindow::btnCounterClockwise() {
 }
 
 void TheBigWindow::btnClockwise() {
-    MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
+    MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     if (ms->getSquareRegion() == "Inner"){
         remainder = 1;
-        if ((c1->getXCord() == 3) && (c1->getYCord() == 2)){
+        if ((player->getXCord() == 3) && (player->getYCord() == 2)){
             remainder =-7;
         }
         widget.lblStatus->setText("");
@@ -138,7 +118,7 @@ void TheBigWindow::btnClockwise() {
 
 void TheBigWindow::btnYesClicked(){
     moveRegions();
-    if (c1->getCurrentLocation() == "Plain of Peril"){
+    if (player->getCurrentLocation() == "Plain of Peril"){
         widget.btnRollDie->hide();
         widget.btnLeft->show();
         widget.btnRight->show();
@@ -158,13 +138,13 @@ void TheBigWindow::btnYesClicked(){
     else {
         widget.btnRollDie->show();
     }
-    if (c1->getXCord() == 3 && c1->getYCord() == 3){ 
+    if (player->getXCord() == 3 && player->getYCord() == 3){ 
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.btnRollDie->hide();
         widget.lblStatus->setText("You have reached the \n crown of command!");
     }
-    if (c1->getXCord() == 6 && c1->getYCord() == 2){
+    if (player->getXCord() == 6 && player->getYCord() == 2){
         widget.btnLeft->hide();
     }
     widget.lblStatus->setText("");
@@ -187,7 +167,7 @@ void TheBigWindow::btnNoClicked(){
     widget.btnYes->hide();
     widget.btnNo->hide();
     
-    if ((c1->getXCord() == 5) && (c1->getYCord() == 2)){
+    if ((player->getXCord() == 5) && (player->getYCord() == 2)){
         widget.lblStatus->setText(QString::fromStdString("Do you want to go back?"));
         widget.btnYes->show();
         widget.btnNo->show();
@@ -196,10 +176,10 @@ void TheBigWindow::btnNoClicked(){
 }
 
 void TheBigWindow::moveRegions(){
-    MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
+    MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     string region = ms->getSquareRegion();
     string name = ms->getSquareName();
-    ms->removeCharacter(*c1);
+    ms->removeCharacter(*player);
     if (region == "Outer"){
         ms = board->getMapSquare(5,2);
     }
@@ -217,18 +197,18 @@ void TheBigWindow::moveRegions(){
     else if (region == "Inner"){
         ms = board->getMapSquare(3,3);
     }
-    ms->addCharacter(*c1);
-    c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+    ms->addCharacter(*player);
+    player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
     string i = "You have landed on <b>" + ms->getSquareName() + "</b> in the <b>" + ms->getSquareRegion()
         + "</b> region.<br><br>" + ms->getInstructions();
-    widget.instructionBox->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
+    widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
 }
 
 void TheBigWindow::moveChar(int roll){
     int index = 0;
     int newIndex = 0;
     vector<MapSquare*> v;
-    MapSquare *ms = board->getMapSquare(c1->getXCord(),c1->getYCord());
+    MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     string s1 = ms->getSquareRegion();
     v = board->getRegionVector(s1);
 
@@ -256,10 +236,10 @@ void TheBigWindow::moveChar(int roll){
         else {
             remainder = 0;
         }
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(16);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.btnYes->show();
@@ -275,10 +255,10 @@ void TheBigWindow::moveChar(int roll){
             remainder = 8 - newIndex;
             direction = "counter";
         }
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(8);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.btnYes->show();
@@ -296,10 +276,10 @@ void TheBigWindow::moveChar(int roll){
         else {
             remainder = 0;
         }
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(11);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.lblStatus->setText(QString::fromStdString("Do you want to go back?"));
@@ -307,19 +287,19 @@ void TheBigWindow::moveChar(int roll){
         widget.btnNo->show();
     } 
     else if ((s1 == "Inner") && ((newIndex == 0) || (newIndex == 8))){
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(0);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnYes->show();
         widget.btnNo->show();
         direction = "insignificant";
     }
     else if ((s1 == "Inner") && ((newIndex == 4))){
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(4);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.lblStatus->setText(QString::fromStdString("Do you want to go back?"));
         widget.btnYes->show();
         widget.btnNo->show();
@@ -327,10 +307,10 @@ void TheBigWindow::moveChar(int roll){
     }
     
     else if ((s1 == "Inner")){
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(index+remainder);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());    
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());    
     }
     else {
         if (newIndex <0){
@@ -339,15 +319,15 @@ void TheBigWindow::moveChar(int roll){
         else {
             newIndex = (index + remainder)%v.size();
         }
-        ms->removeCharacter(*c1);
+        ms->removeCharacter(*player);
         ms = v.at(newIndex);
-        ms->addCharacter(*c1);
-        c1->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        ms->addCharacter(*player);
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.btnRollDie->show();
     }
     string i = "You have landed on <b>" + ms->getSquareName() + "</b> in the <b>" + ms->getSquareRegion()
         + "</b> region.<br><br>" + ms->getInstructions();
-    widget.instructionBox->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
+    widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
 }

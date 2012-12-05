@@ -180,22 +180,25 @@ void Character::setValues(int strength, int craft, int fate, int life, string ti
 ///
 ///Adds the card to the character's list of followers.
 ///
-void Character::addFollower(Follower& f) {
+bool Character::addFollower(AdventureCard* card) {
+    if (card->getType() != "Follower") return false; 
     for (list<AdventureCard*>::iterator it = followers.begin(); it != followers.end(); ++it) { 
-        if (&f == *it) return;
+        if (card == *it) return false;
     }
-    followers.push_back(&f);
+    followers.push_back(card);
+    return true;
 }
 ///
 ///Adds the card to the character's list of trophies.
 ///
-void Character::addTrophy(Enemy& e) {
+bool Character::addTrophy(Enemy* card) {
     list<Enemy*>::iterator pos = trophies.begin();
     for (list<Enemy*>::iterator it = trophies.begin(); it != trophies.end(); ++it) { 
-        if (&e == *it) return;
-        if (e.getAttackPoints() < (*it)->getAttackPoints()) ++pos;
+        if (card == *it) return false;
+        if (card->getAttackPoints() < (*it)->getAttackPoints()) ++pos;
     }
-    trophies.insert(pos,&e);
+    trophies.insert(pos,card);
+    return true;
 }
 ///
 ///Removes the card to the character's list of followers.
