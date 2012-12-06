@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Wed Dec 5 00:20:16 2012
+** Created: Wed Dec 5 19:19:43 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -28,19 +28,14 @@ QT_BEGIN_NAMESPACE
 class Ui_TheBigWindow
 {
 public:
-    QGridLayout *windowLayout;
-    QHBoxLayout *mainLayout;
-    QVBoxLayout *leftLayout;
+    QWidget *layoutWidget;
+    QVBoxLayout *boardPanel;
     QHBoxLayout *bigSquare;
-    QLabel *iLabel;
     QTextEdit *txtLog;
-    QVBoxLayout *rightLayout;
-    QGridLayout *charDetails;
-    QLabel *lblStr;
+    QWidget *layoutWidget1;
+    QGridLayout *charDetailsPanel;
     QLabel *lblLife;
     QLabel *lblGold;
-    QLabel *lblFate;
-    QLabel *lblCft;
     QLabel *lblStrPts;
     QLabel *lblCftPts;
     QLabel *lblFatePts;
@@ -49,24 +44,35 @@ public:
     QPushButton *btnListFollowers;
     QPushButton *btnListObjects;
     QPushButton *btnListTrophies;
-    QHBoxLayout *charPanel;
-    QVBoxLayout *mainMenu;
-    QPushButton *btnEncounter;
-    QPushButton *btnExchangeTrophies;
+    QLabel *lblFate;
+    QLabel *lblCft;
+    QLabel *lblStr;
+    QWidget *layoutWidget2;
+    QHBoxLayout *movementPanel;
     QPushButton *btnRollDie;
-    QPushButton *btnAttack;
-    QPushButton *btnExchangeFate;
-    QPushButton *btnAddToFollowers;
-    QPushButton *btnAddToTrophies;
-    QPushButton *btnEndTurn;
-    QHBoxLayout *arena;
-    QHBoxLayout *movementLayout;
     QPushButton *btnRight;
     QPushButton *btnYes;
     QLabel *lblStatus;
     QPushButton *btnNo;
     QPushButton *btnLeft;
-    QHBoxLayout *deckLayout;
+    QWidget *layoutWidget3;
+    QHBoxLayout *charCardPanel;
+    QWidget *layoutWidget4;
+    QVBoxLayout *encounterPanel;
+    QPushButton *btnEncounter;
+    QPushButton *btnExchangeTrophies;
+    QPushButton *btnRollEncounterDie;
+    QPushButton *btnAttack;
+    QPushButton *btnExchangeFate;
+    QPushButton *btnAddToFollowers;
+    QPushButton *btnAddToTrophies;
+    QPushButton *btnEndTurn;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *mapSquarePanel;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *adventureCardPanel;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *dicePanel;
 
     void setupUi(QWidget *TheBigWindow)
     {
@@ -109,268 +115,190 @@ public:
 "	background-color: rgba(0,0,0,0%);\n"
 "	padding: 4px;\n"
 "}"));
-        windowLayout = new QGridLayout(TheBigWindow);
-        windowLayout->setSpacing(0);
-        windowLayout->setContentsMargins(0, 0, 0, 0);
-        windowLayout->setObjectName(QString::fromUtf8("windowLayout"));
-        windowLayout->setSizeConstraint(QLayout::SetMinimumSize);
-        mainLayout = new QHBoxLayout();
-        mainLayout->setSpacing(6);
-        mainLayout->setObjectName(QString::fromUtf8("mainLayout"));
-        mainLayout->setSizeConstraint(QLayout::SetMinimumSize);
-        leftLayout = new QVBoxLayout();
-        leftLayout->setContentsMargins(4, 4, 4, 4);
-        leftLayout->setObjectName(QString::fromUtf8("leftLayout"));
-        leftLayout->setSizeConstraint(QLayout::SetMinimumSize);
+        layoutWidget = new QWidget(TheBigWindow);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(590, 10, 274, 581));
+        boardPanel = new QVBoxLayout(layoutWidget);
+        boardPanel->setSpacing(8);
+        boardPanel->setContentsMargins(8, 8, 8, 8);
+        boardPanel->setObjectName(QString::fromUtf8("boardPanel"));
+        boardPanel->setSizeConstraint(QLayout::SetMinimumSize);
+        boardPanel->setContentsMargins(0, 0, 0, 0);
         bigSquare = new QHBoxLayout();
         bigSquare->setSpacing(0);
         bigSquare->setObjectName(QString::fromUtf8("bigSquare"));
         bigSquare->setSizeConstraint(QLayout::SetMinimumSize);
 
-        leftLayout->addLayout(bigSquare);
+        boardPanel->addLayout(bigSquare);
 
-        iLabel = new QLabel(TheBigWindow);
-        iLabel->setObjectName(QString::fromUtf8("iLabel"));
+        txtLog = new QTextEdit(layoutWidget);
+        txtLog->setObjectName(QString::fromUtf8("txtLog"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(iLabel->sizePolicy().hasHeightForWidth());
-        iLabel->setSizePolicy(sizePolicy1);
-
-        leftLayout->addWidget(iLabel);
-
-        txtLog = new QTextEdit(TheBigWindow);
-        txtLog->setObjectName(QString::fromUtf8("txtLog"));
         sizePolicy1.setHeightForWidth(txtLog->sizePolicy().hasHeightForWidth());
         txtLog->setSizePolicy(sizePolicy1);
+        txtLog->setFrameShape(QFrame::StyledPanel);
+        txtLog->setReadOnly(true);
 
-        leftLayout->addWidget(txtLog);
+        boardPanel->addWidget(txtLog);
 
-
-        mainLayout->addLayout(leftLayout);
-
-        rightLayout = new QVBoxLayout();
-        rightLayout->setSpacing(0);
-        rightLayout->setObjectName(QString::fromUtf8("rightLayout"));
-        rightLayout->setSizeConstraint(QLayout::SetMinimumSize);
-        rightLayout->setContentsMargins(-1, -1, 0, -1);
-        charDetails = new QGridLayout();
-        charDetails->setSpacing(0);
-        charDetails->setObjectName(QString::fromUtf8("charDetails"));
-        charDetails->setSizeConstraint(QLayout::SetMinimumSize);
-        lblStr = new QLabel(TheBigWindow);
-        lblStr->setObjectName(QString::fromUtf8("lblStr"));
-        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        layoutWidget1 = new QWidget(TheBigWindow);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(10, 10, 569, 77));
+        charDetailsPanel = new QGridLayout(layoutWidget1);
+        charDetailsPanel->setSpacing(0);
+        charDetailsPanel->setObjectName(QString::fromUtf8("charDetailsPanel"));
+        charDetailsPanel->setSizeConstraint(QLayout::SetMinimumSize);
+        charDetailsPanel->setContentsMargins(0, 0, 0, 0);
+        lblLife = new QLabel(layoutWidget1);
+        lblLife->setObjectName(QString::fromUtf8("lblLife"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Minimum);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(lblStr->sizePolicy().hasHeightForWidth());
-        lblStr->setSizePolicy(sizePolicy2);
-        lblStr->setLayoutDirection(Qt::LeftToRight);
-        lblStr->setAlignment(Qt::AlignCenter);
-
-        charDetails->addWidget(lblStr, 0, 0, 1, 1);
-
-        lblLife = new QLabel(TheBigWindow);
-        lblLife->setObjectName(QString::fromUtf8("lblLife"));
         sizePolicy2.setHeightForWidth(lblLife->sizePolicy().hasHeightForWidth());
         lblLife->setSizePolicy(sizePolicy2);
         lblLife->setLayoutDirection(Qt::LeftToRight);
         lblLife->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblLife, 0, 4, 1, 1);
+        charDetailsPanel->addWidget(lblLife, 0, 4, 1, 1);
 
-        lblGold = new QLabel(TheBigWindow);
+        lblGold = new QLabel(layoutWidget1);
         lblGold->setObjectName(QString::fromUtf8("lblGold"));
         sizePolicy2.setHeightForWidth(lblGold->sizePolicy().hasHeightForWidth());
         lblGold->setSizePolicy(sizePolicy2);
         lblGold->setLayoutDirection(Qt::LeftToRight);
         lblGold->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblGold, 0, 3, 1, 1);
+        charDetailsPanel->addWidget(lblGold, 0, 3, 1, 1);
 
-        lblFate = new QLabel(TheBigWindow);
-        lblFate->setObjectName(QString::fromUtf8("lblFate"));
-        sizePolicy2.setHeightForWidth(lblFate->sizePolicy().hasHeightForWidth());
-        lblFate->setSizePolicy(sizePolicy2);
-        lblFate->setLayoutDirection(Qt::LeftToRight);
-        lblFate->setAlignment(Qt::AlignCenter);
-
-        charDetails->addWidget(lblFate, 0, 2, 1, 1);
-
-        lblCft = new QLabel(TheBigWindow);
-        lblCft->setObjectName(QString::fromUtf8("lblCft"));
-        sizePolicy2.setHeightForWidth(lblCft->sizePolicy().hasHeightForWidth());
-        lblCft->setSizePolicy(sizePolicy2);
-        lblCft->setLayoutDirection(Qt::LeftToRight);
-        lblCft->setAlignment(Qt::AlignCenter);
-
-        charDetails->addWidget(lblCft, 0, 1, 1, 1);
-
-        lblStrPts = new QLabel(TheBigWindow);
+        lblStrPts = new QLabel(layoutWidget1);
         lblStrPts->setObjectName(QString::fromUtf8("lblStrPts"));
+        sizePolicy2.setHeightForWidth(lblStrPts->sizePolicy().hasHeightForWidth());
+        lblStrPts->setSizePolicy(sizePolicy2);
         lblStrPts->setLayoutDirection(Qt::LeftToRight);
         lblStrPts->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblStrPts, 1, 0, 1, 1);
+        charDetailsPanel->addWidget(lblStrPts, 1, 0, 1, 1);
 
-        lblCftPts = new QLabel(TheBigWindow);
+        lblCftPts = new QLabel(layoutWidget1);
         lblCftPts->setObjectName(QString::fromUtf8("lblCftPts"));
         sizePolicy2.setHeightForWidth(lblCftPts->sizePolicy().hasHeightForWidth());
         lblCftPts->setSizePolicy(sizePolicy2);
         lblCftPts->setLayoutDirection(Qt::LeftToRight);
         lblCftPts->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblCftPts, 1, 1, 1, 1);
+        charDetailsPanel->addWidget(lblCftPts, 1, 1, 1, 1);
 
-        lblFatePts = new QLabel(TheBigWindow);
+        lblFatePts = new QLabel(layoutWidget1);
         lblFatePts->setObjectName(QString::fromUtf8("lblFatePts"));
         sizePolicy2.setHeightForWidth(lblFatePts->sizePolicy().hasHeightForWidth());
         lblFatePts->setSizePolicy(sizePolicy2);
         lblFatePts->setLayoutDirection(Qt::LeftToRight);
         lblFatePts->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblFatePts, 1, 2, 1, 1);
+        charDetailsPanel->addWidget(lblFatePts, 1, 2, 1, 1);
 
-        lblGoldPts = new QLabel(TheBigWindow);
+        lblGoldPts = new QLabel(layoutWidget1);
         lblGoldPts->setObjectName(QString::fromUtf8("lblGoldPts"));
         sizePolicy2.setHeightForWidth(lblGoldPts->sizePolicy().hasHeightForWidth());
         lblGoldPts->setSizePolicy(sizePolicy2);
         lblGoldPts->setLayoutDirection(Qt::LeftToRight);
         lblGoldPts->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblGoldPts, 1, 3, 1, 1);
+        charDetailsPanel->addWidget(lblGoldPts, 1, 3, 1, 1);
 
-        lblLifePts = new QLabel(TheBigWindow);
+        lblLifePts = new QLabel(layoutWidget1);
         lblLifePts->setObjectName(QString::fromUtf8("lblLifePts"));
         sizePolicy2.setHeightForWidth(lblLifePts->sizePolicy().hasHeightForWidth());
         lblLifePts->setSizePolicy(sizePolicy2);
         lblLifePts->setLayoutDirection(Qt::LeftToRight);
         lblLifePts->setAlignment(Qt::AlignCenter);
 
-        charDetails->addWidget(lblLifePts, 1, 4, 1, 1);
+        charDetailsPanel->addWidget(lblLifePts, 1, 4, 1, 1);
 
-        btnListFollowers = new QPushButton(TheBigWindow);
+        btnListFollowers = new QPushButton(layoutWidget1);
         btnListFollowers->setObjectName(QString::fromUtf8("btnListFollowers"));
-        sizePolicy2.setHeightForWidth(btnListFollowers->sizePolicy().hasHeightForWidth());
-        btnListFollowers->setSizePolicy(sizePolicy2);
-
-        charDetails->addWidget(btnListFollowers, 2, 1, 1, 1);
-
-        btnListObjects = new QPushButton(TheBigWindow);
-        btnListObjects->setObjectName(QString::fromUtf8("btnListObjects"));
-        sizePolicy2.setHeightForWidth(btnListObjects->sizePolicy().hasHeightForWidth());
-        btnListObjects->setSizePolicy(sizePolicy2);
-
-        charDetails->addWidget(btnListObjects, 2, 2, 1, 1);
-
-        btnListTrophies = new QPushButton(TheBigWindow);
-        btnListTrophies->setObjectName(QString::fromUtf8("btnListTrophies"));
-        sizePolicy2.setHeightForWidth(btnListTrophies->sizePolicy().hasHeightForWidth());
-        btnListTrophies->setSizePolicy(sizePolicy2);
-
-        charDetails->addWidget(btnListTrophies, 2, 3, 1, 1);
-
-
-        rightLayout->addLayout(charDetails);
-
-        charPanel = new QHBoxLayout();
-        charPanel->setSpacing(0);
-        charPanel->setObjectName(QString::fromUtf8("charPanel"));
-        charPanel->setSizeConstraint(QLayout::SetMinimumSize);
-        mainMenu = new QVBoxLayout();
-        mainMenu->setObjectName(QString::fromUtf8("mainMenu"));
-        mainMenu->setSizeConstraint(QLayout::SetMinimumSize);
-        btnEncounter = new QPushButton(TheBigWindow);
-        btnEncounter->setObjectName(QString::fromUtf8("btnEncounter"));
         QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(btnEncounter->sizePolicy().hasHeightForWidth());
-        btnEncounter->setSizePolicy(sizePolicy3);
+        sizePolicy3.setHeightForWidth(btnListFollowers->sizePolicy().hasHeightForWidth());
+        btnListFollowers->setSizePolicy(sizePolicy3);
 
-        mainMenu->addWidget(btnEncounter);
+        charDetailsPanel->addWidget(btnListFollowers, 2, 1, 1, 1);
 
-        btnExchangeTrophies = new QPushButton(TheBigWindow);
-        btnExchangeTrophies->setObjectName(QString::fromUtf8("btnExchangeTrophies"));
-        sizePolicy3.setHeightForWidth(btnExchangeTrophies->sizePolicy().hasHeightForWidth());
-        btnExchangeTrophies->setSizePolicy(sizePolicy3);
+        btnListObjects = new QPushButton(layoutWidget1);
+        btnListObjects->setObjectName(QString::fromUtf8("btnListObjects"));
+        sizePolicy3.setHeightForWidth(btnListObjects->sizePolicy().hasHeightForWidth());
+        btnListObjects->setSizePolicy(sizePolicy3);
 
-        mainMenu->addWidget(btnExchangeTrophies);
+        charDetailsPanel->addWidget(btnListObjects, 2, 2, 1, 1);
 
-        btnRollDie = new QPushButton(TheBigWindow);
+        btnListTrophies = new QPushButton(layoutWidget1);
+        btnListTrophies->setObjectName(QString::fromUtf8("btnListTrophies"));
+        sizePolicy3.setHeightForWidth(btnListTrophies->sizePolicy().hasHeightForWidth());
+        btnListTrophies->setSizePolicy(sizePolicy3);
+
+        charDetailsPanel->addWidget(btnListTrophies, 2, 3, 1, 1);
+
+        lblFate = new QLabel(layoutWidget1);
+        lblFate->setObjectName(QString::fromUtf8("lblFate"));
+        sizePolicy2.setHeightForWidth(lblFate->sizePolicy().hasHeightForWidth());
+        lblFate->setSizePolicy(sizePolicy2);
+        lblFate->setLayoutDirection(Qt::LeftToRight);
+        lblFate->setAlignment(Qt::AlignCenter);
+
+        charDetailsPanel->addWidget(lblFate, 0, 2, 1, 1);
+
+        lblCft = new QLabel(layoutWidget1);
+        lblCft->setObjectName(QString::fromUtf8("lblCft"));
+        sizePolicy2.setHeightForWidth(lblCft->sizePolicy().hasHeightForWidth());
+        lblCft->setSizePolicy(sizePolicy2);
+        lblCft->setLayoutDirection(Qt::LeftToRight);
+        lblCft->setAlignment(Qt::AlignCenter);
+
+        charDetailsPanel->addWidget(lblCft, 0, 1, 1, 1);
+
+        lblStr = new QLabel(layoutWidget1);
+        lblStr->setObjectName(QString::fromUtf8("lblStr"));
+        sizePolicy2.setHeightForWidth(lblStr->sizePolicy().hasHeightForWidth());
+        lblStr->setSizePolicy(sizePolicy2);
+        lblStr->setLayoutDirection(Qt::LeftToRight);
+        lblStr->setAlignment(Qt::AlignCenter);
+
+        charDetailsPanel->addWidget(lblStr, 0, 0, 1, 1);
+
+        layoutWidget2 = new QWidget(TheBigWindow);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(10, 420, 341, 51));
+        movementPanel = new QHBoxLayout(layoutWidget2);
+        movementPanel->setSpacing(0);
+        movementPanel->setObjectName(QString::fromUtf8("movementPanel"));
+        movementPanel->setSizeConstraint(QLayout::SetFixedSize);
+        movementPanel->setContentsMargins(0, 0, 0, 0);
+        btnRollDie = new QPushButton(layoutWidget2);
         btnRollDie->setObjectName(QString::fromUtf8("btnRollDie"));
         sizePolicy3.setHeightForWidth(btnRollDie->sizePolicy().hasHeightForWidth());
         btnRollDie->setSizePolicy(sizePolicy3);
 
-        mainMenu->addWidget(btnRollDie);
+        movementPanel->addWidget(btnRollDie);
 
-        btnAttack = new QPushButton(TheBigWindow);
-        btnAttack->setObjectName(QString::fromUtf8("btnAttack"));
-        sizePolicy3.setHeightForWidth(btnAttack->sizePolicy().hasHeightForWidth());
-        btnAttack->setSizePolicy(sizePolicy3);
-
-        mainMenu->addWidget(btnAttack);
-
-        btnExchangeFate = new QPushButton(TheBigWindow);
-        btnExchangeFate->setObjectName(QString::fromUtf8("btnExchangeFate"));
-        sizePolicy3.setHeightForWidth(btnExchangeFate->sizePolicy().hasHeightForWidth());
-        btnExchangeFate->setSizePolicy(sizePolicy3);
-
-        mainMenu->addWidget(btnExchangeFate);
-
-        btnAddToFollowers = new QPushButton(TheBigWindow);
-        btnAddToFollowers->setObjectName(QString::fromUtf8("btnAddToFollowers"));
-        sizePolicy3.setHeightForWidth(btnAddToFollowers->sizePolicy().hasHeightForWidth());
-        btnAddToFollowers->setSizePolicy(sizePolicy3);
-
-        mainMenu->addWidget(btnAddToFollowers);
-
-        btnAddToTrophies = new QPushButton(TheBigWindow);
-        btnAddToTrophies->setObjectName(QString::fromUtf8("btnAddToTrophies"));
-        sizePolicy3.setHeightForWidth(btnAddToTrophies->sizePolicy().hasHeightForWidth());
-        btnAddToTrophies->setSizePolicy(sizePolicy3);
-
-        mainMenu->addWidget(btnAddToTrophies);
-
-        btnEndTurn = new QPushButton(TheBigWindow);
-        btnEndTurn->setObjectName(QString::fromUtf8("btnEndTurn"));
-        sizePolicy3.setHeightForWidth(btnEndTurn->sizePolicy().hasHeightForWidth());
-        btnEndTurn->setSizePolicy(sizePolicy3);
-
-        mainMenu->addWidget(btnEndTurn);
-
-
-        charPanel->addLayout(mainMenu);
-
-        arena = new QHBoxLayout();
-        arena->setObjectName(QString::fromUtf8("arena"));
-        arena->setSizeConstraint(QLayout::SetMinimumSize);
-
-        charPanel->addLayout(arena);
-
-
-        rightLayout->addLayout(charPanel);
-
-        movementLayout = new QHBoxLayout();
-        movementLayout->setSpacing(0);
-        movementLayout->setObjectName(QString::fromUtf8("movementLayout"));
-        movementLayout->setSizeConstraint(QLayout::SetMinimumSize);
-        btnRight = new QPushButton(TheBigWindow);
+        btnRight = new QPushButton(layoutWidget2);
         btnRight->setObjectName(QString::fromUtf8("btnRight"));
         sizePolicy3.setHeightForWidth(btnRight->sizePolicy().hasHeightForWidth());
         btnRight->setSizePolicy(sizePolicy3);
         btnRight->setBaseSize(QSize(0, 0));
 
-        movementLayout->addWidget(btnRight);
+        movementPanel->addWidget(btnRight);
 
-        btnYes = new QPushButton(TheBigWindow);
+        btnYes = new QPushButton(layoutWidget2);
         btnYes->setObjectName(QString::fromUtf8("btnYes"));
         sizePolicy3.setHeightForWidth(btnYes->sizePolicy().hasHeightForWidth());
         btnYes->setSizePolicy(sizePolicy3);
 
-        movementLayout->addWidget(btnYes);
+        movementPanel->addWidget(btnYes);
 
-        lblStatus = new QLabel(TheBigWindow);
+        lblStatus = new QLabel(layoutWidget2);
         lblStatus->setObjectName(QString::fromUtf8("lblStatus"));
         QSizePolicy sizePolicy4(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy4.setHorizontalStretch(1);
@@ -381,38 +309,116 @@ public:
         lblStatus->setAlignment(Qt::AlignCenter);
         lblStatus->setWordWrap(true);
 
-        movementLayout->addWidget(lblStatus);
+        movementPanel->addWidget(lblStatus);
 
-        btnNo = new QPushButton(TheBigWindow);
+        btnNo = new QPushButton(layoutWidget2);
         btnNo->setObjectName(QString::fromUtf8("btnNo"));
         sizePolicy3.setHeightForWidth(btnNo->sizePolicy().hasHeightForWidth());
         btnNo->setSizePolicy(sizePolicy3);
 
-        movementLayout->addWidget(btnNo);
+        movementPanel->addWidget(btnNo);
 
-        btnLeft = new QPushButton(TheBigWindow);
+        btnLeft = new QPushButton(layoutWidget2);
         btnLeft->setObjectName(QString::fromUtf8("btnLeft"));
         sizePolicy3.setHeightForWidth(btnLeft->sizePolicy().hasHeightForWidth());
         btnLeft->setSizePolicy(sizePolicy3);
 
-        movementLayout->addWidget(btnLeft);
+        movementPanel->addWidget(btnLeft);
 
+        layoutWidget3 = new QWidget(TheBigWindow);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(150, 100, 211, 231));
+        charCardPanel = new QHBoxLayout(layoutWidget3);
+        charCardPanel->setSpacing(0);
+        charCardPanel->setObjectName(QString::fromUtf8("charCardPanel"));
+        charCardPanel->setSizeConstraint(QLayout::SetFixedSize);
+        charCardPanel->setContentsMargins(0, 0, 0, 0);
+        layoutWidget4 = new QWidget(TheBigWindow);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(10, 100, 131, 231));
+        encounterPanel = new QVBoxLayout(layoutWidget4);
+        encounterPanel->setSpacing(0);
+        encounterPanel->setObjectName(QString::fromUtf8("encounterPanel"));
+        encounterPanel->setSizeConstraint(QLayout::SetFixedSize);
+        encounterPanel->setContentsMargins(0, 0, 0, 0);
+        btnEncounter = new QPushButton(layoutWidget4);
+        btnEncounter->setObjectName(QString::fromUtf8("btnEncounter"));
+        sizePolicy3.setHeightForWidth(btnEncounter->sizePolicy().hasHeightForWidth());
+        btnEncounter->setSizePolicy(sizePolicy3);
 
-        rightLayout->addLayout(movementLayout);
+        encounterPanel->addWidget(btnEncounter);
 
-        deckLayout = new QHBoxLayout();
-        deckLayout->setSpacing(0);
-        deckLayout->setObjectName(QString::fromUtf8("deckLayout"));
-        deckLayout->setSizeConstraint(QLayout::SetMinimumSize);
+        btnExchangeTrophies = new QPushButton(layoutWidget4);
+        btnExchangeTrophies->setObjectName(QString::fromUtf8("btnExchangeTrophies"));
+        sizePolicy3.setHeightForWidth(btnExchangeTrophies->sizePolicy().hasHeightForWidth());
+        btnExchangeTrophies->setSizePolicy(sizePolicy3);
 
-        rightLayout->addLayout(deckLayout);
+        encounterPanel->addWidget(btnExchangeTrophies);
 
+        btnRollEncounterDie = new QPushButton(layoutWidget4);
+        btnRollEncounterDie->setObjectName(QString::fromUtf8("btnRollEncounterDie"));
+        sizePolicy3.setHeightForWidth(btnRollEncounterDie->sizePolicy().hasHeightForWidth());
+        btnRollEncounterDie->setSizePolicy(sizePolicy3);
 
-        mainLayout->addLayout(rightLayout);
+        encounterPanel->addWidget(btnRollEncounterDie);
 
+        btnAttack = new QPushButton(layoutWidget4);
+        btnAttack->setObjectName(QString::fromUtf8("btnAttack"));
+        sizePolicy3.setHeightForWidth(btnAttack->sizePolicy().hasHeightForWidth());
+        btnAttack->setSizePolicy(sizePolicy3);
 
-        windowLayout->addLayout(mainLayout, 0, 0, 1, 1);
+        encounterPanel->addWidget(btnAttack);
 
+        btnExchangeFate = new QPushButton(layoutWidget4);
+        btnExchangeFate->setObjectName(QString::fromUtf8("btnExchangeFate"));
+        sizePolicy3.setHeightForWidth(btnExchangeFate->sizePolicy().hasHeightForWidth());
+        btnExchangeFate->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnExchangeFate);
+
+        btnAddToFollowers = new QPushButton(layoutWidget4);
+        btnAddToFollowers->setObjectName(QString::fromUtf8("btnAddToFollowers"));
+        sizePolicy3.setHeightForWidth(btnAddToFollowers->sizePolicy().hasHeightForWidth());
+        btnAddToFollowers->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnAddToFollowers);
+
+        btnAddToTrophies = new QPushButton(layoutWidget4);
+        btnAddToTrophies->setObjectName(QString::fromUtf8("btnAddToTrophies"));
+        sizePolicy3.setHeightForWidth(btnAddToTrophies->sizePolicy().hasHeightForWidth());
+        btnAddToTrophies->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnAddToTrophies);
+
+        btnEndTurn = new QPushButton(layoutWidget4);
+        btnEndTurn->setObjectName(QString::fromUtf8("btnEndTurn"));
+        sizePolicy3.setHeightForWidth(btnEndTurn->sizePolicy().hasHeightForWidth());
+        btnEndTurn->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnEndTurn);
+
+        horizontalLayoutWidget = new QWidget(TheBigWindow);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(10, 480, 571, 111));
+        mapSquarePanel = new QHBoxLayout(horizontalLayoutWidget);
+        mapSquarePanel->setObjectName(QString::fromUtf8("mapSquarePanel"));
+        mapSquarePanel->setSizeConstraint(QLayout::SetFixedSize);
+        mapSquarePanel->setContentsMargins(0, 0, 0, 0);
+        verticalLayoutWidget = new QWidget(TheBigWindow);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(370, 100, 211, 371));
+        adventureCardPanel = new QVBoxLayout(verticalLayoutWidget);
+        adventureCardPanel->setSpacing(0);
+        adventureCardPanel->setObjectName(QString::fromUtf8("adventureCardPanel"));
+        adventureCardPanel->setSizeConstraint(QLayout::SetMinimumSize);
+        adventureCardPanel->setContentsMargins(0, 0, 0, 0);
+        horizontalLayoutWidget_2 = new QWidget(TheBigWindow);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 360, 341, 41));
+        dicePanel = new QHBoxLayout(horizontalLayoutWidget_2);
+        dicePanel->setSpacing(16);
+        dicePanel->setObjectName(QString::fromUtf8("dicePanel"));
+        dicePanel->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(TheBigWindow);
 
@@ -422,12 +428,8 @@ public:
     void retranslateUi(QWidget *TheBigWindow)
     {
         TheBigWindow->setWindowTitle(QApplication::translate("TheBigWindow", "Talisman", 0, QApplication::UnicodeUTF8));
-        iLabel->setText(QApplication::translate("TheBigWindow", "Status log", 0, QApplication::UnicodeUTF8));
-        lblStr->setText(QApplication::translate("TheBigWindow", "Strength", 0, QApplication::UnicodeUTF8));
         lblLife->setText(QApplication::translate("TheBigWindow", "Life", 0, QApplication::UnicodeUTF8));
         lblGold->setText(QApplication::translate("TheBigWindow", "Gold", 0, QApplication::UnicodeUTF8));
-        lblFate->setText(QApplication::translate("TheBigWindow", "Fate", 0, QApplication::UnicodeUTF8));
-        lblCft->setText(QApplication::translate("TheBigWindow", "Craft", 0, QApplication::UnicodeUTF8));
         lblStrPts->setText(QString());
         lblCftPts->setText(QString());
         lblFatePts->setText(QString());
@@ -436,19 +438,23 @@ public:
         btnListFollowers->setText(QApplication::translate("TheBigWindow", "Followers", 0, QApplication::UnicodeUTF8));
         btnListObjects->setText(QApplication::translate("TheBigWindow", "Objects", 0, QApplication::UnicodeUTF8));
         btnListTrophies->setText(QApplication::translate("TheBigWindow", "Trophies", 0, QApplication::UnicodeUTF8));
-        btnEncounter->setText(QApplication::translate("TheBigWindow", "Encounter", 0, QApplication::UnicodeUTF8));
-        btnExchangeTrophies->setText(QApplication::translate("TheBigWindow", "Exchange Trophies", 0, QApplication::UnicodeUTF8));
+        lblFate->setText(QApplication::translate("TheBigWindow", "Fate", 0, QApplication::UnicodeUTF8));
+        lblCft->setText(QApplication::translate("TheBigWindow", "Craft", 0, QApplication::UnicodeUTF8));
+        lblStr->setText(QApplication::translate("TheBigWindow", "Strength", 0, QApplication::UnicodeUTF8));
         btnRollDie->setText(QApplication::translate("TheBigWindow", "Roll Die", 0, QApplication::UnicodeUTF8));
-        btnAttack->setText(QApplication::translate("TheBigWindow", "Attack", 0, QApplication::UnicodeUTF8));
-        btnExchangeFate->setText(QApplication::translate("TheBigWindow", "Exchange Fate", 0, QApplication::UnicodeUTF8));
-        btnAddToFollowers->setText(QApplication::translate("TheBigWindow", "Add to Followers", 0, QApplication::UnicodeUTF8));
-        btnAddToTrophies->setText(QApplication::translate("TheBigWindow", "Add to Trophies", 0, QApplication::UnicodeUTF8));
-        btnEndTurn->setText(QApplication::translate("TheBigWindow", "End Turn", 0, QApplication::UnicodeUTF8));
         btnRight->setText(QApplication::translate("TheBigWindow", "Clockwise", 0, QApplication::UnicodeUTF8));
         btnYes->setText(QApplication::translate("TheBigWindow", "Yes", 0, QApplication::UnicodeUTF8));
         lblStatus->setText(QString());
         btnNo->setText(QApplication::translate("TheBigWindow", "No", 0, QApplication::UnicodeUTF8));
         btnLeft->setText(QApplication::translate("TheBigWindow", "Counter-clockwise", 0, QApplication::UnicodeUTF8));
+        btnEncounter->setText(QApplication::translate("TheBigWindow", "Encounter", 0, QApplication::UnicodeUTF8));
+        btnExchangeTrophies->setText(QApplication::translate("TheBigWindow", "Exchange Trophies", 0, QApplication::UnicodeUTF8));
+        btnRollEncounterDie->setText(QApplication::translate("TheBigWindow", "Roll Die", 0, QApplication::UnicodeUTF8));
+        btnAttack->setText(QApplication::translate("TheBigWindow", "Attack", 0, QApplication::UnicodeUTF8));
+        btnExchangeFate->setText(QApplication::translate("TheBigWindow", "Exchange Fate", 0, QApplication::UnicodeUTF8));
+        btnAddToFollowers->setText(QApplication::translate("TheBigWindow", "Add to Followers", 0, QApplication::UnicodeUTF8));
+        btnAddToTrophies->setText(QApplication::translate("TheBigWindow", "Add to Trophies", 0, QApplication::UnicodeUTF8));
+        btnEndTurn->setText(QApplication::translate("TheBigWindow", "End Turn", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

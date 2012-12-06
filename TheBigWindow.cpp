@@ -15,28 +15,44 @@ TheBigWindow::TheBigWindow() {
   
     //Initialize objects
     board = new MapBoard;
-    die = new DieWidget;    
+    die = new DieWidget; 
+    die1 = new DieWidget();
+    die2 = new DieWidget();
+    player = NULL;
+    card = NULL;
     playerDeck = new CharacterCardDeck;
     adventureDeck = new AdventureCardDeck;
     playerDeck->setToolTip("Double-click to draw a player card");
     
+    //Add custom widgets
+    widget.dicePanel->addWidget(die1);
+    widget.dicePanel->addWidget(die2);
+    
     //Setup gui
+    updateCharacterStats();
     widget.bigSquare->addWidget(board);
-    widget.arena->addWidget(playerDeck);
-    widget.arena->addWidget(adventureDeck);
-    widget.movementLayout->insertWidget(0,die);
-    die->hide();
+    widget.charCardPanel->addWidget(playerDeck);
+    widget.adventureCardPanel->addWidget(adventureDeck);
+    widget.movementPanel->addWidget(die);
+    //Hide all controls
     widget.btnLeft->hide();
-    widget.btnLeft->setToolTip("Move counterclockwise");
     widget.btnRight->hide();
-    widget.btnRight->setToolTip("Move clockwise");
     widget.btnYes->hide();
     widget.btnNo->hide();
     widget.btnRollDie->hide();
-    widget.iLabel->show();
-    widget.txtLog->show();
+    widget.btnAddToFollowers->hide();
+    widget.btnAddToTrophies->hide();
+    widget.btnExchangeTrophies->hide();
+    widget.btnAttack->hide();
+    widget.btnEncounter->hide();
+    widget.btnEndTurn->hide();
+    widget.btnExchangeFate->hide();
+    widget.btnRollEncounterDie->hide();
+    die->hide();
+    die1->hide();
+    die2->hide();
     
-    //Set signals for buttons
+    //Set signals for movement buttons
     connect(widget.btnRollDie, SIGNAL(clicked()), this, SLOT(btnRollDieClicked()));
     connect(widget.btnLeft, SIGNAL(clicked()), this, SLOT(btnCounterClockwise()));
     connect(widget.btnRight, SIGNAL(clicked()), this, SLOT(btnClockwise()));
@@ -44,16 +60,46 @@ TheBigWindow::TheBigWindow() {
     connect(widget.btnNo, SIGNAL(clicked()), this, SLOT(btnNoClicked()));
     connect(playerDeck, SIGNAL(doubleClicked()), this, SLOT(playerDeckDoubleClicked()));
     connect(adventureDeck, SIGNAL(doubleClicked()), this, SLOT(adventureDeckDoubleClicked()));
+    //Connect signals for encounter panel
+    connect(widget.btnRollEncounterDie, SIGNAL(clicked()), this, SLOT(btnRollEncounterDieClicked()));
+    connect(widget.btnAttack, SIGNAL(clicked()), this, SLOT(btnAttackClicked()));
+    connect(widget.btnExchangeFate, SIGNAL(clicked()), this, SLOT(btnExchangeFateClicked()));
+    connect(widget.btnAddToFollowers, SIGNAL(clicked()), this, SLOT(btnAddToFollowersClicked()));
+    connect(widget.btnAddToTrophies, SIGNAL(clicked()), this, SLOT(btnAddToTrophiesClicked()));
+    connect(widget.btnEncounter, SIGNAL(clicked()), this, SLOT(btnEncounterClicked()));
+    connect(widget.btnListFollowers, SIGNAL(clicked()), this, SLOT(btnListFollowersClicked()));
+    connect(widget.btnListTrophies, SIGNAL(clicked()), this, SLOT(btnListTrophiesClicked()));
+    connect(widget.btnExchangeTrophies, SIGNAL(clicked()), this, SLOT(btnExchangeTrophiesClicked()));
+    connect(widget.btnEndTurn, SIGNAL(clicked()), this, SLOT(btnEndTurnClicked()));
+    //Maximize window
+    this->showMaximized();
 }
 
-TheBigWindow::~TheBigWindow() {
+TheBigWindow::~TheBigWindow() {}
+
+void TheBigWindow::updateCharacterStats() {
+    int str = 0, cft = 0, fate = 0, gold = 0, life = 0;
+    
+    if (player != NULL) {
+        str = player->getStrength();
+        cft = player->getCraft();
+        fate = player->getFateTokens();
+        gold = player->getGold();
+        life = player->getLifePoints();
+    }
+    
+    widget.lblStrPts->setText(QString("%1").arg(str));
+    widget.lblCftPts->setText(QString("%1").arg(cft));
+    widget.lblFatePts->setText(QString("%1").arg(fate));
+    widget.lblGoldPts->setText(QString("%1").arg(gold));
+    widget.lblLifePts->setText(QString("%1").arg(life));
 }
 
 void TheBigWindow::playerDeckDoubleClicked() {
-    if (player != NULL) {
+    if (player == NULL) {
         playerDeck->hide();
         player = playerDeck->drawCard();
-        widget.arena->insertWidget(0,player);
+        widget.charCardPanel->addWidget(player);
         player->show();
         MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
         ms->addCharacter(*player);
@@ -62,14 +108,201 @@ void TheBigWindow::playerDeckDoubleClicked() {
         string i = "You have landed on <b>" + ms->getSquareName() + "</b> in the <b>" + ms->getSquareRegion()
         + "</b> region. <br><br>" + ms->getInstructions();
         widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
+        updateCharacterStats();
     } 
 }
 
 void TheBigWindow::adventureDeckDoubleClicked() {
+    widget.btnEncounter->show();
     adventureDeck->hide();
-    AdventureCard* a = adventureDeck->drawCard();
-    widget.arena->addWidget(a);
-    a->show();
+    card = adventureDeck->drawCard();
+    widget.adventureCardPanel->addWidget(card);
+}
+
+void TheBigWindow::btnEncounterClicked() {
+    //Update view
+    widget.btnEncounter->hide();
+//    widget.btnListFollowers->hide();
+//    widget.btnListTrophies->hide();
+    widget.btnExchangeTrophies->hide();
+    widget.btnRollEncounterDie->show();
+    //Update view log
+    widget.txtLog->append(
+        QString("%1 encounters a %2")
+        .arg(QString::fromStdString(player->getTitle()))
+        .arg(QString::fromStdString(card->getTitle()))
+    );
+}
+
+void TheBigWindow::btnListFollowersClicked () {
+    //Update view log
+    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following followers:");
+    widget.txtLog->append(QString::fromStdString(player->listFollowers()));
+}
+
+void TheBigWindow::btnListTrophiesClicked () {
+    //Update view log
+    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following trophies:");
+    widget.txtLog->append(QString::fromStdString(player->listTrophies()));
+}
+
+void TheBigWindow::btnExchangeTrophiesClicked() {
+    //Update view log
+    widget.txtLog->append("Exchanging trophies...");
+    int *pts = player->exchangeTrophies();
+    widget.txtLog->append(QString("+%1 strength").arg(pts[0]));
+    widget.txtLog->append(QString("+%1 craft").arg(pts[1]));
+}
+
+void TheBigWindow::btnRollEncounterDieClicked() {
+    Enemy* e = static_cast<Enemy*>(card);
+    //Update view
+    if (player->getFateTokens() > 0) widget.btnExchangeFate->show();
+    
+    //Roll first die
+    die1->show();
+    die1->roll();
+    //Update view log
+    widget.txtLog->append(
+        QString("%1 rolled a %2")
+        .arg(QString::fromStdString(player->getTitle()))
+        .arg(QString::number(die1->getRolledNumber()))
+    );
+    
+    //Roll second die
+    if (player->allowedAttackRolls(*e) == 2) {
+        die2->show();
+        die2->roll();
+        //Update view log
+        widget.txtLog->append(
+            QString("%1 rolled a %2")
+            .arg(QString::fromStdString(player->getTitle()))
+            .arg(QString::number(die2->getRolledNumber()))
+        );
+    }
+    
+    //Update view
+    widget.btnRollEncounterDie->hide();
+    widget.btnAttack->show();
+}
+
+void TheBigWindow::btnAttackClicked() {
+    die2->hide();
+    widget.btnAttack->hide();
+    widget.btnExchangeFate->hide();
+        
+    //Character attacks
+    Enemy* e = static_cast<Enemy*>(card);
+    int a = 0;
+    if (player->allowedAttackRolls(*e) == 1) {
+        a = player->attackRoll(*e, die1->getRolledNumber());
+    } else {
+        a = player->attackRoll(*e, die1->getRolledNumber(), die2->getRolledNumber());
+    }
+    //Update view log
+    widget.txtLog->append(
+        QString("%1 performs an attack roll of %2...")
+        .arg(QString::fromStdString(player->getTitle()))
+        .arg(QString::number(a))
+    );   
+    //Enemy rolls
+    die1->roll();
+    int b = e->attackRoll(die1->getRolledNumber());
+    widget.txtLog->append(
+        QString("%1 rolled a %2")
+        .arg(QString::fromStdString(e->getTitle()))
+        .arg(QString::number(die1->getRolledNumber()))
+    );
+    //Enemy attacks
+    widget.txtLog->append(
+        QString("%1 performs an attack roll of %2...")
+        .arg(QString::fromStdString(e->getTitle()))
+        .arg(QString::number(b))
+    );
+    
+    if (a < b) { // Enemy wins
+        widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(e->getTitle())));
+        player->setLifePoints(player->getLifePoints()-1);
+        widget.adventureCardPanel->removeWidget(card);
+        card->hide();
+        card = NULL;
+        adventureDeck->show();
+        die1->hide();
+        die2->hide();
+        widget.btnRollEncounterDie->hide();
+        
+        if (player->getLifePoints() > 0) {
+            widget.btnExchangeTrophies->show();
+        } else {
+            player->hide();
+            playerDeck->show();
+            widget.txtLog->append(QString("%1 died").arg(QString::fromStdString(player->getTitle())));
+        }
+    } else if (a > b) { // Character wins
+        widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(player->getTitle())));
+        widget.btnRollEncounterDie->hide();
+        widget.btnAddToFollowers->show();
+        widget.btnAddToTrophies->show();
+        widget.btnEndTurn->show();
+    } else {
+        widget.txtLog->append("Stand-off!");     
+        widget.btnRollEncounterDie->show();
+    }
+}
+
+void TheBigWindow::btnExchangeFateClicked() {
+    //Update view
+    die2->hide();
+    widget.btnExchangeFate->hide();
+    //Roll die
+    Enemy* e = static_cast<Enemy*>(card);
+    die1->roll();
+    player->fateRoll(*e, die1->getRolledNumber());
+    //Update view log
+    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " exchanges a fate token");
+    widget.txtLog->append(
+        QString("%1 rolled a %2")
+        .arg(QString::fromStdString(player->getTitle()))
+        .arg(QString::number(die1->getRolledNumber()))
+    );
+}
+
+void TheBigWindow::btnAddToFollowersClicked() {
+    //Add to character's followers
+    if (player->addFollower(card)) {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(card->getTitle()) + " added to followers");
+        //Update view
+        btnEndTurnClicked();
+        card = NULL;
+    } else {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(card->getTitle()) + " could not be added to followers");
+    }
+}
+
+void TheBigWindow::btnAddToTrophiesClicked() {
+    //Update view
+    btnEndTurnClicked();
+    //Add to character's trophies
+    Enemy* e = static_cast<Enemy*>(card);
+    player->addTrophy(e);
+    card = NULL;
+    //Update view log
+    widget.txtLog->append(QString::fromStdString(e->getTitle()) + " added to trophies");
+}
+
+void TheBigWindow::btnEndTurnClicked() {
+    //Update view
+    card->hide();
+    adventureDeck->show();
+    die1->hide();
+    die2->hide();
+    widget.adventureCardPanel->removeWidget(card);
+    widget.btnAddToFollowers->hide();
+    widget.btnAddToTrophies->hide();
+    widget.btnEndTurn->hide();
+    widget.btnExchangeTrophies->show();
 }
 
 void TheBigWindow::btnRollDieClicked() {

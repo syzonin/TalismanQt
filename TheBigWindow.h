@@ -36,11 +36,22 @@ public slots:
     void btnNoClicked();
     void playerDeckDoubleClicked();
     void adventureDeckDoubleClicked();
-//    void getCharDetails();
+    void btnRollEncounterDieClicked();
+    void btnAttackClicked();
+    void btnExchangeFateClicked();
+    void btnAddToFollowersClicked();
+    void btnAddToTrophiesClicked();
+    void btnEncounterClicked();
+    void btnListFollowersClicked();
+    void btnListTrophiesClicked();
+    void btnExchangeTrophiesClicked();
+    void btnEndTurnClicked();
+    void updateCharacterStats();
 private:
     Ui::TheBigWindow widget;
-    DieWidget *die; 
+    DieWidget *die, *die1, *die2; 
     Character *player;
+    AdventureCard *card;
     CharacterCardDeck *playerDeck;
     AdventureCardDeck *adventureDeck;
     MapBoard *board;

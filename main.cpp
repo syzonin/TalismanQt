@@ -31,30 +31,30 @@ int main(int argc, char *argv[]) {
     TheBigWindow bw;
     bw.show();
     
-    SpellFactory* s = new SpellFactory();
-    Spell* s1 = s->getSpell("Cheat Fate");
-    Spell* s2 = s->getSpell("Craft");
-    Spell* s3 = s->getSpell("Feeble Mind");
-    Spell* s4 = s->getSpell("Generosity");
-    Spell* s5 = s->getSpell("Healing");
-    Spell* s6 = s->getSpell("Life Tap");
-    Spell* s7 = s->getSpell("Magic Shell");
-    Spell* s8 = s->getSpell("Resotoration");
-    Spell* s9 = s->getSpell("Strength");
-    Spell* s10 = s->getSpell("Syphon Strength");
-    Spell* s11 = s->getSpell("Weakness");
-    
-    s1->show();
-    s2->show();
-    s3->show();
-    s4->show();
-    s5->show();
-    s6->show();
-    s7->show();
-    s8->show();
-    s9->show();
-    s10->show();
-    s11->show();
+//    SpellFactory* s = new SpellFactory();
+//    Spell* s1 = s->getSpell("Cheat Fate");
+//    Spell* s2 = s->getSpell("Craft");
+//    Spell* s3 = s->getSpell("Feeble Mind");
+//    Spell* s4 = s->getSpell("Generosity");
+//    Spell* s5 = s->getSpell("Healing");
+//    Spell* s6 = s->getSpell("Life Tap");
+//    Spell* s7 = s->getSpell("Magic Shell");
+//    Spell* s8 = s->getSpell("Resotoration");
+//    Spell* s9 = s->getSpell("Strength");
+//    Spell* s10 = s->getSpell("Syphon Strength");
+//    Spell* s11 = s->getSpell("Weakness");
+//    
+//    s1->show();
+//    s2->show();
+//    s3->show();
+//    s4->show();
+//    s5->show();
+//    s6->show();
+//    s7->show();
+//    s8->show();
+//    s9->show();
+//    s10->show();
+//    s11->show();
             
 
     //demo code ends

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TheBigWindow.h'
 **
-** Created: Wed Dec 5 00:20:19 2012
+** Created: Wed Dec 5 20:06:13 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_TheBigWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,6 +38,17 @@ static const uint qt_meta_data_TheBigWindow[] = {
       87,   13,   13,   13, 0x0a,
      102,   13,   13,   13, 0x0a,
      128,   13,   13,   13, 0x0a,
+     157,   13,   13,   13, 0x0a,
+     186,   13,   13,   13, 0x0a,
+     205,   13,   13,   13, 0x0a,
+     230,   13,   13,   13, 0x0a,
+     257,   13,   13,   13, 0x0a,
+     283,   13,   13,   13, 0x0a,
+     305,   13,   13,   13, 0x0a,
+     331,   13,   13,   13, 0x0a,
+     356,   13,   13,   13, 0x0a,
+     385,   13,   13,   13, 0x0a,
+     405,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -48,6 +59,14 @@ static const char qt_meta_stringdata_TheBigWindow[] = {
     "btnYesClicked()\0btnNoClicked()\0"
     "playerDeckDoubleClicked()\0"
     "adventureDeckDoubleClicked()\0"
+    "btnRollEncounterDieClicked()\0"
+    "btnAttackClicked()\0btnExchangeFateClicked()\0"
+    "btnAddToFollowersClicked()\0"
+    "btnAddToTrophiesClicked()\0"
+    "btnEncounterClicked()\0btnListFollowersClicked()\0"
+    "btnListTrophiesClicked()\0"
+    "btnExchangeTrophiesClicked()\0"
+    "btnEndTurnClicked()\0updateCharacterStats()\0"
 };
 
 const QMetaObject TheBigWindow::staticMetaObject = {
@@ -86,9 +105,20 @@ int TheBigWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 4: btnNoClicked(); break;
         case 5: playerDeckDoubleClicked(); break;
         case 6: adventureDeckDoubleClicked(); break;
+        case 7: btnRollEncounterDieClicked(); break;
+        case 8: btnAttackClicked(); break;
+        case 9: btnExchangeFateClicked(); break;
+        case 10: btnAddToFollowersClicked(); break;
+        case 11: btnAddToTrophiesClicked(); break;
+        case 12: btnEncounterClicked(); break;
+        case 13: btnListFollowersClicked(); break;
+        case 14: btnListTrophiesClicked(); break;
+        case 15: btnExchangeTrophiesClicked(); break;
+        case 16: btnEndTurnClicked(); break;
+        case 17: updateCharacterStats(); break;
         default: ;
         }
-        _id -= 7;
+        _id -= 18;
     }
     return _id;
 }
