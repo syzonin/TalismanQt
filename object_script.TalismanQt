@@ -24,15 +24,15 @@ INPUT(
 ./build/Debug/MinGW-Windows/Weakness.o
 ./build/Debug/MinGW-Windows/CharacterCardModel.o
 ./build/Debug/MinGW-Windows/WerewolfDen.o
-./build/Debug/MinGW-Windows/PlainOfPeril.o
 ./build/Debug/MinGW-Windows/AdventureCardModel.o
 ./build/Debug/MinGW-Windows/FateStealer.o
-./build/Debug/MinGW-Windows/Desert.o
 ./build/Debug/MinGW-Windows/Temple.o
 ./build/Debug/MinGW-Windows/Strength.o
-./build/Debug/MinGW-Windows/DieWidget.o
-./build/Debug/MinGW-Windows/Character.o
 ./build/Debug/MinGW-Windows/BlackKnight.o
+./build/Debug/MinGW-Windows/Character.o
+./build/Debug/MinGW-Windows/PlainOfPeril.o
+./build/Debug/MinGW-Windows/Desert.o
+./build/Debug/MinGW-Windows/DieWidget.o
 ./build/Debug/MinGW-Windows/WarlocksCave.o
 ./build/Debug/MinGW-Windows/ExorcistBlade.o
 ./build/Debug/MinGW-Windows/LightningHammer.o
@@ -74,6 +74,7 @@ INPUT(
 ./build/Debug/MinGW-Windows/Chasm.o
 ./build/Debug/MinGW-Windows/ValleyOfFire.o
 ./build/Debug/MinGW-Windows/FeebleMind.o
+./build/Debug/MinGW-Windows/SpellDialog.o
 ./build/Debug/MinGW-Windows/Die.o
 ./build/Debug/MinGW-Windows/Generosity.o
 ./build/Debug/MinGW-Windows/DrawSquare.o
@@ -90,6 +91,7 @@ INPUT(
 ./build/Debug/MinGW-Windows/moc_AdventureCardEdit.o
 ./build/Debug/MinGW-Windows/moc_Character.o
 ./build/Debug/MinGW-Windows/moc_GameBoard.o
+./build/Debug/MinGW-Windows/moc_SpellDialog.o
 ./build/Debug/MinGW-Windows/moc_MapBoard.o
 ./build/Debug/MinGW-Windows/moc_TheBigWindow.o
 );

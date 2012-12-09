@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Wed Dec 5 19:19:43 2012
+** Created: Sun Dec 9 13:31:26 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -61,6 +61,7 @@ public:
     QVBoxLayout *encounterPanel;
     QPushButton *btnEncounter;
     QPushButton *btnExchangeTrophies;
+    QPushButton *btnCastSpell;
     QPushButton *btnRollEncounterDie;
     QPushButton *btnAttack;
     QPushButton *btnExchangeFate;
@@ -335,7 +336,7 @@ public:
         charCardPanel->setContentsMargins(0, 0, 0, 0);
         layoutWidget4 = new QWidget(TheBigWindow);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 100, 131, 231));
+        layoutWidget4->setGeometry(QRect(10, 100, 131, 299));
         encounterPanel = new QVBoxLayout(layoutWidget4);
         encounterPanel->setSpacing(0);
         encounterPanel->setObjectName(QString::fromUtf8("encounterPanel"));
@@ -354,6 +355,13 @@ public:
         btnExchangeTrophies->setSizePolicy(sizePolicy3);
 
         encounterPanel->addWidget(btnExchangeTrophies);
+
+        btnCastSpell = new QPushButton(layoutWidget4);
+        btnCastSpell->setObjectName(QString::fromUtf8("btnCastSpell"));
+        sizePolicy3.setHeightForWidth(btnCastSpell->sizePolicy().hasHeightForWidth());
+        btnCastSpell->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnCastSpell);
 
         btnRollEncounterDie = new QPushButton(layoutWidget4);
         btnRollEncounterDie->setObjectName(QString::fromUtf8("btnRollEncounterDie"));
@@ -449,6 +457,7 @@ public:
         btnLeft->setText(QApplication::translate("TheBigWindow", "Counter-clockwise", 0, QApplication::UnicodeUTF8));
         btnEncounter->setText(QApplication::translate("TheBigWindow", "Encounter", 0, QApplication::UnicodeUTF8));
         btnExchangeTrophies->setText(QApplication::translate("TheBigWindow", "Exchange Trophies", 0, QApplication::UnicodeUTF8));
+        btnCastSpell->setText(QApplication::translate("TheBigWindow", "Cast Spell", 0, QApplication::UnicodeUTF8));
         btnRollEncounterDie->setText(QApplication::translate("TheBigWindow", "Roll Die", 0, QApplication::UnicodeUTF8));
         btnAttack->setText(QApplication::translate("TheBigWindow", "Attack", 0, QApplication::UnicodeUTF8));
         btnExchangeFate->setText(QApplication::translate("TheBigWindow", "Exchange Fate", 0, QApplication::UnicodeUTF8));

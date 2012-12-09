@@ -9,6 +9,8 @@
 #define	_THEBIGWINDOW_H
 
 #include "CharacterFactory.h"
+#include "SpellFactory.h"
+#include "WeaponFactory.h"
 #include "CharacterCardDeck.h"
 #include "AdventureCardDeck.h"
 #include "DieWidget.h"
@@ -16,6 +18,7 @@
 #include "MapBoard.h"
 #include "GameBoard.h"
 #include "ui_TheBigWindow.h"
+#include "SpellDialog.h"
 #include <QFontDatabase>
 #include <QFont>
 using namespace std;
@@ -38,11 +41,13 @@ public slots:
     void adventureDeckDoubleClicked();
     void btnRollEncounterDieClicked();
     void btnAttackClicked();
+    void btnCastSpellClicked();
     void btnExchangeFateClicked();
     void btnAddToFollowersClicked();
     void btnAddToTrophiesClicked();
     void btnEncounterClicked();
     void btnListFollowersClicked();
+    void btnListObjectsClicked();
     void btnListTrophiesClicked();
     void btnExchangeTrophiesClicked();
     void btnEndTurnClicked();

@@ -48,16 +48,19 @@ public:
     int getXCord();
     int getYCord();
     int getAlignment();
+    const list<AdventureCard*> getObjects();
     virtual int allowedAttackRolls(const Enemy&) = 0;
     //Mutators
     virtual bool addTrophy(Enemy*);
     virtual bool addFollower(AdventureCard*);
+    virtual bool addObject(AdventureCard*);
     void removeFollower(unsigned int);
     void removeTrophy(unsigned int);
     //Other methods
     int* exchangeTrophies();
     string listTrophies();
     string listFollowers();
+    string listObjects();
     virtual int attackRoll(const Enemy&, int) = 0;
     virtual int attackRoll(const Enemy&, int, int) = 0;
     virtual int fateRoll(const Enemy&, int) = 0;
@@ -93,6 +96,7 @@ protected:
     string text;
     list<Enemy*> trophies;
     list<AdventureCard*> followers;
+    list<AdventureCard*> objects;
     void paintEvent(QPaintEvent *event);
     void mouseDoubleClickEvent (QMouseEvent *event);
     string startLocation;

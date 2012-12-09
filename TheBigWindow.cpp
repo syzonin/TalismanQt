@@ -48,6 +48,7 @@ TheBigWindow::TheBigWindow() {
     widget.btnEndTurn->hide();
     widget.btnExchangeFate->hide();
     widget.btnRollEncounterDie->hide();
+    widget.btnCastSpell->hide();
     die->hide();
     die1->hide();
     die2->hide();
@@ -63,11 +64,13 @@ TheBigWindow::TheBigWindow() {
     //Connect signals for encounter panel
     connect(widget.btnRollEncounterDie, SIGNAL(clicked()), this, SLOT(btnRollEncounterDieClicked()));
     connect(widget.btnAttack, SIGNAL(clicked()), this, SLOT(btnAttackClicked()));
+    connect(widget.btnCastSpell, SIGNAL(clicked()), this, SLOT(btnCastSpellClicked()));
     connect(widget.btnExchangeFate, SIGNAL(clicked()), this, SLOT(btnExchangeFateClicked()));
     connect(widget.btnAddToFollowers, SIGNAL(clicked()), this, SLOT(btnAddToFollowersClicked()));
     connect(widget.btnAddToTrophies, SIGNAL(clicked()), this, SLOT(btnAddToTrophiesClicked()));
     connect(widget.btnEncounter, SIGNAL(clicked()), this, SLOT(btnEncounterClicked()));
     connect(widget.btnListFollowers, SIGNAL(clicked()), this, SLOT(btnListFollowersClicked()));
+    connect(widget.btnListObjects, SIGNAL(clicked()), this, SLOT(btnListObjectsClicked()));
     connect(widget.btnListTrophies, SIGNAL(clicked()), this, SLOT(btnListTrophiesClicked()));
     connect(widget.btnExchangeTrophies, SIGNAL(clicked()), this, SLOT(btnExchangeTrophiesClicked()));
     connect(widget.btnEndTurn, SIGNAL(clicked()), this, SLOT(btnEndTurnClicked()));
@@ -109,6 +112,15 @@ void TheBigWindow::playerDeckDoubleClicked() {
         + "</b> region. <br><br>" + ms->getInstructions();
         widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
         updateCharacterStats();
+        
+        WeaponFactory *wf = new WeaponFactory();
+        SpellFactory *sf = new SpellFactory();
+        player->addObject(wf->getWeapon("Axe"));
+        player->addObject(sf->getSpell("Cheat Fate"));
+        player->addObject(wf->getWeapon("Runesword"));
+        player->addObject(sf->getSpell("Healing"));
+        player->addObject(wf->getWeapon("Frostbite"));
+        player->addObject(sf->getSpell("Weakness"));
     } 
 }
 
@@ -119,13 +131,18 @@ void TheBigWindow::adventureDeckDoubleClicked() {
     widget.adventureCardPanel->addWidget(card);
 }
 
+void TheBigWindow::btnCastSpellClicked() {
+    SpellDialog *spells = new SpellDialog(this, player, static_cast<Enemy*>(card));
+    spells->exec();
+    if (spells->result() != 0) widget.btnCastSpell->hide();
+}    
+    
 void TheBigWindow::btnEncounterClicked() {
     //Update view
     widget.btnEncounter->hide();
-//    widget.btnListFollowers->hide();
-//    widget.btnListTrophies->hide();
     widget.btnExchangeTrophies->hide();
     widget.btnRollEncounterDie->show();
+    if (card->getType() == "Enemy") widget.btnCastSpell->show();
     //Update view log
     widget.txtLog->append(
         QString("%1 encounters a %2")
@@ -138,6 +155,12 @@ void TheBigWindow::btnListFollowersClicked () {
     //Update view log
     widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following followers:");
     widget.txtLog->append(QString::fromStdString(player->listFollowers()));
+}
+
+void TheBigWindow::btnListObjectsClicked () {
+    //Update view log
+    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following objects:");
+    widget.txtLog->append(QString::fromStdString(player->listObjects()));
 }
 
 void TheBigWindow::btnListTrophiesClicked () {
@@ -183,6 +206,7 @@ void TheBigWindow::btnRollEncounterDieClicked() {
     
     //Update view
     widget.btnRollEncounterDie->hide();
+    widget.btnCastSpell->hide();
     widget.btnAttack->show();
 }
 

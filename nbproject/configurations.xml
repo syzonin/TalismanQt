@@ -8,6 +8,8 @@
       <itemPath>GameBoard.h</itemPath>
       <itemPath>MapBoard.cpp</itemPath>
       <itemPath>MapBoard.h</itemPath>
+      <itemPath>SpellDialog.cpp</itemPath>
+      <itemPath>SpellDialog.h</itemPath>
       <itemPath>TheBigWindow.cpp</itemPath>
       <itemPath>TheBigWindow.h</itemPath>
     </logicalFolder>
@@ -203,6 +205,7 @@
     <logicalFolder name="ResourceFiles" displayName="Views" projectFiles="true">
       <itemPath>AdventureCardEdit.ui</itemPath>
       <itemPath>GameBoard.ui</itemPath>
+      <itemPath>SpellDialog.ui</itemPath>
       <itemPath>TheBigWindow.ui</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"

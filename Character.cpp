@@ -5,7 +5,6 @@
  * Created on September 30, 2012, 6:53 PM
  */
 
-#include <vector>
 #include "Character.h"
 
 ///
@@ -84,6 +83,7 @@ int Character::getXCord(){ return xCord; }
     
 int Character::getYCord(){ return yCord; }
 
+const list<AdventureCard*> Character::getObjects() { return objects; }
 ///
 ///Sets the character's text.
 ///
@@ -189,6 +189,16 @@ bool Character::addFollower(AdventureCard* card) {
     return true;
 }
 ///
+///Adds the card to the character's list of followers.
+///
+bool Character::addObject(AdventureCard* card) {
+    for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
+        if (card == *it) return false;
+    }
+    objects.push_back(card);
+    return true;
+}
+///
 ///Adds the card to the character's list of trophies.
 ///
 bool Character::addTrophy(Enemy* card) {
@@ -232,6 +242,21 @@ string Character::listFollowers() {
     }
     //If list is empty
     if (result.str().length() == 0) result << "There are no followers in the list";
+    //Return list
+    return result.str();
+}
+///
+///Displays a list of all the objects that the character has.
+///
+string Character::listObjects() {
+    stringstream result;
+    //Build list from collected followers
+    for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
+        if (it != objects.begin()) result << "\n";
+        result << (*it)->toString();
+    }
+    //If list is empty
+    if (result.str().length() == 0) result << "There are no objects in the list";
     //Return list
     return result.str();
 }

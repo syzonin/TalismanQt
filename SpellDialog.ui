@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SpellDialog</class>
+ <widget class="QDialog" name="SpellDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SpellDialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+	background-image: url(images/CardTexture.jpg);
+    border: 2px solid black; 
+    border-radius: 4px; 
+	padding: 4px;
+	margin: 4px;
+}
+
+QPushButton:hover {
+	border-color: green; 
+	color: green;
+}
+
+QPushButton:pressed  {
+	border-color: rgba(0, 0, 0, 50%);
+	color: rgba(0, 0, 0, 50%);
+}
+
+QPushButton, QLabel {
+	font-family: &quot;Windlass&quot;;
+}
+
+QLabel {
+	background-color: rgba(0,0,0,0%);
+	padding: 4px;
+}</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>281</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="layout">
+    <item>
+     <widget class="QComboBox" name="cboCard"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnCast">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>260</y>
+     <width>75</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cast</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>260</y>
+     <width>75</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
