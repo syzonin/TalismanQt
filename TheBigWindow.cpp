@@ -77,6 +77,10 @@ TheBigWindow::TheBigWindow() {
 
 TheBigWindow::~TheBigWindow() {}
 
+AdventureCardDeck*  TheBigWindow::getAdventureDeck(){
+    return adventureDeck;
+}
+
 void TheBigWindow::updateCharacterStats() {
     int str = 0, cft = 0, fate = 0, gold = 0, life = 0;
     

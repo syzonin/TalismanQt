@@ -10,7 +10,7 @@
 WarlocksCave::WarlocksCave(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void WarlocksCave::execute(){
+void WarlocksCave::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

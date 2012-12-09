@@ -10,7 +10,7 @@
 Mines::Mines(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Mines::execute(){
+void Mines::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

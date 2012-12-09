@@ -12,7 +12,7 @@
 class Chasm : public MapSquare {
 public:
     Chasm(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

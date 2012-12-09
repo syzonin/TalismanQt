@@ -12,7 +12,7 @@
 class Castle : public MapSquare {
 public:
     Castle(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

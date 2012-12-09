@@ -10,7 +10,7 @@
 Graveyard::Graveyard(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Graveyard::execute(){
+void Graveyard::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

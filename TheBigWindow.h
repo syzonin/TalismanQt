@@ -25,6 +25,7 @@ class TheBigWindow : public QWidget {
 public:
     TheBigWindow();
     virtual ~TheBigWindow();
+    AdventureCardDeck* getAdventureDeck();
     int getDieRoll();
     void moveChar(int);
     void moveRegions();

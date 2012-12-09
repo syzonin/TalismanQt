@@ -12,7 +12,7 @@
 class CursedGlade : public MapSquare {
 public:
     CursedGlade(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

@@ -12,7 +12,7 @@
 class Tavern : public MapSquare {
 public:
     Tavern(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

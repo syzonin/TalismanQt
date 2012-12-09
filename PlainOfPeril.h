@@ -12,7 +12,7 @@
 class PlainOfPeril : public MapSquare {
 public:
     PlainOfPeril(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

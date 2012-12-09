@@ -10,7 +10,7 @@
 Chapel::Chapel(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Chapel::execute(){
+void Chapel::execute(AdventureCardDeck* d){
     
     cout << "something goes here" << endl;
 }

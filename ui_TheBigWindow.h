@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Wed Dec 5 19:19:43 2012
+** Created: Sun Dec 9 15:54:43 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

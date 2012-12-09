@@ -12,7 +12,7 @@
 class Graveyard  : public MapSquare {
 public:
     Graveyard(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };
