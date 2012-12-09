@@ -12,6 +12,7 @@
 #include <vector>
 #include <QWidget>
 #include "Character.h"
+#include "AdventureCardDeck.h"
 #include <cstdlib>
 #include <iostream>
 #include <QPushButton>
@@ -23,6 +24,11 @@ class MapSquare : public QWidget {
         MapSquare(int,int,int,string,string,string);
         void addCharacter(Character&);
         void removeCharacter(Character&);
+        void sortCards();
+        void addCard(AdventureCard&);
+        void removeCard(AdventureCard&);
+        vector<AdventureCard*> getAdventureCards();
+        
         void setSquareName(string);
         string getSquareName();
         void setSquareRegion(string);
@@ -36,10 +42,11 @@ class MapSquare : public QWidget {
         int getMaxCard();
         int getNumCard();
         void setNumCard(int);
-        virtual void execute() = 0;
+        virtual void execute(AdventureCardDeck*) = 0;
     protected:
         void paintEvent(QPaintEvent *event);
         vector<Character*>  charactersPresent;
+        vector<AdventureCard*> adventureCards;
         string squareName;
         string squareRegion;
         string instructions;

@@ -54,6 +54,45 @@ void MapSquare::removeCharacter(Character& character){
     update();
 }
 
+void MapSquare::addCard(AdventureCard& c){
+
+    adventureCards.push_back(&c);
+    if (adventureCards.size() != 1)
+        sortCards();
+    //update();
+}
+
+void MapSquare::removeCard(AdventureCard& c){
+    vector<AdventureCard*>::iterator m;
+    if (adventureCards.size() == 1){
+        adventureCards.clear();
+    }
+    else {
+        for (m = adventureCards.begin(); m != adventureCards.end(); m++) { 
+                if (&c == *m)
+                    adventureCards.erase(m);
+        }
+    }
+    //update();
+}
+
+void MapSquare::sortCards(){
+    
+    AdventureCard* temp;
+    //bubble sort
+    for (int i = 0; i<adventureCards.size(); i++){
+        for (int j = (adventureCards.size()-1); j >= (i+1); j++){
+            if (adventureCards[j]->getEncounterNumber() < adventureCards[j-1]->getEncounterNumber()){
+                temp = adventureCards[j];
+                adventureCards[j]=adventureCards[j-1];
+                adventureCards[j-1]=temp;
+            }
+        }
+    }
+}
+
+vector<AdventureCard*> MapSquare::getAdventureCards(){ return adventureCards; }
+
 void MapSquare::setSquareName(string name){ squareName = name; }
 
 string MapSquare::getSquareName(){ return squareName; }

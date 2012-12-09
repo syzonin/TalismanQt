@@ -10,7 +10,7 @@
 BlackKnight::BlackKnight(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void BlackKnight::execute(){
+void BlackKnight::execute(AdventureCardDeck* d){
     
     cout << "something goes here" << endl;
 }

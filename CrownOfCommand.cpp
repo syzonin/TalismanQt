@@ -11,7 +11,7 @@ CrownOfCommand::CrownOfCommand(int xCord, int yCord, int mCards, string squareRe
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
 
-void CrownOfCommand::execute(){
+void CrownOfCommand::execute(AdventureCardDeck* d){
     
     cout << "something goes here" << endl;
 }

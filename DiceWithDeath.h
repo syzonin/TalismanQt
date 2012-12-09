@@ -12,7 +12,7 @@
 class DiceWithDeath : public MapSquare {
 public:
     DiceWithDeath(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

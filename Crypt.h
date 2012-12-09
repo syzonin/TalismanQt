@@ -12,7 +12,7 @@
 class Crypt : public MapSquare {
 public:
     Crypt(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

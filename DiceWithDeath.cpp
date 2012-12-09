@@ -10,7 +10,7 @@
 DiceWithDeath::DiceWithDeath(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void DiceWithDeath::execute(){
+void DiceWithDeath::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

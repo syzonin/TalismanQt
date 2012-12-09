@@ -12,7 +12,7 @@
 class DrawSquare  : public MapSquare {
 public:
     DrawSquare(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

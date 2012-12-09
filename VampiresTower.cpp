@@ -10,7 +10,7 @@
 VampiresTower::VampiresTower(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void VampiresTower::execute(){
+void VampiresTower::execute(AdventureCardDeck* d){
 
     cout << "hi" <<endl;
 }

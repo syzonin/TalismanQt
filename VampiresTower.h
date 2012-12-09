@@ -12,7 +12,7 @@
 class VampiresTower : public MapSquare {
 public:
     VampiresTower(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };

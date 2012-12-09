@@ -12,7 +12,7 @@
 class Runes : public MapSquare {
 public:
     Runes(int,int,int,string,string,string);
-    void execute();
+    void execute(AdventureCardDeck*);
 private:
 
 };
