@@ -32,7 +32,7 @@ ArmorDialog::ArmorDialog(QWidget * parent, Character * c, vector<Armor*> &a) {
     connect(widget.cboCard, SIGNAL(currentIndexChanged(int)), this, SLOT(currentIndexChanged(int)));
     connect(widget.btnEquip, SIGNAL(clicked()), this, SLOT(btnEquipClicked()));
     connect(widget.btnClose, SIGNAL(clicked()), this, SLOT(reject()));
-    currentIndexChanged(0);
+    if (widget.cboCard->count() > 0) currentIndexChanged(0);
 }
 
 ArmorDialog::~ArmorDialog() {
@@ -45,6 +45,6 @@ void ArmorDialog::currentIndexChanged(int index) {
 }
 
 void ArmorDialog::btnEquipClicked() {
-    armors->push_back(cards.at(currentIndex));
+    if (currentIndex < widget.cboCard->count()) armors->push_back(cards.at(currentIndex));
     this->accept();
 }

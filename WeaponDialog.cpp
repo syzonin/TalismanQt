@@ -32,7 +32,7 @@ WeaponDialog::WeaponDialog(QWidget * parent, Character * c, vector<Weapon*> &w) 
     connect(widget.cboCard, SIGNAL(currentIndexChanged(int)), this, SLOT(currentIndexChanged(int)));
     connect(widget.btnEquip, SIGNAL(clicked()), this, SLOT(btnEquipClicked()));
     connect(widget.btnClose, SIGNAL(clicked()), this, SLOT(reject()));
-    currentIndexChanged(0);
+    if (widget.cboCard->count() > 0) currentIndexChanged(0);
 }
 
 WeaponDialog::~WeaponDialog() {
@@ -45,6 +45,6 @@ void WeaponDialog::currentIndexChanged(int index) {
 }
 
 void WeaponDialog::btnEquipClicked() {
-    weapons->push_back(cards.at(currentIndex));
+    if (currentIndex < widget.cboCard->count()) weapons->push_back(cards.at(currentIndex));
     this->accept();
 }

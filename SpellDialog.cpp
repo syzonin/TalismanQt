@@ -32,7 +32,7 @@ SpellDialog::SpellDialog(QWidget * parent, Character * c, vector<Spell*> &v) {
     connect(widget.cboCard, SIGNAL(currentIndexChanged(int)), this, SLOT(currentIndexChanged(int)));
     connect(widget.btnCast, SIGNAL(clicked()), this, SLOT(btnCastClicked()));
     connect(widget.btnClose, SIGNAL(clicked()), this, SLOT(reject()));
-    currentIndexChanged(0);
+    if (widget.cboCard->count() > 0) currentIndexChanged(0);
 }
 
 SpellDialog::~SpellDialog() {
@@ -45,6 +45,6 @@ void SpellDialog::currentIndexChanged(int index) {
 }
 
 void SpellDialog::btnCastClicked() {
-    spells->push_back(cards.at(currentIndex));
+    if (currentIndex < widget.cboCard->count()) spells->push_back(cards.at(currentIndex));
     this->accept();
 }

@@ -123,14 +123,18 @@ void TheBigWindow::playerDeckDoubleClicked() {
         widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
         updateCharacterStats();
         
+        ArmorFactory *af = new ArmorFactory();
         WeaponFactory *wf = new WeaponFactory();
         SpellFactory *sf = new SpellFactory();
         player->addObject(wf->getWeapon("Axe"));
         player->addObject(sf->getSpell("Cheat Fate"));
+//        player->addObject(af->getArmor("Basic Armor"));
         player->addObject(wf->getWeapon("Runesword"));
         player->addObject(sf->getSpell("Healing"));
+//        player->addObject(af->getArmor("Helmet"));
         player->addObject(wf->getWeapon("Frostbite"));
         player->addObject(sf->getSpell("Weakness"));
+//        player->addObject(af->getArmor("Shield"));
     } 
 }
 
@@ -153,9 +157,9 @@ void TheBigWindow::btnCastSpellClicked() {
 
 void TheBigWindow::btnEquipArmorClicked() {
     for (int i = 0; i < player->allowedArmors(); ++i) {
-//        ArmorDialog *armors = new ArmorDialog(this, player, activeArmors);
-//        armors->exec();
-//        if (armors->result() != 0) widget.btnEquipArmor->hide();    
+        ArmorDialog *armors = new ArmorDialog(this, player, activeArmors);
+        armors->exec();
+        if (armors->result() != 0) widget.btnEquipArmor->hide();    
     }
     //Update view
     updateCharacterStats();
@@ -427,7 +431,6 @@ void TheBigWindow::btnRollDieClicked() {
         widget.btnYes->hide();
         widget.btnNo->hide();
     }
-
 }
 
 void TheBigWindow::btnCounterClockwise() {

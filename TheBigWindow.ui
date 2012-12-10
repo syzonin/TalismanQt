@@ -620,7 +620,7 @@ QLabel {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btnAddToTrophies">
+     <widget class="QPushButton" name="btnAddToObjects">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -633,7 +633,7 @@ QLabel {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btnAddToObjects">
+     <widget class="QPushButton" name="btnAddToTrophies">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>

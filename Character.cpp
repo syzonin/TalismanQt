@@ -205,9 +205,10 @@ bool Character::addFollower(AdventureCard* card) {
     return true;
 }
 ///
-///Adds the card to the character's list of followers.
+///Adds the card to the character's list of objects.
 ///
 bool Character::addObject(AdventureCard* card) {
+    if (card->getType() == "Follower" || card->getType() == "Enemy") return false; 
     for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
         if (card == *it) return false;
     }
