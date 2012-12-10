@@ -16,7 +16,7 @@ using namespace std;
 class SpellDialog : public QDialog {
     Q_OBJECT
 public:
-    SpellDialog(QWidget * parent = 0, Character * character = 0, Enemy * enemy = 0);
+    SpellDialog(QWidget *parent, Character *c, vector<Spell*> &v);
     virtual ~SpellDialog();
 public slots:
     void currentIndexChanged (int index);
@@ -24,9 +24,8 @@ public slots:
 private:
     Ui::SpellDialog widget;
     int currentIndex;
-    Character *c;
-    Enemy *e;
     vector<Spell*> cards;
+    vector<Spell*> *spells;
 };
 
 #endif	/* _SPELLDIALOG_H */

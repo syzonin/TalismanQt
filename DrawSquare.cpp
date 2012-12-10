@@ -12,7 +12,7 @@ DrawSquare::DrawSquare(int xCord, int yCord, int mCards, string squareRegion, st
 
 void DrawSquare::execute(AdventureCardDeck* d){
 
-    for (int i = 0; i < maxCard; i++){
+    for (unsigned int i = 0; i < maxCard; i++){
         if (adventureCards.size() < maxCard){
             AdventureCard* a = d->drawCard();
             addCard(*a);

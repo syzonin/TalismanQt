@@ -16,6 +16,7 @@ public:
     virtual ~Warrior();
     //Other methods
     int allowedAttackRolls(const Enemy&);
+    int allowedWeapons();
     int attackRoll(const Enemy&, int);
     int attackRoll(const Enemy&, int, int);
     int fateRoll(const Enemy&, int);    

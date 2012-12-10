@@ -23,9 +23,13 @@ Monk::Monk(int strength, int craft, int fate, int life, string title, string tex
 ///
 Monk::~Monk() {}
 ///
-///Returns the number of dice to roll when attacking an Enemy
+///Returns the number of armors allowed to be used in battle
 ///
-int Monk::allowedAttackRolls(const Enemy& e) { return 1; }
+int Monk::allowedArmors() { return 0; }
+///
+///Returns the number of weapons allowed to be used in battle
+///
+int Monk::allowedWeapons() { return 0; }
 ///
 ///Roll one die to attack an enemy based on its type (battle or psychic combat).
 ///

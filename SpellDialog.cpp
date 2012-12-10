@@ -7,20 +7,25 @@
 
 #include "SpellDialog.h"
 
-SpellDialog::SpellDialog(QWidget * parent, Character * character, Enemy * enemy) {
+SpellDialog::SpellDialog(QWidget * parent, Character * c, vector<Spell*> &v) {
     widget.setupUi(this);
     this->setModal(true);
     currentIndex = 0;
-    c = character;
-    e = enemy;
+    spells = &v; 
     
     list<AdventureCard*> objects = c->getObjects();
     for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
         if ((*it)->getType() == "Spell") {
-            cards.push_back(static_cast<Spell*>(*it));
-            widget.cboCard->addItem(QString::fromStdString((*it)->getTitle()));
-            widget.layout->addWidget((*it));
-            (*it)->hide();
+            bool isCast = false;
+            for (unsigned int i = 0; i < v.size(); ++i) { 
+                if (v.at(i) == (*it)) isCast = true;
+            }
+            if (!isCast) {
+                cards.push_back(static_cast<Spell*>(*it));
+                widget.cboCard->addItem(QString::fromStdString((*it)->getTitle()));
+                widget.layout->addWidget((*it));
+                (*it)->hide();
+            }
         }
     }
     
@@ -40,6 +45,6 @@ void SpellDialog::currentIndexChanged(int index) {
 }
 
 void SpellDialog::btnCastClicked() {
-    cards.at(currentIndex)->preBattle(c,e);
+    spells->push_back(cards.at(currentIndex));
     this->accept();
 }

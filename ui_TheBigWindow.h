@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Sun Dec 9 13:31:26 2012
+** Created: Sun Dec 9 18:15:23 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -62,6 +62,8 @@ public:
     QPushButton *btnEncounter;
     QPushButton *btnExchangeTrophies;
     QPushButton *btnCastSpell;
+    QPushButton *btnEquipArmor;
+    QPushButton *btnEquipWeapon;
     QPushButton *btnRollEncounterDie;
     QPushButton *btnAttack;
     QPushButton *btnExchangeFate;
@@ -336,7 +338,7 @@ public:
         charCardPanel->setContentsMargins(0, 0, 0, 0);
         layoutWidget4 = new QWidget(TheBigWindow);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 100, 131, 299));
+        layoutWidget4->setGeometry(QRect(10, 100, 131, 365));
         encounterPanel = new QVBoxLayout(layoutWidget4);
         encounterPanel->setSpacing(0);
         encounterPanel->setObjectName(QString::fromUtf8("encounterPanel"));
@@ -362,6 +364,20 @@ public:
         btnCastSpell->setSizePolicy(sizePolicy3);
 
         encounterPanel->addWidget(btnCastSpell);
+
+        btnEquipArmor = new QPushButton(layoutWidget4);
+        btnEquipArmor->setObjectName(QString::fromUtf8("btnEquipArmor"));
+        sizePolicy3.setHeightForWidth(btnEquipArmor->sizePolicy().hasHeightForWidth());
+        btnEquipArmor->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnEquipArmor);
+
+        btnEquipWeapon = new QPushButton(layoutWidget4);
+        btnEquipWeapon->setObjectName(QString::fromUtf8("btnEquipWeapon"));
+        sizePolicy3.setHeightForWidth(btnEquipWeapon->sizePolicy().hasHeightForWidth());
+        btnEquipWeapon->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnEquipWeapon);
 
         btnRollEncounterDie = new QPushButton(layoutWidget4);
         btnRollEncounterDie->setObjectName(QString::fromUtf8("btnRollEncounterDie"));
@@ -458,6 +474,8 @@ public:
         btnEncounter->setText(QApplication::translate("TheBigWindow", "Encounter", 0, QApplication::UnicodeUTF8));
         btnExchangeTrophies->setText(QApplication::translate("TheBigWindow", "Exchange Trophies", 0, QApplication::UnicodeUTF8));
         btnCastSpell->setText(QApplication::translate("TheBigWindow", "Cast Spell", 0, QApplication::UnicodeUTF8));
+        btnEquipArmor->setText(QApplication::translate("TheBigWindow", "Equip Armor", 0, QApplication::UnicodeUTF8));
+        btnEquipWeapon->setText(QApplication::translate("TheBigWindow", "Equip Weapon", 0, QApplication::UnicodeUTF8));
         btnRollEncounterDie->setText(QApplication::translate("TheBigWindow", "Roll Die", 0, QApplication::UnicodeUTF8));
         btnAttack->setText(QApplication::translate("TheBigWindow", "Attack", 0, QApplication::UnicodeUTF8));
         btnExchangeFate->setText(QApplication::translate("TheBigWindow", "Exchange Fate", 0, QApplication::UnicodeUTF8));

@@ -9,6 +9,7 @@
 #define	_THEBIGWINDOW_H
 
 #include "CharacterFactory.h"
+#include "ArmorFactory.h"
 #include "SpellFactory.h"
 #include "WeaponFactory.h"
 #include "CharacterCardDeck.h"
@@ -19,6 +20,8 @@
 #include "GameBoard.h"
 #include "ui_TheBigWindow.h"
 #include "SpellDialog.h"
+#include "ArmorDialog.h"
+#include "WeaponDialog.h"
 #include <QFontDatabase>
 #include <QFont>
 using namespace std;
@@ -43,6 +46,8 @@ public slots:
     void btnRollEncounterDieClicked();
     void btnAttackClicked();
     void btnCastSpellClicked();
+    void btnEquipArmorClicked();
+    void btnEquipWeaponClicked();
     void btnExchangeFateClicked();
     void btnAddToFollowersClicked();
     void btnAddToTrophiesClicked();
@@ -64,6 +69,9 @@ private:
     int remainder;
     int rowClicked;
     string direction;
+    vector<Spell*> activeSpells;
+    vector<Armor*> activeArmors;
+    vector<Weapon*> activeWeapons;
 };
 
 #endif	/* _THEBIGWINDOW_H */

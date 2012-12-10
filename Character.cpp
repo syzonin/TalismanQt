@@ -67,6 +67,18 @@ int Character::getStrength() { return strength; }
 ///
 int Character::allowedAttackRolls(const Enemy& e) { return 1; }
 ///
+///Returns the number of weapons allowed to be used in battle
+///
+int Character::allowedWeapons() { return 1; }
+///
+///Returns the number of armors allowed to be used in battle
+///
+int Character::allowedArmors() { return 1; }
+///
+///Returns the number of spells allowed to be cast in battle
+///
+int Character::allowedSpells() { return 1; }
+///
 ///Returns the character's text.
 ///
 const string Character::getText() const { return text; }
@@ -143,15 +155,19 @@ void Character::move(string newLocation, string newRegion, int x, int y){
 ///Sets the character's allowed fate (max).
 ///
 void Character::setFateTokens(int tokens) {
-    if (tokens >= 0 && tokens != fateTokens) fateTokens = tokens; 
-    update();
+    if (tokens >= 0 && tokens != fateTokens) {
+        fateTokens = tokens; 
+        update();
+    }
 }
 ///
 ///Sets the character's allowed life (max).
 ///
 void Character::setLifePoints(int points) { 
-    if (points >= 0 && points != lifePoints) lifePoints = points; 
-    update();
+    if (points >= 0 && points != lifePoints) {
+        lifePoints = points; 
+        update();
+    }
 }
 ///
 ///Initializes the members of this class.

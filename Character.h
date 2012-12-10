@@ -49,7 +49,10 @@ public:
     int getYCord();
     int getAlignment();
     const list<AdventureCard*> getObjects();
-    virtual int allowedAttackRolls(const Enemy&) = 0;
+    virtual int allowedAttackRolls(const Enemy&);
+    virtual int allowedWeapons();
+    virtual int allowedArmors();
+    virtual int allowedSpells();
     //Mutators
     virtual bool addTrophy(Enemy*);
     virtual bool addFollower(AdventureCard*);

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'SpellDialog.h'
 **
-** Created: Sun Dec 9 16:09:59 2012
+** Created: Sun Dec 9 19:15:36 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!

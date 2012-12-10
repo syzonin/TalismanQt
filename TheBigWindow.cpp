@@ -49,6 +49,8 @@ TheBigWindow::TheBigWindow() {
     widget.btnExchangeFate->hide();
     widget.btnRollEncounterDie->hide();
     widget.btnCastSpell->hide();
+    widget.btnEquipArmor->hide();
+    widget.btnEquipWeapon->hide();
     die->hide();
     die1->hide();
     die2->hide();
@@ -65,6 +67,8 @@ TheBigWindow::TheBigWindow() {
     connect(widget.btnRollEncounterDie, SIGNAL(clicked()), this, SLOT(btnRollEncounterDieClicked()));
     connect(widget.btnAttack, SIGNAL(clicked()), this, SLOT(btnAttackClicked()));
     connect(widget.btnCastSpell, SIGNAL(clicked()), this, SLOT(btnCastSpellClicked()));
+    connect(widget.btnEquipArmor, SIGNAL(clicked()), this, SLOT(btnEquipArmorClicked()));
+    connect(widget.btnEquipWeapon, SIGNAL(clicked()), this, SLOT(btnEquipWeaponClicked()));
     connect(widget.btnExchangeFate, SIGNAL(clicked()), this, SLOT(btnExchangeFateClicked()));
     connect(widget.btnAddToFollowers, SIGNAL(clicked()), this, SLOT(btnAddToFollowersClicked()));
     connect(widget.btnAddToTrophies, SIGNAL(clicked()), this, SLOT(btnAddToTrophiesClicked()));
@@ -136,9 +140,31 @@ void TheBigWindow::adventureDeckDoubleClicked() {
 }
 
 void TheBigWindow::btnCastSpellClicked() {
-    SpellDialog *spells = new SpellDialog(this, player, static_cast<Enemy*>(card));
-    spells->exec();
-    if (spells->result() != 0) widget.btnCastSpell->hide();
+    for (int i = 0; i < player->allowedSpells(); ++i) {
+        SpellDialog *spells = new SpellDialog(this, player, activeSpells);
+        spells->exec();
+        if (spells->result() != 0) widget.btnCastSpell->hide();
+    }
+    //Update view
+    updateCharacterStats();
+}  
+
+void TheBigWindow::btnEquipArmorClicked() {
+//    ArmorDialog *armors = new ArmorDialog(this, player, static_cast<Enemy*>(card), activeArmors);
+//    armors->exec();
+//    if (armors->result() != 0) widget.btnEquipArmor->hide();
+//    //Update view
+//    updateCharacterStats();
+}    
+
+void TheBigWindow::btnEquipWeaponClicked() {
+    for (int i = 0; i < player->allowedWeapons(); ++i) {
+        WeaponDialog *weapons = new WeaponDialog(this, player, activeWeapons);
+        weapons->exec();
+        if (weapons->result() != 0) widget.btnEquipWeapon->hide();    
+    }
+    //Update view
+    updateCharacterStats();
 }    
     
 void TheBigWindow::btnEncounterClicked() {
@@ -146,7 +172,11 @@ void TheBigWindow::btnEncounterClicked() {
     widget.btnEncounter->hide();
     widget.btnExchangeTrophies->hide();
     widget.btnRollEncounterDie->show();
-    if (card->getType() == "Enemy") widget.btnCastSpell->show();
+    if (card->getType() == "Enemy") {
+        widget.btnCastSpell->show();
+        widget.btnEquipArmor->show();
+        widget.btnEquipWeapon->show();
+    }
     //Update view log
     widget.txtLog->append(
         QString("%1 encounters a %2")
@@ -211,6 +241,8 @@ void TheBigWindow::btnRollEncounterDieClicked() {
     //Update view
     widget.btnRollEncounterDie->hide();
     widget.btnCastSpell->hide();
+    widget.btnEquipArmor->hide();
+    widget.btnEquipWeapon->hide();
     widget.btnAttack->show();
 }
 
@@ -218,9 +250,16 @@ void TheBigWindow::btnAttackClicked() {
     die2->hide();
     widget.btnAttack->hide();
     widget.btnExchangeFate->hide();
+    
+    Enemy* e = static_cast<Enemy*>(card);
+    for (unsigned int i = 0; i < activeSpells.size(); ++i) {
+        activeSpells.at(i)->preBattle(player, e);
+    }
+    for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
+        activeWeapons.at(i)->preBattle(player, e);
+    }
         
     //Character attacks
-    Enemy* e = static_cast<Enemy*>(card);
     int a = 0;
     if (player->allowedAttackRolls(*e) == 1) {
         a = player->attackRoll(*e, die1->getRolledNumber());
@@ -258,15 +297,14 @@ void TheBigWindow::btnAttackClicked() {
         die1->hide();
         die2->hide();
         widget.btnRollEncounterDie->hide();
-        
-        if (player->getLifePoints() > 0) {
-            widget.btnExchangeTrophies->show();
-        } else {
-            player->hide();
-            playerDeck->show();
-            widget.txtLog->append(QString("%1 died").arg(QString::fromStdString(player->getTitle())));
-        }
+        widget.btnExchangeTrophies->show();
     } else if (a > b) { // Character wins
+        for (unsigned int i = 0; i < activeSpells.size(); ++i) {
+            activeSpells.at(i)->win(player, e);
+        }
+        for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
+            activeWeapons.at(i)->win(player, e);
+        }
         widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(player->getTitle())));
         widget.btnRollEncounterDie->hide();
         widget.btnAddToFollowers->show();
@@ -276,6 +314,24 @@ void TheBigWindow::btnAttackClicked() {
         widget.txtLog->append("Stand-off!");     
         widget.btnRollEncounterDie->show();
     }
+    
+    //Character died
+    if (player->getLifePoints() == 0) {
+        player->hide();
+        playerDeck->show();
+        widget.txtLog->append(QString("%1 died").arg(QString::fromStdString(player->getTitle())));
+        widget.btnExchangeTrophies->hide();
+    }
+    
+    for (unsigned int i = 0; i < activeSpells.size(); ++i) {
+        activeSpells.at(i)->postBattle(player, e);
+    }
+    for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
+        activeWeapons.at(i)->postBattle(player, e);
+    }
+    activeSpells.clear();
+    //Update view
+    updateCharacterStats();
 }
 
 void TheBigWindow::btnExchangeFateClicked() {

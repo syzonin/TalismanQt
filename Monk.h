@@ -15,7 +15,8 @@ public:
     Monk(int,int,int,int,string,string,int,int);
     virtual ~Monk();
     //Other methods
-    int allowedAttackRolls(const Enemy&);
+    int allowedArmors();
+    int allowedWeapons();
     int attackRoll(const Enemy&, int);
     int attackRoll(const Enemy&, int, int);
     int fateRoll(const Enemy&, int);

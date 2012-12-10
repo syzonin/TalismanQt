@@ -52,7 +52,7 @@ class MapSquare : public QWidget {
         string instructions;
         int xCord;
         int yCord;
-        int maxCard;
+        unsigned int maxCard;
         int numCard;
         QPixmap p;
     private:

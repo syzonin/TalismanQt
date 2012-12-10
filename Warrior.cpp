@@ -25,6 +25,10 @@ int Warrior::allowedAttackRolls(const Enemy& e) {
     else return 2;
 }
 ///
+///Returns the number of weapons allowed to be used in battle
+///
+int Warrior::allowedWeapons() { return 2; }
+///
 ///Roll one die to attack an enemy based on its type (battle or psychic combat).
 ///
 int Warrior::attackRoll(const Enemy& e, int roll) {

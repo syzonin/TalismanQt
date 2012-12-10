@@ -492,7 +492,7 @@ QLabel {
      <x>10</x>
      <y>100</y>
      <width>131</width>
-     <height>299</height>
+     <height>365</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="encounterPanel">
@@ -538,6 +538,32 @@ QLabel {
       </property>
       <property name="text">
        <string>Cast Spell</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnEquipArmor">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Equip Armor</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnEquipWeapon">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Equip Weapon</string>
       </property>
      </widget>
     </item>

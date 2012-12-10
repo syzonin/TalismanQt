@@ -80,8 +80,8 @@ void MapSquare::sortCards(){
     
     AdventureCard* temp;
     //bubble sort
-    for (int i = 0; i<adventureCards.size(); i++){
-        for (int j = (adventureCards.size()-1); j >= (i+1); j++){
+    for (unsigned int i = 0; i< adventureCards.size(); i++){
+        for (unsigned int j = (adventureCards.size()-1); j >= (i+1); j++){
             if (adventureCards[j]->getEncounterNumber() < adventureCards[j-1]->getEncounterNumber()){
                 temp = adventureCards[j];
                 adventureCards[j]=adventureCards[j-1];

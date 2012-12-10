@@ -4,6 +4,8 @@
     <logicalFolder name="f2" displayName="Controllers" projectFiles="true">
       <itemPath>AdventureCardEdit.cpp</itemPath>
       <itemPath>AdventureCardEdit.h</itemPath>
+      <itemPath>ArmorDialog.cpp</itemPath>
+      <itemPath>ArmorDialog.h</itemPath>
       <itemPath>GameBoard.cpp</itemPath>
       <itemPath>GameBoard.h</itemPath>
       <itemPath>MapBoard.cpp</itemPath>
@@ -12,6 +14,8 @@
       <itemPath>SpellDialog.h</itemPath>
       <itemPath>TheBigWindow.cpp</itemPath>
       <itemPath>TheBigWindow.h</itemPath>
+      <itemPath>WeaponDialog.cpp</itemPath>
+      <itemPath>WeaponDialog.h</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -204,9 +208,11 @@
     </logicalFolder>
     <logicalFolder name="ResourceFiles" displayName="Views" projectFiles="true">
       <itemPath>AdventureCardEdit.ui</itemPath>
+      <itemPath>ArmorDialog.ui</itemPath>
       <itemPath>GameBoard.ui</itemPath>
       <itemPath>SpellDialog.ui</itemPath>
       <itemPath>TheBigWindow.ui</itemPath>
+      <itemPath>WeaponDialog.ui</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"

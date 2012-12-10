@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TheBigWindow.h'
 **
-** Created: Sun Dec 9 16:14:22 2012
+** Created: Sun Dec 9 19:15:37 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_TheBigWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -42,15 +42,17 @@ static const uint qt_meta_data_TheBigWindow[] = {
      186,   13,   13,   13, 0x0a,
      205,   13,   13,   13, 0x0a,
      227,   13,   13,   13, 0x0a,
-     252,   13,   13,   13, 0x0a,
-     279,   13,   13,   13, 0x0a,
-     305,   13,   13,   13, 0x0a,
-     327,   13,   13,   13, 0x0a,
-     353,   13,   13,   13, 0x0a,
-     377,   13,   13,   13, 0x0a,
-     402,   13,   13,   13, 0x0a,
-     431,   13,   13,   13, 0x0a,
-     451,   13,   13,   13, 0x0a,
+     250,   13,   13,   13, 0x0a,
+     274,   13,   13,   13, 0x0a,
+     299,   13,   13,   13, 0x0a,
+     326,   13,   13,   13, 0x0a,
+     352,   13,   13,   13, 0x0a,
+     374,   13,   13,   13, 0x0a,
+     400,   13,   13,   13, 0x0a,
+     424,   13,   13,   13, 0x0a,
+     449,   13,   13,   13, 0x0a,
+     478,   13,   13,   13, 0x0a,
+     498,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -63,6 +65,7 @@ static const char qt_meta_stringdata_TheBigWindow[] = {
     "adventureDeckDoubleClicked()\0"
     "btnRollEncounterDieClicked()\0"
     "btnAttackClicked()\0btnCastSpellClicked()\0"
+    "btnEquipArmorClicked()\0btnEquipWeaponClicked()\0"
     "btnExchangeFateClicked()\0"
     "btnAddToFollowersClicked()\0"
     "btnAddToTrophiesClicked()\0"
@@ -112,19 +115,21 @@ int TheBigWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 7: btnRollEncounterDieClicked(); break;
         case 8: btnAttackClicked(); break;
         case 9: btnCastSpellClicked(); break;
-        case 10: btnExchangeFateClicked(); break;
-        case 11: btnAddToFollowersClicked(); break;
-        case 12: btnAddToTrophiesClicked(); break;
-        case 13: btnEncounterClicked(); break;
-        case 14: btnListFollowersClicked(); break;
-        case 15: btnListObjectsClicked(); break;
-        case 16: btnListTrophiesClicked(); break;
-        case 17: btnExchangeTrophiesClicked(); break;
-        case 18: btnEndTurnClicked(); break;
-        case 19: updateCharacterStats(); break;
+        case 10: btnEquipArmorClicked(); break;
+        case 11: btnEquipWeaponClicked(); break;
+        case 12: btnExchangeFateClicked(); break;
+        case 13: btnAddToFollowersClicked(); break;
+        case 14: btnAddToTrophiesClicked(); break;
+        case 15: btnEncounterClicked(); break;
+        case 16: btnListFollowersClicked(); break;
+        case 17: btnListObjectsClicked(); break;
+        case 18: btnListTrophiesClicked(); break;
+        case 19: btnExchangeTrophiesClicked(); break;
+        case 20: btnEndTurnClicked(); break;
+        case 21: updateCharacterStats(); break;
         default: ;
         }
-        _id -= 20;
+        _id -= 22;
     }
     return _id;
 }
