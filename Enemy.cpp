@@ -9,10 +9,11 @@
 ///
 ///Constructor that accepts card title, type, text, encounter number, subtype and attack points.
 ///
-Enemy::Enemy(string title, string type, string text, int encounterNumber, string subType, int attackPoints) :
+Enemy::Enemy(string title, string type, string text, int encounterNumber, string subType, int attackPoints, string attackType) :
         AdventureCard(title, type, text, encounterNumber) {
     this->subType = subType.length() > 0 ? subType : "Sub type";
     this->attackPoints = attackPoints > 0 ? attackPoints : 1;
+    this->attackType = attackType.length() > 0 ? attackType : "Attack type";
 }
 ///
 ///Destructor.
@@ -27,6 +28,10 @@ const string Enemy::getSubType() const { return subType; }
 ///
 int Enemy::getAttackPoints() { return attackPoints; }
 ///
+///Returns a string with the sub type of the enemy card.
+///
+const string Enemy::getAttackType() const { return attackType; }
+///
 ///Set sub type of the enemy card
 ///
 void Enemy::setSubType(string subType) { 
@@ -38,6 +43,13 @@ void Enemy::setSubType(string subType) {
 ///
 void Enemy::setAttackPoints(int attackPoints) { 
     this->attackPoints = attackPoints;
+    update();
+}
+///
+///Set attack type of the enemy card
+///
+void Enemy::setAttackType(string attackType) { 
+    this->attackType = attackType;
     update();
 }
 ///
@@ -57,7 +69,9 @@ void Enemy::paintType(QPainter& painter) {
     QFont font = QFont("Caxton Bk BT");
     font.setPixelSize(16);
     painter.setFont(font);
-    tmp = (subType == "Spirit") ? "Craft" : "Strength";
+//    tmp = (subType == "Spirit") ? "Craft" : "Strength";
+//    tmp.append(": ").append(QString::number(attackPoints));
+    tmp = QString::fromStdString(attackType);
     tmp.append(": ").append(QString::number(attackPoints));
     fm = painter.fontMetrics();
     painter.drawText((width()-fm.width(tmp))/2, 160, tmp);
@@ -70,7 +84,7 @@ string Enemy::toString() {
     result << title << " ( "
            << "Type: " << type << " | "
            << "Sub type: " << subType << " | "
-           << (subType == "Spirit" ? "Craft" : "Strength") << ": " << attackPoints << " | "
+           << "Attack type: " << attackType << " | "
            << "Encounter number: " << encounterNumber << " )";
     return result.str();
 }

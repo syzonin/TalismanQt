@@ -1,16 +1,16 @@
-Dragon;Enemy;A fearsome Dragon is terrorising this area. It will remain here until it is killed.;2;Dragon;7
-Bear;Enemy;A ferocious Bear is running amok in this area. It will remain here until it is killed.;2;Animal;3
-Goblin;Enemy;A Goblin is laying waste to this area. It will remain here until it is killed.;2;Monster;3
-Banshee;Enemy;A Banshee is stalking this area. It will remain here until it is killed.;3;Spirit;3
-Wyvern;Enemy;This foul creature has made its lair here. It will remain here until it is killed.;2;Dragon;5
-Lion;Enemy;A Lion is preying on everything in this area. It will remain here until it is killed.;2;Animal;3
-Kobold;Enemy;A miscreant Kobold is roaming this area. It will remain here until it is killed.;2;Monster;1
-Wraith;Enemy;A Wraith is wreaking havoc in this area. It will remain until it is killed.;3;Spirit;5
-Zombie Dragon;Enemy;A dreadful Zombie Dragon is terrorising this area. It will remain here until it is killed.;3;Dragon;8
-Wolf;Enemy;A vicious Wolf now dwells in this area. It will remain here until it is killed.;2;Animal;2
-Griffon;Enemy;A Griffon is terrorising this space and will attack anyone who enters. It will remain here until it is killed.;2;Monster;5
-Phantasm;Enemy;A terrifying Phantasm haunts this place. It will remain here until it is killed.;3;Spirit;1
-Emerald Dragon;Enemy;The Dragon cannot be evaded. It will remain here until it is killed;7;Dragon;3
-Ice Bear;Enemy;A voracious Ice Bear is running amok in this area. It will remain here until it is killed.;2;Animal;2
-Black Elf;Enemy;A cruel Black Elf is roving in this area. She will remain here until she is killed.;3;Monster;3
-Apparition;Enemy;A spectral Apparition is haunting this area. It will remain here until it is killed.;3;Spirit;1
+Dragon;Enemy;A fearsome Dragon is terrorising this area. It will remain here until it is killed.;2;Dragon;7;Strength
+Bear;Enemy;A ferocious Bear is running amok in this area. It will remain here until it is killed.;2;Animal;3;Strength
+Goblin;Enemy;A Goblin is laying waste to this area. It will remain here until it is killed.;2;Monster;3;Strength
+Banshee;Enemy;A Banshee is stalking this area. It will remain here until it is killed.;3;Spirit;3;Craft
+Wyvern;Enemy;This foul creature has made its lair here. It will remain here until it is killed.;2;Dragon;5;Strength
+Lion;Enemy;A Lion is preying on everything in this area. It will remain here until it is killed.;2;Animal;3;Strength
+Kobold;Enemy;A miscreant Kobold is roaming this area. It will remain here until it is killed.;2;Monster;1;Strength
+Wraith;Enemy;A Wraith is wreaking havoc in this area. It will remain until it is killed.;3;Spirit;5;Craft
+Zombie Dragon;Enemy;A dreadful Zombie Dragon is terrorising this area. It will remain here until it is killed.;3;Dragon;8;Craft
+Wolf;Enemy;A vicious Wolf now dwells in this area. It will remain here until it is killed.;2;Animal;2;Strength
+Griffon;Enemy;A Griffon is terrorising this space and will attack anyone who enters. It will remain here until it is killed.;2;Monster;5;Strength
+Phantasm;Enemy;A terrifying Phantasm haunts this place. It will remain here until it is killed.;3;Spirit;1;Craft
+Emerald Dragon;Enemy;The Dragon cannot be evaded. It will remain here until it is killed;7;Dragon;3;Craft
+Ice Bear;Enemy;A voracious Ice Bear is running amok in this area. It will remain here until it is killed.;2;Animal;2;Strength
+Black Elf;Enemy;A cruel Black Elf is roving in this area. She will remain here until she is killed.;3;Monster;3;Craft
+Apparition;Enemy;A spectral Apparition is haunting this area. It will remain here until it is killed.;3;Spirit;1;Craft

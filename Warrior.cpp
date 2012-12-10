@@ -21,7 +21,7 @@ Warrior::~Warrior() {}
 ///Returns the number of dice to roll when attacking an Enemy
 ///
 int Warrior::allowedAttackRolls(const Enemy& e) { 
-    if (e.getSubType() == "Spirit") return 1;
+    if (e.getAttackType() == "Craft") return 1;
     else return 2;
 }
 ///
@@ -38,7 +38,7 @@ int Warrior::attackRoll(const Enemy& e, int roll) {
 ///Roll two dice to attack an enemy based on its type (battle or psychic combat).
 ///
 int Warrior::attackRoll(const Enemy& e, int roll1, int roll2) {
-    if (e.getSubType() == "Spirit") {
+    if (e.getAttackType() == "Craft") {
         return Character::attackRoll(e, roll1);
     } else {
         roll1 = Character::attackRoll(e, roll1);

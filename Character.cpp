@@ -248,6 +248,18 @@ void Character::removeTrophy(unsigned int index) {
     trophies.erase(it);
 }
 ///
+///Removes the card to the character's list of objects.
+///
+bool Character::removeObject(AdventureCard* card) {
+    for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
+        if (card == *it) {
+            objects.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+///
 ///Displays a list of all the followers that the character has.
 ///
 string Character::listFollowers() {
@@ -303,7 +315,7 @@ int* Character::exchangeTrophies() {
     
     //Pre-process sums of craft and strength
     for (it = trophies.begin(); it != trophies.end(); ++it) { 
-        if ((*it)->getSubType() == "Spirit") cft_sum += (*it)->getAttackPoints();
+        if ((*it)->getAttackType() == "Craft") cft_sum += (*it)->getAttackPoints();
         //Sum strength
         else str_sum += (*it)->getAttackPoints();
     }
@@ -316,7 +328,7 @@ int* Character::exchangeTrophies() {
     
     //Decide which trophies to leave based on their contribution of attack points
     for (it = trophies.begin(); it != trophies.end(); ++it) { 
-        if ((*it)->getSubType() == "Spirit") { //Check craft
+        if ((*it)->getAttackType() == "Craft") { //Check craft
             if ((*it)->getAttackPoints() > cft_surplus) trophies.erase(it--);
             else cft_surplus -= (*it)->getAttackPoints();
         } else { //Check strength
@@ -345,9 +357,9 @@ int* Character::exchangeTrophies() {
 int Character::attackRoll(const Enemy& e, int roll) {
     int totalAttack = 0;
     
-    if (e.getSubType() == "Spirit") {
+    if (e.getAttackType() == "Craft") {
         totalAttack = craft + craftCounters; 
-    } else { //if (subType == "Animal" || subType == "Dragon" || subType == "Monster")
+    } else { //if (e.getAttackType() == "Strength")
         totalAttack = strength + strengthCounters; 
     } 
     

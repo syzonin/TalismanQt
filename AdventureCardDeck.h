@@ -6,8 +6,8 @@
  */
 
 #ifndef ADVENTURECARDDECK_H
-#define	ADVENTURECARDDECK_H
-#include "Enemy.h"
+#define ADVENTURECARDDECK_H
+#include "AdventureCardFactory.h"
 #include <cstdlib>
 #include <ctime>
 #include <vector>
@@ -33,5 +33,5 @@ signals:
     void doubleClicked();
 };
 
-#endif	/* ADVENTURECARDDECK_H */
+#endif  /* ADVENTURECARDDECK_H */
 

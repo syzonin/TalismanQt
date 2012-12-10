@@ -118,18 +118,18 @@ void AdventureCardEdit::load() {
     cards.clear();
         
     for (unsigned int i = 0; i < cardVector.size(); ++i) {
-        cards.push_back(
-                new Enemy(cardVector.at(i).at(0).toStdString(),
-                          cardVector.at(i).at(1).toStdString(),
-                          cardVector.at(i).at(2).toStdString(),
-                          cardVector.at(i).at(3).toInt(new bool(true),10),
-                          cardVector.at(i).at(4).toStdString(),
-                          cardVector.at(i).at(5).toInt(new bool(true),10)
-                )
-        );
-        
-        widget.layout->addWidget(cards.at(i));
-        cards.at(i)->hide();
+//        cards.push_back(
+//                new Enemy(cardVector.at(i).at(0).toStdString(),
+//                          cardVector.at(i).at(1).toStdString(),
+//                          cardVector.at(i).at(2).toStdString(),
+//                          cardVector.at(i).at(3).toInt(new bool(true),10),
+//                          cardVector.at(i).at(4).toStdString(),
+//                          cardVector.at(i).at(5).toInt(new bool(true),10)
+//                )
+//        );
+//        
+//        widget.layout->addWidget(cards.at(i));
+//        cards.at(i)->hide();
     }
     
      currentIndexChanged(currentIndex);

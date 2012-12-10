@@ -57,6 +57,7 @@ public:
     virtual bool addTrophy(Enemy*);
     virtual bool addFollower(AdventureCard*);
     virtual bool addObject(AdventureCard*);
+    bool removeObject(AdventureCard*);
     void removeFollower(unsigned int);
     void removeTrophy(unsigned int);
     //Other methods

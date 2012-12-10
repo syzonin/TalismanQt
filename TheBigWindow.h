@@ -74,6 +74,7 @@ private:
     vector<Spell*> activeSpells;
     vector<Armor*> activeArmors;
     vector<Weapon*> activeWeapons;
+    vector<AdventureCard*> activeSquareCards;
 };
 
 #endif	/* _THEBIGWINDOW_H */

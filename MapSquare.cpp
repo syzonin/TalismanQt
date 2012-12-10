@@ -91,7 +91,7 @@ void MapSquare::sortCards(){
     }
 }
 
-vector<AdventureCard*> MapSquare::getAdventureCards(){ return adventureCards; }
+vector<AdventureCard*>& MapSquare::getAdventureCards(){ return adventureCards; }
 
 void MapSquare::setSquareName(string name){ squareName = name; }
 

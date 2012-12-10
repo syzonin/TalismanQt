@@ -27,7 +27,7 @@ class MapSquare : public QWidget {
         void sortCards();
         void addCard(AdventureCard&);
         void removeCard(AdventureCard&);
-        vector<AdventureCard*> getAdventureCards();
+        vector<AdventureCard*>& getAdventureCards();
         
         void setSquareName(string);
         string getSquareName();

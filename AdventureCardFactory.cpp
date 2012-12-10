@@ -22,7 +22,7 @@ vector<string> AdventureCardFactory::classNames () {
 AdventureCard* AdventureCardFactory::getClass(const string className) {
     QString name = QString::fromStdString(className);
     int encounterNo = 0, atkPoints = 0;
-    string title = "", text = "", type = "", subType = "";
+    string title = "", text = "", type = "", subType = "", atkType = "";
     
     for (unsigned int i = 0; i < entries.size(); ++i) {
         if (entries.at(i).at(0) == name) {
@@ -34,12 +34,13 @@ AdventureCard* AdventureCardFactory::getClass(const string className) {
             if (type == "Enemy") {
                 subType = rowData.at(4).toStdString();
                 atkPoints = rowData.at(5).toInt();
+                atkType = rowData.at(6).toStdString();
             }
             break;
         }
     }
     
-    if (type == "Enemy") return new Enemy(title,type,text,encounterNo,subType,atkPoints);
+    if (type == "Enemy") return new Enemy(title,type,text,encounterNo,subType,atkPoints,atkType);
     else if (type == "Follower") return new Follower(title,type,text,encounterNo);
     //else if (type == "Some type") return new DerivedAdventureCard(title,type,text,encounterNo);
     else return NULL;

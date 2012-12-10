@@ -36,7 +36,7 @@ int Monk::allowedWeapons() { return 0; }
 int Monk::attackRoll(const Enemy& e, int roll) {
     int totalAttack = craft + craftCounters;
     //If enemy's subtype is strength, add strength to attack
-    if (e.getSubType() != "Spirit") totalAttack += strength + strengthCounters; 
+    if (e.getAttackType() != "Craft") totalAttack += strength + strengthCounters; 
     //Return attack points
     return totalAttack + roll;
 }
