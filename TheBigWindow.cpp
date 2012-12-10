@@ -46,7 +46,7 @@ TheBigWindow::TheBigWindow() {
     widget.btnExchangeTrophies->hide();
     widget.btnAttack->hide();
     widget.btnEncounter->hide();
-    widget.btnEndTurn->hide();
+    widget.btnNext->hide();
     widget.btnExchangeFate->hide();
     widget.btnRollEncounterDie->hide();
     widget.btnCastSpell->hide();
@@ -79,7 +79,7 @@ TheBigWindow::TheBigWindow() {
     connect(widget.btnListObjects, SIGNAL(clicked()), this, SLOT(btnListObjectsClicked()));
     connect(widget.btnListTrophies, SIGNAL(clicked()), this, SLOT(btnListTrophiesClicked()));
     connect(widget.btnExchangeTrophies, SIGNAL(clicked()), this, SLOT(btnExchangeTrophiesClicked()));
-    connect(widget.btnEndTurn, SIGNAL(clicked()), this, SLOT(btnEndTurnClicked()));
+    connect(widget.btnNext, SIGNAL(clicked()), this, SLOT(btnNextClicked()));
     //Maximize window
     this->showMaximized();
 }
@@ -151,6 +151,12 @@ void TheBigWindow::btnCastSpellClicked() {
         spells->exec();
         if (spells->result() != 0) widget.btnCastSpell->hide();
     }
+    Enemy* e = static_cast<Enemy*>(card);
+    for (unsigned int i = 0; i < activeSpells.size(); ++i) {
+        activeSpells.at(i)->preBattle(player, e);
+    }
+    //Update view
+    updateCharacterStats();
 }  
 
 void TheBigWindow::btnEquipArmorClicked() {
@@ -167,15 +173,21 @@ void TheBigWindow::btnEquipWeaponClicked() {
         weapons->exec();
         if (weapons->result() != 0) widget.btnEquipWeapon->hide();    
     }
+    Enemy* e = static_cast<Enemy*>(card);
+    for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
+        activeWeapons.at(i)->preBattle(player, e);
+    }
+    //Update view
+    updateCharacterStats();
 }    
     
 void TheBigWindow::btnEncounterClicked() {
     //Update view
     if (card != NULL) widget.adventureCardPanel->removeWidget(card);
-//    AdventureCardFactory *ef = new AdventureCardFactory;
-//    activeSquareCards.push_back(ef->getClass("Banshee"));
-//    activeSquareCards.push_back(ef->getClass("Bear"));
-//    activeSquareCards.push_back(ef->getClass("Goblin"));
+    AdventureCardFactory *ef = new AdventureCardFactory;
+    activeSquareCards.push_back(ef->getClass("Banshee"));
+    activeSquareCards.push_back(ef->getClass("Bear"));
+    activeSquareCards.push_back(ef->getClass("Goblin"));
            
     card = activeSquareCards.at(activeSquareCards.size()-1);
     widget.adventureCardPanel->addWidget(card);
@@ -284,14 +296,7 @@ void TheBigWindow::btnAttackClicked() {
     widget.btnAttack->hide();
     widget.btnExchangeFate->hide();
     
-    Enemy* e = static_cast<Enemy*>(card);
-    for (unsigned int i = 0; i < activeSpells.size(); ++i) {
-        activeSpells.at(i)->preBattle(player, e);
-    }
-    for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
-        activeWeapons.at(i)->preBattle(player, e);
-    }
-        
+    Enemy* e = static_cast<Enemy*>(card);        
     //Character attacks
     int a = 0;
     if (player->allowedAttackRolls(*e) == 1) {
@@ -347,6 +352,7 @@ void TheBigWindow::btnAttackClicked() {
         widget.btnAddToFollowers->show();
         widget.btnAddToTrophies->show();
         widget.btnAddToObjects->show();
+        widget.btnNext->show();
         
         activeSquareCards.pop_back();
         if (activeSquareCards.size() > 0) {
@@ -406,7 +412,7 @@ void TheBigWindow::btnAddToFollowersClicked() {
         //Update view log
         widget.txtLog->append(QString::fromStdString(card->getTitle()) + " added to followers");
         //Update view
-        btnEndTurnClicked();
+        btnNextClicked();
         card = NULL;
     } else {
         //Update view log
@@ -416,7 +422,7 @@ void TheBigWindow::btnAddToFollowersClicked() {
 
 void TheBigWindow::btnAddToTrophiesClicked() {
     //Update view
-    btnEndTurnClicked();
+    btnNextClicked();
     //Add to character's trophies
     Enemy* e = static_cast<Enemy*>(card);
     player->addTrophy(e);
@@ -431,7 +437,7 @@ void TheBigWindow::btnAddToObjectsClicked() {
         //Update view log
         widget.txtLog->append(QString::fromStdString(card->getTitle()) + " added to objects");
         //Update view
-        btnEndTurnClicked();
+        btnNextClicked();
         card = NULL;
     } else {
         //Update view log
@@ -439,7 +445,7 @@ void TheBigWindow::btnAddToObjectsClicked() {
     }
 }
 
-void TheBigWindow::btnEndTurnClicked() {
+void TheBigWindow::btnNextClicked() {
     //Update view
     card->hide();
     //adventureDeck->show();
@@ -449,7 +455,7 @@ void TheBigWindow::btnEndTurnClicked() {
     widget.btnAddToFollowers->hide();
     widget.btnAddToTrophies->hide();
     widget.btnAddToObjects->hide();
-    widget.btnEndTurn->hide();
+    widget.btnNext->hide();
     widget.btnExchangeTrophies->show();
 }
 

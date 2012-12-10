@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Sun Dec 9 22:42:21 2012
+** Created: Mon Dec 10 01:20:56 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -70,7 +70,7 @@ public:
     QPushButton *btnAddToFollowers;
     QPushButton *btnAddToObjects;
     QPushButton *btnAddToTrophies;
-    QPushButton *btnEndTurn;
+    QPushButton *btnNext;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *deckPanel;
     QWidget *verticalLayoutWidget;
@@ -422,12 +422,12 @@ public:
 
         encounterPanel->addWidget(btnAddToTrophies);
 
-        btnEndTurn = new QPushButton(layoutWidget4);
-        btnEndTurn->setObjectName(QString::fromUtf8("btnEndTurn"));
-        sizePolicy3.setHeightForWidth(btnEndTurn->sizePolicy().hasHeightForWidth());
-        btnEndTurn->setSizePolicy(sizePolicy3);
+        btnNext = new QPushButton(layoutWidget4);
+        btnNext->setObjectName(QString::fromUtf8("btnNext"));
+        sizePolicy3.setHeightForWidth(btnNext->sizePolicy().hasHeightForWidth());
+        btnNext->setSizePolicy(sizePolicy3);
 
-        encounterPanel->addWidget(btnEndTurn);
+        encounterPanel->addWidget(btnNext);
 
         horizontalLayoutWidget = new QWidget(TheBigWindow);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
@@ -490,7 +490,7 @@ public:
         btnAddToFollowers->setText(QApplication::translate("TheBigWindow", "Add to Followers", 0, QApplication::UnicodeUTF8));
         btnAddToObjects->setText(QApplication::translate("TheBigWindow", "Add to Objects", 0, QApplication::UnicodeUTF8));
         btnAddToTrophies->setText(QApplication::translate("TheBigWindow", "Add to Trophies", 0, QApplication::UnicodeUTF8));
-        btnEndTurn->setText(QApplication::translate("TheBigWindow", "End Turn", 0, QApplication::UnicodeUTF8));
+        btnNext->setText(QApplication::translate("TheBigWindow", "Next Card", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

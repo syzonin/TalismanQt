@@ -46,7 +46,7 @@
         <itemPath>Pits.h</itemPath>
         <itemPath>PlainOfPeril.h</itemPath>
         <itemPath>PortalOfPower.h</itemPath>
-        <itemPath>Runes.h</itemPath>
+        <itemPath>Ruins.h</itemPath>
         <itemPath>Sentinel.h</itemPath>
         <itemPath>Tavern.h</itemPath>
         <itemPath>Temple.h</itemPath>
@@ -153,7 +153,7 @@
         <itemPath>Pits.cpp</itemPath>
         <itemPath>PlainOfPeril.cpp</itemPath>
         <itemPath>PortalOfPower.cpp</itemPath>
-        <itemPath>Runes.cpp</itemPath>
+        <itemPath>Ruins.cpp</itemPath>
         <itemPath>Sentinel.cpp</itemPath>
         <itemPath>Tavern.cpp</itemPath>
         <itemPath>Temple.cpp</itemPath>

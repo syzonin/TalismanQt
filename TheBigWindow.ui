@@ -646,7 +646,7 @@ QLabel {
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btnEndTurn">
+     <widget class="QPushButton" name="btnNext">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -654,7 +654,7 @@ QLabel {
        </sizepolicy>
       </property>
       <property name="text">
-       <string>End Turn</string>
+       <string>Next Card</string>
       </property>
      </widget>
     </item>

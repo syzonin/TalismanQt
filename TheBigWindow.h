@@ -58,7 +58,7 @@ public slots:
     void btnListObjectsClicked();
     void btnListTrophiesClicked();
     void btnExchangeTrophiesClicked();
-    void btnEndTurnClicked();
+    void btnNextClicked();
     void updateCharacterStats();
 private:
     Ui::TheBigWindow widget;

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TheBigWindow.h'
 **
-** Created: Mon Dec 10 00:12:13 2012
+** Created: Mon Dec 10 01:21:00 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -53,7 +53,7 @@ static const uint qt_meta_data_TheBigWindow[] = {
      449,   13,   13,   13, 0x0a,
      474,   13,   13,   13, 0x0a,
      503,   13,   13,   13, 0x0a,
-     523,   13,   13,   13, 0x0a,
+     520,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -75,7 +75,7 @@ static const char qt_meta_stringdata_TheBigWindow[] = {
     "btnListObjectsClicked()\0"
     "btnListTrophiesClicked()\0"
     "btnExchangeTrophiesClicked()\0"
-    "btnEndTurnClicked()\0updateCharacterStats()\0"
+    "btnNextClicked()\0updateCharacterStats()\0"
 };
 
 const QMetaObject TheBigWindow::staticMetaObject = {
@@ -128,7 +128,7 @@ int TheBigWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 18: btnListObjectsClicked(); break;
         case 19: btnListTrophiesClicked(); break;
         case 20: btnExchangeTrophiesClicked(); break;
-        case 21: btnEndTurnClicked(); break;
+        case 21: btnNextClicked(); break;
         case 22: updateCharacterStats(); break;
         default: ;
         }
