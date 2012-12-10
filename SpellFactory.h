@@ -29,10 +29,11 @@ class SpellFactory{
 public:
     SpellFactory();
     virtual ~SpellFactory();
-    Spell* getSpell(string demand);
+    vector<string> classNames();
+    Spell* getClass(const string);
     
 private:
-    vector<QStringList> spells;
+    vector<QStringList> entries;
 };
 
 

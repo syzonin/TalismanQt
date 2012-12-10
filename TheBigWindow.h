@@ -15,6 +15,8 @@
 #include "WeaponFactory.h"
 #include "CharacterCardDeck.h"
 #include "AdventureCardDeck.h"
+#include "SpellDeck.h"
+#include "PurchaseDeck.h"
 #include "DieWidget.h"
 #include "MapSquare.h"
 #include "MapBoard.h"
@@ -67,6 +69,8 @@ private:
     AdventureCard *card;
     CharacterCardDeck *playerDeck;
     AdventureCardDeck *adventureDeck;
+    PurchaseDeck *purchaseDeck;
+    SpellDeck *spellDeck;
     MapBoard *board;
     int remainder;
     int rowClicked;

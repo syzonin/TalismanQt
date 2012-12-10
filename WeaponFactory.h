@@ -30,10 +30,11 @@ class WeaponFactory{
 public:
     WeaponFactory();
     virtual ~WeaponFactory();
-    Weapon* getWeapon(string demand);
+    vector<string> classNames();
+    Weapon* getClass(const string);
     
 private:
-    vector<QStringList> weapons;
+    vector<QStringList> entries;
 };
 
 

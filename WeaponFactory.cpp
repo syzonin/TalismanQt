@@ -7,37 +7,50 @@
 
 #include "WeaponFactory.h"
 
+///
+///Default constructor
+///Retrieves data from weapon model
+///
 WeaponFactory::WeaponFactory(){
-    weapons = WeaponModel::select();
+    entries = WeaponModel::select();
 }
-
+///
+///Destructor
+///
 WeaponFactory::~WeaponFactory(){
-    for (unsigned int x = 0; x < weapons.size(); x++)
-        weapons.at(x).clear();
-    weapons.clear();
+    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
+    entries.clear();
 }
-
-Weapon* WeaponFactory::getWeapon(string demand){
-    
-    int strength = 0;
-    int craft = 0;
-    string title = "none";
-    string text = "No Text";
-    int encounterNumber = 0;
-    unsigned int row;
-    
-    QStringList rowData;
-    for (row = 0; row < weapons.size(); row++){
-        rowData = weapons.at(row);
-        if (demand == rowData.at(2).toStdString())
-            break;
+///
+///Returns the list of available class names that can be passed to getClass()
+///
+vector<string> WeaponFactory::classNames() {
+    vector<string> classNames;
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        classNames.push_back(entries.at(i).at(0).toStdString());
     }
+    return classNames;
+}
+///
+///Returns an instance to the class passed as parameter
+///
+Weapon* WeaponFactory::getClass(const string className) {
+    QString name = QString::fromStdString(className);
+
+    int strength = 0, craft = 0, encounterNumber = 0;
+    string title = "", text = "";
     
-    strength = rowData.at(0).toInt();
-    craft = rowData.at(1).toInt();
-    title = rowData.at(2).toStdString();
-    text = rowData.at(3).toStdString();
-    encounterNumber = rowData.at(4).toInt();
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        if (entries.at(i).at(0) == name) {
+            QStringList rowData = entries.at(i);
+            strength = rowData.at(0).toInt();
+            craft = rowData.at(1).toInt();
+            title = rowData.at(2).toStdString();
+            text = rowData.at(3).toStdString();
+            encounterNumber = rowData.at(4).toInt();
+            break;
+        }
+    }
     
     if (title == "Axe")
         return new Axe(strength, craft, title, text, encounterNumber);

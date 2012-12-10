@@ -94,7 +94,9 @@
       <itemPath>Enemy.h</itemPath>
       <itemPath>Follower.h</itemPath>
       <itemPath>Monk.h</itemPath>
+      <itemPath>PurchaseDeck.h</itemPath>
       <itemPath>Spell.h</itemPath>
+      <itemPath>SpellDeck.h</itemPath>
       <itemPath>Warrior.h</itemPath>
       <itemPath>Weapon.h</itemPath>
     </logicalFolder>
@@ -201,7 +203,9 @@
       <itemPath>Enemy.cpp</itemPath>
       <itemPath>Follower.cpp</itemPath>
       <itemPath>Monk.cpp</itemPath>
+      <itemPath>PurchaseDeck.cpp</itemPath>
       <itemPath>Spell.cpp</itemPath>
+      <itemPath>SpellDeck.cpp</itemPath>
       <itemPath>Warrior.cpp</itemPath>
       <itemPath>Weapon.cpp</itemPath>
       <itemPath>main.cpp</itemPath>

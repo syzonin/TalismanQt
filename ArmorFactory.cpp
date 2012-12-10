@@ -7,33 +7,50 @@
 
 #include "ArmorFactory.h"
 
+///
+///Default constructor
+///Retrieves data from armor model
+///
 ArmorFactory::ArmorFactory(){
-    armors = ArmorModel::select();
+    entries = ArmorModel::select();
 }
 
+///
+///Destructor
+///
 ArmorFactory::~ArmorFactory(){
-    for (unsigned int x = 0; x < armors.size(); x++)
-        armors.at(x).clear();
-    armors.clear();
+    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
+    entries.clear();
 }
 
-Armor* ArmorFactory::getArmor(string demand){
-    
-    string title = "none";
-    string text = "No Text";
+///
+///Returns the list of available class names that can be passed to getClass()
+///
+vector<string> ArmorFactory::classNames () {
+    vector<string> classNames;
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        classNames.push_back(entries.at(i).at(0).toStdString());
+    }
+    return classNames;
+}
+///
+///Returns an instance to the class passed as parameter
+///
+Armor* ArmorFactory::getClass(const string className) {
+    QString name = QString::fromStdString(className);
+    string title = "", text = "";
     int encounterNumber = 0;
-    unsigned int row;
     
-    QStringList rowData;
-    for (row = 0; row < armors.size(); row++){
-        rowData = armors.at(row);
-        if (demand == rowData.at(0).toStdString())
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        if (entries.at(i).at(0) == name) {
+            QStringList rowData = entries.at(i);
+            title = rowData.at(0).toStdString();
+            text = rowData.at(1).toStdString();
+            encounterNumber = rowData.at(2).toInt();
             break;
+        }
     }
     
-    title = rowData.at(0).toStdString();
-    text = rowData.at(1).toStdString();
-    encounterNumber = rowData.at(2).toInt();
     
     if (title == "Basic Armor")
         return new BasicArmor(title, text, encounterNumber);

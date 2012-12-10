@@ -14,13 +14,14 @@ INPUT(
 ./build/Debug/MinGW-Windows/main.o
 ./build/Debug/MinGW-Windows/ArmorDialog.o
 ./build/Debug/MinGW-Windows/Mines.o
-./build/Debug/MinGW-Windows/ArmorFactory.o
 ./build/Debug/MinGW-Windows/Runesword.o
+./build/Debug/MinGW-Windows/ArmorFactory.o
 ./build/Debug/MinGW-Windows/WeaponFactory.o
-./build/Debug/MinGW-Windows/Ruins.o
 ./build/Debug/MinGW-Windows/Monk.o
+./build/Debug/MinGW-Windows/Ruins.o
 ./build/Debug/MinGW-Windows/MirrorShield.o
 ./build/Debug/MinGW-Windows/MapSquareFactory.o
+./build/Debug/MinGW-Windows/PurchaseDeck.o
 ./build/Debug/MinGW-Windows/SpellFactory.o
 ./build/Debug/MinGW-Windows/Weakness.o
 ./build/Debug/MinGW-Windows/WeaponDialog.o
@@ -81,6 +82,7 @@ INPUT(
 ./build/Debug/MinGW-Windows/Generosity.o
 ./build/Debug/MinGW-Windows/DrawSquare.o
 ./build/Debug/MinGW-Windows/Follower.o
+./build/Debug/MinGW-Windows/SpellDeck.o
 ./build/Debug/MinGW-Windows/HolyLance.o
 ./build/Debug/MinGW-Windows/CrownOfCommand.o
 ./build/Debug/MinGW-Windows/AdventureCard.o
@@ -89,8 +91,9 @@ INPUT(
 ./build/Debug/MinGW-Windows/PortalOfPower.o
 ./build/Debug/MinGW-Windows/MapSquare.o
 ./build/Debug/MinGW-Windows/moc_CharacterCardDeck.o
-./build/Debug/MinGW-Windows/moc_WeaponDialog.o
+./build/Debug/MinGW-Windows/moc_PurchaseDeck.o
 ./build/Debug/MinGW-Windows/moc_AdventureCardDeck.o
+./build/Debug/MinGW-Windows/moc_WeaponDialog.o
 ./build/Debug/MinGW-Windows/moc_ArmorDialog.o
 ./build/Debug/MinGW-Windows/moc_AdventureCardEdit.o
 ./build/Debug/MinGW-Windows/moc_Character.o
@@ -98,4 +101,5 @@ INPUT(
 ./build/Debug/MinGW-Windows/moc_SpellDialog.o
 ./build/Debug/MinGW-Windows/moc_MapBoard.o
 ./build/Debug/MinGW-Windows/moc_TheBigWindow.o
+./build/Debug/MinGW-Windows/moc_SpellDeck.o
 );

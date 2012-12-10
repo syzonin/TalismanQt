@@ -7,33 +7,48 @@
 
 #include "SpellFactory.h"
 
+///
+///Default constructor
+///Retrieves data from spell model
+///
 SpellFactory::SpellFactory(){
-    spells = SpellModel::select();
+    entries = SpellModel::select();
 }
 
+///
+///Destructor
+///
 SpellFactory::~SpellFactory(){
-    for (unsigned int x = 0; x < spells.size(); x++)
-        spells.at(x).clear();
-    spells.clear();
+    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
+    entries.clear();
 }
 
-Spell* SpellFactory::getSpell(string demand){
-
-    string title = "none";
-    string text = "No Text";
-    int encounterNumber = 0;
-    unsigned int row;
-    
-    QStringList rowData;
-    for (row = 0; row < spells.size(); row++){
-        rowData = spells.at(row);
-        if (demand == rowData.at(0).toStdString())
-            break;
+///
+///Returns the list of available class names that can be passed to getClass()
+///
+vector<string> SpellFactory::classNames () {
+    vector<string> classNames;
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        classNames.push_back(entries.at(i).at(0).toStdString());
     }
+    return classNames;
+}
+
+Spell* SpellFactory::getClass(const string className) {
+    QString name = QString::fromStdString(className);
+
+    string title = "", text = "";
+    int encounterNumber = 0;
     
-    title = rowData.at(0).toStdString();
-    text = rowData.at(1).toStdString();
-    encounterNumber = rowData.at(2).toInt();
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        if (entries.at(i).at(0) == name) {
+            QStringList rowData = entries.at(i);
+            title = rowData.at(0).toStdString();
+            text = rowData.at(1).toStdString();
+            encounterNumber = rowData.at(2).toInt();
+            break;
+        }
+    }
     
     if (title == "Cheat Fate")
         return new CheatFate(title, text, encounterNumber);

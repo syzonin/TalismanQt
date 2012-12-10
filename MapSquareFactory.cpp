@@ -6,11 +6,23 @@
  */
 
 #include "MapSquareFactory.h"
-
+///
+///Default constructor
+///Retrieves data from mapsquare model
+///
 MapSquareFactory::MapSquareFactory() {
     entries = MapSquareModel::select();
 }
-
+///
+///Destructor
+///
+MapSquareFactory::~MapSquareFactory() {
+    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
+    entries.clear();
+}
+///
+///Returns an instance to the class passed as parameter
+///
 MapSquare* MapSquareFactory::getClass(int row) {
    
     int xCord=0, yCord=0, mCard=0;
@@ -51,10 +63,5 @@ MapSquare* MapSquareFactory::getClass(int row) {
     else if (name == "Warlock's Cave") { return new WarlocksCave(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Werewolf Den") { return new WerewolfDen(xCord, yCord, mCard, region, name, ins); }
     else { return new DrawSquare(xCord, yCord, mCard, region, name, ins); }
-}
-
-MapSquareFactory::~MapSquareFactory() {
-    for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
-    entries.clear();
 }
 

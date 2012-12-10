@@ -22,6 +22,8 @@ TheBigWindow::TheBigWindow() {
     //card = NULL;
     playerDeck = new CharacterCardDeck;
     adventureDeck = new AdventureCardDeck;
+    spellDeck = new SpellDeck;
+    purchaseDeck = new PurchaseDeck;
     playerDeck->setToolTip("Double-click to draw a player card");
     
     //Add custom widgets
@@ -33,6 +35,8 @@ TheBigWindow::TheBigWindow() {
     widget.bigSquare->addWidget(board);
     widget.charCardPanel->addWidget(playerDeck);
     widget.deckPanel->addWidget(adventureDeck);
+    widget.deckPanel->addWidget(spellDeck);
+    widget.deckPanel->addWidget(purchaseDeck);
     widget.movementPanel->addWidget(die);
     //Hide all controls
     widget.btnLeft->hide();
@@ -126,15 +130,15 @@ void TheBigWindow::playerDeckDoubleClicked() {
         ArmorFactory *af = new ArmorFactory();
         WeaponFactory *wf = new WeaponFactory();
         SpellFactory *sf = new SpellFactory();
-        player->addObject(wf->getWeapon("Axe"));
-        player->addObject(sf->getSpell("Cheat Fate"));
-        player->addObject(af->getArmor("Basic Armor"));
-        player->addObject(wf->getWeapon("Runesword"));
-        player->addObject(sf->getSpell("Healing"));
-        player->addObject(af->getArmor("Helmet"));
-        player->addObject(wf->getWeapon("Frostbite"));
-        player->addObject(sf->getSpell("Weakness"));
-        player->addObject(af->getArmor("Shield"));
+        player->addObject(wf->getClass("Axe"));
+        player->addObject(sf->getClass("Cheat Fate"));
+        player->addObject(af->getClass("Basic Armor"));
+        player->addObject(wf->getClass("Runesword"));
+        player->addObject(sf->getClass("Healing"));
+        player->addObject(af->getClass("Helmet"));
+        player->addObject(wf->getClass("Frostbite"));
+        player->addObject(sf->getClass("Weakness"));
+        player->addObject(af->getClass("Shield"));
     } 
 }
 

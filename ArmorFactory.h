@@ -22,10 +22,11 @@ class ArmorFactory{
 public:
     ArmorFactory();
     virtual ~ArmorFactory();
-    Armor* getArmor(string demand);
+    vector<string> classNames();
+    Armor* getClass(const string);
     
 private:
-    vector<QStringList> armors;
+    vector<QStringList> entries;
 };
 
 #endif	/* ARMORFACTORY_H */
