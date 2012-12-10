@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ArmorDialog.h'
 **
-** Created: Sun Dec 9 20:38:25 2012
+** Created: Sun Dec 9 22:00:05 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -490,6 +490,7 @@ void TheBigWindow::btnYesClicked(){
         widget.btnRollDie->hide();
         widget.btnLeft->show();
         widget.btnRight->show();
+        remainder = 0;
     }
     else if (remainder > 1){
         remainder -=1;
@@ -623,6 +624,9 @@ void TheBigWindow::moveChar(int roll){
             remainder = 8 - newIndex;
             direction = "counter";
         }
+        else {
+            remainder = 0;   ////////////////////////////////////////////
+        }
         ms->removeCharacter(*player);
         ms = v.at(8);
         ms->addCharacter(*player);
@@ -662,6 +666,7 @@ void TheBigWindow::moveChar(int roll){
         widget.btnYes->show();
         widget.btnNo->show();
         direction = "insignificant";
+        remainder = 0;
     }
     else if ((s1 == "Inner") && ((newIndex == 4))){
         ms->removeCharacter(*player);
@@ -672,13 +677,15 @@ void TheBigWindow::moveChar(int roll){
         widget.btnYes->show();
         widget.btnNo->show();
         direction = "insignificant";
+        remainder = 0;
     }
     
     else if ((s1 == "Inner")){
         ms->removeCharacter(*player);
         ms = v.at(index+remainder);
         ms->addCharacter(*player);
-        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());    
+        player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        remainder = 0;
     }
     else {
         if (newIndex <0){
@@ -691,6 +698,7 @@ void TheBigWindow::moveChar(int roll){
         ms = v.at(newIndex);
         ms->addCharacter(*player);
         player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
+        remainder = 0;
         widget.btnLeft->hide();
         widget.btnRight->hide();
         widget.btnRollDie->show();
