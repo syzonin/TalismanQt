@@ -12,7 +12,7 @@
 class Sentinel : public MapSquare {
 public:
     Sentinel(int,int,int,string,string,string);
-    void execute(AdventureCardDeck*);
+    void execute(AdventureCardDeck*, SpellDeck*, PurchaseDeck*, Character*, QTextEdit*);
 private:
 
 };

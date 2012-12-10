@@ -10,7 +10,7 @@
 Castle::Castle(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Castle::execute(AdventureCardDeck* d){
+void Castle::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* e){
     
     cout << "something goes here" << endl;
 }

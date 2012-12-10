@@ -10,7 +10,7 @@
 Forest::Forest(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Forest::execute(AdventureCardDeck* d){
+void Forest::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
     cout << "hi" <<endl;
 }

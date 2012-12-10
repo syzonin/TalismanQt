@@ -12,7 +12,7 @@
 class Village  : public MapSquare {
 public:
     Village(int,int,int,string,string,string);
-    void execute(AdventureCardDeck*);
+    void execute(AdventureCardDeck*, SpellDeck*, PurchaseDeck*, Character*, QTextEdit*);
 private:
 
 };

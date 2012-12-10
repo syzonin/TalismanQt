@@ -39,15 +39,23 @@ Spell* SpellFactory::getClass(const string className) {
 
     string title = "", text = "";
     int encounterNumber = 0;
-    
-    for (unsigned int i = 0; i < entries.size(); ++i) {
-        if (entries.at(i).at(0) == name) {
-            QStringList rowData = entries.at(i);
-            title = rowData.at(0).toStdString();
-            text = rowData.at(1).toStdString();
-            encounterNumber = rowData.at(2).toInt();
-            break;
-        }
+ 
+    if(className == "Random"){
+        QStringList rowData = entries.at(rand() % 11 + 1);
+        title = rowData.at(0).toStdString();
+        text = rowData.at(1).toStdString();
+        encounterNumber = rowData.at(2).toInt();
+    }
+    else{    
+        for (unsigned int i = 0; i < entries.size(); ++i) {
+            if (entries.at(i).at(0) == name) {
+                QStringList rowData = entries.at(i);
+                title = rowData.at(0).toStdString();
+                text = rowData.at(1).toStdString();
+                encounterNumber = rowData.at(2).toInt();
+                break;
+            }
+        }      
     }
     
     if (title == "Cheat Fate")

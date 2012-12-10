@@ -31,10 +31,6 @@ int main(int argc, char *argv[]) {
     TheBigWindow bw;
     bw.show();
     
-    WeaponFactory* w = new WeaponFactory();
-    Weapon* a = w->getClass("Axe");
-    a->show();
-    
 
     //demo code ends
 /*

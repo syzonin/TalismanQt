@@ -10,7 +10,7 @@
 WerewolfDen::WerewolfDen(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void WerewolfDen::execute(AdventureCardDeck* d){
+void WerewolfDen::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
     cout << "hi" <<endl;
 }

@@ -13,9 +13,15 @@
 #include <QWidget>
 #include "Character.h"
 #include "AdventureCardDeck.h"
+#include "SpellDeck.h"
+#include "PurchaseDeck.h"
+#include "WeaponFactory.h"
+#include "ArmorFactory.h"
+#include "SpellFactory.h"
 #include <cstdlib>
 #include <iostream>
 #include <QPushButton>
+#include <QTextEdit>
 using namespace std;
 
 class MapSquare : public QWidget {
@@ -42,7 +48,8 @@ class MapSquare : public QWidget {
         int getMaxCard();
         int getNumCard();
         void setNumCard(int);
-        virtual void execute(AdventureCardDeck*) = 0;
+        virtual void execute(AdventureCardDeck*, SpellDeck*, PurchaseDeck*, Character*, QTextEdit*) = 0;
+        //virtual void execute(AdventureCardDeck*) = 0;
     protected:
         void paintEvent(QPaintEvent *event);
         vector<Character*>  charactersPresent;

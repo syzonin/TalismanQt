@@ -10,7 +10,7 @@
 Village::Village(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Village::execute(AdventureCardDeck* d){
+void Village::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
     cout << "hi" <<endl;
 }

@@ -12,7 +12,7 @@
 class DiceWithDeath : public MapSquare {
 public:
     DiceWithDeath(int,int,int,string,string,string);
-    void execute(AdventureCardDeck*);
+    void execute(AdventureCardDeck*, SpellDeck*, PurchaseDeck*, Character*, QTextEdit*);
 private:
 
 };

@@ -12,7 +12,7 @@
 class WarlocksCave : public MapSquare {
 public:
     WarlocksCave(int,int,int,string,string,string);
-    void execute(AdventureCardDeck*);
+    void execute(AdventureCardDeck*, SpellDeck*, PurchaseDeck*, Character*, QTextEdit*);
 private:
 
 };

@@ -747,7 +747,8 @@ void TheBigWindow::moveChar(){
     
     if (remainder == 0) {
         MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
-        ms->execute(adventureDeck);
+        ms->execute(adventureDeck, spellDeck, purchaseDeck, player, widget.txtLog);
+        updateCharacterStats();
         activeSquareCards = ms->getAdventureCards();
         if (activeSquareCards.size() > 0) {
             widget.btnYes->hide();

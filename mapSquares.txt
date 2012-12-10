@@ -4,7 +4,7 @@
 0;3;Outer;Plains;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
 0;4;Outer;Woods;Draw 1 Card\nDo not draw a card if there is already one in this space.;1
 0;5;Outer;Plains;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-0;6;Outer;Tavern;You must roll the die for the following results:\n1. You get blind drunk and collapse in a corner. Miss 1 Turn.\n2. You get tipsy and get in a fight with a farmer (STRENGTH 3).\n3. You gamble and lose 1 Gold Coin.\n4. You gamble and win 1 Gold Coin.\n5. A wizard offers to teleport you to an Outer Region space of your choice as your next Move.\n6. A boatman offers to ferry you to the Temple as your next Move.;0
+0;6;Outer;Tavern;You will encounter one of the following results:\n1. You get blind drunk and collapse in a corner. No effect.\n2. You get tipsy and get in a fight with a farmer. Gain 1 Strength from the battle.\n3. You gamble and lose 1 Gold Coin.\n4. You gamble and win 2 Gold Coins.\n5. A wizard teaches you a new spell. Gain one random Spell from the Spell Deck.\n6. You casually relax and find a weapon hidden under a shaded table.;0
 1;0;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
 1;1;Middle;Warlock's Cave;You May Roll 1 Die to Accept A Quest\n1. Take 1 life from another character.\n2. Kill 1.Enemy.\n3. Deliver (discard) 1 Follower.\n4. Deliver (discard) 1 Magic Object.\n5. Deliver (discard) 3 gold.\n6. Deliver (discard) 2 gold.\nWhen you complete the quest, the Warlock immediately teleports you back here and gives you a Talisman, if available, as your reward.;0
 1;2;Middle;Desert;Lose 1 Life\nDo not draw a Card if there is already one in the space.;1

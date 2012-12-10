@@ -12,7 +12,7 @@
 class Ruins : public MapSquare {
 public:
     Ruins(int,int,int,string,string,string);
-    void execute(AdventureCardDeck*);
+    void execute(AdventureCardDeck*, SpellDeck*, PurchaseDeck*, Character*, QTextEdit*);
 private:
 
 };

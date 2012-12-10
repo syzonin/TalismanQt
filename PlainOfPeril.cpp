@@ -10,7 +10,7 @@
 PlainOfPeril::PlainOfPeril(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void PlainOfPeril::execute(AdventureCardDeck* d){
+void PlainOfPeril::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
     cout << "hi" <<endl;
 }

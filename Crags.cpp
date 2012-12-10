@@ -10,7 +10,7 @@
 Crags::Crags(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Crags::execute(AdventureCardDeck* d){
+void Crags::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
     
     cout << "something goes here" << endl;
 }

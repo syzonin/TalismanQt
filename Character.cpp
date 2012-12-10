@@ -210,7 +210,7 @@ bool Character::addFollower(AdventureCard* card) {
 bool Character::addObject(AdventureCard* card) {
     if (card->getType() == "Follower" || card->getType() == "Enemy") return false; 
     for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
-        if (card == *it) return false;
+        if (card->getTitle() == (*it)->getTitle()) return false;
     }
     objects.push_back(card);
     return true;
