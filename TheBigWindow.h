@@ -33,7 +33,7 @@ public:
     virtual ~TheBigWindow();
     AdventureCardDeck* getAdventureDeck();
     int getDieRoll();
-    void moveChar(int);
+    void moveChar();
     void moveRegions();
 public slots:
     void btnRollDieClicked();
