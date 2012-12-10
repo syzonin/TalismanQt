@@ -89,8 +89,8 @@ INPUT(
 ./build/Debug/MinGW-Windows/PortalOfPower.o
 ./build/Debug/MinGW-Windows/MapSquare.o
 ./build/Debug/MinGW-Windows/moc_CharacterCardDeck.o
-./build/Debug/MinGW-Windows/moc_WeaponDialog.o
 ./build/Debug/MinGW-Windows/moc_AdventureCardDeck.o
+./build/Debug/MinGW-Windows/moc_WeaponDialog.o
 ./build/Debug/MinGW-Windows/moc_ArmorDialog.o
 ./build/Debug/MinGW-Windows/moc_AdventureCardEdit.o
 ./build/Debug/MinGW-Windows/moc_Character.o
