@@ -9,6 +9,7 @@
 #define	_THEBIGWINDOW_H
 
 #include "CharacterFactory.h"
+#include "AdventureCardFactory.h"
 #include "ArmorFactory.h"
 #include "SpellFactory.h"
 #include "WeaponFactory.h"

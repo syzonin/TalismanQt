@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Sun Dec 9 21:13:05 2012
+** Created: Sun Dec 9 22:42:21 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -72,7 +72,7 @@ public:
     QPushButton *btnAddToTrophies;
     QPushButton *btnEndTurn;
     QWidget *horizontalLayoutWidget;
-    QHBoxLayout *mapSquarePanel;
+    QHBoxLayout *deckPanel;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *adventureCardPanel;
     QWidget *horizontalLayoutWidget_2;
@@ -432,10 +432,10 @@ public:
         horizontalLayoutWidget = new QWidget(TheBigWindow);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(10, 480, 571, 111));
-        mapSquarePanel = new QHBoxLayout(horizontalLayoutWidget);
-        mapSquarePanel->setObjectName(QString::fromUtf8("mapSquarePanel"));
-        mapSquarePanel->setSizeConstraint(QLayout::SetFixedSize);
-        mapSquarePanel->setContentsMargins(0, 0, 0, 0);
+        deckPanel = new QHBoxLayout(horizontalLayoutWidget);
+        deckPanel->setObjectName(QString::fromUtf8("deckPanel"));
+        deckPanel->setSizeConstraint(QLayout::SetFixedSize);
+        deckPanel->setContentsMargins(0, 0, 0, 0);
         verticalLayoutWidget = new QWidget(TheBigWindow);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(370, 100, 211, 371));

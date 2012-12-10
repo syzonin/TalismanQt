@@ -10,6 +10,7 @@
 #include "AdventureCardModel.h"
 #include "AdventureCard.h"
 #include "Enemy.h"
+#include "Follower.h"
 #include <string>
 #include <vector>
 
@@ -18,7 +19,7 @@ public:
     AdventureCardFactory();
     virtual ~AdventureCardFactory();
     vector<string> classNames();
-    //AdventureCard* getClass(const string);
+    AdventureCard* getClass(const string);
 private:
     vector<QStringList> entries;
 };

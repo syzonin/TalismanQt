@@ -32,7 +32,7 @@ TheBigWindow::TheBigWindow() {
     updateCharacterStats();
     widget.bigSquare->addWidget(board);
     widget.charCardPanel->addWidget(playerDeck);
-    widget.adventureCardPanel->addWidget(adventureDeck);
+    widget.deckPanel->addWidget(adventureDeck);
     widget.movementPanel->addWidget(die);
     //Hide all controls
     widget.btnLeft->hide();
@@ -128,13 +128,14 @@ void TheBigWindow::playerDeckDoubleClicked() {
         SpellFactory *sf = new SpellFactory();
         player->addObject(wf->getWeapon("Axe"));
         player->addObject(sf->getSpell("Cheat Fate"));
-//        player->addObject(af->getArmor("Basic Armor"));
+        player->addObject(af->getArmor("Basic Armor"));
         player->addObject(wf->getWeapon("Runesword"));
         player->addObject(sf->getSpell("Healing"));
-//        player->addObject(af->getArmor("Helmet"));
+        player->addObject(af->getArmor("Helmet"));
         player->addObject(wf->getWeapon("Frostbite"));
         player->addObject(sf->getSpell("Weakness"));
-//        player->addObject(af->getArmor("Shield"));
+        player->addObject(af->getArmor("Shield"));
+        widget.btnEncounter->show();
     } 
 }
 
@@ -151,8 +152,6 @@ void TheBigWindow::btnCastSpellClicked() {
         spells->exec();
         if (spells->result() != 0) widget.btnCastSpell->hide();
     }
-    //Update view
-    updateCharacterStats();
 }  
 
 void TheBigWindow::btnEquipArmorClicked() {
@@ -161,8 +160,6 @@ void TheBigWindow::btnEquipArmorClicked() {
         armors->exec();
         if (armors->result() != 0) widget.btnEquipArmor->hide();    
     }
-    //Update view
-    updateCharacterStats();
 }    
 
 void TheBigWindow::btnEquipWeaponClicked() {
@@ -171,12 +168,18 @@ void TheBigWindow::btnEquipWeaponClicked() {
         weapons->exec();
         if (weapons->result() != 0) widget.btnEquipWeapon->hide();    
     }
-    //Update view
-    updateCharacterStats();
 }    
     
 void TheBigWindow::btnEncounterClicked() {
     //Update view
+    AdventureCardFactory *ef = new AdventureCardFactory;
+    vector<AdventureCard*> cards;
+    cards.push_back(ef->getClass("Banshee"));
+    cards.push_back(ef->getClass("Bear"));
+    cards.push_back(ef->getClass("Goblin"));
+           
+    card = cards.at(cards.size()-1);
+    widget.adventureCardPanel->addWidget(card);
     widget.btnEncounter->hide();
     widget.btnExchangeTrophies->hide();
     if (card->getType() == "Enemy") {
@@ -195,6 +198,25 @@ void TheBigWindow::btnEncounterClicked() {
         .arg(QString::fromStdString(player->getTitle()))
         .arg(QString::fromStdString(card->getTitle()))
     );
+    
+//    widget.btnEncounter->hide();
+//    widget.btnExchangeTrophies->hide();
+//    if (card->getType() == "Enemy") {
+//        widget.btnRollEncounterDie->show();
+//        widget.btnCastSpell->show();
+//        widget.btnEquipArmor->show();
+//        widget.btnEquipWeapon->show();
+//    } else {
+//        widget.btnAddToFollowers->show();
+//        widget.btnAddToTrophies->show();
+//        widget.btnAddToObjects->show();
+//    }
+//    //Update view log
+//    widget.txtLog->append(
+//        QString("%1 encounters a %2")
+//        .arg(QString::fromStdString(player->getTitle()))
+//        .arg(QString::fromStdString(card->getTitle()))
+//    );
 }
 
 void TheBigWindow::btnListFollowersClicked () {

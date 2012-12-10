@@ -19,28 +19,31 @@ vector<string> AdventureCardFactory::classNames () {
     return classNames;
 }
 
-//AdventureCard* AdventureCardFactory::getClass(const string className) {
-//    QString name = QString::fromStdString(className);
-//    int strength = 0, craft = 0, fate = 0, life = 0;
-//    string title = "", text = "";
-//    
-//    for (unsigned int i = 0; i < entries.size(); ++i) {
-//        if (entries.at(i).at(0) == name) {
-//            QStringList rowData = entries.at(i);
-//            strength = rowData.at(1).toInt();
-//            craft = rowData.at(2).toInt();
-//            fate = rowData.at(3).toInt();
-//            life = rowData.at(4).toInt();
-//            title = rowData.at(0).toStdString();
-//            text = rowData.at(5).toStdString();
-//            break;
-//        }
-//    }
-//    
-//    if (name == "Enemy")  return new DragonRider(strength,craft,fate,life,title,text);
-//    else if (name == "Warrior") return new Warrior(strength,craft,fate,life,title,text);
-//    else return NULL;
-//}
+AdventureCard* AdventureCardFactory::getClass(const string className) {
+    QString name = QString::fromStdString(className);
+    int encounterNo = 0, atkPoints = 0;
+    string title = "", text = "", type = "", subType = "";
+    
+    for (unsigned int i = 0; i < entries.size(); ++i) {
+        if (entries.at(i).at(0) == name) {
+            QStringList rowData = entries.at(i);
+            title = rowData.at(0).toStdString();
+            type = rowData.at(1).toStdString();
+            text = rowData.at(2).toStdString();
+            encounterNo = rowData.at(3).toInt();
+            if (type == "Enemy") {
+                subType = rowData.at(4).toStdString();
+                atkPoints = rowData.at(5).toInt();
+            }
+            break;
+        }
+    }
+    
+    if (type == "Enemy") return new Enemy(title,type,text,encounterNo,subType,atkPoints);
+    else if (type == "Follower") return new Follower(title,type,text,encounterNo);
+    //else if (type == "Some type") return new DerivedAdventureCard(title,type,text,encounterNo);
+    else return NULL;
+}
 
 AdventureCardFactory::~AdventureCardFactory() {
     for (unsigned int i = 0; i < entries.size(); ++i) {

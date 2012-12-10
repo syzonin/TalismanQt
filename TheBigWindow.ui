@@ -669,7 +669,7 @@ QLabel {
      <height>111</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="mapSquarePanel">
+   <layout class="QHBoxLayout" name="deckPanel">
     <property name="sizeConstraint">
      <enum>QLayout::SetFixedSize</enum>
     </property>
