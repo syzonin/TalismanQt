@@ -20,8 +20,6 @@ public:
 
     virtual void win(Character* c, Enemy* e);
     virtual void lose(Character* c, Enemy* e);
-    virtual void preBattle(Character* c, Enemy* e);
-    virtual void postBattle(Character* c, Enemy* e);
 };
 
 #endif

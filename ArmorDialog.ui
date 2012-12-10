@@ -41,6 +41,19 @@ background-color: rgba(0,0,0,0%);
 padding: 4px;
 }</string>
   </property>
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>260</y>
+     <width>75</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -55,19 +68,6 @@ padding: 4px;
      <widget class="QComboBox" name="cboCard"/>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="btnClose">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>260</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Close</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="btnEquip">
    <property name="geometry">

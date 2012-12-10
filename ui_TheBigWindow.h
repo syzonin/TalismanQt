@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Sun Dec 9 18:15:23 2012
+** Created: Sun Dec 9 19:37:28 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -69,6 +69,7 @@ public:
     QPushButton *btnExchangeFate;
     QPushButton *btnAddToFollowers;
     QPushButton *btnAddToTrophies;
+    QPushButton *btnAddToObjects;
     QPushButton *btnEndTurn;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *mapSquarePanel;
@@ -338,7 +339,7 @@ public:
         charCardPanel->setContentsMargins(0, 0, 0, 0);
         layoutWidget4 = new QWidget(TheBigWindow);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(10, 100, 131, 365));
+        layoutWidget4->setGeometry(QRect(10, 100, 131, 398));
         encounterPanel = new QVBoxLayout(layoutWidget4);
         encounterPanel->setSpacing(0);
         encounterPanel->setObjectName(QString::fromUtf8("encounterPanel"));
@@ -414,6 +415,13 @@ public:
 
         encounterPanel->addWidget(btnAddToTrophies);
 
+        btnAddToObjects = new QPushButton(layoutWidget4);
+        btnAddToObjects->setObjectName(QString::fromUtf8("btnAddToObjects"));
+        sizePolicy3.setHeightForWidth(btnAddToObjects->sizePolicy().hasHeightForWidth());
+        btnAddToObjects->setSizePolicy(sizePolicy3);
+
+        encounterPanel->addWidget(btnAddToObjects);
+
         btnEndTurn = new QPushButton(layoutWidget4);
         btnEndTurn->setObjectName(QString::fromUtf8("btnEndTurn"));
         sizePolicy3.setHeightForWidth(btnEndTurn->sizePolicy().hasHeightForWidth());
@@ -480,7 +488,8 @@ public:
         btnAttack->setText(QApplication::translate("TheBigWindow", "Attack", 0, QApplication::UnicodeUTF8));
         btnExchangeFate->setText(QApplication::translate("TheBigWindow", "Exchange Fate", 0, QApplication::UnicodeUTF8));
         btnAddToFollowers->setText(QApplication::translate("TheBigWindow", "Add to Followers", 0, QApplication::UnicodeUTF8));
-        btnAddToTrophies->setText(QApplication::translate("TheBigWindow", "Add to Trophies", 0, QApplication::UnicodeUTF8));
+        btnAddToTrophies->setText(QApplication::translate("TheBigWindow", "Add to Objects", 0, QApplication::UnicodeUTF8));
+        btnAddToObjects->setText(QApplication::translate("TheBigWindow", "Add to Trophies", 0, QApplication::UnicodeUTF8));
         btnEndTurn->setText(QApplication::translate("TheBigWindow", "End Turn", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ArmorDialog.ui'
 **
-** Created: Sun Dec 9 18:32:36 2012
+** Created: Sun Dec 9 20:37:25 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -26,10 +26,10 @@ QT_BEGIN_NAMESPACE
 class Ui_ArmorDialog
 {
 public:
+    QPushButton *btnClose;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *layout;
     QComboBox *cboCard;
-    QPushButton *btnClose;
     QPushButton *btnEquip;
 
     void setupUi(QDialog *ArmorDialog)
@@ -63,6 +63,9 @@ public:
 "background-color: rgba(0,0,0,0%);\n"
 "padding: 4px;\n"
 "}"));
+        btnClose = new QPushButton(ArmorDialog);
+        btnClose->setObjectName(QString::fromUtf8("btnClose"));
+        btnClose->setGeometry(QRect(150, 260, 75, 31));
         verticalLayoutWidget = new QWidget(ArmorDialog);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(10, 10, 281, 241));
@@ -74,9 +77,6 @@ public:
 
         layout->addWidget(cboCard);
 
-        btnClose = new QPushButton(ArmorDialog);
-        btnClose->setObjectName(QString::fromUtf8("btnClose"));
-        btnClose->setGeometry(QRect(150, 260, 75, 31));
         btnEquip = new QPushButton(ArmorDialog);
         btnEquip->setObjectName(QString::fromUtf8("btnEquip"));
         btnEquip->setGeometry(QRect(70, 260, 75, 31));

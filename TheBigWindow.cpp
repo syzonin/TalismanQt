@@ -42,6 +42,7 @@ TheBigWindow::TheBigWindow() {
     widget.btnRollDie->hide();
     widget.btnAddToFollowers->hide();
     widget.btnAddToTrophies->hide();
+    widget.btnAddToObjects->hide();
     widget.btnExchangeTrophies->hide();
     widget.btnAttack->hide();
     widget.btnEncounter->hide();
@@ -72,6 +73,7 @@ TheBigWindow::TheBigWindow() {
     connect(widget.btnExchangeFate, SIGNAL(clicked()), this, SLOT(btnExchangeFateClicked()));
     connect(widget.btnAddToFollowers, SIGNAL(clicked()), this, SLOT(btnAddToFollowersClicked()));
     connect(widget.btnAddToTrophies, SIGNAL(clicked()), this, SLOT(btnAddToTrophiesClicked()));
+    connect(widget.btnAddToObjects, SIGNAL(clicked()), this, SLOT(btnAddToObjectsClicked()));
     connect(widget.btnEncounter, SIGNAL(clicked()), this, SLOT(btnEncounterClicked()));
     connect(widget.btnListFollowers, SIGNAL(clicked()), this, SLOT(btnListFollowersClicked()));
     connect(widget.btnListObjects, SIGNAL(clicked()), this, SLOT(btnListObjectsClicked()));
@@ -150,11 +152,13 @@ void TheBigWindow::btnCastSpellClicked() {
 }  
 
 void TheBigWindow::btnEquipArmorClicked() {
-//    ArmorDialog *armors = new ArmorDialog(this, player, static_cast<Enemy*>(card), activeArmors);
-//    armors->exec();
-//    if (armors->result() != 0) widget.btnEquipArmor->hide();
-//    //Update view
-//    updateCharacterStats();
+    for (int i = 0; i < player->allowedArmors(); ++i) {
+//        ArmorDialog *armors = new ArmorDialog(this, player, activeArmors);
+//        armors->exec();
+//        if (armors->result() != 0) widget.btnEquipArmor->hide();    
+    }
+    //Update view
+    updateCharacterStats();
 }    
 
 void TheBigWindow::btnEquipWeaponClicked() {
@@ -171,11 +175,15 @@ void TheBigWindow::btnEncounterClicked() {
     //Update view
     widget.btnEncounter->hide();
     widget.btnExchangeTrophies->hide();
-    widget.btnRollEncounterDie->show();
     if (card->getType() == "Enemy") {
+        widget.btnRollEncounterDie->show();
         widget.btnCastSpell->show();
         widget.btnEquipArmor->show();
         widget.btnEquipWeapon->show();
+    } else {
+        widget.btnAddToFollowers->show();
+        widget.btnAddToTrophies->show();
+        widget.btnAddToObjects->show();
     }
     //Update view log
     widget.txtLog->append(
@@ -309,6 +317,7 @@ void TheBigWindow::btnAttackClicked() {
         widget.btnRollEncounterDie->hide();
         widget.btnAddToFollowers->show();
         widget.btnAddToTrophies->show();
+        widget.btnAddToObjects->show();
         widget.btnEndTurn->show();
     } else {
         widget.txtLog->append("Stand-off!");     
@@ -330,6 +339,8 @@ void TheBigWindow::btnAttackClicked() {
         activeWeapons.at(i)->postBattle(player, e);
     }
     activeSpells.clear();
+    activeWeapons.clear();
+    activeArmors.clear();
     //Update view
     updateCharacterStats();
 }
@@ -376,6 +387,20 @@ void TheBigWindow::btnAddToTrophiesClicked() {
     widget.txtLog->append(QString::fromStdString(e->getTitle()) + " added to trophies");
 }
 
+void TheBigWindow::btnAddToObjectsClicked() {
+    //Add to character's followers
+    if (player->addObject(card)) {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(card->getTitle()) + " added to objects");
+        //Update view
+        btnEndTurnClicked();
+        card = NULL;
+    } else {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(card->getTitle()) + " could not be added to objects");
+    }
+}
+
 void TheBigWindow::btnEndTurnClicked() {
     //Update view
     card->hide();
@@ -385,6 +410,7 @@ void TheBigWindow::btnEndTurnClicked() {
     widget.adventureCardPanel->removeWidget(card);
     widget.btnAddToFollowers->hide();
     widget.btnAddToTrophies->hide();
+    widget.btnAddToObjects->hide();
     widget.btnEndTurn->hide();
     widget.btnExchangeTrophies->show();
 }

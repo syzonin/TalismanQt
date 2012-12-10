@@ -23,15 +23,5 @@ void Armor :: win(Character* c, Enemy* e){
 }
 
 void Armor :: lose(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique armor  
+//template method -> intended to be overridden by each unique armor   
 }
-
-void Armor :: preBattle(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique armor    
-}
-
-void Armor :: postBattle(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique armor    
-}
-
-

@@ -2,26 +2,30 @@
  * File:   ArmorDialog.cpp
  * Author: Alex
  *
- * Created on December 9, 2012, 5:57 PM
+ * Created on December 9, 2012, 8:34 PM
  */
 
 #include "ArmorDialog.h"
 
-ArmorDialog::ArmorDialog(QWidget * parent, Character * character, Enemy * enemy, vector<Armor*> &a) {
+ArmorDialog::ArmorDialog(QWidget * parent, Character * c, vector<Armor*> &a) {
     widget.setupUi(this);
     this->setModal(true);
     currentIndex = 0;
-    c = character;
-    e = enemy;
     armors = &a; 
     
     list<AdventureCard*> objects = c->getObjects();
     for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it) { 
         if ((*it)->getType() == "Armor") {
-            cards.push_back(static_cast<Armor*>(*it));
-            widget.cboCard->addItem(QString::fromStdString((*it)->getTitle()));
-            widget.layout->addWidget((*it));
-            (*it)->hide();
+            bool isEquipped = false;
+            for (unsigned int i = 0; i < a.size(); ++i) { 
+                if (a.at(i) == (*it)) isEquipped = true;
+            }
+            if (!isEquipped) {
+                cards.push_back(static_cast<Armor*>(*it));
+                widget.cboCard->addItem(QString::fromStdString((*it)->getTitle()));
+                widget.layout->addWidget((*it));
+                (*it)->hide();
+            }
         }
     }
     
@@ -41,7 +45,6 @@ void ArmorDialog::currentIndexChanged(int index) {
 }
 
 void ArmorDialog::btnEquipClicked() {
-    cards.at(currentIndex)->preBattle(c,e);
     armors->push_back(cards.at(currentIndex));
     this->accept();
 }

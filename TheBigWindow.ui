@@ -492,7 +492,7 @@ QLabel {
      <x>10</x>
      <y>100</y>
      <width>131</width>
-     <height>365</height>
+     <height>398</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="encounterPanel">
@@ -621,6 +621,19 @@ QLabel {
     </item>
     <item>
      <widget class="QPushButton" name="btnAddToTrophies">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Add to Objects</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnAddToObjects">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>

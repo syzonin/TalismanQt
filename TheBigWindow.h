@@ -51,6 +51,7 @@ public slots:
     void btnExchangeFateClicked();
     void btnAddToFollowersClicked();
     void btnAddToTrophiesClicked();
+    void btnAddToObjectsClicked();
     void btnEncounterClicked();
     void btnListFollowersClicked();
     void btnListObjectsClicked();
