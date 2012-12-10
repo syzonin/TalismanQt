@@ -19,7 +19,7 @@ TheBigWindow::TheBigWindow() {
     die1 = new DieWidget();
     die2 = new DieWidget();
     player = NULL;
-    card = NULL;
+    //card = NULL;
     playerDeck = new CharacterCardDeck;
     adventureDeck = new AdventureCardDeck;
     playerDeck->setToolTip("Double-click to draw a player card");
@@ -141,8 +141,8 @@ void TheBigWindow::playerDeckDoubleClicked() {
 void TheBigWindow::adventureDeckDoubleClicked() {
     widget.btnEncounter->show();
     adventureDeck->hide();
-    card = adventureDeck->drawCard();
-    widget.adventureCardPanel->addWidget(card);
+    //card = adventureDeck->drawCard();
+    //widget.adventureCardPanel->addWidget(card);
 }
 
 void TheBigWindow::btnCastSpellClicked() {
@@ -151,7 +151,7 @@ void TheBigWindow::btnCastSpellClicked() {
         spells->exec();
         if (spells->result() != 0) widget.btnCastSpell->hide();
     }
-    Enemy* e = static_cast<Enemy*>(card);
+    Enemy *e = static_cast<Enemy*>(card);
     for (unsigned int i = 0; i < activeSpells.size(); ++i) {
         activeSpells.at(i)->preBattle(player, e);
     }
@@ -173,7 +173,7 @@ void TheBigWindow::btnEquipWeaponClicked() {
         weapons->exec();
         if (weapons->result() != 0) widget.btnEquipWeapon->hide();    
     }
-    Enemy* e = static_cast<Enemy*>(card);
+    Enemy *e = static_cast<Enemy*>(card);
     for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
         activeWeapons.at(i)->preBattle(player, e);
     }
@@ -184,16 +184,28 @@ void TheBigWindow::btnEquipWeaponClicked() {
 void TheBigWindow::btnEncounterClicked() {
     //Update view
     if (card != NULL) widget.adventureCardPanel->removeWidget(card);
-    AdventureCardFactory *ef = new AdventureCardFactory;
-    activeSquareCards.push_back(ef->getClass("Banshee"));
-    activeSquareCards.push_back(ef->getClass("Bear"));
-    activeSquareCards.push_back(ef->getClass("Goblin"));
-           
-    card = activeSquareCards.at(activeSquareCards.size()-1);
+//    AdventureCardFactory *ef = new AdventureCardFactory;
+//    activeSquareCards.push_back(ef->getClass("Banshee"));
+//    activeSquareCards.push_back(ef->getClass("Bear"));
+//    activeSquareCards.push_back(ef->getClass("Goblin"));
+    
+    int i = activeSquareCards.size()-1;
+    card = activeSquareCards.at(i);
     widget.adventureCardPanel->addWidget(card);
+    
     widget.btnEncounter->hide();
     widget.btnExchangeTrophies->hide();
     if (card->getType() == "Enemy") {
+        Enemy *enemyCard = static_cast<Enemy*>(card);
+        for (--i; i >= 0; --i) {
+            if (activeSquareCards.at(i)->getEncounterNumber() == card->getEncounterNumber()) {
+                Enemy *e = static_cast<Enemy*>(activeSquareCards.at(i));
+                if (e->getAttackType() == enemyCard->getAttackType()) {
+                    widget.adventureCardPanel->addWidget(e);
+                    activeEnemies.push_back(e);
+                }
+            }
+        }
         widget.btnRollEncounterDie->show();
         widget.btnCastSpell->show();
         widget.btnEquipArmor->show();
@@ -209,25 +221,6 @@ void TheBigWindow::btnEncounterClicked() {
         .arg(QString::fromStdString(player->getTitle()))
         .arg(QString::fromStdString(card->getTitle()))
     );
-    
-//    widget.btnEncounter->hide();
-//    widget.btnExchangeTrophies->hide();
-//    if (card->getType() == "Enemy") {
-//        widget.btnRollEncounterDie->show();
-//        widget.btnCastSpell->show();
-//        widget.btnEquipArmor->show();
-//        widget.btnEquipWeapon->show();
-//    } else {
-//        widget.btnAddToFollowers->show();
-//        widget.btnAddToTrophies->show();
-//        widget.btnAddToObjects->show();
-//    }
-//    //Update view log
-//    widget.txtLog->append(
-//        QString("%1 encounters a %2")
-//        .arg(QString::fromStdString(player->getTitle()))
-//        .arg(QString::fromStdString(card->getTitle()))
-//    );
 }
 
 void TheBigWindow::btnListFollowersClicked () {
@@ -324,6 +317,15 @@ void TheBigWindow::btnAttackClicked() {
         .arg(QString::fromStdString(e->getTitle()))
         .arg(QString::number(b))
     );
+    //Other enemies contribute
+    for (unsigned int i = 0; i < activeEnemies.size(); ++i) {
+        b += activeEnemies.at(i)->attackRoll(0);
+        widget.txtLog->append(
+        QString("%1 performs an attack roll of %2...")
+            .arg(QString::fromStdString(activeEnemies.at(i)->getTitle()))
+            .arg(QString::number(activeEnemies.at(i)->attackRoll(0)))
+        );
+    }
     
     if (a < b) { // Enemy wins
         for (unsigned int i = 0; i < activeArmors.size(); ++i) {
@@ -331,6 +333,12 @@ void TheBigWindow::btnAttackClicked() {
         }
         widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(e->getTitle())));
         player->setLifePoints(player->getLifePoints()-1);
+        
+        for (unsigned int i = 0; i < activeEnemies.size(); ++i) {
+            widget.adventureCardPanel->removeWidget(activeEnemies.at(i));
+            activeEnemies.at(i)->hide();
+        }
+        activeEnemies.clear();
         widget.adventureCardPanel->removeWidget(card);
         card->hide();
         card = NULL;
