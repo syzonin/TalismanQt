@@ -12,24 +12,25 @@ SyphonStrength::SyphonStrength() : Spell("Syphon Strength", "No Text", 0) {
 SyphonStrength::SyphonStrength(string title, string text, int encounterNumber) : Spell(title, text, encounterNumber){
 }
 
-void SyphonStrength::win(Character* c, Enemy* e){
-    
+string SyphonStrength::win(Character* c, Enemy* e){
+    return "";
 }
 
-void SyphonStrength::lose(Character* c, Enemy* e){
-    
-    
+string SyphonStrength::lose(Character* c, Enemy* e){
+    return "";    
 }
 
-void SyphonStrength::preBattle(Character* c, Enemy* e){
+string SyphonStrength::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + 1);
     c->setCraft(c->getCraft() + 1);
     e->setAttackPoints(e->getAttackPoints() - 1);
+    return "Syphon Strength spell cast.\nStrength and Craft increased by 1 and Enemy's Attack decreased by 1.";
 }
 
-void SyphonStrength::postBattle(Character* c, Enemy* e){
+string SyphonStrength::postBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() - 1);
     c->setCraft(c->getCraft() - 1);
+    return "Syphon Strength spell has been used up";
 }

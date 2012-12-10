@@ -16,18 +16,22 @@ Spell :: Spell(Spell *s) : AdventureCard(s->getTitle(), "Spell", s->getText(), s
 //Copy Constructor (used for adding Spell) 
 }
 
-void Spell :: preBattle(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique Spell    
-}
-
-void Spell :: postBattle(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique Spell    
-}
-
-void Spell :: win(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique Spell    
-}
-
-void Spell :: lose(Character* c, Enemy* e){
+string Spell :: preBattle(Character* c, Enemy* e){
 //template method -> intended to be overridden by each unique Spell  
+    return "";
+}
+
+string Spell :: postBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique Spell  
+    return "";
+}
+
+string Spell :: win(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique Spell 
+    return "";
+}
+
+string Spell :: lose(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique Spell 
+    return "";
 }

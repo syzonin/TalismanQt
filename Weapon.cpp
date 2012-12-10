@@ -27,18 +27,22 @@ Weapon :: Weapon(Weapon *w) : AdventureCard(w->getTitle(), "Weapon", w->getText(
 int Weapon :: getStrength() {return strength;} //Accessors.
 int Weapon :: getCraft() {return craft;}
 
-void Weapon :: win(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique weapon    
+string Weapon :: win(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique weapon 
+    return "";
 }
 
-void Weapon :: lose(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique weapon  
+string Weapon :: lose(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique weapon
+    return "";
 }
 
-void Weapon :: preBattle(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique weapon    
+string Weapon :: preBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique weapon
+    return "";
 }
 
-void Weapon :: postBattle(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique weapon    
+string Weapon :: postBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique weapon
+    return "";
 }

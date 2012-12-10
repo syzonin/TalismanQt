@@ -18,10 +18,22 @@ Armor :: Armor(Armor *a) : AdventureCard(a->getTitle(), "Armor", a->getText(), a
 //Copy Constructor (used for adding Armor) 
 }
 
-void Armor :: win(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique armor    
+string Armor :: win(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor
+    return "";
 }
 
-void Armor :: lose(Character* c, Enemy* e){
-//template method -> intended to be overridden by each unique armor   
+string Armor :: lose(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor 
+    return "";
+}
+
+string Armor :: preBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor
+    return "";
+}
+
+string Armor :: postBattle(Character* c, Enemy* e){
+//template method -> intended to be overridden by each unique armor
+    return "";
 }

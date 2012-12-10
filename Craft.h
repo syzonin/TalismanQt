@@ -16,10 +16,10 @@ public:
     Craft();
     Craft(string, string, int);
     
-    void win(Character* c, Enemy* e);
-    void lose(Character* c, Enemy* e); 
-    void preBattle(Character* c, Enemy* e);
-    void postBattle(Character* c, Enemy* e);
+    string win(Character* c, Enemy* e);
+    string lose(Character* c, Enemy* e); 
+    string preBattle(Character* c, Enemy* e);
+    string postBattle(Character* c, Enemy* e);
 
 };
 

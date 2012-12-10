@@ -13,21 +13,24 @@ Runesword::Runesword() : Weapon(1, 0, "Runesword", "No Text", 0) {
 Runesword::Runesword(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void Runesword::win(Character* c, Enemy* e){
+string Runesword::win(Character* c, Enemy* e){
     
     c->setLifePoints(c->getLifePoints() + 1);
+    return "Runesword leeches 1 Life.";
 }
 
-void Runesword::lose(Character* c, Enemy* e){
-    
+string Runesword::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void Runesword::preBattle(Character* c, Enemy* e){
+string Runesword::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + strength);
+    return "Runesword equipped.\nStrength increased by 1.";
 }
 
-void Runesword::postBattle(Character* c, Enemy* e){
+string Runesword::postBattle(Character* c, Enemy* e){
 
-    c->setStrength(c->getStrength() - strength);    
+    c->setStrength(c->getStrength() - strength);
+    return "Runesword placed back into Inventory.";
 }

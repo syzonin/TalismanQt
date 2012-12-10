@@ -13,15 +13,27 @@ Helmet::Helmet() : Armor("Helmet", "No Text", 0) {
 Helmet::Helmet(string title, string text, int encounterNumber) : Armor(title, text, encounterNumber){
 }
 
-void Helmet::win(Character* c, Enemy* e){
-    
+string Helmet::win(Character* c, Enemy* e){
+    return "";
 }
 
-void Helmet::lose(Character* c, Enemy* e){
+string Helmet::lose(Character* c, Enemy* e){
     
     int x = rand() % 100 + 1;
-    if (x <= 15)
-        c->setLifePoints(c->getLifePoints() - 1);
+    if (x <= 15){
+        c->setLifePoints(c->getLifePoints() + 1);
+        return "Helmet successfully prevented the loss of a Life Point.";
+    }
+    return "Helmet failed to prevent the loss of a Life Point.";
     
 }
 
+string Helmet :: preBattle(Character* c, Enemy* e){
+
+    return "Helmet equipped.\nIf offers a 15% chance to prevent the loss of life in the event of defeat.";
+}
+
+string Helmet :: postBattle(Character* c, Enemy* e){
+
+    return "Helmet has been placed back into Inventory.";
+}

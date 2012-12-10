@@ -13,22 +13,24 @@ HolyLance::HolyLance() : Weapon(3, 0, "Holy Lance", "No Text", 0) {
 HolyLance::HolyLance(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void HolyLance::win(Character* c, Enemy* e){
-    
+string HolyLance::win(Character* c, Enemy* e){
+    return "";
 }
 
-void HolyLance::lose(Character* c, Enemy* e){
-    
+string HolyLance::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void HolyLance::preBattle(Character* c, Enemy* e){
+string HolyLance::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + strength);
+    return "Holy Lance equipped.\nStrength increased by 3.";
 }
 
-void HolyLance::postBattle(Character* c, Enemy* e){
+string HolyLance::postBattle(Character* c, Enemy* e){
 
-    c->setStrength(c->getStrength() - strength);    
+    c->setStrength(c->getStrength() - strength);
+    return "Holy Lanced placed back into Inventory.";
 }
 
 

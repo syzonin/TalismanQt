@@ -13,20 +13,23 @@ Spellsword::Spellsword() : Weapon(0, 1, "Spellsword", "No Text", 0) {
 Spellsword::Spellsword(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void Spellsword::win(Character* c, Enemy* e){
-    //c->addSpell();  TO DO MUST ADD A RANDOM SPELL UPON WINNING
+string Spellsword::win(Character* c, Enemy* e){
+    //c->addSpell();  TODO: MUST ADD A RANDOM SPELL UPON WINNING
+    return "";
 }
 
-void Spellsword::lose(Character* c, Enemy* e){
-    
+string Spellsword::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void Spellsword::preBattle(Character* c, Enemy* e){
+string Spellsword::preBattle(Character* c, Enemy* e){
     
     c->setCraft(c->getCraft());
+    return "Spellsword equipped.\nCraft increased by 1.";
 }
 
-void Spellsword::postBattle(Character* c, Enemy* e){
+string Spellsword::postBattle(Character* c, Enemy* e){
 
-    c->setCraft(c->getCraft());    
+    c->setCraft(c->getCraft());
+    return "Spellsword placed back into Inventory.";
 }

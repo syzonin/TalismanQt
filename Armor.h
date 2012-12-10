@@ -18,8 +18,10 @@ public:
     Armor(string title, string text, int encounterNumber);
     Armor(Armor *a);
 
-    virtual void win(Character* c, Enemy* e);
-    virtual void lose(Character* c, Enemy* e);
+    virtual string win(Character* c, Enemy* e);
+    virtual string lose(Character* c, Enemy* e);
+    virtual string preBattle(Character* c, Enemy* e);
+    virtual string postBattle(Character* c, Enemy* e);
 };
 
 #endif

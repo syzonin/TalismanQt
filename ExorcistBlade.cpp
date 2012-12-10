@@ -13,28 +13,31 @@ ExorcistBlade::ExorcistBlade() : Weapon(0, 0, "Exorcist Blade", "No Text", 0) {
 ExorcistBlade::ExorcistBlade(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void ExorcistBlade::win(Character* c, Enemy* e){
-    
+string ExorcistBlade::win(Character* c, Enemy* e){
+    return "";
 }
 
-void ExorcistBlade::lose(Character* c, Enemy* e){
-    
+string ExorcistBlade::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void ExorcistBlade::preBattle(Character* c, Enemy* e){
+string ExorcistBlade::preBattle(Character* c, Enemy* e){
 
     if (e->getSubType() == "Spirit"){
         int x = c->getStrength();
         c->setStrength(c->getCraft());
         c->setCraft(x);
-    }    
+        return "Exorcist Blade equipped.\nBattle will be engaged instead of Psychic Combat.";
+    }
+    return "";
 }
 
-void ExorcistBlade::postBattle(Character* c, Enemy* e){
+string ExorcistBlade::postBattle(Character* c, Enemy* e){
 
     if (e->getSubType() == "Spirit"){
         int x = c->getStrength();
         c->setStrength(c->getCraft());
         c->setCraft(x);
-    }    
+    }
+    return "Exorcist Blade placed back into Inventory.";
 }

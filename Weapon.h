@@ -27,10 +27,10 @@ public:
     int getStrength();
     int getCraft();
     
-    virtual void win(Character* c, Enemy* e);
-    virtual void lose(Character* c, Enemy* e);
-    virtual void preBattle(Character* c, Enemy* e);
-    virtual void postBattle(Character* c, Enemy* e);
+    virtual string win(Character* c, Enemy* e);
+    virtual string lose(Character* c, Enemy* e);
+    virtual string preBattle(Character* c, Enemy* e);
+    virtual string postBattle(Character* c, Enemy* e);
 
 protected:
     int strength;

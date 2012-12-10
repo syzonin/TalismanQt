@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WeaponDialog.h'
 **
-** Created: Mon Dec 10 02:52:59 2012
+** Created: Mon Dec 10 04:25:51 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -86,7 +86,7 @@ int PurchaseDeck::random() {
 ///Emits signal when a double-click event occurs.
 ///
 void PurchaseDeck::mouseDoubleClickEvent(QMouseEvent* event) {
-    emit doubleClicked();
+    //emit doubleClicked();
 }
 ///
 ///Paints the widget.

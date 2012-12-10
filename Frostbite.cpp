@@ -13,24 +13,26 @@ Frostbite::Frostbite() : Weapon(1, 1, "Frostbite", "No Text", 0) {
 Frostbite::Frostbite(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void Frostbite::win(Character* c, Enemy* e){
-    
+string Frostbite::win(Character* c, Enemy* e){
+    return "";
 }
 
-void Frostbite::lose(Character* c, Enemy* e){
-    
+string Frostbite::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void Frostbite::preBattle(Character* c, Enemy* e){
+string Frostbite::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + strength);
     c->setCraft(c->getCraft() + craft);
+    return "Frostbite equipped.\nStrength and Craft increased by 1.";
 }
 
-void Frostbite::postBattle(Character* c, Enemy* e){
+string Frostbite::postBattle(Character* c, Enemy* e){
 
     c->setStrength(c->getStrength() - strength);
-    c->setCraft(c->getCraft() - craft);    
+    c->setCraft(c->getCraft() - craft); 
+    return "Frostbite placed back into Inventory.";
 }
 
 

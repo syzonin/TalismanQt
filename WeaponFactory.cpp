@@ -41,7 +41,7 @@ Weapon* WeaponFactory::getClass(const string className) {
     string title = "", text = "";
     
     for (unsigned int i = 0; i < entries.size(); ++i) {
-        if (entries.at(i).at(0) == name) {
+        if (entries.at(i).at(2) == name) {
             QStringList rowData = entries.at(i);
             strength = rowData.at(0).toInt();
             craft = rowData.at(1).toInt();

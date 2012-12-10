@@ -12,19 +12,20 @@ MagicShell::MagicShell() : Spell("Magic Shell", "No Text", 0) {
 MagicShell::MagicShell(string title, string text, int encounterNumber) : Spell(title, text, encounterNumber){
 }
 
-void MagicShell::win(Character* c, Enemy* e){
-    
+string MagicShell::win(Character* c, Enemy* e){
+    return "";
 }
 
-void MagicShell::lose(Character* c, Enemy* e){
-         
+string MagicShell::lose(Character* c, Enemy* e){
+    return "";    
 }
 
-void MagicShell::preBattle(Character* c, Enemy* e){
+string MagicShell::preBattle(Character* c, Enemy* e){
 
     e->setAttackPoints(e->getAttackPoints() - 1);
+    return "Magic Shell spell cast.\nEnemy's Attack reduced by 1.";
 }
 
-void MagicShell::postBattle(Character* c, Enemy* e){
-    
+string MagicShell::postBattle(Character* c, Enemy* e){
+    return "Magic Shell spell has been used up.";
 }

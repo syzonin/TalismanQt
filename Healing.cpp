@@ -12,20 +12,20 @@ Healing::Healing() : Spell("Healing", "No Text", 0) {
 Healing::Healing(string title, string text, int encounterNumber) : Spell(title, text, encounterNumber){
 }
 
-void Healing::win(Character* c, Enemy* e){
-    
+string Healing::win(Character* c, Enemy* e){
+    return "";
 }
 
-void Healing::lose(Character* c, Enemy* e){
-    
-    
+string Healing::lose(Character* c, Enemy* e){
+    return "";    
 }
 
-void Healing::preBattle(Character* c, Enemy* e){
+string Healing::preBattle(Character* c, Enemy* e){
     
     c->setLifePoints(c->getLifePoints() + 1);
+    return "Healing spell cast.\n1 Health Point has been added.";
 }
 
-void Healing::postBattle(Character* c, Enemy* e){
-    
+string Healing::postBattle(Character* c, Enemy* e){
+    return "Healing Spell has been used up.";
 }

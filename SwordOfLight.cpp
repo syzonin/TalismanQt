@@ -13,22 +13,24 @@ SwordOfLight::SwordOfLight() : Weapon(2, 1, "Sword Of Light", "No Text", 0) {
 SwordOfLight::SwordOfLight(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void SwordOfLight::win(Character* c, Enemy* e){
-    
+string SwordOfLight::win(Character* c, Enemy* e){
+    return "";
 }
 
-void SwordOfLight::lose(Character* c, Enemy* e){
-    
+string SwordOfLight::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void SwordOfLight::preBattle(Character* c, Enemy* e){
+string SwordOfLight::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + strength);
     c->setCraft(c->getCraft() + craft);
+    return "Sword of Light equipped.\nStrength and Craft increased by 1.";
 }
 
-void SwordOfLight::postBattle(Character* c, Enemy* e){
+string SwordOfLight::postBattle(Character* c, Enemy* e){
 
     c->setStrength(c->getStrength() - strength); 
-    c->setCraft(c->getCraft() + craft);    
+    c->setCraft(c->getCraft() + craft);
+    return "Sword of Light placed back into Inventory.";
 }

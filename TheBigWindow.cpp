@@ -157,7 +157,7 @@ void TheBigWindow::btnCastSpellClicked() {
     }
     Enemy *e = static_cast<Enemy*>(card);
     for (unsigned int i = 0; i < activeSpells.size(); ++i) {
-        activeSpells.at(i)->preBattle(player, e);
+        widget.txtLog->append(QString::fromStdString(activeSpells.at(i)->preBattle(player, e)));
     }
     //Update view
     updateCharacterStats();
@@ -169,6 +169,10 @@ void TheBigWindow::btnEquipArmorClicked() {
         armors->exec();
         if (armors->result() != 0) widget.btnEquipArmor->hide();    
     }
+    Enemy *e = static_cast<Enemy*>(card);    
+    for (unsigned int i = 0; i < activeArmors.size(); ++i) {
+        widget.txtLog->append(QString::fromStdString(activeArmors.at(i)->preBattle(player, e)));
+    }
 }    
 
 void TheBigWindow::btnEquipWeaponClicked() {
@@ -179,7 +183,7 @@ void TheBigWindow::btnEquipWeaponClicked() {
     }
     Enemy *e = static_cast<Enemy*>(card);
     for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
-        activeWeapons.at(i)->preBattle(player, e);
+        widget.txtLog->append(QString::fromStdString(activeWeapons.at(i)->preBattle(player, e)));
     }
     //Update view
     updateCharacterStats();
@@ -333,7 +337,7 @@ void TheBigWindow::btnAttackClicked() {
     
     if (a < b) { // Enemy wins
         for (unsigned int i = 0; i < activeArmors.size(); ++i) {
-            activeArmors.at(i)->lose(player, e);
+            widget.txtLog->append(QString::fromStdString(activeArmors.at(i)->lose(player, e)));
         }
         widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(e->getTitle())));
         player->setLifePoints(player->getLifePoints()-1);
@@ -354,10 +358,10 @@ void TheBigWindow::btnAttackClicked() {
         die->show();
     } else if (a > b) { // Character wins
         for (unsigned int i = 0; i < activeSpells.size(); ++i) {
-            activeSpells.at(i)->win(player, e);
+            widget.txtLog->append(QString::fromStdString(activeSpells.at(i)->win(player, e)));
         }
         for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
-            activeWeapons.at(i)->win(player, e);
+            widget.txtLog->append(QString::fromStdString(activeWeapons.at(i)->win(player, e)));
         }
         widget.txtLog->append(QString("%1 wins").arg(QString::fromStdString(player->getTitle())));
         widget.btnRollEncounterDie->hide();
@@ -388,11 +392,14 @@ void TheBigWindow::btnAttackClicked() {
     }
     
     for (unsigned int i = 0; i < activeSpells.size(); ++i) {
-        activeSpells.at(i)->postBattle(player, e);
+        widget.txtLog->append(QString::fromStdString(activeSpells.at(i)->postBattle(player, e)));
         player->removeObject(activeSpells.at(i));
     }
     for (unsigned int i = 0; i < activeWeapons.size(); ++i) {
-        activeWeapons.at(i)->postBattle(player, e);
+        widget.txtLog->append(QString::fromStdString(activeWeapons.at(i)->postBattle(player, e)));
+    }
+    for (unsigned int i = 0; i < activeArmors.size(); ++i) {
+        widget.txtLog->append(QString::fromStdString(activeArmors.at(i)->postBattle(player, e)));
     }
     activeSpells.clear();
     activeWeapons.clear();

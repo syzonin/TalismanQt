@@ -13,20 +13,22 @@ MagicMace::MagicMace() : Weapon(0, 2, "Magic Mace", "No Text", 0) {
 MagicMace::MagicMace(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void MagicMace::win(Character* c, Enemy* e){
-    
+string MagicMace::win(Character* c, Enemy* e){
+    return "";
 }
 
-void MagicMace::lose(Character* c, Enemy* e){
-    
+string MagicMace::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void MagicMace::preBattle(Character* c, Enemy* e){
+string MagicMace::preBattle(Character* c, Enemy* e){
     
     c->setCraft(c->getCraft() + craft);
+    return "Magic Mace equipped.\nCraft increased by 2.";
 }
 
-void MagicMace::postBattle(Character* c, Enemy* e){
+string MagicMace::postBattle(Character* c, Enemy* e){
 
-    c->setCraft(c->getCraft() - craft);    
+    c->setCraft(c->getCraft() - craft);
+    return "Magic Mace placed back into Inventory.";
 }

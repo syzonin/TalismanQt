@@ -13,22 +13,24 @@ LightningHammer::LightningHammer() : Weapon(2, 0, "Lightning Hammer", "No Text",
 LightningHammer::LightningHammer(int s, int c, string title, string text, int encounterNumber) : Weapon(s, c, title, text, encounterNumber){
 }
 
-void LightningHammer::win(Character* c, Enemy* e){
-    
+string LightningHammer::win(Character* c, Enemy* e){
+    return "";
 }
 
-void LightningHammer::lose(Character* c, Enemy* e){
-    
+string LightningHammer::lose(Character* c, Enemy* e){
+    return "";
 }
 
-void LightningHammer::preBattle(Character* c, Enemy* e){
+string LightningHammer::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + strength);
+    return "Lightning Hammer equipped.\nStrength increased by 2";
 }
 
-void LightningHammer::postBattle(Character* c, Enemy* e){
+string LightningHammer::postBattle(Character* c, Enemy* e){
 
-    c->setStrength(c->getStrength() - strength);    
+    c->setStrength(c->getStrength() - strength);
+    return "Lightning hammer placed back into Inventory.";
 }
 
 

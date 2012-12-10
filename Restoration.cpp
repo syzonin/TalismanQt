@@ -12,20 +12,20 @@ Restoration::Restoration() : Spell("Restoration", "No Text", 0) {
 Restoration::Restoration(string title, string text, int encounterNumber) : Spell(title, text, encounterNumber){
 }
 
-void Restoration::win(Character* c, Enemy* e){
-    
+string Restoration::win(Character* c, Enemy* e){
+    return "";
 }
 
-void Restoration::lose(Character* c, Enemy* e){
-    
-    
+string Restoration::lose(Character* c, Enemy* e){
+    return "";    
 }
 
-void Restoration::preBattle(Character* c, Enemy* e){
+string Restoration::preBattle(Character* c, Enemy* e){
     
     c->setLifePoints(c->getLife());
+    return "Restoration spell cast.\nLife Points changed to character's starting value";
 }
 
-void Restoration::postBattle(Character* c, Enemy* e){
-    
+string Restoration::postBattle(Character* c, Enemy* e){
+    return "Restoration spell has been used up.";
 }

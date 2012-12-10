@@ -12,20 +12,22 @@ Strength::Strength() : Spell("Strength", "No Text", 0) {
 Strength::Strength(string title, string text, int encounterNumber) : Spell(title, text, encounterNumber){
 }
 
-void Strength::win(Character* c, Enemy* e){
-    
+string Strength::win(Character* c, Enemy* e){
+    return "";
 }
 
-void Strength::lose(Character* c, Enemy* e){    
-    
+string Strength::lose(Character* c, Enemy* e){    
+    return "";
 }
 
-void Strength::preBattle(Character* c, Enemy* e){
+string Strength::preBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() + 1);
+    return "Strength spell cast.\nStrength increased by 1.";
 }
 
-void Strength::postBattle(Character* c, Enemy* e){
+string Strength::postBattle(Character* c, Enemy* e){
     
     c->setStrength(c->getStrength() - 1);
+    return "Strength spell used up.";
 }
