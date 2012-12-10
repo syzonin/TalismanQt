@@ -479,7 +479,7 @@ void TheBigWindow::btnCounterClockwise() {
         widget.btnNo->hide();
     }
     remainder *=(-1);
-    moveChar(remainder);
+    moveChar();
 }
 
 void TheBigWindow::btnClockwise() {
@@ -493,7 +493,7 @@ void TheBigWindow::btnClockwise() {
         widget.btnYes->hide();
         widget.btnNo->hide();
     }
-    moveChar(remainder);
+    moveChar();
 }
 
 void TheBigWindow::btnYesClicked(){
@@ -503,6 +503,7 @@ void TheBigWindow::btnYesClicked(){
         widget.btnLeft->show();
         widget.btnRight->show();
         remainder = 0;
+        moveChar();
     }
     else if (remainder > 1){
         remainder -=1;
@@ -543,7 +544,7 @@ void TheBigWindow::btnNoClicked(){
         widget.btnLeft->show();
         widget.btnRight->show(); 
     }
-    moveChar(remainder);
+    moveChar();
     widget.lblStatus->setText("");
     widget.btnYes->hide();
     widget.btnNo->hide();
@@ -585,7 +586,7 @@ void TheBigWindow::moveRegions(){
     widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
 }
 
-void TheBigWindow::moveChar(int roll){
+void TheBigWindow::moveChar(){
     int index = 0;
     int newIndex = 0;
     vector<MapSquare*> v;
@@ -637,7 +638,7 @@ void TheBigWindow::moveChar(int roll){
             direction = "counter";
         }
         else {
-            remainder = 0;   ////////////////////////////////////////////
+            remainder = 0;  
         }
         ms->removeCharacter(*player);
         ms = v.at(8);
