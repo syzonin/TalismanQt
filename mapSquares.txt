@@ -1,49 +1,49 @@
 0;0;Outer;City;Visit only one of the following:\nEnchantress: Roll 1 die:\n1. You are turned into a Toad for 3 Turns\n2. Lose 1 Strength\n3. Lose 1 Craft\n4. Gain 1 Craft\n5.Gain 1 Strength\n6. Gain 1 Spell\nDoctor: He will Heal up to 2 Lives at the cost of 1 Gold Coin each.\nAlchemist: He will turn any of your Objects into Gold Coin. Discard the Objects you choose and take 1 Gold Coin for each;0
-0;1;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-0;2;Outer;Hills;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-0;3;Outer;Plains;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-0;4;Outer;Woods;Draw 1 Card\nDo not draw a card if there is already one in this space.;1
-0;5;Outer;Plains;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
+0;1;Outer;Fields;Draw 1 Card;1
+0;2;Outer;Hills;Draw 1 Card;1
+0;3;Outer;Plains;Draw 1 Card;1
+0;4;Outer;Woods;Draw 1 Card;1
+0;5;Outer;Plains;Draw 1 Card;1
 0;6;Outer;Tavern;You will encounter one of the following results:\n1. You get blind drunk and collapse in a corner. No effect.\n2. You get tipsy and get in a fight with a farmer. Gain 1 Strength from the battle.\n3. You gamble and lose 1 Gold Coin.\n4. You gamble and win 2 Gold Coins.\n5. A wizard teaches you a new spell. Gain one random Spell from the Spell Deck.\n6. You casually relax and find a weapon hidden under a shaded table.;0
-1;0;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
+1;0;Outer;Fields;Draw 1 Card;1
 1;1;Middle;Warlock's Cave;You May Roll 1 Die to Accept A Quest\n1. Take 1 life from another character.\n2. Kill 1.Enemy.\n3. Deliver (discard) 1 Follower.\n4. Deliver (discard) 1 Magic Object.\n5. Deliver (discard) 3 gold.\n6. Deliver (discard) 2 gold.\nWhen you complete the quest, the Warlock immediately teleports you back here and gives you a Talisman, if available, as your reward.;0
-1;2;Middle;Desert;Lose 1 Life\nDo not draw a Card if there is already one in the space.;1
-1;3;Middle;Oasis;Draw 2 CardsIf there are any cards in this space, draw only enough to take the total to 2.;2
-1;4;Middle;Desert;Lose 1 Life\nDo not draw a Card if there is already one in the space.;1
+1;2;Middle;Desert;Draw 1 Card;1
+1;3;Middle;Oasis;Draw 1 Card;1
+1;4;Middle;Desert;Draw 1 Card;1
 1;5;Middle;Temple;Pray: Roll 2 Dice:\n2. Lose 2 lives.\n3. Lose 1 life.\n4. Lose 1 Follower.\n5. Enslaved; stay here until you roll a 4, 5, or a 6 for your move.\n6. Gain 1 Strength.\n7. Gain 1 Craft.\n8. Gain 1 Spell.\n9. Gain 1 Spell.\n10. Gain a Talisman.\n11. Gain 2 fate.\n12. Gain 2 lives.;0
-1;6;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-2;0;Outer;Woods;Draw 1 Card\nDo not draw a card if there is already one in this space.;1
-2;1;Middle;Runes;Draw 1 Card\nDo not draw a card if there is already one in this space. Any creatures that you fight here add 2 to their attack rolls.;1
+1;6;Outer;Fields;Draw 1 Card;1
+2;0;Outer;Woods;Draw 1 Card;1
+2;1;Middle;Runes;Draw 1 Card;1
 2;2;Inner;Valley of Fire;You must have a talisman to enter. If you do not have one, you must turn back. the crown of command can only be reached from this space.;0
 2;3;Inner;Werewolf Den;Roll 2 Dice for the Werewolf's Strength, then fight it\nIf you lose, lose 1 Life and you must fight the same Werewolf again on you next Turn.\nYou may not move until you have killed the Werewolf.;0
 2;4;Inner;Dice with Death;Roll 2 Dice for yourself and 2 Dice for Death\nIf the scores are equal, you must Dice with Death again on your next Turn.\nIf your score is lower, You lose 1 life and must Dice with Death again on your next Turn.\nIf your score is higher, you may move on your next Turn.;0
-2;5;Middle;Woods;Draw 1 Card\nDo not draw a card if there is already one in this space.;1
-2;6;Outer;Ruins;Draw 2 Cards\nIf there are any cards already in this space, draw only enough to take the total to two cards.;2
-3;0;Outer;Plains;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
+2;5;Middle;Woods;Draw 1 Card;1
+2;6;Outer;Ruins;Draw 1 Cards;1
+3;0;Outer;Plains;Draw 1 Card;1
 3;1;Middle;Chasm;Roll one die for yourself, and one for each of your Followers. If a 1 or 2 is rolled for yourself, lose 1 life. If a 1 or 2 is rolled for a Follower, it is killed.;0
 3;2;Inner;Pits;Roll 1 Die\nYou are ambushed by that many Pitflends (Strength 4 each). Each turn, fight them one-by-one until you lose a Life. You may escape one Turn after all are dead;1
 3;3;Center;Crown of Command;You win!;0
 3;4;Inner;Crypt;Roll 3 Dice\nSubtract your Strength from the total for your exit:\n0) Crypt 1) Plain of Peril 2/3) Portal of Power 4/5) Warlock's cave 6+) City;0
-3;5;Middle;Runes;Draw 1 Card\nDo not draw a card if there is already one in this space. Any creatures that you fight here add 2 to their attack rolls.;1
-3;6;Outer;Plains;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
+3;5;Middle;Runes;Draw 1 Card;1
+3;6;Outer;Plains;Draw 1 Card;1
 4;0;Outer;Crags;Roll 1 Die\n1. Attacked by a Spirit with Craft 4\n2. Lost, lose your next turn\n3. Lost, lose your next turn\n4. Safe, no effect\n5. Safe, no effect\n6. A barbarian leads you out; gain 1 Strength;0
-4;1;Middle;Runes;Draw 1 Card\nDo not draw a card if there is already one in this space. Any creatures that you fight here add 2 to their attack rolls.;1
+4;1;Middle;Runes;Draw 1 Card;1
 4;2;Inner;Vampire's Tower;Suffer Blood Loss\nRoll one die to determine how many lives the Vampire takes. You may discard any number of Followers to avoid this loss of life. Each Follower you discard prevents the loss of one life.\n1-2) Lose 1 life 3-4) Lose 2 lives 5-6) Lose 3 lives;0
 4;3;Inner;Mines;Roll 3 Dice\nSubtract your current Craft from the total for where you come out:\n0) Mines 1) Plain of Peril 2/3) Portal of Power 4/5) Warlock's Cave 6+)Tavern;0
 4;4;Inner;Plain of Peril;You must stop here before moving on in the Inner Region where you only move 1 space per turn.;0
-4;5;Middle;Castle;Royal Doctor\nHeal up to your life value at the cost of one gold each. If you have the Prince or Princess, heal up to two lives for free.;0
+4;5;Middle;Castle;You will encounter 1 of the following options:\n1. The Royal Doctor heals you up to your default Life Points.\n2: A Guard offers you combat training. Gain 1 Strength.\n3: The Castle Wizard offers you spell training. Gain 1 Craft.\n4: The Princess falls in love with you and becomes your Follower. (rare);0
 4;6;Outer;Forest;1. Roll 1 Die\n2. Attacked by a brigand with Strength 4\n3. Lost, lose your next turn\n4. Lost, lose your next turn\n5. Safe\n6. Safe\nA ranger guides you out; gain 1 Craft;0
-5;0;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-5;1;Middle;Cursed Glade;Draw 1 Card\nDo not draw a card if there is already one in this space.\nStrength and Craft derived from Objects and Magic Objects do not count on this space, nor may you use Magic Objects or cast Spells.;1
-5;2;Middle;Hills;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-5;3;Middle;Hidden Valley;Draw 3 Cards\nIf there are already any Cards in this space, draw only enough to take the total to 3 Cards.;3
-5;4;Middle;Black Knight;You must either give up 1 Gold Coin (discarding it on the stock pile) or lose 1 life.;0
-5;5;Middle;Portal of Power;Do not draw a card if there is one already here. If you are trying to pass to the Plain of Peril, you do not draw a card but you must either use Craft to pick the lock or Strength to force it. Decide which ability you are using. Having decided, roll 2 dice.\nIs the total is equal to or less than you chosen ability, go to the Plain of Peril. If it is higher, remain here and lose 1 from that ability;1
-5;6;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
+5;0;Outer;Fields;Draw 1 Card;1
+5;1;Middle;Cursed Glade;Draw 1 Card\nDo not draw a card if there is already one in this space.\nStrength and Craft derived from Objects and Magic Objects do not count on this space, nor may you use Magic Objects or cast Spells.;0
+5;2;Middle;Hills;Draw 1 Card;1
+5;3;Middle;Hidden Valley;Draw 1 Card;1
+5;4;Middle;Black Knight;The Black Knight demands 1 Gold for safe passage. If you do not have 1 Gold, you might lose 1 life.;0
+5;5;Middle;Portal of Power;Allows access to the Inner Region;0
+5;6;Outer;Fields;Draw 1 Card;1
 6;0;Outer;Chapel;Based on Alignment\nEvil\nLose one life\nNeutral\nHeal up to your life value at the cost of one gold each\nGood\nEither heal up to your life value for free, or pray by rolling one die:\n1. Ignored\n2. Ignored\n3. Ignored\n4. Ignored\n5. Gain 1 life\n6. Gain 1 Spell;0
-6;1;Outer;Hills;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
-6;2;Outer;Sentinel;Draw 1 Card\nDo not draw a card if there is already one in this space.\nIf you are crossing to the Middle Region, do not draw a card. Instead, you must first defeat the Sentinel with Strength 9. Do not fight the Sentinel when crossing from the Middle Region.;1
-6;3;Outer;Woods;Draw 1 Card\nDo not draw a card if there is already one in this space.;1
+6;1;Outer;Hills;Draw 1 Card;1
+6;2;Outer;Sentinel;Allows access to the Middle Region;1
+6;3;Outer;Woods;Draw 1 Card;1
 6;4;Outer;Graveyard;Based on Alignment:\nGood\nLose one life\nNeutral\nReplenish fate up to your fate value at the cost of one gold each\nEvil\nEither replenish fate up to your fate value for free, or pray by rolling one die:\n1. Ignored\n2. Ignored\n3. Ignored\n4. Ignored\n5. Gain 1 fate\n6. Gain 1 Spell;0
-6;5;Outer;Fields;Draw 1 Card\nDo not draw a Card if there is already one in this space.;1
+6;5;Outer;Fields;Draw 1 Card;1
 6;6;Outer;Village;Visit the Blacksmith, Healer, or Mystic\nBlacksmith (Purchase any, if available):\nHelmet - 2G\nSword - 2G\nAxe - 3G\nShield - 3G\nArmour - 4G\nHealer:\nHeal up to your life value at the cost of one gold each\nMystic (Roll 1 die):\n1. Become evil\n2. Ignored\n3. Ignored\n4. Become good\n5. Gain 1 Craft\n6. Gain 1 Spell;0

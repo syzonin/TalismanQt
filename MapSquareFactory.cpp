@@ -53,7 +53,6 @@ MapSquare* MapSquareFactory::getClass(int row) {
     else if (name == "Pits") { return new Pits(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Plain of Peril") { return new PlainOfPeril(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Portal of Power") { return new PortalOfPower(xCord, yCord, mCard, region, name, ins); }
-    else if (name == "Ruins") { return new Ruins(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Sentinel") { return new Sentinel(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Tavern") { return new Tavern(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Temple") { return new Temple(xCord, yCord, mCard, region, name, ins); }

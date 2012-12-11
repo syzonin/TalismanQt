@@ -404,6 +404,7 @@ void TheBigWindow::btnAttackClicked() {
     activeSpells.clear();
     activeWeapons.clear();
     activeArmors.clear();
+    (board->getMapSquare(player->getXCord(), player->getYCord()))->removeCard(*e);
     //Update view
     updateCharacterStats();
 }

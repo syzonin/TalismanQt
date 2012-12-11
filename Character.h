@@ -60,6 +60,7 @@ public:
     bool removeObject(AdventureCard*);
     void removeFollower(unsigned int);
     void removeTrophy(unsigned int);
+    bool hasFollower(string);
     //Other methods
     int* exchangeTrophies();
     string listTrophies();

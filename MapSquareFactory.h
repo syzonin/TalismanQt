@@ -27,7 +27,6 @@
 #include "Pits.h"
 #include "PlainOfPeril.h"
 #include "PortalOfPower.h"
-#include "Ruins.h"
 #include "Sentinel.h"
 #include "Tavern.h"
 #include "Temple.h"

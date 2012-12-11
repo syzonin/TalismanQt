@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1093</width>
+    <height>795</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -63,7 +63,7 @@ QLabel {
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>610</x>
      <y>10</y>
      <width>274</width>
      <height>581</height>

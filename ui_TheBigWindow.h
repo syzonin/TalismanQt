@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'TheBigWindow.ui'
 **
-** Created: Mon Dec 10 02:48:50 2012
+** Created: Tue Dec 11 13:19:31 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -82,7 +82,7 @@ public:
     {
         if (TheBigWindow->objectName().isEmpty())
             TheBigWindow->setObjectName(QString::fromUtf8("TheBigWindow"));
-        TheBigWindow->resize(800, 600);
+        TheBigWindow->resize(1093, 795);
         QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         sizePolicy.setHorizontalStretch(1);
         sizePolicy.setVerticalStretch(1);
@@ -121,7 +121,7 @@ public:
 "}"));
         layoutWidget = new QWidget(TheBigWindow);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(590, 10, 274, 581));
+        layoutWidget->setGeometry(QRect(610, 10, 274, 581));
         boardPanel = new QVBoxLayout(layoutWidget);
         boardPanel->setSpacing(8);
         boardPanel->setContentsMargins(8, 8, 8, 8);

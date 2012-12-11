@@ -118,8 +118,10 @@ void Character::setCraft(int value) {
 ///Sets the character's gold.
 ///
 void Character::setGold(int goldCoins) { 
-    if (goldCoins > 0 && goldCoins != gold) gold = goldCoins; 
-    update();
+    if (goldCoins >= 0 && goldCoins != gold) {
+        gold = goldCoins; 
+        update();
+    }
 }
 ///
 ///Sets the character's fate.
@@ -197,12 +199,20 @@ void Character::setValues(int strength, int craft, int fate, int life, string ti
 ///Adds the card to the character's list of followers.
 ///
 bool Character::addFollower(AdventureCard* card) {
-    if (card->getType() != "Follower") return false; 
+    if (card->getType() != "Follower" || followers.size() > 1) return false; 
     for (list<AdventureCard*>::iterator it = followers.begin(); it != followers.end(); ++it) { 
         if (card == *it) return false;
     }
     followers.push_back(card);
     return true;
+}
+
+bool Character::hasFollower(string title) {
+    for (list<AdventureCard*>::iterator it = followers.begin(); it!= followers.end(); ++it) {
+        if (title == (*it)->getTitle())
+            return true;
+    }
+    return false;
 }
 ///
 ///Adds the card to the character's list of objects.

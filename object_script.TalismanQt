@@ -18,7 +18,6 @@ INPUT(
 ./build/Debug/MinGW_Qt-Windows/ArmorFactory.o
 ./build/Debug/MinGW_Qt-Windows/WeaponFactory.o
 ./build/Debug/MinGW_Qt-Windows/Monk.o
-./build/Debug/MinGW_Qt-Windows/Ruins.o
 ./build/Debug/MinGW_Qt-Windows/MirrorShield.o
 ./build/Debug/MinGW_Qt-Windows/MapSquareFactory.o
 ./build/Debug/MinGW_Qt-Windows/PurchaseDeck.o

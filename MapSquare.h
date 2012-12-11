@@ -18,6 +18,7 @@
 #include "WeaponFactory.h"
 #include "ArmorFactory.h"
 #include "SpellFactory.h"
+#include "Follower.h"
 #include <cstdlib>
 #include <iostream>
 #include <QPushButton>
