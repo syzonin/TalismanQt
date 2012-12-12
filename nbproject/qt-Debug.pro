@@ -1,7 +1,7 @@
 # This file is generated automatically. Do not edit.
 # Use project properties -> Build -> Qt -> Expert -> Custom Definitions.
 TEMPLATE = app
-DESTDIR = dist/Debug/MinGW-Windows
+DESTDIR = dist/Debug/MinGW_Qt-Windows
 TARGET = TalismanQt
 VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
@@ -13,7 +13,7 @@ HEADERS += CharacterCardModel.h SwordOfLight.h Chasm.h Axe.h Crypt.h AdventureCa
 FORMS += ArmorDialog.ui TheBigWindow.ui SpellDialog.ui AdventureCardEdit.ui WeaponDialog.ui GameBoard.ui
 RESOURCES +=
 TRANSLATIONS +=
-OBJECTS_DIR = build/Debug/MinGW-Windows
+OBJECTS_DIR = build/Debug/MinGW_Qt-Windows
 MOC_DIR = 
 RCC_DIR = 
 UI_DIR = 

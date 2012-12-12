@@ -14,7 +14,9 @@ PlainOfPeril::PlainOfPeril(int xCord, int yCord, int mCards, string squareRegion
 ///
 ///Performs square quest
 ///
-void PlainOfPeril::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
+void PlainOfPeril::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
 
-    cout << "hi" <<endl;
+    AdventureCard* a = d->drawCard();
+    static_cast<Enemy*>(a)->setAttackPoints(static_cast<Enemy*>(a)->getAttackPoints() + 2);
+    addCard(*a);    
 }

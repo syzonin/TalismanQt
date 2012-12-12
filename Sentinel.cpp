@@ -16,5 +16,6 @@ Sentinel::Sentinel(int xCord, int yCord, int mCards, string squareRegion, string
 ///
 void Sentinel::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
-    cout << "hi" <<endl;
+    AdventureCard* a = d->drawCard();
+    addCard(*a);
 }

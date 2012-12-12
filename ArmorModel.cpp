@@ -8,6 +8,9 @@
 #include "ArmorModel.h"
 QString ArmorModel::fileName = "armors.txt";
 
+///
+///Reads each Armor Object detail from file and returns in a vector
+///
 vector<QStringList> ArmorModel::select(){
     
     vector<QStringList> result;

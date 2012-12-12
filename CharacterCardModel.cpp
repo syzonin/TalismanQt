@@ -9,6 +9,9 @@
 
 QString CharacterCardModel::fileName = "characters.txt";
 
+///
+///Reads each Character Object detail from file and returns in a vector
+///
 vector<QStringList> CharacterCardModel::select() {
     vector<QStringList> result;
     QString data;

@@ -9,6 +9,9 @@
 
 QString AdventureCardModel::fileName = "adventure_cards.txt";
 
+///
+///Reads each AdventureCard Object detail from file and returns in a vector
+///
 vector<QStringList> AdventureCardModel::select() {
     vector<QStringList> result;
     QString data;
@@ -28,25 +31,9 @@ vector<QStringList> AdventureCardModel::select() {
     return result;
 }
 
-//void AdventureCardModel::update(int index, QString line) {
-//    QString data;
-//    QStringList rowOfData;
-//    QFile file(fileName);
-//    
-//    if (file.open(QFile::ReadWrite)) {
-//        data = file.readAll();
-//        rowOfData = data.split("\n");
-//        rowOfData.replace(index,line);
-//        //data = rowOfData.join("\n").toUtf8();
-//        //file.write(rowOfData.join("\n").toUtf8());
-////        QTextStream out(&file);    
-////        string asdf = rowOfData.join("\n").toStdString();
-////        out << asdf;
-//        
-//        file.close();
-//    }
-//}
-
+///
+///Prints to the out file
+///
 void AdventureCardModel::update(QString contents) {
     QFile file(fileName);
     

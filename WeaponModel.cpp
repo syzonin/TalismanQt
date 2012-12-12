@@ -8,6 +8,9 @@
 #include "WeaponModel.h"
 QString WeaponModel::fileName = "weapons.txt";
 
+///
+///Reads each Weapon Object detail from file and returns in a vector
+///
 vector<QStringList> WeaponModel::select(){
     
     vector<QStringList> result;

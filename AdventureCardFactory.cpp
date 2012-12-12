@@ -7,10 +7,16 @@
 
 #include "AdventureCardFactory.h"
 
+///
+///Default constructor
+///Retrieves data from adventure card model
+///
 AdventureCardFactory::AdventureCardFactory() {
     entries = AdventureCardModel::select();
 }
-
+///
+///Returns the list of available class names that can be passed to getClass()
+///
 vector<string> AdventureCardFactory::classNames () {
     vector<string> classNames;
     for (unsigned int i = 0; i < entries.size(); ++i) {
@@ -18,7 +24,9 @@ vector<string> AdventureCardFactory::classNames () {
     }
     return classNames;
 }
-
+///
+///Returns an instance to the class passed as parameter
+///
 AdventureCard* AdventureCardFactory::getClass(const string className) {
     QString name = QString::fromStdString(className);
     int encounterNo = 0, atkPoints = 0;
@@ -45,7 +53,9 @@ AdventureCard* AdventureCardFactory::getClass(const string className) {
     //else if (type == "Some type") return new DerivedAdventureCard(title,type,text,encounterNo);
     else return NULL;
 }
-
+///
+///Destructor
+///
 AdventureCardFactory::~AdventureCardFactory() {
     for (unsigned int i = 0; i < entries.size(); ++i) {
         entries.at(i).clear();

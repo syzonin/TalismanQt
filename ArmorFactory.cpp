@@ -14,7 +14,6 @@
 ArmorFactory::ArmorFactory(){
     entries = ArmorModel::select();
 }
-
 ///
 ///Destructor
 ///
@@ -22,7 +21,6 @@ ArmorFactory::~ArmorFactory(){
     for (unsigned int i = 0; i < entries.size(); ++i) entries.at(i).clear();
     entries.clear();
 }
-
 ///
 ///Returns the list of available class names that can be passed to getClass()
 ///

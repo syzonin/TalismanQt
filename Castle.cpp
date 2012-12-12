@@ -40,7 +40,7 @@ void Castle::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Charac
         c->setCraft(c->getCraft() + 1);
     }
     else{
-        Follower* princess = new Follower("Princess", "Follower", "The Castle's Princess", 3);
+        Follower* princess = new Follower("Princess", "Follower", "The Castle Princess", 3);
         if (c->hasFollower("Princess"))
             txtLog->append("\nYou and your Princess take a leisurely walk in the Castle flower fields where you first met.");
         else if(c->addFollower(princess))

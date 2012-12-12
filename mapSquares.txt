@@ -30,20 +30,20 @@
 4;1;Middle;Runes;Draw 1 Card;1
 4;2;Inner;Vampire's Tower;You suffer blood loss and lose between 1 and 4 lives.\nIf you have any Followers, they will each sacrifice themselves saving you 1 Life Point;0
 4;3;Inner;Mines;You will encounter one of the following options:\n1. Lose all Weapons and Armor\n2: A Follower Dies or you lose 1 Life\n3: Lose all Spells\n4: Strength -3\n5: Craft -3\n6: Lose all Fate Tokens;0
-4;4;Inner;Plain of Peril;You must stop here before moving on in the Inner Region where you only move 1 space per turn.;0
+4;4;Inner;Plain of Peril;From this point onward, you may only move 1 space at a time.\nEnemies encountered on this square are empowered (Strength/Craft + 2);0
 4;5;Middle;Castle;You will encounter 1 of the following options\n1. The Royal Doctor heals you up to your default Life Points.\n2: A Guard offers you combat training. Gain 1 Strength.\n3: The Castle Wizard offers you spell training. Gain 1 Craft.\n4: The Princess falls in love with you and becomes your Follower. (rare);0
-4;6;Outer;Forest;1. Roll 1 Die\n2. Attacked by a brigand with Strength 4\n3. Lost, lose your next turn\n4. Lost, lose your next turn\n5. Safe\n6. Safe\nA ranger guides you out; gain 1 Craft;0
+4;6;Outer;Forest;You will encounter one of the following options:\n1. Gain 1 random equipment\n2. Gain a Tree Sprite Follower\n3. Encounter an empowered Wolf Enemy(Strength +3);0
 5;0;Outer;Fields;Draw 1 Card;1
 5;1;Middle;Cursed Glade;Draw 1 Card\nEnemies encountered on this space are empored giving them 2 extra Strength or Craft Points;0
 5;2;Middle;Hills;Draw 1 Card;1
 5;3;Middle;Hidden Valley;Draw 1 Card;1
 5;4;Middle;Black Knight;The Black Knight demands 1 Gold for safe passage. If you do not have 1 Gold, you might lose 1 life.;0
-5;5;Middle;Portal of Power;Allows access to the Inner Region;0
+5;5;Middle;Portal of Power;Can access the Inner Region from here.\nThe Talisman is needed to access the Crown of Command at the center of the map.\nDraw 1 Card if landed on this space.\nEnemies encountered on this space are empowered (Strength/Craft + 2);0
 5;6;Outer;Fields;Draw 1 Card;1
 6;0;Outer;Chapel;Based on Alignment\nEvil: Lose one life\nNeutral: Heal up to your life value at the cost of one gold\nGood: Heal up to your life value for free;0
 6;1;Outer;Hills;Draw 1 Card;1
-6;2;Outer;Sentinel;Allows access to the Middle Region;1
+6;2;Outer;Sentinel;Allows access to the Middle Region.\nYou must battle the Sentinel (Strength 7) while crossing.\nIf you are defeated, continue onward, but lose 1 Life;1
 6;3;Outer;Woods;Draw 1 Card;1
-6;4;Outer;Graveyard;Based on Alignment:\nGood\nLose one life\nNeutral\nReplenish fate up to your fate value at the cost of one gold each\nEvil\nEither replenish fate up to your fate value for free, or pray by rolling one die:\n1. Ignored\n2. Ignored\n3. Ignored\n4. Ignored\n5. Gain 1 fate\n6. Gain 1 Spell;0
+6;4;Outer;Graveyard;Based on Alignment:\nGood: Encounter a random empowered enemy (Strength/Craft +2)\nNeutral: Gain a Skeletal Follower and become Evil, or Gain a Life Point and become Good\nEvil: Gain one Skeletal Follower or Gain 2 Craft;0
 6;5;Outer;Fields;Draw 1 Card;1
 6;6;Outer;Village;You will encounter one of the following options:\n1. Purchase a random Weapon or Armor for 1 Gold\n2. Learn a random Spell for 1 Gold\n3. Become Evil\n4. Become Good\n5. Gain 1 Strength\n6. Gain 1 Craft;0

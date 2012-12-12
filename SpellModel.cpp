@@ -8,6 +8,9 @@
 #include "SpellModel.h"
 QString SpellModel::fileName = "spells.txt";
 
+///
+///Reads each Spell Object detail from file and returns in a vector
+///
 vector<QStringList> SpellModel::select(){
     
     vector<QStringList> result;
