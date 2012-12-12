@@ -1,6 +1,6 @@
 /*
  * File:   main.cpp
- * Author: Alex
+ * Author: Alex, Si, Armand (Jay)
  *
  * Created on October 27, 2012, 5:04 PM
  */
