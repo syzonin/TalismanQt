@@ -49,6 +49,7 @@ MapSquare* MapSquareFactory::getClass(int row) {
     else if (name == "Dice with Death") { return new DiceWithDeath(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Forest") { return new Forest(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Graveyard") { return new Graveyard(xCord, yCord, mCard, region, name, ins); }
+    else if (name == "Hills") { return new Hills(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Mines") { return new Mines(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Pits") { return new Pits(xCord, yCord, mCard, region, name, ins); }
     else if (name == "Plain of Peril") { return new PlainOfPeril(xCord, yCord, mCard, region, name, ins); }

@@ -16,13 +16,13 @@ const int Character::TROPHY_POINTS = 7;
 ///Default constructor.
 ///
 Character::Character() {
-    setValues(0,0,0,0,"Character","",0,0);  
+    setValues(0,0,0,0,"Character","",0,0); talisman = 0; cross = false; 
 }
 ///
 ///Constructor that accepts strength, craft, fate and life.
 ///
 Character::Character(int strength, int craft, int fate, int life, string title, string text, int xCord, int yCord) {
-    setValues(strength,craft,fate,life,title,text,xCord,yCord);
+    setValues(strength,craft,fate,life,title,text,xCord,yCord); talisman = 0; cross = false;
 }
 ///
 ///Destructor.
@@ -63,6 +63,10 @@ int Character::getLifePoints() { return lifePoints; }
 ///
 int Character::getStrength() { return strength; }
 ///
+///Returns if the character just crossed regions
+///
+bool Character::getCross() {return cross;}
+///
 ///Returns the number of dice to roll when attacking an Enemy
 ///
 int Character::allowedAttackRolls(const Enemy& e) { return 1; }
@@ -86,6 +90,10 @@ const string Character::getText() const { return text; }
 ///Returns the character's title.
 ///
 const string Character::getTitle() const { return title; }
+///
+///Returns if the Character has the talisman or not
+///
+int Character::getTalisman() {return talisman;}
 
 string Character::getStartLocation(){ return startLocation; }
     
@@ -115,6 +123,12 @@ void Character::setCraft(int value) {
     update();
 }
 ///
+///Sets the trigger for crossing regions
+///
+void Character::setCross(bool a){
+    cross = a;
+}
+///
 ///Sets the character's gold.
 ///
 void Character::setGold(int goldCoins) { 
@@ -138,6 +152,12 @@ void Character::setLife(int lifeValue) {
     if (lifeValue >= 0) life = lifeValue;
     if (lifePoints > life) lifePoints = life;
     update();
+}
+///
+///Sets the Talisman Boolean
+///
+void Character::setTalisman(int a){
+    talisman = a;
 }
 
 void Character::setStart(string newStart){ startLocation = newStart; }
@@ -206,13 +226,27 @@ bool Character::addFollower(AdventureCard* card) {
     followers.push_back(card);
     return true;
 }
-
+///
+///Checks for a Follower and returns true if it is in the list.
+///
 bool Character::hasFollower(string title) {
     for (list<AdventureCard*>::iterator it = followers.begin(); it!= followers.end(); ++it) {
         if (title == (*it)->getTitle())
             return true;
     }
     return false;
+}
+///
+///Returns the Follower at index -1 (front or back)
+///
+Follower* Character::getFollower(unsigned int index){
+    if (index < 1 || index >= followers.size()) return NULL;
+    if (index == 0)
+        return static_cast<Follower*>(followers.front());
+    else if (index == 1)
+        return static_cast<Follower*>(followers.back());
+    else
+        return NULL;
 }
 ///
 ///Adds the card to the character's list of objects.
@@ -298,6 +332,40 @@ string Character::listObjects() {
     if (result.str().length() == 0) result << "There are no objects in the list";
     //Return list
     return result.str();
+}
+///
+///Clears all Weapons from the Object List
+///
+void Character::clearWeapons(){
+    for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it){
+        if ((*it)->getType() == "Weapon"){
+            objects.remove(*it);          
+            it = objects.begin();
+        }
+    }
+    
+}
+///
+///Clears all Armors from the Object List
+///
+void Character::clearArmors(){
+    for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it){
+        if ((*it)->getType() == "Armor"){
+            objects.remove(*it);
+            it = objects.begin();
+        }
+    }    
+}
+///
+///Clears all Spells from the Object List
+///
+void Character::clearSpells(){
+    for (list<AdventureCard*>::iterator it = objects.begin(); it != objects.end(); ++it){
+        if ((*it)->getType() == "Spell"){
+            objects.remove(*it);
+            it = objects.begin();
+        }
+    }
 }
 ///
 ///Return a string of all the trophies that the character has.

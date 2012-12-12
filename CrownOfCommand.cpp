@@ -11,7 +11,7 @@ CrownOfCommand::CrownOfCommand(int xCord, int yCord, int mCards, string squareRe
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
 
-void CrownOfCommand::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
+void CrownOfCommand::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
-    cout << "something goes here" << endl;
+    txtLog->append("\nYou are now in the Inner Region. You will move only 1 space at a time from here on");
 }

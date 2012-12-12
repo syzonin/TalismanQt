@@ -19,7 +19,6 @@ void Castle::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Charac
 //    \n4: The Princess falls in love with you and becomes your Follower. (rare);0
     
     int selection = rand() % 100 + 1;
-    selection = 91;
     if (selection <= 40){
         if (c->getLifePoints() >= c->getLife())
             txtLog->append("\nThe Castle Doctor offers to heal you however you are already at beacon of health.");
@@ -41,7 +40,7 @@ void Castle::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Charac
         if (c->hasFollower("Princess"))
             txtLog->append("\nYou and your Princess take a leisurely walk in the Castle flower fields where you first met.");
         else if(c->addFollower(princess))
-            txtLog->append("\nYou come across the Princess in the Castle flower fields and she cannot help but succumb to your charm.\nThe Princess is now your active Follower.\nIf you currently have a Follwer, they are dismissed.");
+            txtLog->append("\nYou come across the Princess in the Castle flower fields and she cannot help but succumb to your charm.\nThe Princess is now your active Follower.");
         else
             txtLog->append("\nYou come across the Princess in the Castle flower fields and she cannot help but succumb to your charm.\nShe asks if she may join you on your journey, however you already have 2 Followers and politely decline.");                            
     }

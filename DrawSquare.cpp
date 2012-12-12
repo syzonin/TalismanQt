@@ -12,10 +12,6 @@ DrawSquare::DrawSquare(int xCord, int yCord, int mCards, string squareRegion, st
 
 void DrawSquare::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
-    for (unsigned int i = 0; i < maxCard; i++){
-        if (adventureCards.size() < maxCard){
-            AdventureCard* a = d->drawCard();
-            addCard(*a);
-        }
-    }
+    AdventureCard* a = d->drawCard();
+    addCard(*a);
 }

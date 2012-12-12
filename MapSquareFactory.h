@@ -23,6 +23,7 @@
 #include "DrawSquare.h"
 #include "Forest.h"
 #include "Graveyard.h"
+#include "Hills.h"
 #include "Mines.h"
 #include "Pits.h"
 #include "PlainOfPeril.h"

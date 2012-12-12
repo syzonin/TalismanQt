@@ -16,7 +16,7 @@
 //    name = "Warrior";
 Monk::Monk(int strength, int craft, int fate, int life, string title, string text, int xCord, int yCord) : 
         Character(strength,craft,fate,life,title,text,xCord,yCord) {
-
+    setAlignment(1);
 }
 ///
 ///Destructor.

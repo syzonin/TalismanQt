@@ -41,6 +41,7 @@
         <itemPath>DrawSquare.h</itemPath>
         <itemPath>Forest.h</itemPath>
         <itemPath>Graveyard.h</itemPath>
+        <itemPath>Hills.h</itemPath>
         <itemPath>MapSquare.h</itemPath>
         <itemPath>Mines.h</itemPath>
         <itemPath>Pits.h</itemPath>
@@ -149,6 +150,7 @@
         <itemPath>DrawSquare.cpp</itemPath>
         <itemPath>Forest.cpp</itemPath>
         <itemPath>Graveyard.cpp</itemPath>
+        <itemPath>Hills.cpp</itemPath>
         <itemPath>MapSquare.cpp</itemPath>
         <itemPath>Mines.cpp</itemPath>
         <itemPath>Pits.cpp</itemPath>

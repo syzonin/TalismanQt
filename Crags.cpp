@@ -10,7 +10,15 @@
 Crags::Crags(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void Crags::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
+void Crags::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
-    cout << "something goes here" << endl;
+    int decision = rand() % 100 + 1;
+    if (decision <= 33){
+        addCard(*(new Enemy("Powerful\nApparition", "Enemy", "An unusually strong Apparition.", 1, "Spirit", 7, "Craft")));
+    }
+    else if (decision <= 66){
+        addCard(*(new Enemy("Undead Dragon", "Enemy", "An undead Dragon infused with the power of Death istelf", 1, "Undead", 8, "Strength")));
+    }
+    else
+        txtLog->append("\nYou encounter a wandering Barbarian. He knows the lands and offers to show you safe passage");
 }

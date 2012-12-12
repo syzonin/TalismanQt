@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Character.h'
 **
-** Created: Tue Dec 11 14:52:59 2012
+** Created: Tue Dec 11 22:30:41 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_Character[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -42,7 +42,9 @@ static const uint qt_meta_data_Character[] = {
      135,   10,   10,   10, 0x0a,
      154,  152,   10,   10, 0x0a,
      174,  172,   10,   10, 0x0a,
-     196,  192,   10,   10, 0x0a,
+     192,   10,   10,   10, 0x0a,
+     209,   10,   10,   10, 0x0a,
+     228,  224,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -53,7 +55,8 @@ static const char qt_meta_stringdata_Character[] = {
     "setText(string)\0setLifePoints(int)\0"
     "setFateTokens(int)\0setStart(string)\0"
     ",\0setCoord(int,int)\0a\0setAlignment(int)\0"
-    ",,,\0move(string,string,int,int)\0"
+    "setTalisman(int)\0setCross(bool)\0,,,\0"
+    "move(string,string,int,int)\0"
 };
 
 const QMetaObject Character::staticMetaObject = {
@@ -96,10 +99,12 @@ int Character::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 8: setStart((*reinterpret_cast< string(*)>(_a[1]))); break;
         case 9: setCoord((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 10: setAlignment((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 11: move((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
+        case 11: setTalisman((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: setCross((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 13: move((*reinterpret_cast< string(*)>(_a[1])),(*reinterpret_cast< string(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
         default: ;
         }
-        _id -= 12;
+        _id -= 14;
     }
     return _id;
 }

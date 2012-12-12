@@ -40,6 +40,7 @@ public:
     int getLifePoints();
     int getFateTokens();
     int getStrength();
+    int getTalisman();
     const string getText() const;
     const string getTitle() const;
     string getStartLocation();
@@ -48,6 +49,7 @@ public:
     int getXCord();
     int getYCord();
     int getAlignment();
+    bool getCross();
     const list<AdventureCard*> getObjects();
     virtual int allowedAttackRolls(const Enemy&);
     virtual int allowedWeapons();
@@ -58,9 +60,13 @@ public:
     virtual bool addFollower(AdventureCard*);
     virtual bool addObject(AdventureCard*);
     bool removeObject(AdventureCard*);
+    void clearWeapons();
+    void clearArmors();
+    void clearSpells();
     void removeFollower(unsigned int);
     void removeTrophy(unsigned int);
     bool hasFollower(string);
+    Follower* getFollower(unsigned int);
     //Other methods
     int* exchangeTrophies();
     string listTrophies();
@@ -83,6 +89,8 @@ public slots:
     void setStart(string);
     void setCoord(int,int);
     void setAlignment(int a);
+    void setTalisman(int);
+    void setCross(bool);
  
     //Map movement
     void move(string,string,int,int);
@@ -110,6 +118,8 @@ protected:
     int xCord;
     int yCord;  
     int alignment;
+    int talisman;
+    bool cross;
 
 private:
     bool isFront;

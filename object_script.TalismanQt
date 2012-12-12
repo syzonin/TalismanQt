@@ -13,6 +13,7 @@ INPUT(
 ./build/Debug/MinGW_Qt-Windows/Castle.o
 ./build/Debug/MinGW_Qt-Windows/main.o
 ./build/Debug/MinGW_Qt-Windows/ArmorDialog.o
+./build/Debug/MinGW_Qt-Windows/Hills.o
 ./build/Debug/MinGW_Qt-Windows/Mines.o
 ./build/Debug/MinGW_Qt-Windows/Runesword.o
 ./build/Debug/MinGW_Qt-Windows/ArmorFactory.o

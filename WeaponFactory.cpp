@@ -27,7 +27,7 @@ WeaponFactory::~WeaponFactory(){
 vector<string> WeaponFactory::classNames() {
     vector<string> classNames;
     for (unsigned int i = 0; i < entries.size(); ++i) {
-        classNames.push_back(entries.at(i).at(0).toStdString());
+        classNames.push_back(entries.at(i).at(2).toStdString());
     }
     return classNames;
 }

@@ -407,6 +407,19 @@ void TheBigWindow::btnAttackClicked() {
     (board->getMapSquare(player->getXCord(), player->getYCord()))->removeCard(*e);
     //Update view
     updateCharacterStats();
+    if (player->getCross()){
+        player->setCross(false);
+        widget.btnEncounter->hide();
+        widget.adventureCardPanel->removeWidget(card);
+        widget.btnRollEncounterDie->hide();
+        if (remainder > 0){
+            widget.btnRollDie->hide();
+            widget.btnLeft->show();
+            widget.btnRight->show();        
+        }
+        else                
+            widget.btnRollDie->show();
+    }
 }
 
 void TheBigWindow::btnExchangeFateClicked() {
@@ -523,7 +536,8 @@ void TheBigWindow::btnClockwise() {
 }
 
 void TheBigWindow::btnYesClicked(){
-    moveRegions();
+    if (!player->getCross()) moveRegions();
+    if (player->getCross()) return;
     if (player->getCurrentLocation() == "Plain of Peril"){
         widget.btnRollDie->hide();
         widget.btnLeft->show();
@@ -590,6 +604,21 @@ void TheBigWindow::moveRegions(){
     ms->removeCharacter(*player);
     if (region == "Outer"){
         ms = board->getMapSquare(5,2);
+        player->setCross(true);
+        ms->execute(adventureDeck, spellDeck, purchaseDeck, player, widget.txtLog);
+        
+        updateCharacterStats();
+        activeSquareCards = ms->getAdventureCards();
+        if (activeSquareCards.size() > 0) {
+            widget.btnYes->hide();
+            widget.btnNo->hide();
+            widget.btnLeft->hide();
+            widget.btnRight->hide();
+            widget.btnRollDie->hide();
+            die->hide();
+            widget.btnEncounter->show();
+            widget.lblStatus->setText("");
+        }
     }
     else if (region == "Middle" && name == "Hills"){
         ms = board->getMapSquare(6,2);
@@ -602,8 +631,11 @@ void TheBigWindow::moveRegions(){
         ms = board->getMapSquare(5,5);
         remainder = 0;
     }
-    else if (region == "Inner"){
+    else if (region == "Inner" && player->getTalisman() == -1){
         ms = board->getMapSquare(3,3);
+    }
+    else if (region == "Inner"){
+        ms = board->getMapSquare(2, 2);
     }
     ms->addCharacter(*player);
     player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());

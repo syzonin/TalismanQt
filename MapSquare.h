@@ -19,6 +19,7 @@
 #include "ArmorFactory.h"
 #include "SpellFactory.h"
 #include "Follower.h"
+#include "Enemy.h"
 #include <cstdlib>
 #include <iostream>
 #include <QPushButton>

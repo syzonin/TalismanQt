@@ -10,7 +10,8 @@
 WerewolfDen::WerewolfDen(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
 
-void WerewolfDen::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
+void WerewolfDen::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
 
-    cout << "hi" <<endl;
+    int num = rand() % 6 + 6;
+    addCard(*(new Enemy("Werewolf", "Enemy", "An unusually powerful Werefwolf.", 1, "Wolf", num, "Strength")));
 }
