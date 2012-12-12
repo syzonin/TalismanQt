@@ -6,10 +6,9 @@
  */
 
 #include "PurchaseDeck.h"
-
 ///
 ///Default constructor.
-///Builds an adventure card deck and shuffles it.
+///Builds an purchase deck and shuffles it.
 ///
 PurchaseDeck::PurchaseDeck() {
     setFixedSize(200, 210);

@@ -6,10 +6,14 @@
  */
 
 #include "Castle.h"
-
+///
+///Constructor.
+///
 Castle::Castle(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Castle::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
 //    You will encounter 1 of the following options:

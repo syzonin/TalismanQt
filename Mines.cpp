@@ -6,10 +6,14 @@
  */
 
 #include "Mines.h"
-
+///
+///Constructor.
+///
 Mines::Mines(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Mines::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
 
     int decision = rand() % 100 + 1;

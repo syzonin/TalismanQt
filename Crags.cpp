@@ -6,10 +6,14 @@
  */
 
 #include "Crags.h"
-
+///
+///Constructor.
+///
 Crags::Crags(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Crags::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
     int decision = rand() % 100 + 1;

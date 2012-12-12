@@ -6,10 +6,14 @@
  */
 
 #include "Temple.h"
-
+///
+///Constructor.
+///
 Temple::Temple(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Temple::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
 
 //Pray at the Temple and encounter on of the following options:

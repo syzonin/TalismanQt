@@ -6,10 +6,14 @@
  */
 
 #include "Chasm.h"
-
+///
+///Constructor.
+///
 Chasm::Chasm(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Chasm::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
     //Chasm;You have a chance to lose 1 Life Point and each of your Followers might die.;0

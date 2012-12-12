@@ -6,15 +6,21 @@
 */
 
 #include "MapSquare.h"
-
+///
+///Default Constructor.
+///
 MapSquare::MapSquare() {
     setValues(0,0,0,"","","");
 }
-
+///
+///Constructor.
+///
 MapSquare::MapSquare(int x, int y, int mCard, string region, string name, string ins){
     setValues(x, y, mCard, region, name, ins);
 }
-
+///
+///private method to initialize variables
+///
 void MapSquare::setValues(int x, int y, int mCard, string region, string name, string ins){
     xCord = x;
     yCord = y;
@@ -29,8 +35,10 @@ void MapSquare::setValues(int x, int y, int mCard, string region, string name, s
     //Set tool tip to show description
     this->setToolTip(QString::fromStdString(squareName) + "\n" + 
             QString::fromStdString(instructions).replace("\\n","\n"));
-    
 }
+///
+///Adds character to map square
+///
 void MapSquare::addCharacter(Character& character){
     vector<Character*>::iterator m;
     for (m = charactersPresent.begin(); m != charactersPresent.end(); m++) { 
@@ -39,7 +47,9 @@ void MapSquare::addCharacter(Character& character){
     charactersPresent.push_back(&character);
     update();
 }
-
+///
+///Removes character from map square
+///
 void MapSquare::removeCharacter(Character& character){
     vector<Character*>::iterator m;
     if (charactersPresent.size() == 1){
@@ -53,7 +63,9 @@ void MapSquare::removeCharacter(Character& character){
     }
     update();
 }
-
+///
+///Adds card to map square
+///
 void MapSquare::addCard(AdventureCard& c){
 
     adventureCards.push_back(&c);
@@ -61,7 +73,9 @@ void MapSquare::addCard(AdventureCard& c){
         sortCards();
     //update();
 }
-
+///
+///Removes card from map square
+///
 void MapSquare::removeCard(AdventureCard& c){
     vector<AdventureCard*>::iterator m;
     if (adventureCards.size() == 1){
@@ -75,7 +89,9 @@ void MapSquare::removeCard(AdventureCard& c){
     }
     //update();
 }
-
+///
+///Sorts cards on map square
+///
 void MapSquare::sortCards(){
     
     AdventureCard* temp;
@@ -90,33 +106,65 @@ void MapSquare::sortCards(){
         }
     }
 }
-
+///
+///Returns vector of adventure cards on map square
+///
 vector<AdventureCard*>& MapSquare::getAdventureCards(){ return adventureCards; }
-
+///
+///Sets map square name
+///
 void MapSquare::setSquareName(string name){ squareName = name; }
-
+///
+///Returns map square name
+///
 string MapSquare::getSquareName(){ return squareName; }
-
+///
+///Sets map square region.
+///
 void MapSquare::setSquareRegion(string region){ squareRegion = region; }
-
+///
+///Returns map square region.
+///
 string MapSquare::getSquareRegion(){ return squareRegion; }
-
+///
+///Sets map square instructions
+///
 void MapSquare::setInstructions(string ins){ instructions = ins; }
-
+///
+///Returns map square instructions
+///
 string MapSquare::getInstructions(){ return instructions; }
-
+///
+///Returns x-coordinate of map square.
+///
 int MapSquare::getXCord(){ return xCord; }
-
+///
+///Returns y-coordinate of map square.
+///
 int MapSquare::getYCord(){ return yCord; }
-
+///
+///Returns width of map square.
+///
 int MapSquare::getWidth(){ return p.width(); }
-
+///
+///Returns height of map square.
+///
 int MapSquare::getHeight(){ return p.height(); }
-
+///
+///Returns max number of cards the map square can hold.
+///
 int  MapSquare::getMaxCard(){ return maxCard; }
+///
+///Returns number of cards the map  square currently holds
+///
 int  MapSquare::getNumCard() { return numCard; }
+///
+///Sets number of cards the map square currently holds
+///
 void  MapSquare::setNumCard(int n) { numCard = n; }
-
+///
+///Paints the map square
+///
 void MapSquare::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     //Paint square sprite

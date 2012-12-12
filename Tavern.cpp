@@ -6,10 +6,14 @@
  */
 
 #include "Tavern.h" 
-
+///
+///Constructor.
+///
 Tavern::Tavern(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Tavern::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
     int choice = rand() % 6 + 1;

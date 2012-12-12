@@ -6,10 +6,14 @@
  */
 
 #include "Hills.h"
-
+///
+///Constructor.
+///
 Hills::Hills(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Hills::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
     if (c->getCross()){

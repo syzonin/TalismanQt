@@ -6,10 +6,14 @@
  */
 
 #include "WarlocksCave.h"
-
+///
+///Constructor.
+///
 WarlocksCave::WarlocksCave(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void WarlocksCave::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
 
     if (c->getTalisman() == 1){

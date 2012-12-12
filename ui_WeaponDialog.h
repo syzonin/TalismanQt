@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WeaponDialog.ui'
 **
-** Created: Mon Dec 10 02:48:51 2012
+** Created: Wed Dec 12 00:09:22 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

@@ -6,10 +6,14 @@
  */
 
 #include "City.h"
-
+///
+///Constructor.
+///
 City::City(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void City::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
     //You will encounter one of the following options:\n1. Lose 1 Strength\n2. Lose 1 Craft\n3. Gain 1 Craft\n4.Gain 1 Strength\n5. Gain 1 Spell\n6: Gain 1 Gold

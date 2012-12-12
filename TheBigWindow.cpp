@@ -7,6 +7,9 @@
 
 #include "TheBigWindow.h"
 
+///
+///Default constructor. Instantiates all elements of main window of Talisman game
+///
 TheBigWindow::TheBigWindow() {
     widget.setupUi(this);
     QFontDatabase::addApplicationFont("fonts/CaxtonBold.ttf");//Caxton Bk BT
@@ -87,13 +90,19 @@ TheBigWindow::TheBigWindow() {
     //Maximize window
     this->showMaximized();
 }
-
+///
+///Destructor
+///
 TheBigWindow::~TheBigWindow() {}
-
+///
+///Returns AdventureCardDeck vector
+///
 AdventureCardDeck* TheBigWindow::getAdventureDeck(){
     return adventureDeck;
 }
-
+///
+///Updates Character statistics
+///
 void TheBigWindow::updateCharacterStats() {
     int str = 0, cft = 0, fate = 0, gold = 0, life = 0;
     
@@ -111,7 +120,9 @@ void TheBigWindow::updateCharacterStats() {
     widget.lblGoldPts->setText(QString("%1").arg(gold));
     widget.lblLifePts->setText(QString("%1").arg(life));
 }
-
+///
+///Instantiates a player to the map board when player deck is double clicked
+///
 void TheBigWindow::playerDeckDoubleClicked() {
     if (player == NULL) {
         playerDeck->hide();
@@ -141,14 +152,18 @@ void TheBigWindow::playerDeckDoubleClicked() {
         player->addObject(af->getClass("Shield"));
     } 
 }
-
+///
+///hides adventure deck when double clicked
+///
 void TheBigWindow::adventureDeckDoubleClicked() {
     widget.btnEncounter->show();
     adventureDeck->hide();
     //card = adventureDeck->drawCard();
     //widget.adventureCardPanel->addWidget(card);
 }
-
+///
+///Casts Spell during player battle
+///
 void TheBigWindow::btnCastSpellClicked() {
     for (int i = 0; i < player->allowedSpells(); ++i) {
         SpellDialog *spells = new SpellDialog(this, player, activeSpells);
@@ -162,7 +177,9 @@ void TheBigWindow::btnCastSpellClicked() {
     //Update view
     updateCharacterStats();
 }  
-
+///
+///Equips player with armor
+///
 void TheBigWindow::btnEquipArmorClicked() {
     for (int i = 0; i < player->allowedArmors(); ++i) {
         ArmorDialog *armors = new ArmorDialog(this, player, activeArmors);
@@ -174,7 +191,9 @@ void TheBigWindow::btnEquipArmorClicked() {
         widget.txtLog->append(QString::fromStdString(activeArmors.at(i)->preBattle(player, e)));
     }
 }    
-
+///
+///Equips player with weapon
+///
 void TheBigWindow::btnEquipWeaponClicked() {
     for (int i = 0; i < player->allowedWeapons(); ++i) {
         WeaponDialog *weapons = new WeaponDialog(this, player, activeWeapons);
@@ -188,7 +207,9 @@ void TheBigWindow::btnEquipWeaponClicked() {
     //Update view
     updateCharacterStats();
 }    
-    
+///
+///Allows battle between player and enemy
+///
 void TheBigWindow::btnEncounterClicked() {
     //Update view
     if (card != NULL) widget.adventureCardPanel->removeWidget(card);
@@ -230,25 +251,33 @@ void TheBigWindow::btnEncounterClicked() {
         .arg(QString::fromStdString(card->getTitle()))
     );
 }
-
+///
+///Prints out player's followers in text log
+///
 void TheBigWindow::btnListFollowersClicked () {
     //Update view log
     widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following followers:");
     widget.txtLog->append(QString::fromStdString(player->listFollowers()));
 }
-
+///
+///Prints out player's objects in text log
+///
 void TheBigWindow::btnListObjectsClicked () {
     //Update view log
     widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following objects:");
     widget.txtLog->append(QString::fromStdString(player->listObjects()));
 }
-
+///
+///Prints out player's trophies in text log
+///
 void TheBigWindow::btnListTrophiesClicked () {
     //Update view log
     widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following trophies:");
     widget.txtLog->append(QString::fromStdString(player->listTrophies()));
 }
-
+///
+///Exchanges player's trophies
+///
 void TheBigWindow::btnExchangeTrophiesClicked() {
     //Update view log
     widget.txtLog->append("Exchanging trophies...");
@@ -256,7 +285,9 @@ void TheBigWindow::btnExchangeTrophiesClicked() {
     widget.txtLog->append(QString("+%1 strength").arg(pts[0]));
     widget.txtLog->append(QString("+%1 craft").arg(pts[1]));
 }
-
+///
+///Rolls dies in battle system
+///
 void TheBigWindow::btnRollEncounterDieClicked() {
     Enemy* e = static_cast<Enemy*>(card);
     //Update view
@@ -291,7 +322,9 @@ void TheBigWindow::btnRollEncounterDieClicked() {
     widget.btnEquipWeapon->hide();
     widget.btnAttack->show();
 }
-
+///
+///Player attacks enemy: battle system
+///
 void TheBigWindow::btnAttackClicked() {
     die2->hide();
     widget.btnAttack->hide();
@@ -421,7 +454,9 @@ void TheBigWindow::btnAttackClicked() {
             widget.btnRollDie->show();
     }
 }
-
+///
+///Exchanges fate between player and enemy
+///
 void TheBigWindow::btnExchangeFateClicked() {
     //Update view
     die2->hide();
@@ -438,7 +473,9 @@ void TheBigWindow::btnExchangeFateClicked() {
         .arg(QString::number(die1->getRolledNumber()))
     );
 }
-
+///
+///Adds card to player's follower vector
+///
 void TheBigWindow::btnAddToFollowersClicked() {
     //Add to character's followers
     if (player->addFollower(card)) {
@@ -452,7 +489,9 @@ void TheBigWindow::btnAddToFollowersClicked() {
         widget.txtLog->append(QString::fromStdString(card->getTitle()) + " could not be added to followers");
     }
 }
-
+///
+///Adds enemy to player's trophy vector
+///
 void TheBigWindow::btnAddToTrophiesClicked() {
     //Update view
     btnNextClicked();
@@ -463,7 +502,9 @@ void TheBigWindow::btnAddToTrophiesClicked() {
     //Update view log
     widget.txtLog->append(QString::fromStdString(e->getTitle()) + " added to trophies");
 }
-
+///
+///Adds adventure card object to player's object vector
+///
 void TheBigWindow::btnAddToObjectsClicked() {
     //Add to character's followers
     if (player->addObject(card)) {
@@ -477,7 +518,9 @@ void TheBigWindow::btnAddToObjectsClicked() {
         widget.txtLog->append(QString::fromStdString(card->getTitle()) + " could not be added to objects");
     }
 }
-
+///
+///Proceeds with game flow
+///
 void TheBigWindow::btnNextClicked() {
     //Update view
     card->hide();
@@ -491,7 +534,9 @@ void TheBigWindow::btnNextClicked() {
     widget.btnNext->hide();
     widget.btnExchangeTrophies->show();
 }
-
+///
+///Rolls main game die
+///
 void TheBigWindow::btnRollDieClicked() {
     die->roll();
     remainder = die->getRolledNumber();
@@ -505,7 +550,9 @@ void TheBigWindow::btnRollDieClicked() {
         widget.btnNo->hide();
     }
 }
-
+///
+///Moves player counter-clockwise
+///
 void TheBigWindow::btnCounterClockwise() {
     MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     if (ms->getSquareRegion() == "Inner"){
@@ -520,7 +567,9 @@ void TheBigWindow::btnCounterClockwise() {
     remainder *=(-1);
     moveChar();
 }
-
+///
+///Moves player clockwise
+///
 void TheBigWindow::btnClockwise() {
     MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     if (ms->getSquareRegion() == "Inner"){
@@ -534,7 +583,9 @@ void TheBigWindow::btnClockwise() {
     }
     moveChar();
 }
-
+///
+///Calls function to move player across regions
+///
 void TheBigWindow::btnYesClicked(){
     if (!player->getCross()) moveRegions();
     if (player->getCross()) return;
@@ -574,7 +625,9 @@ void TheBigWindow::btnYesClicked(){
     widget.btnNo->hide(); 
     
 }
-
+///
+///Player continues to move in same region (no crossing)
+///
 void TheBigWindow::btnNoClicked(){
     if (direction == "counter"){
         remainder *=(-1);
@@ -596,12 +649,16 @@ void TheBigWindow::btnNoClicked(){
 
     }
 }
-
+///
+///Moves player across regions
+///
 void TheBigWindow::moveRegions(){
     MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
     string region = ms->getSquareRegion();
     string name = ms->getSquareName();
     ms->removeCharacter(*player);
+    
+    //move from outer to middle region
     if (region == "Outer"){
         ms = board->getMapSquare(5,2);
         player->setCross(true);
@@ -620,20 +677,25 @@ void TheBigWindow::moveRegions(){
             widget.lblStatus->setText("");
         }
     }
+    //move from middle region to outer region
     else if (region == "Middle" && name == "Hills"){
         ms = board->getMapSquare(6,2);
     }
+    //move from middle to inner region
     else if (region == "Middle"){
         ms = board->getMapSquare(4,4);
         remainder = 0;
     }
+    //move from inner to middle region
     else if (region == "Inner" && name == "Plain of Peril"){
         ms = board->getMapSquare(5,5);
         remainder = 0;
     }
+    //move from inner to center of board (win)
     else if (region == "Inner" && player->getTalisman() == -1){
         ms = board->getMapSquare(3,3);
     }
+    //move from inner region to Warlock's cave (middle region)
     else if (region == "Inner"){
         ms = board->getMapSquare(2, 2);
     }
@@ -643,7 +705,9 @@ void TheBigWindow::moveRegions(){
         + "</b> region.<br><br>" + ms->getInstructions();
     widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
 }
-
+///
+///Moves player on the board within the same region
+///
 void TheBigWindow::moveChar(){
     int index = 0;
     int newIndex = 0;
@@ -662,7 +726,7 @@ void TheBigWindow::moveChar(){
     newIndex = (index + remainder);
     widget.btnLeft->show();
     widget.btnRight->show();
-    
+    //movement in outer region, with option of crossing into middle region
     if ((s1 == "Outer") && (((index < 16) && (newIndex >= 16)) || ((index > 16) && (newIndex <= 16)) )){
         widget.lblStatus->setText(QString::fromStdString("Do you want to cross?"));
         if (newIndex >16){
@@ -685,6 +749,7 @@ void TheBigWindow::moveChar(){
         widget.btnYes->show();
         widget.btnNo->show();
     } 
+    //movement in middle region, with option of crossing into inner region
     else if ((s1 == "Middle") && (((index < 8) && (newIndex > 8)) || ((index > 8) && (newIndex < 8))) ){
         widget.lblStatus->setText(QString::fromStdString("Do you want to cross?"));
         if (newIndex >8){
@@ -707,6 +772,7 @@ void TheBigWindow::moveChar(){
         widget.btnYes->show();
         widget.btnNo->show();
     }
+    //movement in middle region, with option of crossing back to outer region
     else if ((s1 == "Middle") && (((index < 11) && (newIndex >= 11)) || ((index > 11) && (newIndex <= 11)) )){
         if (newIndex >11){
             remainder = newIndex - 11;
@@ -729,6 +795,7 @@ void TheBigWindow::moveChar(){
         widget.btnYes->show();
         widget.btnNo->show();
     } 
+    //movement in inner region, next landing on valley of fire
     else if ((s1 == "Inner") && ((newIndex == 0) || (newIndex == 8))){
         ms->removeCharacter(*player);
         ms = v.at(0);
@@ -739,6 +806,7 @@ void TheBigWindow::moveChar(){
         direction = "insignificant";
         remainder = 0;
     }
+    //movement in inner region, with option of crossing into middle region
     else if ((s1 == "Inner") && ((newIndex == 4))){
         ms->removeCharacter(*player);
         ms = v.at(4);
@@ -750,7 +818,7 @@ void TheBigWindow::moveChar(){
         direction = "insignificant";
         remainder = 0;
     }
-    
+    //movement in inner region
     else if ((s1 == "Inner")){
         ms->removeCharacter(*player);
         ms = v.at(index+remainder);
@@ -758,6 +826,7 @@ void TheBigWindow::moveChar(){
         player->move(ms->getSquareName(), ms->getSquareRegion(), ms->getXCord(), ms->getYCord());
         remainder = 0;
     }
+    //regular movement in outer and middle regions (path not landing on any squares that allow region crossing
     else {
         if (newIndex <0){
             newIndex += v.size();
@@ -778,6 +847,7 @@ void TheBigWindow::moveChar(){
         + "</b> region.<br><br>" + ms->getInstructions();
     widget.txtLog->setHtml(QString::fromStdString(i).replace("\\n","<br>"));
     
+    //displays quests/battle system
     if (remainder == 0) {
         MapSquare *ms = board->getMapSquare(player->getXCord(),player->getYCord());
         ms->execute(adventureDeck, spellDeck, purchaseDeck, player, widget.txtLog);

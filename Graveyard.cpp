@@ -6,10 +6,14 @@
  */
 
 #include "Graveyard.h"
-
+///
+///Constructor.
+///
 Graveyard::Graveyard(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void Graveyard::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character*, QTextEdit*){
 
     cout << "hi" <<endl;

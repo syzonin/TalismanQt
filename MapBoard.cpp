@@ -7,6 +7,9 @@
 
 #include "MapBoard.h"
 
+///
+///Default constructor.
+///
 MapBoard::MapBoard() {
     board = new QGridLayout;
     MapSquareFactory* m = new MapSquareFactory;
@@ -68,7 +71,9 @@ MapBoard::MapBoard() {
     board->setContentsMargins(0, 0, 0, 0);
     this->setLayout(board);
 }
-
+///
+///Destructor
+///
 MapBoard::~MapBoard() {
     for (vector<MapSquare*>::iterator it = outer.begin(); it != outer.end(); ++it) delete *it;
     outer.clear();
@@ -81,11 +86,15 @@ MapBoard::~MapBoard() {
     //Delete pointers in matrix
     delete [] squares;
 }
-
+///
+///Returns MapSquare according to indices
+///
 MapSquare* MapBoard::getMapSquare(int i, int j) { 
     return squares[i][j];
 }
-
+///
+///Returns region vector of Map Squares
+///
 vector<MapSquare*> MapBoard::getRegionVector(string region){
     if (region == "Outer") return outer;
     else if (region == "Middle") return middle;

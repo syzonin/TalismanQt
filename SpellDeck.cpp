@@ -9,7 +9,7 @@
 
 ///
 ///Default constructor.
-///Builds an character card deck and shuffles it.
+///Builds an spell deck and shuffles it.
 ///
 SpellDeck::SpellDeck() {
     //cf = new SpellFactory;

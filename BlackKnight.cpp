@@ -6,10 +6,14 @@
  */
 
 #include "BlackKnight.h"
-
+///
+///Constructor.
+///
 BlackKnight::BlackKnight(int xCord, int yCord, int mCards, string squareRegion, string squareName, string instructions) : 
         MapSquare(xCord,yCord,mCards,squareRegion,squareName,instructions) {}
-
+///
+///Performs square quest
+///
 void BlackKnight::execute(AdventureCardDeck* d, SpellDeck* s, PurchaseDeck* p, Character* c, QTextEdit* txtLog){
     
     if(c->getGold() > 0){
