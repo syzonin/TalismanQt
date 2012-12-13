@@ -7,18 +7,15 @@
 ///
 ///Default Constructor
 ///
-Spell :: Spell() : AdventureCard("none", "Spell", "No Text", 0){
-}
+Spell :: Spell() : AdventureCard("none", "Spell", "No Text", 0){}
 ///
 ///Parameterized Constructor
 ///
-Spell :: Spell(string title, string text, int encounterNumber) : AdventureCard(title, "Spell", text, encounterNumber){    
-}
+Spell :: Spell(string title, string text, int encounterNumber) : AdventureCard(title, "Spell", text, encounterNumber){    }
 ///
 ///Copy Constructor (not overridden)
 ///
-Spell :: Spell(Spell *s) : AdventureCard(s->getTitle(), "Spell", s->getText(), s->getEncounterNumber()){ 
-}
+Spell :: Spell(Spell *s) : AdventureCard(s->getTitle(), "Spell", s->getText(), s->getEncounterNumber()){ }
 ///
 ///Performs Spell-specific actions for when the player wins a battle
 ///

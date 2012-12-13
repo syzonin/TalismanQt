@@ -9,7 +9,7 @@
 
 QString MapSquareModel::fileName = "mapSquares.txt";
 ///
-///reads from file and splits data
+///Reads from file and splits data
 ///
 vector<QStringList> MapSquareModel::select() {
     vector<QStringList> result;

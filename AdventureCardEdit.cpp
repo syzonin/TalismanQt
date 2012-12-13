@@ -6,7 +6,9 @@
  */
 
 #include "AdventureCardEdit.h"
-
+///
+///Default constructor.
+///
 AdventureCardEdit::AdventureCardEdit() {
     widget.setupUi(this);
     currentIndex = 0;
@@ -27,21 +29,27 @@ AdventureCardEdit::AdventureCardEdit() {
     connect(widget.txtSubType, SIGNAL(textChanged(const QString&)), this, SLOT(setSubType(const QString&)));
     connect(widget.txtAttackPoints, SIGNAL(textChanged(const QString&)), this, SLOT(setAttackPoints(const QString&)));
 }
-
+///
+///Destructor.
+///
 AdventureCardEdit::~AdventureCardEdit() {
     for (int i = cards.size()-1; i >= 0; --i) {
         widget.layout->removeWidget(cards.at(i));
         delete cards.at(i);
     }
 }
-
+///
+///Slot that takes the index of the combo item and put the widget of that index on the screen
+///
 void AdventureCardEdit::currentIndexChanged(int index) {
     cards.at(currentIndex)->hide();
     cards.at(index)->show();
     currentIndex = index;    
     populateForm(index);
 }
-
+///
+///Populates the text fields with data of the currently selected class
+///
 void AdventureCardEdit::populateForm(int index) {
     widget.txtTitle->setText(QString::fromStdString(cards.at(index)->getTitle()));
     widget.txtType->setText(QString::fromStdString(cards.at(index)->getType()));
@@ -54,37 +62,51 @@ void AdventureCardEdit::populateForm(int index) {
         widget.txtAttackPoints->setText(QString("%1").arg(e->getAttackPoints()));
     }
 }
-
+///
+///Populates the text fields with data of the currently selected class
+///
 void AdventureCardEdit::setTitle(const QString& value) {
     cards.at(currentIndex)->setTitle(value.toStdString());
 }
-
+///
+///Sets card type
+///
 void AdventureCardEdit::setType(const QString& value) {
     cards.at(currentIndex)->setType(value.toStdString());
 }
-
+///
+///Sets card text
+///
 void AdventureCardEdit::setText() {
     cards.at(currentIndex)->setText(widget.txtText->toPlainText().toStdString());
 }
-
+///
+///Sets card encounter number
+///
 void AdventureCardEdit::setEncounterNumber(const QString& value) {
     cards.at(currentIndex)->setEncounterNumber(value.toInt(new bool(true),10));
 }
-
+///
+///Sets card subtype
+///
 void AdventureCardEdit::setSubType(const QString& value) {
     if (cards.at(currentIndex)->getType() == "Enemy") {
         Enemy* e = static_cast<Enemy*>(cards.at(currentIndex));
         e->setSubType(value.toStdString());
     }
 }
-
+///
+///Sets card attack points
+///
 void AdventureCardEdit::setAttackPoints(const QString& value) {
     if (cards.at(currentIndex)->getType() == "Enemy") {
         Enemy* e = static_cast<Enemy*>(cards.at(currentIndex));
         e->setAttackPoints(value.toInt(new bool(true),10));
     }
 }
-
+///
+///Slot for save button click
+///
 void AdventureCardEdit::clickedSave() {
     string line = "";
     for (unsigned int i = 0; i < cards.size(); ++i) {
@@ -103,11 +125,15 @@ void AdventureCardEdit::clickedSave() {
     
     AdventureCardModel::update(QString::fromStdString(line));
 }
-
+///
+///Slot for load button click
+///
 void AdventureCardEdit::clickedReload() {
     load();
 }
-
+///
+///Loads cards
+///
 void AdventureCardEdit::load() {
     vector<QStringList> cardVector = AdventureCardModel::select();
     

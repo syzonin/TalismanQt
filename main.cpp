@@ -20,7 +20,7 @@
 #include "TheBigWindow.h"
 
 ///
-///Runs Taliman game
+///Runs Talisman game
 ///
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);

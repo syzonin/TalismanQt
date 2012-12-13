@@ -85,6 +85,7 @@ string Enemy::toString() {
            << "Type: " << type << " | "
            << "Sub type: " << subType << " | "
            << "Attack type: " << attackType << " | "
+           << "Attack points: " << attackPoints << " | "
            << "Encounter number: " << encounterNumber << " )";
     return result.str();
 }

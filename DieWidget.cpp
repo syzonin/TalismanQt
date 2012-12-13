@@ -34,14 +34,13 @@ void DieWidget::roll() {
     rolledNumber = rand() % 6 + 1;
     update();
 }
-
+///
+///Returns the last number rolled
+///
 int DieWidget::getRolledNumber() { return rolledNumber; }
-
-//void DieWidget::mouseDoubleClickEvent(QMouseEvent* event) {
-//    roll();
-//    update();
-//}
-    
+///
+///Paints the die widget
+///
 void DieWidget::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing);

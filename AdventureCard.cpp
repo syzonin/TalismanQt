@@ -51,27 +51,37 @@ void AdventureCard::setValues(string title, string type, string text, int encoun
     setFixedSize(200, 210);
     setToolTip("Double-click to view card description");
 }
-
+///
+///Sets card title
+///
 void AdventureCard::setTitle(string title) { 
     this->title = title;
     update();
 }
-
+///
+///Sets card type
+///
 void AdventureCard::setType(string type) { 
     this->type = type;
     update();
 }
-
+///
+///Sets card text
+///
 void AdventureCard::setText(string text) { 
     this->text = text;
     update();
 }
-
+///
+///Sets card encounter number
+///
 void AdventureCard::setEncounterNumber(int number) { 
     this->encounterNumber = number;
     update();
 }
-
+///
+///Paints the card widget
+///
 void AdventureCard::paintEvent(QPaintEvent *event) {
     int left = 20, top = 0;
     QFont font;
@@ -121,13 +131,17 @@ void AdventureCard::paintEvent(QPaintEvent *event) {
         painter.drawText(rectArea, QString::fromStdString(text));
     }
 }
-
+///
+///Paints card type
+///
 void AdventureCard::paintType(QPainter& painter) {
     QFontMetrics fm = painter.fontMetrics();
     QString tmp = QString::fromStdString(type);
     painter.drawText((width()-fm.width(tmp))/2, 140, tmp);
 }
-
+///
+///Slot for custom double-click event
+///
 void AdventureCard::mouseDoubleClickEvent(QMouseEvent* event) {
     isFront = !isFront;
     if (isFront) {
@@ -137,7 +151,9 @@ void AdventureCard::mouseDoubleClickEvent(QMouseEvent* event) {
     }
     update();
 }
-
+///
+///A Java-like toString() method 
+///
 string AdventureCard::toString() {
     stringstream result;
     result << title << " ( "

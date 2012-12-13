@@ -159,20 +159,26 @@ void Character::setLife(int lifeValue) {
 void Character::setTalisman(int a){
     talisman = a;
 }
-
+///
+///Sets starts location
+///
 void Character::setStart(string newStart){ startLocation = newStart; }
-
+///
+///Sets coordinates of the class with respect to the map
+///
 void Character::setCoord(int x, int y){
     xCord = x;
     yCord = y;
 }
+///
+///Moves from one location to another on the map
+///
 void Character::move(string newLocation, string newRegion, int x, int y){
     currentLocation = newLocation;
     currentRegion = newRegion;
     xCord = x;
     yCord = y;
 }
-    
 ///
 ///Sets the character's allowed fate (max).
 ///
@@ -562,7 +568,9 @@ void Character::paintEvent(QPaintEvent *event) {
 
 void Character :: setAlignment(int a) {alignment = a;}
 int Character :: getAlignment() {return alignment;}
-
+///
+///Returns class figure
+///
 QPixmap Character::getFigure () {
     QPixmap p(QString("images/%1.png").arg(QString::fromStdString(title).replace(" ","")));
     return p.scaled(20,40,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);

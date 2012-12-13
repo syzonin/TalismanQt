@@ -6,7 +6,10 @@
  */
 
 #include "WeaponDialog.h"
-
+///
+///Constructor that takes as parameter the parent widget, a pointer to character
+/// and a reference to a vector of active armors
+///
 WeaponDialog::WeaponDialog(QWidget * parent, Character * c, vector<Weapon*> &w) {
     widget.setupUi(this);
     this->setModal(true);
@@ -34,16 +37,22 @@ WeaponDialog::WeaponDialog(QWidget * parent, Character * c, vector<Weapon*> &w) 
     connect(widget.btnClose, SIGNAL(clicked()), this, SLOT(reject()));
     if (widget.cboCard->count() > 0) currentIndexChanged(0);
 }
-
+///
+///Destructor
+///
 WeaponDialog::~WeaponDialog() {
 }
-
+///
+///Slot for custom index changed event
+///
 void WeaponDialog::currentIndexChanged(int index) {
     cards.at(currentIndex)->hide();
     cards.at(index)->show();
     currentIndex = index;
 }
-
+///
+///Slot for button equip click event
+///
 void WeaponDialog::btnEquipClicked() {
     if (currentIndex < widget.cboCard->count()) weapons->push_back(cards.at(currentIndex));
     this->accept();

@@ -29,6 +29,7 @@ protected:
 private:
     vector<AdventureCard*> cards;
     int random();
+    void fillDeck();
 signals:
     void doubleClicked();
 };

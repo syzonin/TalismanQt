@@ -6,7 +6,9 @@
  */
 
 #include "GameBoard.h"
-
+///
+///Default constructor
+///
 GameBoard::GameBoard() {
     widget.setupUi(this);
     die1 = new DieWidget();
@@ -53,10 +55,14 @@ GameBoard::GameBoard() {
     connect(widget.btnExchangeTrophies, SIGNAL(clicked()), this, SLOT(btnExchangeTrophiesClicked()));
     connect(widget.btnEndTurn, SIGNAL(clicked()), this, SLOT(btnEndTurnClicked()));
 }
-
+///
+///Destructor
+///
 GameBoard::~GameBoard() {
 }
-
+///
+///Double-clicked slot for character (player) deck
+///
 void GameBoard::playerDeckDoubleClicked() {
     playerDeck->hide();
     player = playerDeck->drawCard();
@@ -65,14 +71,18 @@ void GameBoard::playerDeckDoubleClicked() {
     widget.btnListTrophies->show();
     widget.btnExchangeTrophies->show();
 }
-
+///
+///Double-clicked slot for adventure card deck
+///
 void GameBoard::deckDoubleClicked() {
     widget.btnEncounter->show();
     deck->hide();
     card = deck->drawCard();
     widget.arena->addWidget(card,0,1);
 }
-
+///
+///Clicked slot for encounter button
+///
 void GameBoard::btnEncounterClicked() {
     //Update view
     widget.btnEncounter->hide();
@@ -87,19 +97,25 @@ void GameBoard::btnEncounterClicked() {
         .arg(QString::fromStdString(card->getTitle()))
     );
 }
-
+///
+///Clicked slot for list followers button
+///
 void GameBoard::btnListFollowersClicked () {
     //Update view log
     widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following followers:");
     widget.txtLog->append(QString::fromStdString(player->listFollowers()));
 }
-
+///
+///Clicked slot for list trophies button
+///
 void GameBoard::btnListTrophiesClicked () {
     //Update view log
     widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following trophies:");
     widget.txtLog->append(QString::fromStdString(player->listTrophies()));
 }
-
+///
+///Clicked slot for exchange trophies button
+///
 void GameBoard::btnExchangeTrophiesClicked() {
     //Update view log
     widget.txtLog->append("Exchanging trophies...");
@@ -107,7 +123,9 @@ void GameBoard::btnExchangeTrophiesClicked() {
     widget.txtLog->append(QString("+%1 strength").arg(pts[0]));
     widget.txtLog->append(QString("+%1 craft").arg(pts[1]));
 }
-
+///
+///Clicked slot for roll die button
+///
 void GameBoard::btnRollDieClicked() {
     Enemy* e = static_cast<Enemy*>(card);
     //Update view
@@ -139,7 +157,9 @@ void GameBoard::btnRollDieClicked() {
     widget.btnRollDie->hide();
     widget.btnAttack->show();
 }
-
+///
+///Clicked slot for attack button
+///
 void GameBoard::btnAttackClicked() {
     die2->hide();
     widget.btnAttack->hide();
@@ -205,7 +225,9 @@ void GameBoard::btnAttackClicked() {
         widget.btnRollDie->show();
     }
 }
-
+///
+///Clicked slot for exchange fate button
+///
 void GameBoard::btnExchangeFateClicked() {
     //Update view
     die2->hide();
@@ -222,7 +244,9 @@ void GameBoard::btnExchangeFateClicked() {
         .arg(QString::number(die1->getRolledNumber()))
     );
 }
-
+///
+///Clicked slot for add to followers button
+///
 void GameBoard::btnAddToFollowersClicked() {
     //Add to character's followers
     if (player->addFollower(card)) {
@@ -236,7 +260,9 @@ void GameBoard::btnAddToFollowersClicked() {
         widget.txtLog->append(QString::fromStdString(card->getTitle()) + " could not be added to followers");
     }
 }
-
+///
+///Clicked slot for add to trophies button
+///
 void GameBoard::btnAddToTrophiesClicked() {
     //Update view
     btnEndTurnClicked();
@@ -247,7 +273,9 @@ void GameBoard::btnAddToTrophiesClicked() {
     //Update view log
     widget.txtLog->append(QString::fromStdString(e->getTitle()) + " added to trophies");
 }
-
+///
+///Clicked slot for end turn button
+///
 void GameBoard::btnEndTurnClicked() {
     //Update view
     card->hide();

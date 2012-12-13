@@ -70,8 +70,6 @@ TheBigWindow::TheBigWindow() {
     connect(widget.btnYes, SIGNAL(clicked()), this, SLOT(btnYesClicked()));
     connect(widget.btnNo, SIGNAL(clicked()), this, SLOT(btnNoClicked()));
     connect(playerDeck, SIGNAL(doubleClicked()), this, SLOT(playerDeckDoubleClicked()));
-    //connect(adventureDeck, SIGNAL(doubleClicked()), this, SLOT(adventureDeckDoubleClicked()));
-    //Connect signals for encounter panel
     connect(widget.btnRollEncounterDie, SIGNAL(clicked()), this, SLOT(btnRollEncounterDieClicked()));
     connect(widget.btnAttack, SIGNAL(clicked()), this, SLOT(btnAttackClicked()));
     connect(widget.btnCastSpell, SIGNAL(clicked()), this, SLOT(btnCastSpellClicked()));
@@ -153,7 +151,7 @@ void TheBigWindow::playerDeckDoubleClicked() {
     } 
 }
 ///
-///hides adventure deck when double clicked
+///Hides adventure deck when double clicked
 ///
 void TheBigWindow::adventureDeckDoubleClicked() {
     widget.btnEncounter->show();
@@ -255,25 +253,31 @@ void TheBigWindow::btnEncounterClicked() {
 ///Prints out player's followers in text log
 ///
 void TheBigWindow::btnListFollowersClicked () {
-    //Update view log
-    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following followers:");
-    widget.txtLog->append(QString::fromStdString(player->listFollowers()));
+    if (player != NULL) {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following followers:");
+        widget.txtLog->append(QString::fromStdString(player->listFollowers()));
+    }
 }
 ///
 ///Prints out player's objects in text log
 ///
 void TheBigWindow::btnListObjectsClicked () {
-    //Update view log
-    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following objects:");
-    widget.txtLog->append(QString::fromStdString(player->listObjects()));
+    if (player != NULL) {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following objects:");
+        widget.txtLog->append(QString::fromStdString(player->listObjects()));
+    }
 }
 ///
 ///Prints out player's trophies in text log
 ///
 void TheBigWindow::btnListTrophiesClicked () {
-    //Update view log
-    widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following trophies:");
-    widget.txtLog->append(QString::fromStdString(player->listTrophies()));
+    if (player != NULL) {
+        //Update view log
+        widget.txtLog->append(QString::fromStdString(player->getTitle()) + " has the following trophies:");
+        widget.txtLog->append(QString::fromStdString(player->listTrophies()));
+    }
 }
 ///
 ///Exchanges player's trophies
@@ -415,15 +419,6 @@ void TheBigWindow::btnAttackClicked() {
         widget.btnRollEncounterDie->show();
     }
     
-    //Character died
-    if (player->getLifePoints() == 0) {
-        player->hide();
-        playerDeck->show();
-        widget.txtLog->append(QString("%1 died").arg(QString::fromStdString(player->getTitle())));
-        widget.btnExchangeTrophies->hide();
-        widget.btnEncounter->hide();
-    }
-    
     for (unsigned int i = 0; i < activeSpells.size(); ++i) {
         widget.txtLog->append(QString::fromStdString(activeSpells.at(i)->postBattle(player, e)));
         player->removeObject(activeSpells.at(i));
@@ -452,6 +447,19 @@ void TheBigWindow::btnAttackClicked() {
         }
         else                
             widget.btnRollDie->show();
+    }
+    
+    //Character died
+    if (player->getLifePoints() == 0) {
+        player->hide();
+        playerDeck->show();
+        widget.txtLog->append(QString("%1 died").arg(QString::fromStdString(player->getTitle())));
+        widget.btnExchangeTrophies->hide();
+        widget.btnEncounter->hide();
+        widget.btnRollDie->hide();
+        die->hide();
+        board->getMapSquare(player->getXCord(),player->getYCord())->removeCharacter(*player);
+        player = NULL;
     }
 }
 ///
@@ -538,6 +546,7 @@ void TheBigWindow::btnNextClicked() {
 ///Rolls main game die
 ///
 void TheBigWindow::btnRollDieClicked() {
+    if (player == NULL) return;
     die->roll();
     remainder = die->getRolledNumber();
     widget.btnRollDie->hide();

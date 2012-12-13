@@ -12,15 +12,8 @@
 ///
 AdventureCardDeck::AdventureCardDeck() {
     setFixedSize(200, 210);
-    
-    AdventureCardFactory *f = new AdventureCardFactory;
-    vector<string> classNames = f->classNames();
-    
-    for (unsigned int i = 0; i < classNames.size(); ++i) {
-        cards.push_back(f->getClass(classNames.at(i)));
-    }
-    
-    shuffle();
+    //Initialize contents of deck
+    fillDeck();
 }
 ///
 ///Destructor
@@ -39,13 +32,11 @@ int AdventureCardDeck::size() {
 ///Draws a card from the top of the stack.
 ///
 AdventureCard* AdventureCardDeck::drawCard() {
-    if (cards.size() > 0) {
-        AdventureCard* card = cards.at(cards.size()-1);
-        cards.pop_back();
-        return card;
-    } else {
-        return NULL;
-    }
+    if (cards.size() == 0) fillDeck();
+    
+    AdventureCard* card = cards.at(cards.size()-1);
+    cards.pop_back();
+    return card;
 }
 ///
 ///Simulates shuffling the cards in the deck.
@@ -73,6 +64,19 @@ int AdventureCardDeck::random() {
     srand(time(0)+clock());
     ///Generate random number
     return (rand() % cards.size());
+}
+///
+///Fills the deck with cards from factory
+///
+void AdventureCardDeck::fillDeck() {
+    AdventureCardFactory *f = new AdventureCardFactory;
+    vector<string> classNames = f->classNames();
+    //Load all cards from factory
+    for (unsigned int i = 0; i < classNames.size(); ++i) {
+        cards.push_back(f->getClass(classNames.at(i)));
+    }
+    //Randomize cards
+    shuffle();
 }
 ///
 ///Emits signal when a double-click event occurs.

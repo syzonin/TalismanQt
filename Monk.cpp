@@ -10,10 +10,6 @@
 ///
 ///Default constructor.
 ///
-//Warrior::Warrior() : Character(4,2,1,5) {
-//    text = "You may roll two dice in battle and use the higher attack roll to determine your attack score.\n"
-//                 "You may use two Weapons at the same time.";
-//    name = "Warrior";
 Monk::Monk(int strength, int craft, int fate, int life, string title, string text, int xCord, int yCord) : 
         Character(strength,craft,fate,life,title,text,xCord,yCord) {
     setAlignment(1);

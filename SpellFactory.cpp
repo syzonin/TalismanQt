@@ -33,7 +33,9 @@ vector<string> SpellFactory::classNames () {
     }
     return classNames;
 }
-
+///
+///Returns a instance of Spell based on string parameter passed to it
+///
 Spell* SpellFactory::getClass(const string className) {
     QString name = QString::fromStdString(className);
 

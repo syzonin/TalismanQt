@@ -6,7 +6,10 @@
  */
 
 #include "SpellDialog.h"
-
+///
+///Constructor that takes as parameter the parent widget, a pointer to character
+/// and a reference to a vector of active spells
+///
 SpellDialog::SpellDialog(QWidget * parent, Character * c, vector<Spell*> &v) {
     widget.setupUi(this);
     this->setModal(true);
@@ -34,16 +37,22 @@ SpellDialog::SpellDialog(QWidget * parent, Character * c, vector<Spell*> &v) {
     connect(widget.btnClose, SIGNAL(clicked()), this, SLOT(reject()));
     if (widget.cboCard->count() > 0) currentIndexChanged(0);
 }
-
+///
+///Destructor
+///
 SpellDialog::~SpellDialog() {
 }
-
+///
+///Slot for custom index changed event
+///
 void SpellDialog::currentIndexChanged(int index) {
     cards.at(currentIndex)->hide();
     cards.at(index)->show();
     currentIndex = index;
 }
-
+///
+///Slot for button cast click event
+///
 void SpellDialog::btnCastClicked() {
     if (currentIndex < widget.cboCard->count()) spells->push_back(cards.at(currentIndex));
     this->accept();
